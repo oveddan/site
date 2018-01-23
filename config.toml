@@ -14,8 +14,9 @@ googleAnalytics = ""
   description = "Dan Oved's Portfolio"
   copyright = "&copy;2016 Dan Oved"
   sidebarAbout = [
-    "I am a creative illustrator and graphic designer with more than 10 years of experience.",
-    "Originally from Toronto, currently based in London."
+    "I am a full-stack developer and artist connecting the digital with the analog world.",
+    "Graduate student at ITP @ NYU",
+    "Originally from Los Angeles, currently based in New York."
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
