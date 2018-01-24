@@ -1,0 +1,36 @@
+---
+title: "The Pursuit by Equinox"
+date: 2018-01-21T21:27:06-05:00
+draft: false
+weight: 0
+---
+
+A gamified spinning class processing 500,000 records of data per class to display a Canne’s Lion winning visual experience. Cycling science, gamification, and internet of things converge to host 700+ classes per month across the United States.
+<!--more-->
+
+{{< vimeo 207479575 >}}
+
+---
+
+##### Role: Lead Developer
+##### Team Size: 6
+##### Technologies: React, Redux, Node.js, RxJS, Three.js, glsl shaders, Websockets
+
+I was the lead developer on a team that re-built the gaming and visualization platform from the ground up to be flexible and robust.
+We converted it to use a single directional data-flow with redux on the server to centralize the state, 
+and react, three.js, and webgl on the client to render real-time visualizations.
+
+The new platform reduced the time it takes to build and release a game from 4 to 1.5 months,
+and decreased the time it took for data to reach the screens from the bikes from 2 seconds to 100 milliseconds.
+
+{{< image src="ServerToClients" caption="The new architecture with state centralized on the server using redux" >}}
+
+I oversaw the release of 6 new games by external agencies using the new framework.
+
+{{< image src="ThreePeaks" >}}
+
+---
+
+My talk at the NYC Node.js Meetup about the work we did:
+
+{{< youtube zo39p-30arg >}}

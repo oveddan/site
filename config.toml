@@ -14,9 +14,8 @@ googleAnalytics = ""
   description = "Dan Oved's Portfolio"
   copyright = "&copy;2016 Dan Oved"
   sidebarAbout = [
-    "I am a full-stack developer and artist connecting the digital with the analog world.",
-    "Graduate student at ITP @ NYU",
-    "Originally from Los Angeles, currently based in New York."
+    "I am a full-stack developer and creative engineer connecting the digital with the analog world.",
+    "Graduate student at ITP @ NYU"
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
