@@ -13,7 +13,7 @@ Visualizes sound in real-time in the browser using audio, react, shaders, and pr
 
 ---
 
-This was my final project for the Computer Graphics class at NYU.  After [my work]({{< relref "pursuit-by-equinox.md" >}}) on the Pursuit by Equinox,
+This was my final project for the Computer Graphics class at NYU.  After [my work](pursuit-by-equinox/) on the Pursuit by Equinox,
 I learned the power of webgl to render fast and beautiful visualization in the browser. The graphics pipeline and shader programming were 
 still a mystery to me, so I took this class to get a deep understanding.  I used the final project as an opportunity to learn how to make
 complex shaders driven by external inputs and procedural noise.  In this case the input is the microphone in the browser using the WebAudio API - it works well with

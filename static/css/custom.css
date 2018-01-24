@@ -1,0 +1,14 @@
+iframe { border: none; }
+
+figure {
+  display: inline-block;
+}
+
+figure {
+  margin: 0 0 1rem;
+}
+
+figure figcaption {
+  font-size: 90%;
+  font-weight: 700;
+}
