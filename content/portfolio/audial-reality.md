@@ -2,7 +2,7 @@
 title: "Audial Reality"
 date: 2018-01-21T21:27:38-05:00
 draft: false
-description: "Audial Reality is an audio visualization"
+weight: 3
 ---
 
 Visualizes sound in real-time in the browser using audio, react, shaders, and procedural noise.

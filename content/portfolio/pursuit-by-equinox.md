@@ -11,3 +11,8 @@ A gamified spinning class processing 500,000 records of data per class to displa
 {{< vimeo 207479575 >}}
 
 ##### Role: Lead Developer
+##### Team Size: 6
+
+My talk about the work our team did:
+
+{{< youtube zo39p-30arg >}}
