@@ -2,10 +2,12 @@
 title: "The Pursuit by Equinox"
 date: 2018-01-21T21:27:06-05:00
 draft: false
-weight: 0
+weight: 4
+image: 'images/pursuit.gif'
+showonlyimage: true
 ---
 
-A gamified spinning class processing 500,000 records of data per class to display a Canne’s Lion winning visual experience. Cycling science, gamification, and internet of things converge to host 700+ classes per month across the United States.
+A gamified group cycling class driven by 500,000 records of data per session to display a Canne’s Lion winning visual experience. 700+ classes are hosted per month at Equinox locations across the United States.
 <!--more-->
 
 {{< vimeo 207479575 >}}
