@@ -4,6 +4,7 @@ date: 2018-01-21T21:27:38-05:00
 draft: false
 weight: 3
 image: 'images/audialreality_sunset.gif'
+showonlyimage: true
 ---
 
 Visualizes sound in real-time in the browser using audio, react, shaders, and procedural noise.
@@ -11,8 +12,8 @@ Visualizes sound in real-time in the browser using audio, react, shaders, and pr
 
 ![Audial Reality](/images/audialreality.gif)
 
-##### The Application: [audialreality.com](https://audialreality.com/)
-##### The Code: [github.com/oveddan/audial_reality](https://github.com/oveddan/audial_reality)
+* [The Application (audialreality.com)](https://audialreality.com/)
+* [The Code](https://github.com/oveddan/audial_reality)
 
 ---
 

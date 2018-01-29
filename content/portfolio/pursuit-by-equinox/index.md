@@ -7,7 +7,8 @@ image: 'images/pursuit.gif'
 showonlyimage: true
 ---
 
-A gamified group cycling class driven by 500,000 records of data per session to display a Canne’s Lion winning visual experience. 700+ classes are hosted per month at Equinox locations across the United States.
+The Pursuit by Equinox is a gamified group cycling class driven by 500,000 records of data per session to display a Canne’s Lion winning visual experience. 700+ classes are hosted per month at Equinox locations across the United States.
+
 <!--more-->
 
 {{< vimeo 207479575 >}}
