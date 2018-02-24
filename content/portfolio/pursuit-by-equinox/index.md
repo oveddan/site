@@ -26,7 +26,7 @@ and react, three.js, and webgl on the client to render real-time visualizations.
 The new platform reduced the time it takes to build and release a game from 4 to 1.5 months,
 and decreased the time it took for data to reach the screens from the bikes from 2 seconds to 100 milliseconds.
 
-{{< image src="ServerToClients" caption="The new architecture with state centralized on the server using redux" >}}
+{{< image src="images/ServerToClients" caption="The new architecture with state centralized on the server using redux" >}}
 
 I oversaw the release of 6 new games by external agencies using the new framework.
 

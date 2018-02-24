@@ -8,9 +8,11 @@ showonlyimage: true
 ---
 
 Visualizes sound in real-time in the browser using audio, react, shaders, and procedural noise.
+Accessed at [audialreality.com](https://www.audialreality.com)
+
 <!--more-->
 
-![Audial Reality](/images/audialreality.gif)
+{{< original_image src="images/audialreality.gif" >}}
 
 * [The Application (audialreality.com)](https://audialreality.com/)
 * [The Code](https://github.com/oveddan/audial_reality)

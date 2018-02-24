@@ -1,10 +1,17 @@
-{{ $original := .Page.Resources.GetByPrefix (.Get "src") }}
+{{ $original := .Page.Resources.GetMatch (printf "%s*" (.Get "src")) }}
 
-{{ $image := $original.Resize "625x CatmullRom" }}
+{{ if $original }}
+  {{ $image := $original.Resize "625x Lanczos q100" }}
 
-<figure>
-  <img src="{{ $image.RelPermalink }}" />
-  {{ with .Get "caption" }}
-    <figcaption>{{.}}</figcaption>
-  {{ end }}
-</figure>
+  <figure>
+    <img src="{{ $image.RelPermalink }}" style="width:100%"/>
+    {{ if .Get "caption" }}
+      <figcaption>
+        {{.Get "caption"}}
+        {{ if .Get "captionLink" }}
+        <a href='{{ .Get "captionLink" }}'>{{ .Get "captionLinkText" }}</a>
+        {{ end }}
+      </figcaption>
+    {{ end }}
+  </figure>
+{{ end }}

@@ -1,0 +1,13 @@
+{{ $original := .Page.Resources.GetMatch (printf "%s*" (.Get "src")) }}
+
+<figure>
+  <img src="{{ $original.RelPermalink }}" style="width:100%" />
+  {{ if .Get "caption" }}
+    <figcaption>
+      {{.Get "caption"}}
+      {{ if .Get "captionLink" }}
+      <a href='{{ .Get "captionLink" }}'>{{ .Get "captionLinkText" }}</a>
+      {{ end }}
+    </figcaption>
+  {{ end }}
+</figure>
