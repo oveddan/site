@@ -58,3 +58,7 @@ nav.navbar {
 .navbar-nav > li {
   float: left;
 }
+
+.content-column.white-background {
+  box-shadow: 0 5px 5px 0 #ccc;
+}
