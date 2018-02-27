@@ -17,17 +17,17 @@ structure, and I was in charge of the lighting.
 
 ---
 
-##### Role: Lighting
+##### Role: Lighting Design and Installation
 
 I was responsible for selecting the lighting and installing it. This included:
 
-* PAR cans and flood lights
-* DMX Controls
-* Analog RGB leds hidden under the stage and the canopy to create a glowing effect.
+* Selecting PAR cans and flood lights and installing them.
+* Setting up a DMX Controller
+* Installing analog RGB leds hidden under the stage and the canopy to create a glowing effect.
 
 ---
 
-{{< original_image src="images/gallery_a_resized" caption="Photo by " captionLinkText="Get Tiny Photography" captionLink="https://www.facebook.com/gettinyphotography/" >}} 
+{{< original_image src="images/gallery_a_resized" caption="Live painting at the Mova Gallery.  Photo by " captionLinkText="Get Tiny Photography" captionLink="https://www.facebook.com/gettinyphotography/" >}} 
 
 {{< original_image src="images/noah_mcginley_art" caption="Artwork at the gallery by " captionLinkText="Noah Mcginley" captionLink="https://www.noahmcginley.com/">}}
 
