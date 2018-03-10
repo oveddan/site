@@ -4,6 +4,7 @@ date: 2018-01-21T21:27:38-05:00
 draft: false
 weight: 20
 image: 'images/mova_featured.jpg'
+animatedImage: 'images/mova_featured.jpg'
 showonlyimage: true
 ---
 

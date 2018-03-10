@@ -2,7 +2,8 @@
 title: "Voronoi Cellular Zoetrope"
 date: 2018-01-23T17:26:42-05:00
 draft: false 
-image: 'images/zoetrope_featured.gif'
+image: 'images/zoetrope_featured_image.gif'
+animatedImage: 'images/zoetrope_featured.gif'
 linkdirectlytoblog: "/blog/posts/design_for_digital_fabrication/voronoi-cellular-zoetrope/"
 showonlyimage: true
 ---
