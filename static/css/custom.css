@@ -62,3 +62,19 @@ nav.navbar {
 .content-column.white-background {
   box-shadow: 0 5px 5px 0 #ccc;
 }
+
+.box-masonry .desktop  {
+  display: none;
+}
+.box-masonry .mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .box-masonry .desktop  {
+    display: block;
+  }
+  .box-masonry .mobile {
+    display: none;
+  }
+}

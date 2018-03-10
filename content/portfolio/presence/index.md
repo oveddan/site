@@ -5,9 +5,9 @@ draft: false
 weight: 10
 ---
 
-Presence is a kinetic sculpture that reacts to a user's gaze.
+Presence is a kinetic sculpture that is controlled by a viewer's gaze.
 It uses a webcam and computer vision to detect where a user
-is looking, and moves a pattern in that direction.
+is looking, and alters its shape to reflect this focal point.
 
 <!--more-->
 
@@ -17,7 +17,10 @@ is looking, and moves a pattern in that direction.
 
 ---
 
-Our eyes are strong indicators of our interests and intentions. This piece explores new ways to communicate with machines using our gaze and these indicators.  
+Our eyes are windows into our interests and intentions.
+This piece explores new ways to communicate with art using our gaze and these indicators.  
+The viewer's perception becomes a feedback loop as when it changes
+it triggers a new form in what's displayed, and this new form then alters the perception of the viewer.
 
 #### Why eye-gaze tracking?
 
@@ -30,10 +33,8 @@ While Presence explores an artistic form of using eyes as a communication medium
 
 * Enabling someone who is physically disabled to use their eyes instead of a mouse
 * Being able to look at the bottom of an article or text and have the screen scroll down automatically
-* In virtual reality, optimizing the viewing experience by rendering in super-high resolution the area that the user is gazing
 * When having multiple tabs in an editor open, allowing a user to switch tabs and focus using their eyes
-* Measuring focus
-* Detecting interest in specific content or sections of a page
+* Measuring focus and interest
 
 #### How does it work?
 
@@ -44,5 +45,3 @@ In this paper they trained a neural-network on about 2.4 million frames of video
 
 Presence uses the [pre-trained model](https://github.com/CSAILVision/GazeCapture) provided by the researches to track gaze in real-time.  It then forwards the gaze predictions to a Processing sketch which controls 21 servos
 that rotate to reveal a pattern in the direction of the gaze.
-
-
