@@ -5,11 +5,13 @@ draft: false
 weight: 10
 ---
 
-Presence is a kinetic sculpture that is controlled by a viewer's gaze.
-It uses a webcam and computer vision to detect where a user
+Presence is a kinetic sculpture that is controlled by a viewer’s
+gaze. It uses a webcam and computer vision to detect where a user 
 is looking, and alters its shape to reflect this focal point.
 
 <!--more-->
+
+{{< vimeo 259512916 >}}
 
 * **[Documentation](/blog/tags/presence)**
 * **[The Code](https://github.com/oveddan/presence)**
@@ -18,9 +20,10 @@ is looking, and alters its shape to reflect this focal point.
 ---
 
 Our eyes are windows into our interests and intentions.
-This piece explores new ways to communicate with art using our gaze and these indicators.  
-The viewer's perception becomes a feedback loop as when it changes
-it triggers a new form in what's displayed, and this new form then alters the perception of the viewer.
+This piece explores new ways to communicate with art using these indicators.
+The viewer's perception becomes part of a feedback loop, as when it changes,
+the shape of the installation responds, which in turn alters the viewer's
+perception.
 
 #### Why eye-gaze tracking?
 
