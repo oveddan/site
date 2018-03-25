@@ -3,6 +3,10 @@ title: "Presence"
 date: 2018-01-21T16:08:45-05:00
 draft: false
 weight: 10
+image: 'images/presence_image.png'
+animatedImage: 'images/presence.gif'
+showonlyimage: true
+
 ---
 
 Presence is a kinetic sculpture that is controlled by a viewer’s
