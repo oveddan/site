@@ -14,8 +14,24 @@ const themeLibraries = [
   , "front.js"
 ].map(library => `themes/portfolio/static/js/${library}`)
 
-gulp.task('build', function() {
+const themeCss = [
+  "bootstrap.min.css",
+  "font-awesome.min.css",
+  "owl.carousel.css",
+  "owl.theme.css",
+  "style.default.css"
+].map(library => `themes/portfolio/static/css/${library}`);
+
+gulp.task('bundle-js', function() {
   return gulp.src(themeLibraries)
     .pipe(concat('vendor_bundle.js'))
     .pipe(gulp.dest('./static/js'));
 });
+
+gulp.task('bundle-css', function() {
+  return gulp.src(themeCss)
+    .pipe(concat('vendor_bundle.css'))
+    .pipe(gulp.dest('./static/css'));
+});
+
+gulp.task('build', ['bundle-js', 'bundle-css']);

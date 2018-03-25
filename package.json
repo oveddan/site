@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-js": "gulp build"
+    "build": "gulp build"
   },
   "dependencies": {
     "gulp": "^3.9.1",
