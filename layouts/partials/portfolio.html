@@ -1,7 +1,7 @@
 <div class="col-xs-12 content-column">
     <div class="grid">
         <div class="row">
-          {{ range (where .Data.Pages "Section" "portfolio") }}
+          {{ range sort (where .Data.Pages "Section" "portfolio") "Params.weight" "asc" }}
               <div class="col-xs-12 col-sm-6 col-md-4 masonry-item">
                   <div class="box-masonry">
                     {{ if isset .Params "linkdirectlytoblog" }}

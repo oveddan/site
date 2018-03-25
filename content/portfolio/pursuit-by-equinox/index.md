@@ -2,7 +2,7 @@
 title: "The Pursuit by Equinox"
 date: 2018-01-21T21:27:06-05:00
 draft: false
-weight: 4
+weight: 1
 image: 'images/pursuit_sized_image.gif'
 animatedImage: 'images/pursuit_sized.gif'
 showonlyimage: true

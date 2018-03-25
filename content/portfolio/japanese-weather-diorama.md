@@ -6,6 +6,7 @@ animatedImage: 'images/weather_diorama_cropped.gif'
 draft: false 
 showonlyimage: true
 linkdirectlytoblog: "/blog/posts/physical_computing/weather-diorama/"
+weight: 15
 ---
 
 A physical twist on a Japanese Weather Diorama
