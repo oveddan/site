@@ -44,6 +44,11 @@ googleAnalytics = ""
   name = "Get in touch"
   url = "contact/"
 
+  [[params.navlinks]]
+  name = "Blog"
+  url = "blog/"
+
+
   [params.social]
   facebook      = "https://www.facebook.com/DanOved"
   #googleplus    = "full profile url in googleplus"
