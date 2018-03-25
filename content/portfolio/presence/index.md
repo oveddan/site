@@ -13,11 +13,11 @@ is looking, and alters its shape to reflect this focal point.
 
 {{< vimeo 259512916 >}}
 
+---
+
 * **[Documentation](/blog/tags/presence)**
 * **[The Code](https://github.com/oveddan/presence)**
 * **Technologies:** Computer Vision, Neural Network, CNC Router, Laser Cutter, Caffe, python, Servo motors, Processing
-
----
 
 Our eyes are windows into our interests and intentions.
 This piece explores new ways to communicate with art using these indicators.

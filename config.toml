@@ -1,4 +1,4 @@
-baseurl = "https://danoved.netlify.com/"
+baseurl = "http://www.danioved.com/"
 title = "Dan Oved"
 theme = "portfolio"
 languageCode = "en-us"
