@@ -3,7 +3,7 @@ date = "2016-11-05T21:05:33+05:30"
 title = "About me"
 +++
 
-I'm a programmer, fabricator, and artist currently doing my masters at ITP in New York University and working as a freelance creative technologist at the [Google Creative Lab](https://experiments.withgoogle.com/).
+I'm a programmer, fabricator, and artist currently doing my masters at [ITP](https://itp.nyu.edu/itp/) in NYU and working as a freelance creative technologist at the [Google Creative Lab](https://experiments.withgoogle.com/).
 I come from a computer science and full-stack programming background,
 and ever since getting bored with building online checkout flows and REST APIs I’ve been taking on creative projects.
 This includes a [gamified and interactive spinning class](/portfolio/pursuit-by-equinox),
