@@ -2,36 +2,38 @@
     <div class="grid">
         <div class="row">
           {{ range sort (where .Data.Pages "Section" "portfolio") "Params.weight" "asc" }}
-              <div class="col-xs-12 col-sm-6 col-md-4 masonry-item">
-                  <div class="box-masonry">
-                    {{ if isset .Params "linkdirectlytoblog" }}
-                      {{ .Scratch.Set "link" .Params.linkdirectlytoblog }}
-                    {{ else }}
-                      {{ .Scratch.Set "link" .Permalink }}
-                    {{ end }}
-                    {{ $link := .Scratch.Get "link" }}
-                      {{ if and (isset .Params "image") .Params.image }}
-                        {{ if eq .Params.showonlyimage true }}
-                        <a href="{{ $link }}" title="" class="box-masonry-image with-hover-overlay">
-                        {{ else }}
-                        <a href="{{ $link }}" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
-                        {{ end }}
-                        <img src="{{ .Params.image }}" data-animated="{{ .Params.animatedImage }}" alt="" class="img-responsive lazy-load">
-                        </a>
+             {{ if not .Params.hideFromHomePage }}
+                <div class="col-xs-12 col-sm-6 col-md-4 masonry-item">
+                    <div class="box-masonry">
+                      {{ if isset .Params "linkdirectlytoblog" }}
+                        {{ .Scratch.Set "link" .Params.linkdirectlytoblog }}
+                      {{ else }}
+                        {{ .Scratch.Set "link" .Permalink }}
                       {{ end }}
-                      <!-- non-mobile -->
-                      <div class="desktop box-masonry-hover-text-header">
-                          <h4><a href="{{ $link }}">{{ .Title }}</a></h4>
-                          <div class="box-masonry-description">
-                              <p>{{ .Summary }}</p>
-                          </div>
-                      </div>
-                      <!-- mobile -->
-                      <div class="mobile box-masonry-text">
-                          <h4><a href="{{ $link }}">{{ .Title }}</a></h4>
-                      </div>
-                  </div>
-              </div>
+                      {{ $link := .Scratch.Get "link" }}
+                        {{ if and (isset .Params "image") .Params.image }}
+                          {{ if eq .Params.showonlyimage true }}
+                          <a href="{{ $link }}" title="" class="box-masonry-image with-hover-overlay">
+                          {{ else }}
+                          <a href="{{ $link }}" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
+                          {{ end }}
+                          <img src="{{ .Params.image }}" data-animated="{{ .Params.animatedImage }}" alt="" class="img-responsive lazy-load">
+                          </a>
+                        {{ end }}
+                        <!-- non-mobile -->
+                        <div class="desktop box-masonry-hover-text-header">
+                            <h4><a href="{{ $link }}">{{ .Title }}</a></h4>
+                            <div class="box-masonry-description">
+                                <p>{{ .Summary }}</p>
+                            </div>
+                        </div>
+                        <!-- mobile -->
+                        <div class="mobile box-masonry-text">
+                            <h4><a href="{{ $link }}">{{ .Title }}</a></h4>
+                        </div>
+                    </div>
+                </div>
+             {{ end }}
           {{ end }}
         </div>
     </div>
