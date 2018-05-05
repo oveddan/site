@@ -3,7 +3,7 @@ date = "2016-11-05T21:05:33+05:30"
 title = "About me"
 +++
 
-I'm a developer, fabricator, and artist currently doing my masters at [ITP](https://itp.nyu.edu/itp/) in NYU.
+I'm a developer, artist and masters candidate at [ITP](https://itp.nyu.edu/itp/) in NYU.
 I come from a full-stack programming background, but it would be challenging to label what I do as I’d consider myself a generalist.  My current focus lies in [computer vision](blog/tags/computer-vision/), 
 [hardware](/blog/tags/hardware/), and [fabrication](/blog/tags/fabrication/).  I explore new forms of interactions that are unlocked with recent advances in artificial intelligence and hardware.
 
