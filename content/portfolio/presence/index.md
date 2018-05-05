@@ -20,6 +20,7 @@ is looking, and alters its shape to reflect this focal point.
 ---
 
 * **[Documentation](/blog/tags/presence)**
+* **[Gaze Estimation Colaboratory Notebook](https://colab.research.google.com/drive/11s5IQkI8H-kIn00Kg6Sqp-dD3RwsICdE#scrollTo=F-jyn1bRR8M8)**
 * **[The Code](https://github.com/oveddan/presence)**
 * **Technologies:** Computer Vision, Neural Network, CNC Router, Laser Cutter, Caffe, python, Servo motors, Processing
 

@@ -50,11 +50,10 @@ googleAnalytics = ""
 
 
   [params.social]
-  facebook      = "https://www.facebook.com/DanOved"
   #googleplus    = "full profile url in googleplus"
   #email         = "email@example.com"
   twitter       = "https://www.twitter.com/oveddan"
   #linkedin      = "full profile url in linkedin"
-  stackoverflow = "https://stackoverflow.com/users/773210/oved-d"
+  #stackoverflow = "https://stackoverflow.com/users/773210/oved-d"
   instagram     = "https://www.instagram.com/stangogh/"
   github        = "https://github.com/oveddan"
