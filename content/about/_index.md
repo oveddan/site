@@ -16,4 +16,6 @@ of the browser enable us to to create rich experiences that are accessible to ma
 
 I've worked with the [Google Creative Lab](https://experiments.withgoogle.com/), [SYPartners](https://www.sypartners.com/), and [10x Management](https://www.10xmanagement.com/meet-our-new-10xers/dan-oved/).
 
+You can follow me on [twitter](https://twitter.com/oveddan), [github](https://github.com/oveddan), or [instagram.](https://www.instagram.com/stangogh/)
+
 [1]: /images/me_scaled.jpg
