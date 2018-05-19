@@ -70,6 +70,15 @@ nav.navbar {
   display: block;
 }
 
+.container .box-masonry .box-masonry-image {
+  height: 277px;
+  background-color: #f4f4f4;
+}
+
+.container .box-masonry .box-masonry-image img {
+  height: 277px;
+}
+
 @media (min-width: 768px) {
   .box-masonry .desktop  {
     display: block;
