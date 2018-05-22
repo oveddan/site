@@ -1,2 +1,3 @@
 # points blog request to the blog site
 /blog/* https://danblog.netlify.com/blog/:splat 200!
+http://danoved.netlify.com/* http://www.danioved.com/:splat 301!
