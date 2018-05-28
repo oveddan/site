@@ -1,7 +1,7 @@
 ---
 title: "PoseNet in Tensorflow.js"
 date: 2018-05-28T15:15:18-04:00
-draft: true
+draft: false
 weight: 0
 image: 'images/posenet_image.gif'
 animatedImage: 'images/posenet.gif'
