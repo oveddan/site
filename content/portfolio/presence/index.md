@@ -2,7 +2,7 @@
 title: "Presence"
 date: 2018-01-21T16:08:45-05:00
 draft: false
-weight: 0
+weight: 1
 image: 'images/presence_image.png'
 animatedImage: 'images/presence.gif'
 showonlyimage: true
