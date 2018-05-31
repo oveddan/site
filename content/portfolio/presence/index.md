@@ -30,6 +30,8 @@ The viewer's perception becomes part of a feedback loop, as when it changes,
 the shape of the installation responds, which in turn alters the viewer's
 perception.
 
+{{< image src="images/in_front_of" >}}
+
 #### Why eye-gaze tracking?
 
 Traditionally, our interface with computers has been limited to our hands, using controls such as a mouse,
@@ -47,9 +49,17 @@ While Presence explores an artistic form of using eyes as a communication medium
 #### How does it work?
 
 Until recently, being able to track gaze has been both expensive and cumbersome, as it requires either specialized, pricey hardware that needs to be calibrated for each user, or specific types of cameras that are often unreliable.
-Last year researchers at MIT and University of Georgia proved it can be done with any webcam in their research paper called [Eye Tracking for Everyone](http://gazecapture.csail.mit.edu/).  
+Researchers at MIT and University of Georgia proved it can be done with any webcam in their research paper called [Eye Tracking for Everyone](http://gazecapture.csail.mit.edu/).  
 
 In this paper they trained a neural-network on about 2.4 million frames of video of people looking at a dot on a screen on different devices.  This neural-network was able to achieve up to around **2 cm accuracy** when predicting gaze.  
 
 Presence uses the [pre-trained model](https://github.com/CSAILVision/GazeCapture) provided by the researches to track gaze in real-time.  It then forwards the gaze predictions to a Processing sketch which controls 21 servos
 that rotate to reveal a pattern in the direction of the gaze.
+
+Presence uses the pre-trained model provided by the researches to track gaze in real-time. It detects faces and eyes use OpenCV, then forwards these detection through the neural-network model using Caffe, which then outputs the gaze positions.  A Processing sketch reads these positions, generates an animation, and converts the animation into servo position byte instructions which are sent over serial to a servo controller.
+ 
+#### Hardware
+
+The installation consists of 21 Futaba S3004 servos controlled by a Mini Maestro 24-Channel USB Servo Controller, which is connected over usb to a PC with a Nvidia gtx970 gpu.  A basic webcam is connected over usb to the PC.  A 5V 8A power supply powers the servos.
+ 
+The servos are mounted to a piece of laser-cut acrylic, which is attached to a CNC-routed Plywood frame.  White shippings tubes with electrical-tape spirals are mounted to each motor using CNC-routed end-caps attached to mounting hubs.  Steel screws which are fastened to the top of the frame provide horizontal support to the tubes and allow them to rotate freely.
