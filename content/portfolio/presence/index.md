@@ -53,10 +53,7 @@ Researchers at MIT and University of Georgia proved it can be done with any webc
 
 In this paper they trained a neural-network on about 2.4 million frames of video of people looking at a dot on a screen on different devices.  This neural-network was able to achieve up to around **2 cm accuracy** when predicting gaze.  
 
-Presence uses the [pre-trained model](https://github.com/CSAILVision/GazeCapture) provided by the researches to track gaze in real-time.  It then forwards the gaze predictions to a Processing sketch which controls 21 servos
-that rotate to reveal a pattern in the direction of the gaze.
-
-Presence uses the pre-trained model provided by the researches to track gaze in real-time. It detects faces and eyes use OpenCV, then forwards these detection through the neural-network model using Caffe, which then outputs the gaze positions.  A Processing sketch reads these positions, generates an animation, and converts the animation into servo position byte instructions which are sent over serial to a servo controller.
+Presence uses the [pre-trained model](https://github.com/CSAILVision/GazeCapture) provided by the researchers to track gaze in real-time. It detects faces and eyes use OpenCV, then forwards these detection through the neural-network model using Caffe, which then outputs the gaze positions in centimeters relative to the camera.  A Processing sketch reads these positions, generates an animation, and converts the animation into servo position byte instructions which are sent over serial to a servo controller.
  
 #### Hardware
 
