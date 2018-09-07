@@ -95,3 +95,7 @@ nav.navbar {
 .footer p.social a {
   border: 0;
 }
+
+body .modal {
+  max-width: inherit;
+}

@@ -16,7 +16,7 @@ PoseNet in a machine learning model which allows for real-time human pose estima
 * **[Live Demo](https://storage.googleapis.com/tfjs-models/demos/posenet/camera.html)**
 * **[Code](https://github.com/tensorflow/tfjs-models/tree/master/posenet)**
 
-{{< original_image src="images/posenet_single.gif" >}}
+{{< original_image src="images/posenet-multipose.gif" >}}
 
 ---
 

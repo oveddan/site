@@ -3,7 +3,8 @@ const concat = require('gulp-concat');
 
 
 const themeLibraries = [
-    "jquery.min.js"
+    "jquery.min.js",
+  // ,"jquery.modal.min.js"
   , "bootstrap.min.js"
   , "jquery.cookie.js"
   , "ekko-lightbox.js"
@@ -16,6 +17,7 @@ const themeLibraries = [
 
 const themeCss = [
   "bootstrap.min.css",
+  // ,"jquery.modal.min.css",
   "font-awesome.min.css",
   "owl.carousel.css",
   "owl.theme.css",

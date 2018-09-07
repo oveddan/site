@@ -4,7 +4,9 @@
   {{ $image := $original.Resize "625x Lanczos q100" }}
 
   <figure>
-    <img src="{{ $image.RelPermalink }}" style="width:100%"/>
+    <a href='{{ $original.RelPermalink }}' data-modal>
+      <img src="{{ $image.RelPermalink }}" style="width:100%"/>
+    </a>
     {{ if .Get "caption" }}
       <figcaption>
         {{.Get "caption"}}
