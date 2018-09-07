@@ -1,4 +1,4 @@
-baseurl = "http://www.danioved.com/"
+baseurl = "https://www.danioved.com/"
 title = "Dan Oved"
 theme = "portfolio"
 languageCode = "en-us"
