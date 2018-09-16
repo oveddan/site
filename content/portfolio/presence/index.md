@@ -6,6 +6,8 @@ weight: 1
 image: 'images/presence_image.png'
 animatedImage: 'images/presence.gif'
 showonlyimage: true
+aliases:
+  - /presence
 
 ---
 
