@@ -17,6 +17,11 @@ is looking, and alters its shape to reflect this focal point.
 
 <!--more-->
 
+**UPDATE: as a result of observations from user testing at the ITP Winter Show, Presence has been changed
+to detect poses using [PoseNet](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5) and alter its shape to reflect the shape of bodies.
+This is because gestural control using arms and the body is a more natural form of interaction than moving eyes with the intention of changing something.
+This new version will be debuting at the [MakerFaire](https://makerfaire.com/new-york/), and a video for it will be coming soon; the video and explanation below are from the previous installation:** 
+
 {{< vimeo 259512916 >}}
 
 ---

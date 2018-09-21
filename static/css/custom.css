@@ -98,4 +98,10 @@ nav.navbar {
 
 body .modal {
   max-width: inherit;
+  overflow: visible;
+}
+
+body .modal img {
+  width: auto;
+  max-width: 100%;
 }
