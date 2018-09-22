@@ -3,7 +3,7 @@ title: "PoseNet in Tensorflow.js"
 date: 2018-05-28T15:15:18-04:00
 draft: false
 weight: 0
-image: 'images/posenet_multipose-resized.png'
+image: 'images/posenet-multipose-resized.png'
 animatedImage: 'images/posenet-multipose-resized.gif'
 showonlyimage: true
 ---
