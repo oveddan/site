@@ -18,6 +18,8 @@ It uses a machine learning algorithm called PoseNet to detect poses from a webca
 <!--more-->
 
 **[Read more about PoseNet here](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5)**
+<br/>
+**[Read about the fabrication of Presence here](https://www.danioved.com/blog/posts/presence/fabricating-the-kinetic-sculpture/)**
 
 Presence was **originally** a kinetic sculpture that was controlled by a viewers gaze. As a result of observations from user testing at the ITP Winter Show, and my work
 releasing PoseNet in collaboration with researchers at Google, it was changed to be human pose and gesture reactive.  This is because gestural control using arms and the body is a more natural form of interaction than moving eyes with the intention of changing something.
