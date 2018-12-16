@@ -74,8 +74,6 @@ For quad, the sound slowly traveled around the room using sin oscillations.  The
 
 ### 3. Beat pulse from a liquid timer.
 
-{{< youtube xFZO15vIZ88 >}}
-
 For this step, a liquid timer is observed.  When zoomed in close up, new drops of liquid come into frame at a regular interval.  Each new drop triggers a pulse. 
 
 This is converted to a pulse by taking the amount of saturation, smoothing this value, and calculating the slope/derivative.  When this is positive it pulses on and visa-versa:
@@ -97,6 +95,8 @@ I changed this patch then to use the DAW Sync for pulse instead of the LFO, allo
 I added some randomness to the warp of each beat, and which speaker (left/right) it came out of.  
 
 Todd also suggested I check out the 4ms Spectral Multiband Resonator.  I got the trial for this and totally loved it.  So many nice sounds could be played with different types of resonance and tuned to different scales.  I found some scale that sounded good, and linked the playing of each note to the quarter and eighth beat:
+
+{{< youtube xFZO15vIZ88 >}}
 
 During the show this sound was meant to travel front and back, but the rear speakers were off so it went quiet many times.  Listening back this was kind of a nice effect that added a bit of randomness.
 
