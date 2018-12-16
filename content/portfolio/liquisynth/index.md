@@ -25,13 +25,15 @@ The performance was designed to be in quadrophonic, and the positions of the sou
 
  During sound check, the person in charge of audio said it would only be possible to do 3 channel (2 in the front and one in the back), so I modified Ableton to send all rear channels to the same speaker.  Mistakingly, during the performance the back speaker was never turned on, so often the sound went quiet.  No one seemed to notice and most people commented that it sounded good.
 
+ {{< image src = "images/LiquiSynthHolders" >}}
+
 The physical part of the instrument was built using different containers of liquid placed in front of white translucent acrylic material.  Strong, bright white neutral LEDs illuminate this material, allowing the liquids to be visible from a camera with low exposure and from an audience member far away in the crowd.
 
 ## The parts of the composition and how it worked
 
 ### 1. Low Frequency Oscillation from the mixing of oil colors
 
-{{< youtube kJEyvvVgSAA >}}
+{{< image src="images/MoreIntenseMixing" >}}
 
 ##### The Change Measurement
 
@@ -43,6 +45,8 @@ is scaled to range between 0 and 1.  This change in hue ends up looking like a r
 This value is sent as a midi control value into Ableton, which uses multimap to turn knobs in a Softube Modular patch.  For this patch, I wanted to use a drony sound that had gradual changes. I was particularly inspired by the opening of the [Sunergy by Kaitlyn Aurelia Smith & Suzanne Ciani](https://www.youtube.com/watch?v=cZrbBd8B4JI) which has a slowly warped sound that moves ear to ear.
 
 Fortunately Modular included a wonderful example Drone patch by Todd Barton.  It uses a low frequency sin Oscillator to warp a drone sound, which is then sent through a reverb.  It accomplishes a wonderfly meditative feeling with just a few modules.  I modified this patch to replace the sin with control voltage from a knob that is turned by the water color change value from above:
+
+{{< youtube kJEyvvVgSAA >}}
 
 ##### Quad
 
@@ -56,13 +60,20 @@ Right before the performance I tested this out by holding up water paint contain
 
 ### 2. Envelope follower from a home-made lava lamp.
 
-{{< youtube cfv1AOJIL74 >}}
+{{< image src="images/oiltimercolored" >}}
 
 For the second part, a black piece of acrylic is slowly lifted up to reveal the light behind it and the glass of baby oil and water that light is illuminating.  A digital crop of the camera feed, pointed at this glass, detects the brightness in the hsv space within its crop.
 
+
 This amount of brightness applies a low pass filter to the drone sound, while opening up the filter for a water like sound, providing a smooth transition to this new stage.
 
-Drops of water color concentrate are dropped into this glass, but unlike the previous stop they bead up and fall rapidly to the bottom.  The speed and amount of the colorig dropping through the glass is quantified using [optical flow,](https://en.wikipedia.org/wiki/Optical_flow), a way to measure the measure motion of objects, using an OpticalFlow palette that comes with TouchDesigner.  The palette returns vectors at each pixel for the x and y motion at each pixel.  The sum of the absolute values of these vectors is used as a midi control value which is mapped to an envelope in Ableton. 
+Drops of water color concentrate are dropped into this glass, but unlike the previous stop they bead up and fall rapidly to the bottom.  The speed and amount of the colorig dropping through the glass is quantified using [optical flow,](https://en.wikipedia.org/wiki/Optical_flow) a way to measure the measure motion of objects, using an OpticalFlow palette that comes with TouchDesigner.  The palette returns vectors at each pixel for the x and y motion at each pixel.  The sum of the absolute values of these vectors is used as a midi control value which is mapped to an envelope in Ableton. 
+
+This amount of brightness applies a low pass filter to the drone sound, while opening up the filter for a water like sound, providing a smooth transition to this new stage.
+
+Drops of water color concentrate are dropped into this glass, but unlike the previous stop they bead up and fall rapidly to the bottom.  The speed and amount of the colorig dropping through the glass is quantified using [optical flow,](https://en.wikipedia.org/wiki/Optical_flow) a way to measure the measure motion of objects, using an OpticalFlow palette that comes with TouchDesigner.  The palette returns vectors at each pixel for the x and y motion at each pixel.  The sum of the absolute values of these vectors is used as a midi control value which is mapped to an envelope in Ableton. 
+
+{{< youtube cfv1AOJIL74 >}}
 
 This envelope affects the amount of randomness and the speed in which the sound for this phase moves around the room.  This is inspired by what we learned from Morton Subotnick where he creates envelope followers from his voice. 
 
@@ -75,6 +86,8 @@ For quad, the sound slowly traveled around the room using sin oscillations.  The
 ### 3. Beat pulse from a liquid timer.
 
 For this step, a liquid timer is observed.  When zoomed in close up, new drops of liquid come into frame at a regular interval.  Each new drop triggers a pulse. 
+
+{{< image src="images/liquidtimer" >}}
 
 This is converted to a pulse by taking the amount of saturation, smoothing this value, and calculating the slope/derivative.  When this is positive it pulses on and visa-versa:
 
@@ -105,6 +118,8 @@ During the show this sound was meant to travel front and back, but the rear spea
 For the final stage, the aciditiy of a liquid is used as a source of modulation by dropping a pH indicator called [bromothymol blue,](https://en.wikipedia.org/wiki/Bromothymol_blue) which turns yellow or blue depending on the pH level, into the liquid and measuring the hue and saturation of the resulting colored liquid. 
 
 The liquid is changed back and forth between blue and yellow by adding things that either make it more basic or acidic.  It is also made acidic by blowing into it into a straw.  
+
+{{< image src="images/yellowtoblue" >}}
 
 With this technique, a sound can be made to go slowly back and forth between different states.   This can allow for a slow fade with a bit of randomness affecting the slope, making it feel less mechanical.
 
