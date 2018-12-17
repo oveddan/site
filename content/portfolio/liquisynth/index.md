@@ -11,6 +11,8 @@ aliases: [
 
 The Liquisynth is a musical instrument and live performance that was created for the NIME class at ITP.  It modulates sounds in response to the characteristics of liquids as they mix, as a combination of randomness and human control.
 
+<!--more-->
+
 {{< vimeo 306609248 >}}
 
 Often in electronic music, randomness is added and finely tuned by composers to give the sound a more organic feeling.  What happens when we replace this source of randomness with something that occurs in a natural or organic form?  The Liquisynth explores this concept by using cameras to detect the characteristics of different kinds of liquids and how they slowly change, and uses these changes as random values to modulate pitch, timbre, envelopes, and more in sounds.   All of the sounds are synthesized live using highly accurate software reproductions of analog synthesizers, such as the Buchla 259e twisted waveform generator, to give it a more organic feeling and provide many knobs and degrees of control.
