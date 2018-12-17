@@ -5,6 +5,7 @@ draft: false
 order: -1
 image: 'images/zoetrope_image.png'
 animatedImage: 'images/zoetrope.gif'
+alias: '/infinity'
 ---
 
 The infinity zoetrope blends reality with the imagination by transforming an analog form into something limitless.  It was performed at the Museum of the Moving Image for Shantell Martin's Drawing on Everything class. By capturing a rotating disk at the right framerate with digital means, an infinite loop can be extended into another dimension through colors and transformation.
