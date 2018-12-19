@@ -4,8 +4,10 @@ date: 2018-12-12T13:43:46-05:00
 draft: false
 image: 'images/liquisynth.jpg'
 animatedImage: 'images/liquisynth_1.gif'
+weight: 1
 aliases: [
     "/liquidsynth/",
+    "/liquisynth/",
 ]
 ---
 
