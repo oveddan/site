@@ -105,3 +105,7 @@ body .modal img {
   width: auto;
   max-width: 100%;
 }
+
+iframe {
+  padding-bottom: 24px;
+}
