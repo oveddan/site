@@ -11,39 +11,11 @@ aliases:
 
 ---
 
-Presence is an interactive kinetic sculpture that reacts to the shape of a viewer’s pose.  
-
-It uses a machine learning algorithm called PoseNet to detect poses from a webcam, and rotates a series of spirals to reveal a pattern that reflects what it perceives.
+Presence is a kinetic sculpture that is controlled by a viewer’s
+gaze. It uses a webcam and computer vision to detect where a user 
+is looking, and alters its shape to reflect this focal point.
 
 <!--more-->
-
-**[Read more about PoseNet here](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5)**
-<br/>
-**[Read about the fabrication of Presence here](https://www.danioved.com/blog/posts/presence/fabricating-the-kinetic-sculpture/)**
-
-Presence was **originally** a kinetic sculpture that was controlled by a viewers gaze. As a result of observations from user testing at the ITP Winter Show, and my work
-releasing PoseNet in collaboration with researchers at Google, it was changed to be human pose and gesture reactive.  This is because gestural control using arms and the body is a more natural form of interaction than moving eyes with the intention of changing something.
-
-This new version is debuting at the [2018 MakerFaire](https://makerfaire.com/new-york/), and full documentation will be coming soon.
-
-#### Hardware
-
-The installation consists of 21 Futaba S3004 servos controlled by a Mini Maestro 24-Channel USB Servo Controller, which is connected over usb to a PC with a Nvidia gtx970 gpu.  A basic webcam is connected over usb to the PC.  A 5V 8A power supply powers the servos.
- 
-The servos are mounted to a piece of laser-cut acrylic, which is attached to a CNC-routed Plywood frame.  White shippings tubes with electrical-tape spirals are mounted to each motor using CNC-routed end-caps attached to mounting hubs.  Steel screws which are fastened to the top of the frame provide horizontal support to the tubes and allow them to rotate freely.
-
-#### How it works
-
-On a laptop with a webcam, human poses in the browser using PoseNet. These pose positions are streamed over websocket to TouchDesigner.
-In TouchDesigner, the person with the pose closest to the center of the image is selected to control the installation.  Based on the
-position of the arms, elbows, and shoulders, servo positions are calculated to reflect the shape of the pose.  These servo positions are sent
-from TouchDesigner over serial to the Mini Maestro servo controller, and in TouchDesigner the rotations are simulated with a 3d-visualization.
-In addition, a midi controller is used to both display the position of the servos, and allow for addition forms of tangible interaction by letting
-a user press a button to alter the shape of the installation as well.
-
-All of the code will be open-sourced once it's cleaned up.
-
-**The video and documentation below are from the previous iteration that was eye gaze reactive:** 
 
 {{< vimeo 259512916 >}}
 
@@ -85,3 +57,8 @@ In this paper they trained a neural-network on about 2.4 million frames of video
 
 Presence uses the [pre-trained model](https://github.com/CSAILVision/GazeCapture) provided by the researchers to track gaze in real-time. It detects faces and eyes use OpenCV, then forwards these detection through the neural-network model using Caffe, which then outputs the gaze positions in centimeters relative to the camera.  A Processing sketch reads these positions, generates an animation, and converts the animation into servo position byte instructions which are sent over serial to a servo controller.
  
+#### Hardware
+
+The installation consists of 21 Futaba S3004 servos controlled by a Mini Maestro 24-Channel USB Servo Controller, which is connected over usb to a PC with a Nvidia gtx970 gpu.  A basic webcam is connected over usb to the PC.  A 5V 8A power supply powers the servos.
+ 
+The servos are mounted to a piece of laser-cut acrylic, which is attached to a CNC-routed Plywood frame.  White shippings tubes with electrical-tape spirals are mounted to each motor using CNC-routed end-caps attached to mounting hubs.  Steel screws which are fastened to the top of the frame provide horizontal support to the tubes and allow them to rotate freely.

@@ -12,8 +12,9 @@ PoseNet in a machine learning model which allows for real-time human pose estima
 
 <!--more-->
 
-**[View the full blog post here](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5)** or 
-**[try a live demo](https://storage.googleapis.com/tfjs-models/demos/posenet/camera.html)**
+* **[Blog Post](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5)**
+* **[Live Demo](https://storage.googleapis.com/tfjs-models/demos/posenet/camera.html)**
+* **[Code](https://github.com/tensorflow/tfjs-models/tree/master/posenet)**
 
 {{< original_image src="images/posenet-multipose.gif" >}}
 
