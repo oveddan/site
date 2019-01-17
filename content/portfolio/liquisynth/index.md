@@ -2,8 +2,8 @@
 title: "NIME: The Liquisynth"
 date: 2018-12-12T13:43:46-05:00
 draft: false
-image: 'images/liquisynth.jpg'
-animatedImage: 'images/liquisynth_1.gif'
+image: 'images/nime.jpg'
+animatedImage: 'images/nime_performance.gif'
 weight: 1
 aliases: [
     "/liquidsynth/",
