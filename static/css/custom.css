@@ -17,12 +17,14 @@ nav.navbar {
   box-shadow: 0 0 5px #ccc;
 }
 
-.navbar-default .navbar-brand {
+.navbar .container .navbar-brand {
   color: #000;
   width: 100px;
 
   height: auto;
-  margin-top: 5px;
+  padding: 0;
+  margin-left: 0;
+  line-height: 80px;
 }
 .navbar-default .navbar-brand:hover {
   color: #000;
@@ -53,6 +55,7 @@ nav.navbar {
 
 .navbar-nav {
   float: right;
+  margin: 18px -15px;
 }
 
 .navbar-nav > li {
