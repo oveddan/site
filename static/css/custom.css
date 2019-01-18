@@ -19,12 +19,13 @@ nav.navbar {
 
 .navbar .container .navbar-brand {
   color: #000;
-  width: 100px;
+  width: 150px;
 
   height: auto;
   padding: 0;
   margin-left: 0;
   line-height: 80px;
+  font-size: 32px;
 }
 .navbar-default .navbar-brand:hover {
   color: #000;
@@ -32,15 +33,17 @@ nav.navbar {
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #555;
+  color: #000;
+  text-decoration: underline;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #777;
+  color: #000;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #333;
+  color: #000;
+  text-decoration: underline;
 }
 
 @media (min-width: 768px) {
@@ -49,17 +52,27 @@ nav.navbar {
   }
 }
 
-.navbar-header {
+.navbar .navbar-header {
   float: left;
+  margin: 0;
 }
 
 .navbar-nav {
   float: right;
-  margin: 18px -15px;
+  line-height: 80px;
+  margin: 0;
 }
 
-.navbar-nav > li {
+.navbar-nav > li  {
   float: left;
+}
+
+.navbar-nav > li > a 
+{
+  line-height: 80px;
+  padding: 0 15px;
+  position: relative;
+  bottom: -5px;
 }
 
 .content-column.white-background {
@@ -91,6 +104,25 @@ nav.navbar {
   }
 }
 
+.content-column.white-background p, .content-column.white-background li {
+  color: #000;
+
+  font-size: 21px;
+  line-height: 33px;
+}
+
+.content-column figure figcaption {
+  margin: 5px auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, .68);
+}
+
+.content-column blockquote p {
+  font-style: italic;
+}
+
 .footer {
   text-align: center;
 }
@@ -108,6 +140,7 @@ body .modal img {
   width: auto;
   max-width: 100%;
 }
+
 
 iframe {
   padding-bottom: 24px;

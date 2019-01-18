@@ -25,4 +25,5 @@ $(function(){
   for(var i = 0; i < lazyLoaded.length; i++) {
     lazyLoadImage(lazyLoaded[i]);
   }
+
 })();

@@ -1,7 +1,7 @@
 {{ $original := .Page.Resources.GetMatch (printf "%s*" (.Get "src")) }}
 
 {{ if $original }}
-  {{ $image := $original.Resize "625x Lanczos q100" }}
+  {{ $image := $original.Resize "700x Lanczos q100" }}
 
   <figure>
     <a href='{{ $original.RelPermalink }}' data-modal>

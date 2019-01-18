@@ -12,15 +12,15 @@ PoseNet in a machine learning model which allows for real-time human pose estima
 
 <!--more-->
 
-* **[Blog Post](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5)**
-* **[Live Demo](https://storage.googleapis.com/tfjs-models/demos/posenet/camera.html)**
-* **[Code](https://github.com/tensorflow/tfjs-models/tree/master/posenet)**
-
 {{< original_image src="images/posenet-multipose.gif" >}}
 
 ---
 
-*Content below is excerpt from [the blog post.](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5)*
+* **[Blog Post](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5)**
+* **[Live Demo](https://storage.googleapis.com/tfjs-models/demos/posenet/camera.html)**
+* **[Code](https://github.com/tensorflow/tfjs-models/tree/master/posenet)**
+
+*Content below is excerpt from [the blog post:](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5)*
 
 In collaboration with the Google Creative Lab, I’m excited to announce the release of a [TensorFlow.js](https://js.tensorflow.org/) version of [PoseNet](https://github.com/tensorflow/tfjs-models/tree/master/posenet), a machine learning model which allows for real-time human pose estimation in the browser. Try a live demo [here](https://js.tensorflow.org/).
 

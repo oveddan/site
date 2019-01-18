@@ -17,6 +17,8 @@ The Liquisynth is a musical instrument and live performance that was created for
 
 {{< vimeo 306609248 >}}
 
+---
+
 > Playing a modular is a bit like cooking with many ingredients, tasting and sampling along the way until arriving at the precise combination that produces a delicious result.  I think of randomness as a spice, and just as you wouldn't want to throw a whole fistful of salt into a salad dressing, you want to use care to set the limits for any control voltage operation, to tweak it like a fine chef.
 
 *~ Suzanne Ciani in Patch & Tweak, 2018*
@@ -43,17 +45,17 @@ The physical part of the instrument is built using different containers of liqui
 
 ## The parts of the performance and composition
 
-### 1. Low Frequency Oscillation from the mixing of oil colors
+### Low Frequency Oscillation from the mixing of oil colors
 
 {{< image src="images/StartingMixing" >}}
 {{< image src="images/MoreIntenseMixing" >}}
 
-##### The Change Measurement
+#### The Change Measurement
 
 At the start of the composition, drops of different colored water-color concentrate are dropped into a large jar of water.  A camera, which is focused on the jar, measures the change in color pixel by pixel.  To do this, the image is converted from rgb to hsv space and the hue values are used to determine what type of color is in each pixel.  This is then compared to the same values pixel by pixel from 10 seconds before by subtracting the previous values from the current.  The average value of the difference is
 is scaled to range between 0 and 1.  This change in hue ends up looking like a randomly affected low frequency oscillator.
 
-##### The Sound
+#### The Sound
 
 This value is sent as a midi control value into Ableton, which uses multimap to turn knobs in a Softube Modular patch.  For this patch, I wanted to use a drony sound that had gradual changes. I was particularly inspired by the opening of the [Sunergy by Kaitlyn Aurelia Smith & Suzanne Ciani](https://www.youtube.com/watch?v=cZrbBd8B4JI) which has a slowly warped sound that moves ear to ear.
 
@@ -61,7 +63,7 @@ Fortunately Modular included a wonderful example Drone patch by Todd Barton.  It
 
 {{< youtube kJEyvvVgSAA >}}
 
-##### Quad
+#### Quad
 
 I wanted this sound to move back and forth around the room, with the speed in the movement being changed by the amount of color change.   This would cause the sound to move quickly back and forth when the visuals were intense.  I originally used LFOs in max for live which controlled x and y, but this ended up taking a lot of CPU.  I changed this to be calculated in TouchDesigner, which is a much more performannt application.  These calculations are sent as midi control values that are mapped to x and y of the sound in Ableton.
 
@@ -71,7 +73,7 @@ I wanted this sound to move back and forth around the room, with the speed in th
 
 Right before the performance I tested this out by holding up water paint containers in front of the camera to see how they would affect the positional change.  As it wasn't affecting it much, I turned up the sensitivity exponentially, without properly testing this out.  When I performed on stage and used actual drops of liquid the detection was much stronger, causing the exponentially increased value to be too big and making the sound jitter around super strongly, creating a glitchy affect.  I recovered from this by going to the computer and disabling the surround panner for this sound, making it be mono through the two front speakers.  No one seemed to notice after even though I internally freaked out.
 
-### 2. Envelope follower from a home-made lava lamp.
+### Envelope follower from a home-made lava lamp.
 
 {{< image src="images/oiltimercolored" >}}
 
@@ -91,7 +93,7 @@ For this sound, I wanted a patch that could have a single knob turned, which is 
 
 For quad, the sound slowly traveled around the room using sin oscillations.  The speed of these Oscillations was determined by the stength of the envelope, causing the sound to move rapidly around, just as Morton described himself doing with the envelope follower.
 
-### 3. Beat pulse from a liquid timer.
+### Beat pulse from a liquid timer.
 
 For this step, a liquid timer is observed.  When zoomed in close up, new drops of liquid come into frame at a regular interval.  Each new drop triggers a pulse. 
 
@@ -101,7 +103,7 @@ This is converted to a pulse by taking the amount of saturation, smoothing this 
 
 This pulse is sent as a midi note on message.  In Ableton, this was originally mapped directly to trigger the next step in a sequence.  However due to the occasional misreadings of the positive slope this would trigger erratically.  Instead, the note on is mapped to the "tap" button, which affects the tempo of the overall track and provides some smoothing.  The beat provided by the track is then used for sequence advancing.  This also allows for things to happen on half/quarter/eigth of a beat, which fills in the empty space from the time between the drops appearing.
 
-##### The sound
+#### The sound
 
 I wanted to make a patch that would by rythmic with the pulse.  It took me a while to find something but I stumbled upon  For the It took me a while to settle on a sound for this.  I stumbled upon a Todd Barton video on a MARF sequence and it sounded really good:
 
@@ -121,7 +123,7 @@ Todd also suggested I check out the 4ms Spectral Multiband Resonator.  I got the
 
 During the show this sound was meant to travel front and back, but the rear speakers were off so it went quiet many times.  Listening back this was kind of a nice effect that added a bit of randomness.
 
-### 4. Saturation from the color of a pH indicator solution modulates sounds.
+### Saturation from the color of a pH indicator solution modulates sounds.
 
 For the final stage, the aciditiy of a liquid is used as a source of modulation by dropping a pH indicator called [bromothymol blue,](https://en.wikipedia.org/wiki/Bromothymol_blue) which turns yellow or blue depending on the pH level, into the liquid and measuring the hue and saturation of the resulting colored liquid. 
 
