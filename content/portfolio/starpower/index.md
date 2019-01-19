@@ -11,7 +11,7 @@ StarPower is an led sculpture consisting of 12 frosted tubes placed precisely in
 
 <!--more-->
 
-{{<image src="images/star">}}
+{{<image src="images/star.jpg">}}
 
 StarPower is made in collaboration with Breck Armstrong.  It is consisted of a wooden frame and 12 pcv tubes, which we frosted ourselves, using gels on the inside and frosted spraypaint on the outside.
 
