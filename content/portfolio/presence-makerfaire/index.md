@@ -25,18 +25,26 @@ I observed users interacting with the project and noticed they had difficulty un
 
 Fast-forward to fall of 2018, I submitted and was accepted to show this installation at the 2018 MakerFaire.  I then realized it would be great to try out using gestures from human poses as control, as this from my observations this fit in more naturally to how users expect to interact with something like this.
 
-Having worked on the [PoseNet] machine learning model in the spring, and having learned TouchDesigner over the summer, I switched the application to control the installation from Processing to TouchDesigner, and changed the form of control from following a gaze position to mimicking the structure of the arms and the shoulders of the person in front of the sculpture.
+Having worked on the [PoseNet](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5) machine learning model in the spring, and having learned TouchDesigner over the summer, I switched the application to control the installation from Processing to TouchDesigner, and changed the form of control from following a gaze position to mimicking the structure of the arms and the shoulders of the person in front of the sculpture.
 
 I also built a tool PoseNet for installations which would download the pre-trained models so that they can be loaded offline, and would perform pose estimation and broadcast the detected keypoints overwebsocket.  It also would bundle the application into an executable so that it could be opened on a windows machine.  This allowed me to use a high powered MSI laptop from ITP, have PoseNet work without internet, and receive estimated pose keypoints in TouchDesigner.
 
 I also integrated a MiDi controller to easily make the program changed from a non interactive mode with animations, to an interactive one controlled by a single person.  
 
+{{<youtube deAha_VvbJw>}}
+
 I initially wanted to hide the screen showing the pose estimation results but when setting it up people walking by saw it and were amazed at how well it worked - I decided to leave this screen visible during the show and it was a great choice because people loved to see it and it helped them understand how the installation worked.  
+
+{{<image src="images/presence-makerfaire-6" caption="Showing the results of PoseNet on a screen proved to greatly help explain how the installation worked.">}}
 
 One of the main challenges I had was that while PoseNet can work with multiple people, the installation was designed to work with only one person.  Additionally, PoseNet can not associate the same person to the same pose between frames - the returned poses are ordered by confidence score.  So often the pose would jump between the keypoints of different people, causing a jittery effect.
 
 I tried a few things to get it to work with the main person interacting with it.  One of the things I was tried selecting the person with the bounding box closest to the center.  This didn't work well becuase if someone was standing behind and was closer to the center, they were the one selected. The solution I settled on was selecting the person with the lowest bottom of the bounding box, which is essentially the person closest to the installation.  This worked pretty well unless the person was too close, or other people stood next to the person but slightly in front of them.
 
+{{<image src="images/presence-makerfaire-4" caption="The installation would get glitchy when multiple people stood next to each other in front of it, as it would jump between having each of them control it. It proved challenging to have the same person control it between each frame.">}}
+
 This glitchiness in selecting the right person, and the fact that the installation itself didnt work perfectly ended up being a blessing in disguise because when people tried for a while to figure out how it worked, it resulted in insteresting behavior.  If it had just worked well I theorize people would have gone up to it, been satisfied, and walked away.  This sort of delayed gratification that people got when it finally worked I believe increased the engagement time and resulting in more interesting behavior.  Additionally, observing how kids wanted to interact with it when they had the freedom to behave how they wanted in front of the camera brought out some really funny behavior.  
+
+{{<image src="images/presence-makerfaire-1">}}
 
 It was inspiring to see how many people tried it out and behaved funnily in front of it and I look forward to continuing this work further.
