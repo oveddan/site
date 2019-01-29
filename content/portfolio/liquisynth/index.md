@@ -4,7 +4,7 @@ date: 2018-12-12T13:43:46-05:00
 draft: false
 image: 'images/nime.png'
 animatedImage: 'images/nime_performance.gif'
-weight: 1
+weight: -1
 aliases: [
     "/liquidsynth/",
     "/liquisynth/",

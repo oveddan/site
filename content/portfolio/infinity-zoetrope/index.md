@@ -2,7 +2,7 @@
 title: "Infinity Zoetrope"
 date: 2018-12-17T10:28:56-05:00
 draft: false 
-weight: 2
+weight: 3
 image: 'images/zoetrope_image.png'
 animatedImage: 'images/zoetrope.gif'
 aliases: 

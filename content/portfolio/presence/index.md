@@ -2,7 +2,7 @@
 title: "Presence"
 date: 2018-01-21T16:08:45-05:00
 draft: false
-weight: 1
+weight: 2
 image: 'images/presence_image.png'
 animatedImage: 'images/presence.gif'
 showonlyimage: true
@@ -18,6 +18,9 @@ is looking, and alters its shape to reflect this focal point.
 <!--more-->
 
 {{< vimeo 259512916 >}}
+
+
+{{<instagram Bc5AYY6gF97>}}
 
 ---
 
