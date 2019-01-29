@@ -7,7 +7,7 @@ animatedImage: 'images/presence-makerfaire.gif'
 weight: 0
 ---
 
-Presence at the MakerFaire was a modification of the existing Presence kinetic scultpure to use pose estimation powered by PoseNet as a form of gestural control.  Its inaccuracies bring out entertaining behaviors from the viewers.
+Presence at the MakerFaire was a modification of the existing Presence kinetic scultpure to use pose estimation powered by PoseNet as a form of gestural control.  It was presented at the 2018 Makerfaire, where its inaccuracies brought out entertaining behaviors from the viewers.
 
 <!--more-->
 
