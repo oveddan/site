@@ -12,7 +12,7 @@ StarPower is an led sculpture consisting of 12 frosted tubes placed precisely in
 <!--more-->
 
 
-{{<image src="images/star.jpg">}}
+{{<vimeo 312209356>}}
 
 StarPower is made in collaboration with Breck Armstrong.  It is consisted of a wooden frame and 12 pcv tubes, which we frosted ourselves, using gels on the inside and frosted spraypaint on the outside.
 
@@ -30,7 +30,7 @@ We ended up switching to use this controller, and I wrote a **TouchDesigner** pr
 
 {{<image src="images/touchdesigner" caption="LED Mapping in TouchDesigner">}}
 
-{{<vimeo 312209356>}}
+{{<image src="images/star.jpg">}}
 
 ## Fabrication
 {{<image src="images/star-7.jpg" caption="Soldering data and clock wires">}}
