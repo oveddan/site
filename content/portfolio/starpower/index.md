@@ -7,7 +7,7 @@ animatedImage: 'images/starpower.gif'
 weight: 2
 ---
 
-StarPower is an led sculpture consisting of 12 frosted tubes placed precisely in a circle and high frame-rate addressable leds allowing for sooth animations projected onto a circle.
+StarPower is an led sculpture consisting of 12 frosted tubes placed precisely in a circle and high frame-rate addressable leds allowing for smooth animations projected onto a circle.
 
 <!--more-->
 
@@ -24,7 +24,7 @@ We eventually got this working but found the Ardiuno coding environment challeng
 
 At ITP resident [Aaron Parsekian](http://www.aaronparsekian.com/) showed me the  **[LeDMX4 PRO](https://dmxking.com/led-pixel-control/ledmx4-pro)** controller which can be used to control 4 strips of APA102s using ArtNet.
 
-We ended up switching to use this controller, and I wrote a **TouchDesigner** program to **map the leds** in a circular physical space, and allow for easy generation visuals to show on the star.
+We ended up switching to use this controller, and I wrote a **TouchDesigner** program to **project the leds** in a circular physical space, and allow for generative visuals to show up on the star.
 
 {{<image src="images/ledmx" caption="Using the DMXKing LeDMX4 PRO to control using ArtNET 12 strips of LEDS that are daisy chained into 4 sets.">}}
 
