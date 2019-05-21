@@ -21,7 +21,7 @@ The Liquisynth is a musical instrument and live performance that was created for
 
 > Playing a modular is a bit like cooking with many ingredients, tasting and sampling along the way until arriving at the precise combination that produces a delicious result.  I think of randomness as a spice, and just as you wouldn't want to throw a whole fistful of salt into a salad dressing, you want to use care to set the limits for any control voltage operation, to tweak it like a fine chef.
 
-*~ Suzanne Ciani in Patch & Tweak, 2018*
+~ Suzanne Ciani in Patch & Tweak, 2018*
 
 Often in electronic music, randomness is added and finely tuned by composers to give the sound a more organic feeling.  What happens when we replace this source of randomness with something that occurs in a natural or organic form?  The Liquisynth explores this concept by using cameras to detect the characteristics of different kinds of liquids and how they slowly change, and uses these changes as random values to modulate pitch, timbre, envelopes, and more in sounds.   All of the sounds are synthesized live using highly accurate software reproductions of analog synthesizers, such as the Buchla 259e twisted waveform generator, to give it a more organic feeling and provide many knobs and degrees of control.
 

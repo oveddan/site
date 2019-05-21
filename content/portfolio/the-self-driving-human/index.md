@@ -18,7 +18,7 @@ The self-driving human is a device and performance where an intelligant portable
 
 > Every day millions of people decide to grant their smartphone a bit more control over their lives…in pursuit of health, happiness and power, humans will gradually change first one of their features and then another, and another, until they will  no longer be human.
 
-*~ Yuval Noah Harari in Homo Deus
+~ Yuval Noah Harari in Homo Deus
 
 As technology increasingly becomes integrated with our daily lives, we rely on it more and more to make decisions for us, from things such as how we should get from one place to the next (Waze), to what we should have for dinner (yelp, tripadvisor), to what content we should see on the internet (social media), to who we should date (dating apps). What would a future feel like when all of our decisions are made by these machines? The self-driving human simulates this scenario by making choices for the human in areas that are currently not decided by technology. 
 
