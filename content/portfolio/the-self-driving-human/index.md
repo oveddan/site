@@ -1,7 +1,7 @@
 ---
 title: "The Self-Driving Human"
 date: 2019-05-20T22:52:10-04:00
-draft: true
+draft: false 
 animatedImage: 'images/self_driving_human.gif'
 image: 'images/self-driving-human-image.jpg'
 weight: 1
@@ -14,7 +14,7 @@ The self-driving human is a device and performance where an intelligant portable
 
 <!--more-->
 
-{{< vimeo 331468540 >}}
+{{< vimeo 337308779 >}}
 
 > Every day millions of people decide to grant their smartphone a bit more control over their lives…in pursuit of health, happiness and power, humans will gradually change first one of their features and then another, and another, until they will  no longer be human.
 
@@ -22,7 +22,9 @@ The self-driving human is a device and performance where an intelligant portable
 
 As technology increasingly becomes integrated with our daily lives, we rely on it more and more to make decisions for us, from things such as how we should get from one place to the next (Waze), to what we should have for dinner (yelp, tripadvisor), to what content we should see on the internet (social media), to who we should date (dating apps). What would a future feel like when all of our decisions are made by these machines? The self-driving human simulates this scenario by making choices for the human in areas that are currently not decided by technology. 
 
-It’s a portable device that detects objects around the person using a camera and machine learning, and gives commands to the user on how to interact with the environment based on an arbitrary algorithm that changes day by day. It allows the person to outsource thinking and decision making to an algorithm that they do not entirely understand. The agent’s decision space is limited to what the machine has been trained to see.  How do the choices made by the algorithm collide with the humans desires when they’re disconnected from the biases and emotions of that the person has learned throughout his or her life? 
+{{<>}}
+
+It’s a portable device that detects objects around the person using a camera and machine learning, and gives commands to the user on how to interact with the environment. How do the choices made by the algorithm collide with the humans desires when they’re disconnected from the biases and emotions of that the person has learned throughout his or her life? 
 
 The device is portable and works totally offline using machine learning on the edge, allowing for real-time response even where there is no internet connection, and maintaining privacy as all data stays on the device.
 
