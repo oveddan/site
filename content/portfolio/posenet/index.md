@@ -5,6 +5,7 @@ draft: false
 weight: -2
 image: 'images/posenet-multipose-resized.png'
 animatedImage: 'images/posenet-multipose-resized.gif'
+linkdirectlytoblog: "//medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5"
 showonlyimage: true
 ---
 

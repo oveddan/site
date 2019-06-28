@@ -5,7 +5,7 @@ draft: false
 image: 'images/shadybot.gif'
 animatedImage: 'images/shadybot.gif'
 showonlyimage: true
-weight: 2
+weight: 4
 ---
 
 The ShadyBot is an art car for the Robot Heart camp at Burning man.  
