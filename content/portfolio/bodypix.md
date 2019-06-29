@@ -5,7 +5,7 @@ draft: false
 weight: 2
 image: 'images/bodypix.png'
 animatedImage: 'images/bodypix.gif'
-linkdirectlytoblog: "//medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5"
+linkdirectlytoblog: "https://medium.com/tensorflow/introducing-bodypix-real-time-person-segmentation-in-the-browser-with-tensorflow-js-f1948126c2a0"
 showonlyimage: true
 ---
 
