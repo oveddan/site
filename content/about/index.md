@@ -3,7 +3,7 @@ date: 2016-11-05T21:05:33+05:30
 title: "About me"
 ---
 
-Dan Oved is a Brooklyn based artist and engineer who’s work is a collaboration between human and machine intelligence.   He open-sourced PoseNet and BodyPix, machine learning models created by researchers for extracting the human form from images and video.  His work crosses multiple discipines, from installation to performance to device, and explores themes of algorithmic decision making, real-time sensing machines, and the conflicting objectives between computers and the humans that created them.
+Dan Oved is a Brooklyn based artist and engineer who’s work is a collaboration between human and machine intelligence.   He open-sourced PoseNet and BodyPix, machine learning models created by researchers for extracting the human form from images and video.  His work crosses multiple disciplines, from installation to performance to device, and explores themes of algorithmic decision making, real-time sensing machines, and the conflicting objectives between computers and the humans that created them.
 
 {{< image src="images/danoved" >}}
 
