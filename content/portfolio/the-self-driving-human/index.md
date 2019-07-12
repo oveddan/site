@@ -10,7 +10,7 @@ aliases:
   - /self-driving-human
 ---
 
-The self-driving human is a device and performance where an intelligant portable agent makes decisions for participants in the real world. It is my masters thesis at ITP.
+The self-driving human is a device and performance where an intelligent portable agent makes decisions for participants in the real world. It is my masters thesis at ITP.
 
 <!--more-->
 
