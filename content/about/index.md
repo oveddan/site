@@ -7,6 +7,6 @@ Dan Oved is a Brooklyn based artist and engineer who’s work is a collaboration
 
 {{< image src="images/danoved" >}}
 
-He is a graduate of and resident researcher at ITP in NYU and has worked with the [Google Creative Lab](https://experiments.withgoogle.com/), [SYPartners](https://www.sypartners.com/), and [10x Management](https://www.10xmanagement.com/meet-our-new-10xers/dan-oved/).
+He is a graduate of and resident researcher at ITP in NYU and has worked with the [Google Creative Lab](https://experiments.withgoogle.com/), and [SYPartners](https://www.sypartners.com/).
 
 You can follow him on [twitter](https://twitter.com/oveddan), [github](https://github.com/oveddan), or [instagram.](https://www.instagram.com/stangogh/)
