@@ -35,7 +35,7 @@ an illuminated heart that sits atop the camps bus and was center of their partie
 
 {{< image src="images/mappingleds" caption="Mapping the LEDs in Madrix" >}}
 
-{{< original_image src="images/posenet" caption="I made a version of PoseNet that works offline and projected human poses using a webcam onto the side of the car" >}}
+{{< image src="images/posenet" caption="I made a version of PoseNet that works offline and projected human poses using a webcam onto the side of the car" >}}
 
 {{< image src="images/cleaningbrandeux" caption="I also helped build Brandeux, a giant logo-shaped animated LED wall" >}}
 
