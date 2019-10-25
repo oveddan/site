@@ -7,6 +7,8 @@ languageCode = "en-us"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = "UA-106896744-1"
 
+timeout = 20000
+
 [params]
   # Style options: default (pink), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
