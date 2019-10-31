@@ -16,20 +16,10 @@
     <![endif]-->
   ` | safeHTML }}
 
-<!-- Custom stylesheet - for your changes -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" }}
-{{ $fontawesome := resources.Get "css/vendor/font-awesome.min.css" }}
-{{ $owlcarousel := resources.Get "css/vendor/owl.carousel.css" }}
-{{ $owltheme := resources.Get "css/vendor/owl.theme.css" }}
-{{ $styledefault := resources.Get "css/vendor/style.default.css" }}
-{{ $vendor := slice $bootstrap $fontawesome $owlcarousel $owltheme $styledefault | resources.Concat "css/vendor.css" }}
 
-{{ $custom := resources.Get "css/custom.css" }}
-{{ $css := slice $vendor $custom | resources.Concat "css/bundle.css" }}
-{{ $minifiedcss := $css | minify | fingerprint}}
+{{ partial "css" }}
 
-<link href="{{ $minifiedcss.Permalink }}" rel="stylesheet">
 <link rel="shortcut icon" href="{{ "img/favicon.png" | absURL }}">
 
 {{ if .RSSLink }}
