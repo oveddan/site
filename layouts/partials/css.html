@@ -1,12 +1,9 @@
 {{ $bootstrap := resources.Get "css/vendor/bootstrap.css" }}
-{{ $fontawesome := resources.Get "css/vendor/font-awesome.min.css" }}
-{{ $owlcarousel := resources.Get "css/vendor/owl.carousel.css" }}
-{{ $owltheme := resources.Get "css/vendor/owl.theme.css" }}
 {{ $styledefault := resources.Get "css/vendor/style.default.css" }}
 {{ $vendor := slice $bootstrap $styledefault | resources.Concat "css/vendor.css" }}
 
 {{ $custom := resources.Get "css/custom.scss" | resources.ToCSS }}
-{{ $css := slice $vendor $custom | resources.Concat "css/bundle.css" }}
-{{ $minifiedcss := $css | minify | fingerprint}}
+{{ $minifiedcss := $custom | minify | fingerprint}}
 
+<link href="{{ $vendor.Permalink }}" rel="stylesheet">
 <link href="{{ $minifiedcss.Permalink }}" rel="stylesheet">
