@@ -15,65 +15,71 @@ figure figcaption {
 
 nav.navbar {
   box-shadow: 0 0 5px #ccc;
-}
 
-.navbar .container .navbar-brand {
-  color: #000;
-  width: 150px;
+  .navbar-brand {
+    color: #000;
+    width: 150px;
 
-  height: auto;
-  padding: 0;
-  margin-left: 0;
-  line-height: 80px;
-  font-size: 32px;
-}
-.navbar-default .navbar-brand:hover {
-  color: #000;
-  opacity: 60%;
-}
+    height: auto;
+    padding: 0;
+    margin-left: 0;
+    line-height: 80px;
+    font-size: 32px;
+  }
+  .navbar-brand:hover {
+    color: #000;
+    opacity: 60%;
+  }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #000;
-  text-decoration: underline;
-}
+  .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #000;
+    text-decoration: underline;
+  }
 
-.navbar-default .navbar-nav > li > a {
-  color: #000;
-}
+  .navbar-nav > li > a {
+    color: #000;
+  }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #000;
-  text-decoration: underline;
-}
+  .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #000;
+    text-decoration: underline;
+  }
 
-@media (min-width: 768px) {
-  .navbar-nav {
-    float: right;
+  ul.right {
+    margin: 0;
   }
 }
 
-.navbar .navbar-header {
-  float: left;
-  margin: 0;
-}
+// @media (min-width: 768px) {
+//   .navbar-nav {
+//     float: right;
+//   }
+// }
 
-.navbar-nav {
-  float: right;
-  line-height: 80px;
-  margin: 0;
-}
+// .navbar .navbar-header {
+//   float: left;
+//   margin: 0;
+// }
 
-.navbar-nav > li  {
-  float: left;
-}
+// .navbar-nav {
+//   float: right;
+//   line-height: 80px;
+//   margin: 0;
+// }
 
-.navbar-nav > li > a 
-{
-  line-height: 80px;
-  padding: 0 15px;
-  position: relative;
-  bottom: -5px;
-}
+// .navbar-nav > li  {
+//   @media (min-width: 768px) {
+//     float: left;
+//   }
+// }
+
+// .navbar-nav > li > a 
+// {
+//   line-height: 80px;
+//   padding: 0 15px;
+//   position: relative;
+//   bottom: -5px;
+// }
 
 .box-masonry .desktop  {
   display: none;
@@ -145,7 +151,11 @@ iframe {
   overflow: hidden;
   
   img {
-    height: 277px;
+    // Medium devices (tablets, 768px and up)
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 768px) { 
+      height: 277px;
+    }
     background-color: #f4f4f4;
   }
 

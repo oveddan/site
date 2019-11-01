@@ -1,5 +1,5 @@
 ---
-title: "Presence"
+title: "Presence - Gaze Detection Version 1"
 date: 2018-01-21T16:08:45-05:00
 draft: false
 weight: 2

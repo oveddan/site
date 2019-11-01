@@ -9,4 +9,4 @@ linkdirectlytoblog: "https://medium.com/tensorflow/introducing-bodypix-real-time
 showonlyimage: true
 ---
 
-BodyPix in an open-source machine learning model which allows for person and body-part segmentation. In collaboration with researchers at Google I open-sourced a Tensorflow.js version, allowing for it to be tinkered with and used in the browser with just a few lines of code.
+BodyPix in an open-source machine learning model which allows for person and body-part segmentation. In collaboration with researchers at Google I open-sourced a Tensorflow.js version of the model.

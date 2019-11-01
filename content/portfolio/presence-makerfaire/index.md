@@ -1,5 +1,5 @@
 ---
-title: "Presence at the MakerFaire: with PoseNet"
+title: "Presence"
 date: 2019-01-28T22:39:13-05:00
 draft: false
 image: 'images/presence-makerfaire.png'
@@ -7,7 +7,7 @@ animatedImage: 'images/presence-makerfaire.gif'
 weight: 0
 ---
 
-Presence at the MakerFaire was a modification of the existing Presence kinetic scultpure to use pose estimation powered by PoseNet as a form of gestural control.  It was presented at the 2018 Makerfaire, where its inaccuracies brought out entertaining behaviors from the viewers.
+Presence is a kinetic scultpure that use pose estimation powered by PoseNet to perceive and mimic the form of the viewer.  It was shown at the 2018 Makerfaire.
 
 <!--more-->
 

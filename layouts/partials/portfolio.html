@@ -1,8 +1,8 @@
 <div class='grid'>
+    {{ with .Site.GetPage "section" "portfolio" }}
     {{ $.Scratch.Set "counter" 0}}
-    {{ $portfolioPages := where .Site.Pages "Section" "portfolio"}}
-    {{ $lastPage := add (len $portfolioPages) -1 }}
-    {{ range sort $portfolioPages "Params.weight" "asc" }}
+    {{ $lastPage := add (len .Pages) -2 }}
+    {{ range sort .Pages "Params.weight" "asc" }}
         {{ if not .Params.hideFromHomePage }}
             {{ $counter := $.Scratch.Get "counter" }}
             {{ $positionInRow := mod $counter 3 }}
@@ -22,7 +22,7 @@
                     {{ else }}
                       <a href="{{ $link }}" title="">
                     {{ end }}
-                      <img src="{{ .Params.image }}" data-animated="{{ .Params.animatedImage }}" alt="" class="img-responsive lazy-load figure-img">
+                      <img src="{{ .Params.image }}" data-animated="{{ .Params.animatedImage }}" alt="" class="img-responsive lazy-load card-img-top">
                     </a>
                   {{ end }}
                   <div class="card-body">
@@ -31,6 +31,7 @@
                   </div>
             </div>
             {{ if eq $counter $lastPage }}
+                <div class="card-body">
                 </div>
             {{ else if eq $positionInRow 2 }}
               </div>
@@ -42,4 +43,5 @@
        </div>
     {{ end }}  */}}
   </div>
+  {{ end }}
 </div>

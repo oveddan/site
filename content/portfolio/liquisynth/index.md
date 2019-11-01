@@ -11,13 +11,15 @@ aliases: [
 ]
 ---
 
-The Liquisynth is a musical instrument and live performance that was created for the NIME class at ITP and Creating for Interactive Media taught by Morton Subotnick.  It modulates sounds in response to the characteristics of liquids as they mix, as a combination of randomness and control.
+The Liquisynth is a musical instrument and live performance that modulates sounds in response to the characteristics of liquids as they mix, as a combination of randomness and control.
 
 <!--more-->
 
 {{< vimeo 306609248 >}}
 
 ---
+
+The Liquisynth was created for the NIME class at ITP and Creating for Interactive Media taught by Morton Subotnick.  
 
 > Playing a modular is a bit like cooking with many ingredients, tasting and sampling along the way until arriving at the precise combination that produces a delicious result.  I think of randomness as a spice, and just as you wouldn't want to throw a whole fistful of salt into a salad dressing, you want to use care to set the limits for any control voltage operation, to tweak it like a fine chef.
 
