@@ -1,18 +1,13 @@
 {{ $jquery := resources.Get "js/vendor/jquery.min.js" }}
 {{ $modal := resources.Get "js/vendor/jquery.modal.js" }}
-{{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js" }}
-{{ $cookie := resources.Get "js/vendor/jquery.cookie.js" }}
 {{ $lightbox := resources.Get "js/vendor/ekko-lightbox.js" }}
-{{ $scrollto := resources.Get "js/vendor/jquery.scrollTo.min.js" }}
-{{ $masonry := resources.Get "js/vendor/masonry.pkgd.min.js" }}
 {{ $imagesloaded := resources.Get "js/vendor/imagesloaded.pkgd.min.js" }}
-{{ $owl := resources.Get "js/vendor/owl.carousel.min.js" }}
 {{ $front := resources.Get "js/vendor/front.js" }}
 
-{{ $vendor_non_minified := slice $modal $cookie $lightbox $front | resources.Concat "js/vendor_non_minified.js" }}
+{{ $vendor_non_minified := slice $modal | resources.Concat "js/vendor_non_minified.js" }}
 {{ $vendor_non_minified_minified := $vendor_non_minified | minify }}
 
-{{ $vendor := slice $jquery $bootstrap $scrollto $masonry $imagesloaded $owl $vendor_non_minified_minified | resources.Concat "js/vendor.js" }}
+{{ $vendor := slice $jquery $vendor_non_minified_minified | resources.Concat "js/vendor.js" }}
 
 {{ $custom := resources.Get "js/index.js" | minify }}
 
