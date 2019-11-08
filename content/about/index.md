@@ -1,6 +1,6 @@
 ---
 date: 2016-11-05T21:05:33+05:30
-title: "About me"
+title: "About Dan"
 ---
 
 Dan Oved is a Brooklyn based artist and engineer whose work is a collaboration between human and machine intelligence.   He open-sourced [PoseNet](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5) and [BodyPix](https://medium.com/tensorflow/introducing-bodypix-real-time-person-segmentation-in-the-browser-with-tensorflow-js-f1948126c2a0), machine learning models for perceiving the human form from images and video.  His work crosses multiple disciplines, from installation to performance to device, and explores themes of algorithmic decision making, real-time sensing machines, and the conflicting objectives between computers and the humans that created them.

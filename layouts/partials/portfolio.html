@@ -7,9 +7,9 @@
             {{ $counter := $.Scratch.Get "counter" }}
             {{ $positionInRow := mod $counter 3 }}
             {{ if eq $positionInRow 0 }}
-              <div class="card-deck mt-4">
+              <div class="card-deck mt-1 mt-md-4">
             {{ end }}
-            <div class="card">
+            <div class="card mb-1">
                 {{ if isset .Params "linkdirectlytoblog" }}
                   {{ .Scratch.Set "link" .Params.linkdirectlytoblog }}
                 {{ else }}
