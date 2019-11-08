@@ -426,7 +426,7 @@ SIDEBAR + RIGHT COLUMN
   font-family: 'FontAwesome';
   content: '\f105';
   margin: 0 5px 0 -15px;
-  color: #ef5285;
+  /* color: #ef5285; */
 }
 .small-navbar {
   margin-bottom: 20px;
@@ -454,7 +454,7 @@ SIDEBAR + RIGHT COLUMN
   transition: all 0.2s ease-out;
 }
 .small-navbar-heading a:hover {
-  border-bottom: dotted 1px #ef5285;
+  /* border-bottom: dotted 1px #ef5285; */
   color: #000;
   text-decoration: none;
 }
@@ -621,8 +621,8 @@ p.social a {
              */
 }
 p.social a:hover {
-  color: #ef5285;
-  border-color: #ef5285;
+  /* color: #ef5285; */
+  /* border-color: #ef5285; */
 }
 p.social a i {
   vertical-align: bottom;
@@ -636,16 +636,16 @@ p.social.social--outline a.facebook {
   border-color: #4460ae;
 }
 p.social.social--outline a.gplus {
-  color: #c21f25;
-  border-color: #c21f25;
+  /* color: #c21f25; */
+  /* border-color: #c21f25; */
 }
 p.social.social--outline a.twitter {
   color: #3cf;
   border-color: #3cf;
 }
 p.social.social--outline a.instagram {
-  color: #cd4378;
-  border-color: #cd4378;
+  /* color: #cd4378; */
+  /* border-color: #cd4378; */
 }
 p.social.social--outline a.email {
   color: #4a7f45;
@@ -1276,7 +1276,7 @@ STYLE SWITCHER FOR DEMO
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #cdcdcd;
-  border-color: #ef5285;
+  /* border-color: #ef5285; */
 }
 .nav-tabs {
   border-bottom: 1px solid #dddddd;
@@ -1619,12 +1619,12 @@ body {
   background-color: #f4f4f4;
 }
 a {
-  color: #ef5285;
+  /* color: #ef5285; */
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #e01557;
+  /* color: #e01557; */
   text-decoration: underline;
 }
 a:focus {

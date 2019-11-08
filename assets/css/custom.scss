@@ -4,8 +4,22 @@ figure {
   display: inline-block;
 }
 
+$color1: #0c093c;
+$color2: #df42d1;
+$color3: #eea5f6;
+$color4: #fad6d6;
+$color5: #fff;
+
+$navcolor: $color1;
+$brandcolor: $color5;
+$navlinkcolor: $color5;
+
 figure {
   margin: 0 0 1rem;
+}
+
+a, a:hover {
+  color: $color1;
 }
 
 figure figcaption {
@@ -14,86 +28,63 @@ figure figcaption {
 }
 
 nav.navbar {
-  box-shadow: 0 0 5px #ccc;
+  background-color: $navcolor;
+  height: 3.5em;
+  padding: 0;
+  min-height: auto;
+  font-family: 'Hammersmith One', sans-serif;
 
-  .navbar-brand {
-    color: #000;
+  a.brand {
     width: 150px;
 
+    color: $brandcolor;
+
     height: auto;
-    padding: 0;
-    margin-left: 0;
-    line-height: 80px;
-    font-size: 32px;
+    
+    line-height: .5rem;
+    font-size: 2em;
+
+    margin-bottom: -0.4em;
+
+    :hover {
+      opacity: 60%;
+    }
   }
-  .navbar-brand:hover {
-    color: #000;
+
+  ul {
+    margin-bottom: -1.4em;
+  }
+
+  .nav > li > a {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .nav ul li:hover {
+    background-color: $navcolor;
+  }
+
+  a:hover, .nav li > a:hover {
+    text-decoration: none;
+    background-color: $navcolor;
     opacity: 60%;
   }
 
-  .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #000;
-    text-decoration: underline;
-  }
+  .nav {
 
-  .navbar-nav > li > a {
-    color: #000;
-  }
+    > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+      color: $navlinkcolor;
+      text-decoration: underline;
+    }
 
-  .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #000;
-    text-decoration: underline;
-  }
+    > li > a {
+      color: $navlinkcolor;
+    }
 
-  ul.right {
-    margin: 0;
-  }
-}
-
-// @media (min-width: 768px) {
-//   .navbar-nav {
-//     float: right;
-//   }
-// }
-
-// .navbar .navbar-header {
-//   float: left;
-//   margin: 0;
-// }
-
-// .navbar-nav {
-//   float: right;
-//   line-height: 80px;
-//   margin: 0;
-// }
-
-// .navbar-nav > li  {
-//   @media (min-width: 768px) {
-//     float: left;
-//   }
-// }
-
-// .navbar-nav > li > a 
-// {
-//   line-height: 80px;
-//   padding: 0 15px;
-//   position: relative;
-//   bottom: -5px;
-// }
-
-.box-masonry .desktop  {
-  display: none;
-}
-.box-masonry .mobile {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .box-masonry .desktop  {
-    display: block;
-  }
-  .box-masonry .mobile {
-    display: none;
+    > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+      // color: #000;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -103,7 +94,7 @@ nav.navbar {
   }
 
   &.white-background p, &.white-background li {
-    color: #000;
+    color: #fff;
 
     font-size: 21px;
     line-height: 33px;
@@ -146,7 +137,9 @@ iframe {
 }
 
 .card {
-  border: none;
+  // border: ;
+
+  border-radius: 0;
 
   overflow: hidden;
   
