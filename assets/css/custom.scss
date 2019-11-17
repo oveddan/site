@@ -65,9 +65,9 @@ nav.navbar {
   }
 
   a:hover, .nav li > a:hover {
-    text-decoration: none;
     background-color: $navcolor;
     opacity: 60%;
+    text-decoration: none;
   }
 
   .nav {
