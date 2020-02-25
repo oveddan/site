@@ -13,8 +13,8 @@ timeout = 60000
   # Style options: default (pink), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
   style = "default"
-  description = "Dan Oved's Portfolio"
-  copyright = "&copy;2016 Dan Oved"
+  description = "Dan Oved's Portfolio - Dan Oved is an artist and engineer whose work is a collaboration between human and machine intelligence."
+  copyright = "&copy;2020 Dan Oved"
   sidebarAbout = [
     "I am a full-stack developer and creative engineer connecting the digital with the analog world.",
     "Graduate student at ITP @ NYU"
