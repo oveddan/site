@@ -1,4 +1,5 @@
 # points blog request to the blog site
-/blog/* https://danblog.netlify.com/blog/:splat 200!
+/blog/* https://danblog.netlify.app/blog/:splat 200!
+/cv/* https://danoved-cv.netlify.app/blog/:splat 200!
 http://danoved.netlify.com/* http://www.danioved.com/:splat 301!
 https://danoved.netlify.com/* http://www.danioved.com/:splat 301!
