@@ -9,7 +9,7 @@ linkdirectlytoblog: "//medium.com/tensorflow/real-time-human-pose-estimation-in-
 showonlyimage: true
 ---
 
-PoseNet in a machine learning model which allows for real-time human pose estimation with any webcam.  In collaboration with the Google Creation lab, I open-sourced an easy to use Tensorflow.js version of the model.
+PoseNet in a machine learning model which allows for real-time human pose estimation with any webcam.  In collaboration with the Google Creative Lab, I open-sourced an easy to use Tensorflow.js version of the model.
 
 <!--more-->
 
