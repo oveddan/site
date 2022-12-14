@@ -25,6 +25,7 @@ export const ResizedImageWithCaption = ({
       <img src="{{ $image.RelPermalink }}" style={{ width: "100%" }} />
     </a> */}
     <Image
+      className="w-full rounded-lg"
       src={src}
       alt={caption || ''}
       // width={500} automatically provided
