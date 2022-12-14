@@ -1,17 +1,19 @@
----
-title: 'NIME: The Liquisynth'
-date: 2018-12-12T13:43:46-05:00
-draft: false
-image: 'images/nime.png'
-animatedImage: 'images/nime_performance.gif'
-weight: -1
-aliases: ['/liquidsynth/', '/liquisynth/']
-summary: The Liquisynth is a musical instrument and live performance that modulates sounds in response to the characteristics of liquids as they mix, as a combination of randomness and control.
----
+import { PortfolioPageLayout } from '@/components/PortfolioPageLayout';
+import { Vimeo, YouTube, ResizedImageWithCaption as Image } from '@/components/partials';
 
-{{< vimeo 306609248 >}}
+export const meta = {
+  title: 'NIME: The Liquisynth',
+  date: Date.parse('2018-12-12T13:43:46-05:00'),
+  draft: false,
+  image: 'images/nime.png',
+  animatedImage: 'images/nime_performance.gif',
+  weight: -1,
+  aliases: ['/liquidsynth/', '/liquisynth/'],
+  summary:
+    'The Liquisynth is a musical instrument and live performance that modulates sounds in response to the characteristics of liquids as they mix, as a combination of randomness and control.',
+};
 
----
+<Vimeo videoId="306609248" />
 
 The Liquisynth was created for the NIME class at ITP and Creating for Interactive Media taught by Morton Subotnick.
 
@@ -33,18 +35,21 @@ During sound check, the person in charge of audio said it would only be possible
 
 ## The Parts of the Instrument
 
-{{< image src ="images/LiquiSynthHolders" >}}
+<Image src={require('./images/LiquiSynthHolders.png')} />
 
 The physical part of the instrument is built using different containers of liquid placed in front of white translucent acrylic material. All of the containers were vintage and purchased second hand, with a form selected to match the effect it would have on the sound. Strong, bright white neutral LEDs illuminate this material, allowing the liquids to be visible from a camera with low exposure and from an audience member far away in the crowd.
 
-{{< image src="images/partsForStand" caption="Laser cut arcylic for the liquid holder stand. A circle the size of the base of the glass provides a shallow layer that makes sure the glass is in the same place every time when it's placed in front of the camera." >}}
+<Image
+  src={require('./images/partsForStand.JPG')}
+  caption="Laser cut arcylic for the liquid holder stand. A circle the size of the base of the glass provides a shallow layer that makes sure the glass is in the same place every time when it's placed in front of the camera."
+/>
 
 ## The parts of the performance and composition
 
 ### Low Frequency Oscillation from the mixing of oil colors
 
-{{< image src="images/StartingMixing" >}}
-{{< image src="images/MoreIntenseMixing" >}}
+<Image src={require('./images/StartingMixing.png')} />
+<Image src={require('./images/MoreIntenseMixing.png')} />
 
 #### The Change Measurement
 
@@ -57,13 +62,13 @@ This value is sent as a midi control value into Ableton, which uses multimap to 
 
 Fortunately Modular included a wonderful example Drone patch by Todd Barton. It uses a low frequency sin Oscillator to warp a drone sound, which is then sent through a reverb, accomplishing a wonderfly meditative feeling with just a few modules. I modified this patch to replace the low frequency sin with control voltage from a knob that is turned by the water color change value from above:
 
-{{< youtube kJEyvvVgSAA >}}
+<YouTube videoId="kJEyvvVgSAA" />
 
 #### Quad
 
 I wanted this sound to move back and forth around the room, with the speed in the movement being changed by the amount of color change. This would cause the sound to move quickly back and forth when the visuals were intense. I originally used LFOs in max for live which controlled x and y, but this ended up taking a lot of CPU. I changed this to be calculated in TouchDesigner, which is a much more performannt application. These calculations are sent as midi control values that are mapped to x and y of the sound in Ableton.
 
-{{< original_image src="images/surroundpanner.gif" >}}
+<Image src={require('./images/surroundpanner.gif')} />
 
 ##### What went wrong during the performance.
 
@@ -71,7 +76,7 @@ Right before the performance I tested this out by holding up water paint contain
 
 ### Envelope follower from a home-made lava lamp.
 
-{{< image src="images/oiltimercolored" >}}
+<Image src={require('./images/oiltimercolored.png')} />
 
 For the second part, a black piece of acrylic is slowly lifted up to reveal the light behind it and the glass of baby oil and water that light is illuminating. A digital crop of the camera feed, pointed at this glass, detects the brightness in the hsv space within its crop.
 
@@ -79,11 +84,14 @@ This amount of brightness applies a low pass filter to the drone sound, while op
 
 Drops of water color concentrate are dropped into this glass, but unlike the previous stop they bead up and fall rapidly to the bottom. The speed and amount of the colorig dropping through the glass is quantified using [optical flow,](https://en.wikipedia.org/wiki/Optical_flow) a way to measure the measure motion of objects, using an OpticalFlow palette that comes with TouchDesigner. The palette returns vectors at each pixel for the x and y motion at each pixel. The sum of the absolute values of these vectors is used as a midi control value which is mapped to an envelope in Ableton.
 
-{{< youtube cfv1AOJIL74 >}}
+<YouTube videoId="cfv1AOJIL74" />
 
 This envelope affects the amount of randomness and the speed in which the sound for this phase moves around the room. This is inspired by what we learned from Morton Subotnick where he creates envelope followers from his voice.
 
-{{< image src="images/morton" caption="Morton Subotnick demonstrating how he uses an envelope follower of his voice to generate envelopes for other sounds.  I used a similar technique by having the motion of liquids generate an envelope.">}}
+<Image
+  src={require('./images/mortonEnvelope.JPG')}
+  caption="Morton Subotnick demonstrating how he uses an envelope follower of his voice to generate envelopes for other sounds.  I used a similar technique by having the motion of liquids generate an envelope."
+/>
 
 For this sound, I wanted a patch that could have a single knob turned, which is tied to the envelope, and have that knob affect intensity and randomness of a sound. I discovered the LPG water patch provided by Modular which worked really well. It has a few oscillators in high pitches connected to low pass gates with frequency modulation from noise. The amount of times these gates are pulsed was affected by turning a performance knob. Via midi, that performorance knob is linked to the midi control value from envelope above.
 
@@ -93,7 +101,7 @@ For quad, the sound slowly traveled around the room using sin oscillations. The 
 
 For this step, a liquid timer is observed. When zoomed in close up, new drops of liquid come into frame at a regular interval. Each new drop triggers a pulse.
 
-{{< image src="images/liquidtimer" >}}
+<Image src={require('./images/liquidtimer.png')} />
 
 This is converted to a pulse by taking the amount of saturation, smoothing this value, and calculating the slope/derivative. When this is positive it pulses on and visa-versa:
 
@@ -103,11 +111,11 @@ This pulse is sent as a midi note on message. In Ableton, this was originally ma
 
 I wanted to make a patch that would by rythmic with the pulse. It took me a while to find something but I stumbled upon For the It took me a while to settle on a sound for this. I stumbled upon a Todd Barton video on a MARF sequence and it sounded really good:
 
-{{< youtube tfPHcnASfYE >}}
+<YouTube videoId="tfPHcnASfYE" />
 
 After reaching out to him about it - he generously provided me an awesome instructional video on how to make one in Softube:
 
-{{< youtube rp5j57GVDeY>}}
+<YouTube videoId="rp5j57GVDeY" />
 
 I changed this patch then to use the DAW Sync for pulse instead of the LFO, allowing it to be linked to the smoothed pulse of the liquids.
 
@@ -115,7 +123,7 @@ I added some randomness to the warp of each beat, and which speaker (left/right)
 
 Todd also suggested I check out the 4ms Spectral Multiband Resonator. I got the trial for this and totally loved it. So many nice sounds could be played with different types of resonance and tuned to different scales. I found some scale that sounded good, and linked the playing of each note to the quarter and eighth beat, layering this on top of the percussive sound described above:
 
-{{< youtube xFZO15vIZ88 >}}
+<YouTube videoId="xFZO15vIZ88" />
 
 During the show this sound was meant to travel front and back, but the rear speakers were off so it went quiet many times. Listening back this was kind of a nice effect that added a bit of randomness.
 
@@ -125,7 +133,10 @@ For the final stage, the aciditiy of a liquid is used as a source of modulation 
 
 The liquid is changed back and forth between blue and yellow by adding things that either make it more basic or acidic. It is also made acidic by blowing into it into a straw.
 
-{{< image src="images/yellowtoblue" caption="Using a pH indicator to change a glass of liquid from yellow to blue.  Here, bubbles were blown into the liquid to make it acidic, turning it yellow, and Oxyclean is added gradually making it basic and turning it blue.  The hue and saturation of this liquid can be measured and used to modulate sounds." >}}
+<Image
+  src={require('./images/yellowtoblue.png')}
+  caption="Using a pH indicator to change a glass of liquid from yellow to blue.  Here, bubbles were blown into the liquid to make it acidic, turning it yellow, and Oxyclean is added gradually making it basic and turning it blue.  The hue and saturation of this liquid can be measured and used to modulate sounds."
+/>
 
 With this technique, a sound can be made to go slowly back and forth between different states. This can allow for a slow fade with a bit of randomness affecting the slope, making it feel less mechanical.
 
@@ -143,15 +154,15 @@ As closure for this semester, I hooked up the system to the Buchla 200e at Stein
 
 Drone controlled by coloration of liquids:
 
-{{< youtube tM_giBZBIEw >}}
+<YouTube videoId="tM_giBZBIEw" />
 
 Envelope follower of home made lava lamp:
 
-{{< youtube kAx9-aoqfQ4 >}}
+<YouTube videoId="kAx9-aoqfQ4" />
 
 Sending pulses:
 
-{{< youtube RfgFqPKwG74 >}}
+<YouTube videoId="RfgFqPKwG74" />
 
 ## Special thanks
 
@@ -163,4 +174,9 @@ Special thanks goes to:
 - The ITP residents for their constant support and amazing documentation work.
 - MH Rahmani for his awesome editing and Adobe Premiere Skills
 
-{{< image src="images/todd" caption="Todd Barton giving us a live demo of the Buchla Easel.  He was a wonderful mentor for this project.">}}
+<Image
+  src={require('./images/ToddBarton.jpg')}
+  caption="Todd Barton giving us a live demo of the Buchla Easel.  He was a wonderful mentor for this project."
+/>
+
+export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout>;

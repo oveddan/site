@@ -1,13 +1,40 @@
 import Image from 'next/image';
+import { CSSProperties } from 'react';
+import { InstagramEmbed } from 'react-social-media-embed';
+
+const videoWrapperStyles: CSSProperties = {
+  position: 'relative',
+  paddingBottom: '56.25%',
+  height: 0,
+  overflow: 'hidden',
+};
+const videoStyles: CSSProperties = { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 };
 
 export const Vimeo = ({ videoId }: { videoId: string }) => (
-  <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+  <div style={videoWrapperStyles}>
     <iframe
       src={`https://player.vimeo.com/video/${videoId}`}
-      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+      style={videoStyles}
       title="vimeo video"
       allowFullScreen
     ></iframe>
+  </div>
+);
+
+export const YouTube = ({ videoId }: { videoId: string }) => (
+  <div style={videoWrapperStyles}>
+    <iframe
+      src={`https://www.youtube.com/embed/${videoId}`}
+      style={videoStyles}
+      allowFullScreen
+      title="YouTube Video"
+    ></iframe>
+  </div>
+);
+
+export const Instagram = ({ postId }: { postId: string }) => (
+  <div style={{ display: 'flex', justifyContent: 'center' }} className="my-8">
+    <InstagramEmbed url={`https://www.instagram.com/p/${postId}/`} width={700} captioned />
   </div>
 );
 

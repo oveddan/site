@@ -1,10 +1,7 @@
 import { join } from 'path';
-import { readdirAsync, readFileAsync } from './util';
-import matterReader from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import { readdirAsync } from './util';
 
-const portfolioFolder = join(process.cwd(), 'content/portfolio');
+const portfolioFolder = join(process.cwd(), 'src/pages/portfolio');
 
 export type PortfolioItemMeta = {
   title: string;
@@ -17,25 +14,12 @@ export type PortfolioItemMeta = {
   summary: string;
 };
 
-export type PortfolioItem = PortfolioItemMeta & {
-  content: string;
-};
-
 const getPortfolioItem = async (slug: string) => {
   // read the portfolio file
-  const portfolioFile = await readFileAsync(join(portfolioFolder, slug, 'index.md'), 'utf8');
+  const { meta } = await import(`../pages/portfolio/${slug}/index.mdx`);
   // parse its matter
-  const { data, content } = await matterReader(portfolioFile);
 
-  const processedContent = (await remark().use(html).process(content)).toString();
-
-  const portfolioItem: PortfolioItem = {
-    ...(data as Omit<PortfolioItem, 'content'>),
-    date: Date.parse(data.date),
-    content: processedContent,
-  };
-
-  return portfolioItem;
+  return meta as PortfolioItemMeta;
 };
 
 export const getPortfolioItems = async () => {

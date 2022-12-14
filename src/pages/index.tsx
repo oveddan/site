@@ -1,10 +1,10 @@
-import { getPortfolioItems, PortfolioItem } from '@/api/portfolio';
+import { getPortfolioItems, PortfolioItemMeta } from '@/api/portfolio';
 import { Container } from '@/components/Container';
 import Layout from '@/components/Layout';
 import { GetStaticProps, NextPage } from 'next';
 
 interface Props {
-  portfolioItems: PortfolioItem[];
+  portfolioItems: PortfolioItemMeta[];
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
