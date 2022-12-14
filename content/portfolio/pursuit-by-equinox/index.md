@@ -6,23 +6,22 @@ weight: 2
 image: 'images/pursuit_sized_image.gif'
 animatedImage: 'images/pursuit_sized.gif'
 showonlyimage: true
----
-
-The Pursuit by Equinox is a gamified group cycling class driven by 500,000 records of data per session to display a Canne’s Lion winning visual experience. 700+ classes are hosted per month at Equinox locations across the United States.  I was the lead developer
+summary: The Pursuit by Equinox is a gamified group cycling class driven by 500,000 records of data per session to display a Canne’s Lion winning visual experience. 700+ classes are hosted per month at Equinox locations across the United States.  I was the lead developer
 on this project.
-
-<!--more-->
+---
 
 {{< vimeo 207479575 >}}
 
 ---
 
 ##### Role: Lead Developer
+
 ##### Team Size: 6
+
 ##### Technologies: React, Redux, Node.js, RxJS, Three.js, glsl shaders, Websockets
 
 I was the lead developer on a team that re-built the gaming and visualization platform from the ground up to be flexible and robust.
-We converted it to use a single directional data-flow with redux on the server to centralize the state, 
+We converted it to use a single directional data-flow with redux on the server to centralize the state,
 and react, three.js, and webgl on the client to render real-time visualizations.
 
 The new platform reduced the time it takes to build and release a game from 4 to 1.5 months,

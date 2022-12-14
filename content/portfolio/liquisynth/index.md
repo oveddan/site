@@ -1,47 +1,41 @@
 ---
-title: "NIME: The Liquisynth"
+title: 'NIME: The Liquisynth'
 date: 2018-12-12T13:43:46-05:00
 draft: false
 image: 'images/nime.png'
 animatedImage: 'images/nime_performance.gif'
 weight: -1
-aliases: [
-    "/liquidsynth/",
-    "/liquisynth/",
-]
+aliases: ['/liquidsynth/', '/liquisynth/']
+summary: The Liquisynth is a musical instrument and live performance that modulates sounds in response to the characteristics of liquids as they mix, as a combination of randomness and control.
 ---
-
-The Liquisynth is a musical instrument and live performance that modulates sounds in response to the characteristics of liquids as they mix, as a combination of randomness and control.
-
-<!--more-->
 
 {{< vimeo 306609248 >}}
 
 ---
 
-The Liquisynth was created for the NIME class at ITP and Creating for Interactive Media taught by Morton Subotnick.  
+The Liquisynth was created for the NIME class at ITP and Creating for Interactive Media taught by Morton Subotnick.
 
-> Playing a modular is a bit like cooking with many ingredients, tasting and sampling along the way until arriving at the precise combination that produces a delicious result.  I think of randomness as a spice, and just as you wouldn't want to throw a whole fistful of salt into a salad dressing, you want to use care to set the limits for any control voltage operation, to tweak it like a fine chef.
+> Playing a modular is a bit like cooking with many ingredients, tasting and sampling along the way until arriving at the precise combination that produces a delicious result. I think of randomness as a spice, and just as you wouldn't want to throw a whole fistful of salt into a salad dressing, you want to use care to set the limits for any control voltage operation, to tweak it like a fine chef.
 
-~ Suzanne Ciani in Patch & Tweak, 2018*
+~ Suzanne Ciani in Patch & Tweak, 2018\*
 
-Often in electronic music, randomness is added and finely tuned by composers to give the sound a more organic feeling.  What happens when we replace this source of randomness with something that occurs in a natural or organic form?  The Liquisynth explores this concept by using cameras to detect the characteristics of different kinds of liquids and how they slowly change, and uses these changes as random values to modulate pitch, timbre, envelopes, and more in sounds.   All of the sounds are synthesized live using highly accurate software reproductions of analog synthesizers, such as the Buchla 259e twisted waveform generator, to give it a more organic feeling and provide many knobs and degrees of control.
+Often in electronic music, randomness is added and finely tuned by composers to give the sound a more organic feeling. What happens when we replace this source of randomness with something that occurs in a natural or organic form? The Liquisynth explores this concept by using cameras to detect the characteristics of different kinds of liquids and how they slowly change, and uses these changes as random values to modulate pitch, timbre, envelopes, and more in sounds. All of the sounds are synthesized live using highly accurate software reproductions of analog synthesizers, such as the Buchla 259e twisted waveform generator, to give it a more organic feeling and provide many knobs and degrees of control.
 
-While this instrument was created for the NIME live performance, it can also be used as a platform or tool to allow different types of motion or changes in color to affect sound.   In effect the audio is driven by the visuals.
+While this instrument was created for the NIME live performance, it can also be used as a platform or tool to allow different types of motion or changes in color to affect sound. In effect the audio is driven by the visuals.
 
-The instrument was built using TouchDesigner for all visual aspects including motion and color change detection, and projection during the performance.  TouchDesigner would then send Midi control values and pulses into Ableton, which acted as a host for a Softube Modular - a software based replica of hardware modular synthesizers.  Ableton would use these midi values to turn knobs and send control voltages into Softube Modular.  This way, the changes in what was viewed by the camera would instantly affect sounds in many different ways.  
+The instrument was built using TouchDesigner for all visual aspects including motion and color change detection, and projection during the performance. TouchDesigner would then send Midi control values and pulses into Ableton, which acted as a host for a Softube Modular - a software based replica of hardware modular synthesizers. Ableton would use these midi values to turn knobs and send control voltages into Softube Modular. This way, the changes in what was viewed by the camera would instantly affect sounds in many different ways.
 
-Because of the tight integration, the viewers brain can associate changes in visual and sound together, making the correlation clear.  Additionally, the randomness that is sourced from these changes does not seem as computerized as if it was generated by a machine, but feels more natural as it's tied to something organic. 
+Because of the tight integration, the viewers brain can associate changes in visual and sound together, making the correlation clear. Additionally, the randomness that is sourced from these changes does not seem as computerized as if it was generated by a machine, but feels more natural as it's tied to something organic.
 
 The performance was designed to be in quadrophonic, and the positions of the sounds were controlled independently of each other, using the Max for Live [Surround Panner](https://www.ableton.com/en/packs/surround-panner/) plugin.
 
- During sound check, the person in charge of audio said it would only be possible to do 3 channel (2 in the front and one in the back), so I modified Ableton to send all rear channels to the same speaker.  Mistakingly, during the performance the back speaker was never turned on, so often the sound went quiet.  No one seemed to notice and most people commented that it sounded good.
+During sound check, the person in charge of audio said it would only be possible to do 3 channel (2 in the front and one in the back), so I modified Ableton to send all rear channels to the same speaker. Mistakingly, during the performance the back speaker was never turned on, so often the sound went quiet. No one seemed to notice and most people commented that it sounded good.
 
 ## The Parts of the Instrument
 
 {{< image src ="images/LiquiSynthHolders" >}}
 
-The physical part of the instrument is built using different containers of liquid placed in front of white translucent acrylic material.  All of the containers were vintage and purchased second hand, with a form selected to match the effect it would have on the sound.  Strong, bright white neutral LEDs illuminate this material, allowing the liquids to be visible from a camera with low exposure and from an audience member far away in the crowd.
+The physical part of the instrument is built using different containers of liquid placed in front of white translucent acrylic material. All of the containers were vintage and purchased second hand, with a form selected to match the effect it would have on the sound. Strong, bright white neutral LEDs illuminate this material, allowing the liquids to be visible from a camera with low exposure and from an audience member far away in the crowd.
 
 {{< image src="images/partsForStand" caption="Laser cut arcylic for the liquid holder stand. A circle the size of the base of the glass provides a shallow layer that makes sure the glass is in the same place every time when it's placed in front of the camera." >}}
 
@@ -54,60 +48,60 @@ The physical part of the instrument is built using different containers of liqui
 
 #### The Change Measurement
 
-At the start of the composition, drops of different colored water-color concentrate are dropped into a large jar of water.  A camera, which is focused on the jar, measures the change in color pixel by pixel.  To do this, the image is converted from rgb to hsv space and the hue values are used to determine what type of color is in each pixel.  This is then compared to the same values pixel by pixel from 10 seconds before by subtracting the previous values from the current.  The average value of the difference is
-is scaled to range between 0 and 1.  This change in hue ends up looking like a randomly affected low frequency oscillator.
+At the start of the composition, drops of different colored water-color concentrate are dropped into a large jar of water. A camera, which is focused on the jar, measures the change in color pixel by pixel. To do this, the image is converted from rgb to hsv space and the hue values are used to determine what type of color is in each pixel. This is then compared to the same values pixel by pixel from 10 seconds before by subtracting the previous values from the current. The average value of the difference is
+is scaled to range between 0 and 1. This change in hue ends up looking like a randomly affected low frequency oscillator.
 
 #### The Sound
 
-This value is sent as a midi control value into Ableton, which uses multimap to turn knobs in a Softube Modular patch.  For this patch, I wanted to use a drony sound that had gradual changes. I was particularly inspired by the opening of the [Sunergy by Kaitlyn Aurelia Smith & Suzanne Ciani](https://www.youtube.com/watch?v=cZrbBd8B4JI) which has a slowly warped sound that moves ear to ear.
+This value is sent as a midi control value into Ableton, which uses multimap to turn knobs in a Softube Modular patch. For this patch, I wanted to use a drony sound that had gradual changes. I was particularly inspired by the opening of the [Sunergy by Kaitlyn Aurelia Smith & Suzanne Ciani](https://www.youtube.com/watch?v=cZrbBd8B4JI) which has a slowly warped sound that moves ear to ear.
 
-Fortunately Modular included a wonderful example Drone patch by Todd Barton.  It uses a low frequency sin Oscillator to warp a drone sound, which is then sent through a reverb, accomplishing a wonderfly meditative feeling with just a few modules.  I modified this patch to replace the low frequency sin with control voltage from a knob that is turned by the water color change value from above:
+Fortunately Modular included a wonderful example Drone patch by Todd Barton. It uses a low frequency sin Oscillator to warp a drone sound, which is then sent through a reverb, accomplishing a wonderfly meditative feeling with just a few modules. I modified this patch to replace the low frequency sin with control voltage from a knob that is turned by the water color change value from above:
 
 {{< youtube kJEyvvVgSAA >}}
 
 #### Quad
 
-I wanted this sound to move back and forth around the room, with the speed in the movement being changed by the amount of color change.   This would cause the sound to move quickly back and forth when the visuals were intense.  I originally used LFOs in max for live which controlled x and y, but this ended up taking a lot of CPU.  I changed this to be calculated in TouchDesigner, which is a much more performannt application.  These calculations are sent as midi control values that are mapped to x and y of the sound in Ableton.
+I wanted this sound to move back and forth around the room, with the speed in the movement being changed by the amount of color change. This would cause the sound to move quickly back and forth when the visuals were intense. I originally used LFOs in max for live which controlled x and y, but this ended up taking a lot of CPU. I changed this to be calculated in TouchDesigner, which is a much more performannt application. These calculations are sent as midi control values that are mapped to x and y of the sound in Ableton.
 
 {{< original_image src="images/surroundpanner.gif" >}}
 
 ##### What went wrong during the performance.
 
-Right before the performance I tested this out by holding up water paint containers in front of the camera to see how they would affect the positional change.  As it wasn't affecting it much, I turned up the sensitivity exponentially, without properly testing this out.  When I performed on stage and used actual drops of liquid the detection was much stronger, causing the exponentially increased value to be too big and making the sound jitter around super strongly, creating a glitchy affect.  I recovered from this by going to the computer and disabling the surround panner for this sound, making it be mono through the two front speakers.  No one seemed to notice after even though I internally freaked out.
+Right before the performance I tested this out by holding up water paint containers in front of the camera to see how they would affect the positional change. As it wasn't affecting it much, I turned up the sensitivity exponentially, without properly testing this out. When I performed on stage and used actual drops of liquid the detection was much stronger, causing the exponentially increased value to be too big and making the sound jitter around super strongly, creating a glitchy affect. I recovered from this by going to the computer and disabling the surround panner for this sound, making it be mono through the two front speakers. No one seemed to notice after even though I internally freaked out.
 
 ### Envelope follower from a home-made lava lamp.
 
 {{< image src="images/oiltimercolored" >}}
 
-For the second part, a black piece of acrylic is slowly lifted up to reveal the light behind it and the glass of baby oil and water that light is illuminating.  A digital crop of the camera feed, pointed at this glass, detects the brightness in the hsv space within its crop.
+For the second part, a black piece of acrylic is slowly lifted up to reveal the light behind it and the glass of baby oil and water that light is illuminating. A digital crop of the camera feed, pointed at this glass, detects the brightness in the hsv space within its crop.
 
 This amount of brightness applies a low pass filter to the drone sound, while opening up the filter for a water like sound, providing a smooth transition to this new stage.
 
-Drops of water color concentrate are dropped into this glass, but unlike the previous stop they bead up and fall rapidly to the bottom.  The speed and amount of the colorig dropping through the glass is quantified using [optical flow,](https://en.wikipedia.org/wiki/Optical_flow) a way to measure the measure motion of objects, using an OpticalFlow palette that comes with TouchDesigner.  The palette returns vectors at each pixel for the x and y motion at each pixel.  The sum of the absolute values of these vectors is used as a midi control value which is mapped to an envelope in Ableton. 
+Drops of water color concentrate are dropped into this glass, but unlike the previous stop they bead up and fall rapidly to the bottom. The speed and amount of the colorig dropping through the glass is quantified using [optical flow,](https://en.wikipedia.org/wiki/Optical_flow) a way to measure the measure motion of objects, using an OpticalFlow palette that comes with TouchDesigner. The palette returns vectors at each pixel for the x and y motion at each pixel. The sum of the absolute values of these vectors is used as a midi control value which is mapped to an envelope in Ableton.
 
 {{< youtube cfv1AOJIL74 >}}
 
-This envelope affects the amount of randomness and the speed in which the sound for this phase moves around the room.  This is inspired by what we learned from Morton Subotnick where he creates envelope followers from his voice. 
+This envelope affects the amount of randomness and the speed in which the sound for this phase moves around the room. This is inspired by what we learned from Morton Subotnick where he creates envelope followers from his voice.
 
 {{< image src="images/morton" caption="Morton Subotnick demonstrating how he uses an envelope follower of his voice to generate envelopes for other sounds.  I used a similar technique by having the motion of liquids generate an envelope.">}}
 
-For this sound, I wanted a patch that could have a single knob turned, which is tied to the envelope, and have that knob affect intensity and randomness of a sound.  I discovered the LPG water patch provided by Modular which worked really well.  It has a few oscillators in high pitches connected to low pass gates with frequency modulation from noise.   The amount of times these gates are pulsed was affected by turning a performance knob.  Via midi, that performorance knob is linked to the midi control value from envelope above.
+For this sound, I wanted a patch that could have a single knob turned, which is tied to the envelope, and have that knob affect intensity and randomness of a sound. I discovered the LPG water patch provided by Modular which worked really well. It has a few oscillators in high pitches connected to low pass gates with frequency modulation from noise. The amount of times these gates are pulsed was affected by turning a performance knob. Via midi, that performorance knob is linked to the midi control value from envelope above.
 
-For quad, the sound slowly traveled around the room using sin oscillations.  The speed of these Oscillations was determined by the stength of the envelope, causing the sound to move rapidly around, just as Morton described himself doing with the envelope follower.
+For quad, the sound slowly traveled around the room using sin oscillations. The speed of these Oscillations was determined by the stength of the envelope, causing the sound to move rapidly around, just as Morton described himself doing with the envelope follower.
 
 ### Beat pulse from a liquid timer.
 
-For this step, a liquid timer is observed.  When zoomed in close up, new drops of liquid come into frame at a regular interval.  Each new drop triggers a pulse. 
+For this step, a liquid timer is observed. When zoomed in close up, new drops of liquid come into frame at a regular interval. Each new drop triggers a pulse.
 
 {{< image src="images/liquidtimer" >}}
 
-This is converted to a pulse by taking the amount of saturation, smoothing this value, and calculating the slope/derivative.  When this is positive it pulses on and visa-versa:
+This is converted to a pulse by taking the amount of saturation, smoothing this value, and calculating the slope/derivative. When this is positive it pulses on and visa-versa:
 
-This pulse is sent as a midi note on message.  In Ableton, this was originally mapped directly to trigger the next step in a sequence.  However due to the occasional misreadings of the positive slope this would trigger erratically.  Instead, the note on is mapped to the "tap" button, which affects the tempo of the overall track and provides some smoothing.  The beat provided by the track is then used for sequence advancing.  This also allows for things to happen on half/quarter/eigth of a beat, which fills in the empty space from the time between the drops appearing.
+This pulse is sent as a midi note on message. In Ableton, this was originally mapped directly to trigger the next step in a sequence. However due to the occasional misreadings of the positive slope this would trigger erratically. Instead, the note on is mapped to the "tap" button, which affects the tempo of the overall track and provides some smoothing. The beat provided by the track is then used for sequence advancing. This also allows for things to happen on half/quarter/eigth of a beat, which fills in the empty space from the time between the drops appearing.
 
 #### The sound
 
-I wanted to make a patch that would by rythmic with the pulse.  It took me a while to find something but I stumbled upon  For the It took me a while to settle on a sound for this.  I stumbled upon a Todd Barton video on a MARF sequence and it sounded really good:
+I wanted to make a patch that would by rythmic with the pulse. It took me a while to find something but I stumbled upon For the It took me a while to settle on a sound for this. I stumbled upon a Todd Barton video on a MARF sequence and it sounded really good:
 
 {{< youtube tfPHcnASfYE >}}
 
@@ -117,23 +111,23 @@ After reaching out to him about it - he generously provided me an awesome instru
 
 I changed this patch then to use the DAW Sync for pulse instead of the LFO, allowing it to be linked to the smoothed pulse of the liquids.
 
-I added some randomness to the warp of each beat, and which speaker (left/right) it came out of.  
+I added some randomness to the warp of each beat, and which speaker (left/right) it came out of.
 
-Todd also suggested I check out the 4ms Spectral Multiband Resonator.  I got the trial for this and totally loved it.  So many nice sounds could be played with different types of resonance and tuned to different scales.  I found some scale that sounded good, and linked the playing of each note to the quarter and eighth beat, layering this on top of the percussive sound described above:
+Todd also suggested I check out the 4ms Spectral Multiband Resonator. I got the trial for this and totally loved it. So many nice sounds could be played with different types of resonance and tuned to different scales. I found some scale that sounded good, and linked the playing of each note to the quarter and eighth beat, layering this on top of the percussive sound described above:
 
 {{< youtube xFZO15vIZ88 >}}
 
-During the show this sound was meant to travel front and back, but the rear speakers were off so it went quiet many times.  Listening back this was kind of a nice effect that added a bit of randomness.
+During the show this sound was meant to travel front and back, but the rear speakers were off so it went quiet many times. Listening back this was kind of a nice effect that added a bit of randomness.
 
 ### Saturation from the color of a pH indicator solution modulates sounds.
 
-For the final stage, the aciditiy of a liquid is used as a source of modulation by dropping a pH indicator called [bromothymol blue,](https://en.wikipedia.org/wiki/Bromothymol_blue) which turns yellow or blue depending on the pH level, into the liquid and measuring the hue and saturation of the resulting colored liquid. 
+For the final stage, the aciditiy of a liquid is used as a source of modulation by dropping a pH indicator called [bromothymol blue,](https://en.wikipedia.org/wiki/Bromothymol_blue) which turns yellow or blue depending on the pH level, into the liquid and measuring the hue and saturation of the resulting colored liquid.
 
-The liquid is changed back and forth between blue and yellow by adding things that either make it more basic or acidic.  It is also made acidic by blowing into it into a straw.  
+The liquid is changed back and forth between blue and yellow by adding things that either make it more basic or acidic. It is also made acidic by blowing into it into a straw.
 
 {{< image src="images/yellowtoblue" caption="Using a pH indicator to change a glass of liquid from yellow to blue.  Here, bubbles were blown into the liquid to make it acidic, turning it yellow, and Oxyclean is added gradually making it basic and turning it blue.  The hue and saturation of this liquid can be measured and used to modulate sounds." >}}
 
-With this technique, a sound can be made to go slowly back and forth between different states.   This can allow for a slow fade with a bit of randomness affecting the slope, making it feel less mechanical.
+With this technique, a sound can be made to go slowly back and forth between different states. This can allow for a slow fade with a bit of randomness affecting the slope, making it feel less mechanical.
 
 I didn't have much time to figure out anything concrete for the performance, so I used the saturation to control the loudness of the percussive sound in the previous stage.
 
@@ -145,11 +139,11 @@ It also would be great as a performative interactive installation, where people 
 
 ## Hooking it up to the Buchla 200e at Steinhardt
 
-As closure for this semester, I hooked up the system to the Buchla 200e at Steinhardt and got some basic patches working.  Everything sounded so good on the real thing!  More to be said about that integration, but here are some videos:
+As closure for this semester, I hooked up the system to the Buchla 200e at Steinhardt and got some basic patches working. Everything sounded so good on the real thing! More to be said about that integration, but here are some videos:
 
 Drone controlled by coloration of liquids:
 
-{{< youtube tM_giBZBIEw >}} 
+{{< youtube tM_giBZBIEw >}}
 
 Envelope follower of home made lava lamp:
 
@@ -163,10 +157,10 @@ Sending pulses:
 
 Special thanks goes to:
 
-* Todd Barton for being a wonderful mentor through this process and constantly providing sonic inspiration.  I can't recommend his private lessons strongly enough!
-* Morton Subotnick for completely changing my perspective on interactive live performance and opening up my mind to a new form of music and music making.
-* ITP and Greg Shakar for providing such a wonderful class where we are all challenged to the edge of our limits.
-* The ITP residents for their constant support and amazing documentation work.
-* MH Rahmani for his awesome editing and Adobe Premiere Skills
+- Todd Barton for being a wonderful mentor through this process and constantly providing sonic inspiration. I can't recommend his private lessons strongly enough!
+- Morton Subotnick for completely changing my perspective on interactive live performance and opening up my mind to a new form of music and music making.
+- ITP and Greg Shakar for providing such a wonderful class where we are all challenged to the edge of our limits.
+- The ITP residents for their constant support and amazing documentation work.
+- MH Rahmani for his awesome editing and Adobe Premiere Skills
 
 {{< image src="images/todd" caption="Todd Barton giving us a live demo of the Buchla Easel.  He was a wonderful mentor for this project.">}}

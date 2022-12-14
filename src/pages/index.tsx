@@ -1,20 +1,36 @@
-import { Footer } from '@/components/Footer';
-import { Header } from '@/components/Header';
+import { getPortfolioItems, PortfolioItem } from '@/api/portfolio';
+import { Container } from '@/components/Container';
+import Layout from '@/components/Layout';
+import { GetStaticProps, NextPage } from 'next';
 
-const Index = () => {
+interface Props {
+  portfolioItems: PortfolioItem[];
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const portfolioItems = await getPortfolioItems();
+
+  return {
+    props: {
+      portfolioItems,
+    },
+  };
+};
+
+const Index: NextPage<Props> = ({ portfolioItems }) => {
   return (
-    <>
-      <div className="fixed inset-0 flex justify-center sm:px-8">
-        <div className="flex w-full max-w-7xl lg:px-8">
-          <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
-        </div>
-      </div>
-      <div className="relative">
-        <Header />
-        <main>Yo!</main>
-        <Footer />
-      </div>
-    </>
+    <Layout>
+      <Container className="mt-16 sm:mt-32">
+        <ul>
+          {portfolioItems.map((item) => (
+            <li key={item.title}>
+              <b>{item.title}</b>
+              <p>{item.summary}</p>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </Layout>
   );
 };
 

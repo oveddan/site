@@ -6,20 +6,17 @@ image: 'images/shadybot.gif'
 animatedImage: 'images/shadybot.gif'
 showonlyimage: true
 weight: 4
----
-
-The ShadyBot is an art car for the Robot Heart camp at Burning man.  
+summary: The ShadyBot is an art car for the Robot Heart camp at Burning man.  
 It is shaped like a fish whos features provide a shady lounge and deck for spectactors, and at night has LEDs that project across its diffused surface.
 At the 2018 event, I helped build it, wire its LEDs, and was responsible for mapping and programming the visuals.
-
-<!--more-->
-
+---
 
 {{< instagram BnVAmXEhHno >}}
 
 ---
 
 ##### Role: Builder, LED Mapping and Visuals
+
 ##### Technologies: Madrix, ColorKinetics
 
 For the 2018 edition of Burning Man, I went a week early to help build three installations for the Robot Heart Camp:
@@ -40,5 +37,3 @@ an illuminated heart that sits atop the camps bus and was center of their partie
 {{< image src="images/cleaningbrandeux" caption="I also helped build Brandeux, a giant logo-shaped animated LED wall" >}}
 
 {{< image src="images/brandeux" >}}
-
-

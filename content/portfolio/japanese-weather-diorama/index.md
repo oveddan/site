@@ -7,9 +7,7 @@ draft: false
 showonlyimage: true
 linkdirectlytoblog: "/blog/posts/physical_computing/weather-diorama/"
 weight: 15
----
-
-A physical twist on a Japanese Weather Diorama
+summary: A physical twist on a Japanese Weather Diorama
 which reflects weather patterns and times
 of the day.
-
+---

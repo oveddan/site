@@ -1,28 +1,24 @@
 ---
-title: "StarPower"
+title: 'StarPower'
 date: 2019-01-17T19:31:06-05:00
 draft: false
 image: 'images/starpower.png'
 animatedImage: 'images/starpower.gif'
 weight: 2
+summary: StarPower is an led sculpture consisting of 12 frosted tubes placed precisely in a circle and high frame-rate addressable leds allowing for smooth animations projected onto a circle.
 ---
-
-StarPower is an led sculpture consisting of 12 frosted tubes placed precisely in a circle and high frame-rate addressable leds allowing for smooth animations projected onto a circle.
-
-<!--more-->
-
 
 {{<vimeo 373796248>}}
 
-StarPower is made in collaboration with Breck Armstrong.  It is consisted of a wooden frame and 12 pcv tubes, which we frosted ourselves, using gels on the inside and frosted spraypaint on the outside.
+StarPower is made in collaboration with Breck Armstrong. It is consisted of a wooden frame and 12 pcv tubes, which we frosted ourselves, using gels on the inside and frosted spraypaint on the outside.
 
-The **LEDs** are **APA102s,** the equivalent of [Adafruit Dotstars,](https://learn.adafruit.com/adafruit-dotstar-leds/overview) allowing for high framerate animations.  For StarPower, the LEDs are configured in 4 sets of 3 bars, with each set of bars having the data and clock daisy chained, and the power and ground connected directly to the power source.
+The **LEDs** are **APA102s,** the equivalent of [Adafruit Dotstars,](https://learn.adafruit.com/adafruit-dotstar-leds/overview) allowing for high framerate animations. For StarPower, the LEDs are configured in 4 sets of 3 bars, with each set of bars having the data and clock daisy chained, and the power and ground connected directly to the power source.
 
 We originaly we used a **Teensy 3.2** with the **FastLED** library and [hardware SPI](https://github.com/FastLED/FastLED/wiki/SPI-Hardware-or-Bit-banging), using the the technique to [get four hardware SPI lines.](https://github.com/FastLED/FastLED/wiki/SPI-Hardware-or-Bit-banging#getting-four-hardware-spi-lines-for-the-apa102-out-of-the-teensy-303132)
 
-We eventually got this working but found the Ardiuno coding environment challenging to program elaborate animations in.  
+We eventually got this working but found the Ardiuno coding environment challenging to program elaborate animations in.
 
-At ITP resident [Aaron Parsekian](http://www.aaronparsekian.com/) showed me the  **[LeDMX4 PRO](https://dmxking.com/led-pixel-control/ledmx4-pro)** controller which can be used to control 4 strips of APA102s using ArtNet.
+At ITP resident [Aaron Parsekian](http://www.aaronparsekian.com/) showed me the **[LeDMX4 PRO](https://dmxking.com/led-pixel-control/ledmx4-pro)** controller which can be used to control 4 strips of APA102s using ArtNet.
 
 We ended up switching to use this controller, and I wrote a **TouchDesigner** program to **project the leds** in a circular physical space, and allow for generative visuals to show up on the star.
 
@@ -33,6 +29,7 @@ We ended up switching to use this controller, and I wrote a **TouchDesigner** pr
 {{<image src="images/star.jpg">}}
 
 ## Fabrication
+
 {{<image src="images/star-7.jpg" caption="Soldering data and clock wires">}}
 {{<image src="images/star-9.jpg" caption="Materials for the LED bars - APA102s, semi-circular dowels that would be recessed enough to diffuse the diodes, and some sample configurations">}}
 {{<image src="images/star-3.jpg" caption="Glueing led strip to semi-circular shaped dowel.">}}
@@ -60,7 +57,6 @@ We ended up switching to use this controller, and I wrote a **TouchDesigner** pr
 {{<image src="images/star-23.jpg">}}
 {{<image src="images/wiring">}}
 {{<image src="images/assembled">}}
-
 
 {{<image src="images/star-24.png" caption="testing out wiring">}}
 {{<image src="images/star-26.jpg" caption="spraying frosting onto the tubes">}}

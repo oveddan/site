@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { InnerContainer, OuterContainer } from '@/components/Container';
-import { navItems } from './navItems';
+import { navItems } from '@/api/navItems';
 
 function NavLink({ href, children }: { href: string; children: JSX.Element | JSX.Element[] | string }) {
   return (

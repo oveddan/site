@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { Container } from '@/components/Container';
 import avatarImage from '@/images/avatar.jpg';
 import { Fragment, useEffect, useRef } from 'react';
-import { navItems } from './navItems';
+import { navItems } from '@/api/navItems';
 
 function CloseIcon(props: any) {
   return (
