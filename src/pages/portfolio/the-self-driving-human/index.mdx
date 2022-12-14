@@ -1,17 +1,27 @@
----
-title: "The Self-Driving Human"
-date: 2019-05-20T22:52:10-04:00
-draft: false 
-animatedImage: 'images/self_driving_human.gif'
-image: 'images/self-driving-human-image.jpg'
-weight: 1
-image: 'images/'
-aliases:
-  - /self-driving-human
-summary: The self-driving human is a device and performance where an intelligent portable agent makes decisions for participants in the real world. It is my masters thesis at ITP.
----
+import { PortfolioPageLayout } from '@/components/PortfolioPageLayout';
+import { Vimeo, ResizedImageWithCaption } from '@/components/partials';
+import instructions from './images/instructions.png';
+import HandHeld from './images/HandHeld-1.jpg';
+import FannyPack from './images/FannyPack-1.jpg';
+import Prototype from './images/prototype.jpg';
+import DeviceBack from './images/DeviceBack-1.jpg';
+import baristaEncounter from './images/baristaEncounter.jpg';
+import classic from './images/classic-vs-self-driving-dan-bar.png';
 
-{{<vimeo 337308779>}}
+export const meta = {
+  title: 'The Self-Driving Human',
+  date: Date.parse('2019-05-20T22:52:10-04:00'),
+  draft: false,
+  animatedImage: 'images/self_driving_human.gif',
+  image: 'images/self-driving-human-image.jpg',
+  weight: 1,
+  image: 'images/',
+  aliases: ['self-driving-human'],
+  summary:
+    'The self-driving human is a device and performance where an intelligent portable agent makes decisions for participants in the real world. It is my masters thesis at ITP.',
+};
+
+<Vimeo videoId="337308779" />
 
 > Every day millions of people decide to grant their smartphone a bit more control over their lives…in pursuit of health, happiness and power, humans will gradually change first one of their features and then another, and another, until they will no longer be human.
 
@@ -19,15 +29,18 @@ summary: The self-driving human is a device and performance where an intelligent
 
 As technology increasingly becomes integrated with our daily lives, we rely on it more and more to make decisions for us, from things such as how we should get from one place to the next (Waze), to what we should have for dinner (yelp, tripadvisor), to what content we should see on the internet (social media), to who we should date (dating apps). What would a future feel like when all of our decisions are made by these machines? The self-driving human simulates this scenario by making choices for the human in areas that are currently not decided by technology.
 
-{{<image src="images/instructions" caption="Basic decision the device can make">}}
+<ResizedImageWithCaption src={instructions} caption="Basic decision the device can make" />
 
 It’s a portable device that detects objects around the person using a camera and machine learning, and gives commands to the user on how to interact with the environment. How do the choices made by the algorithm collide with the humans desires when they’re disconnected from the biases and emotions of that the person has learned throughout his or her life?
 
-{{<image src="images/HandHeld" caption="Hand-held prototype">}}
+<ResizedImageWithCaption src={HandHeld} caption="Hand-held prototype" />
 
 The device is portable and works totally offline using machine learning on the edge, allowing for real-time response even where there is no internet connection, and maintaining privacy as all data stays on the device.
 
-{{<image src="images/FannyPack" caption="It can fit into a fanny pack with a spy camera observing the environment">}}
+<ResizedImageWithCaption
+  src={FannyPack}
+  caption="It can fit into a fanny pack with a spy camera observing the environment"
+/>
 
 For the performance it is carried by me in the real world, where I listen to its commands and attempt to do as we’re instructed, no matter how uncomfortable it makes me.
 
@@ -39,10 +52,18 @@ There have been lots of writing around these subjects that I’ve read. About de
 
 ## Photos
 
-{{<image src="images/prototype" caption="Initial prototype">}}
+<ResizedImageWithCaption src={Prototype} caption="Initial prototype" />
 
-{{<image src="images/DeviceBack" caption="Version of the device with the camera attached directly to the enclosure">}}
+<ResizedImageWithCaption
+  src={DeviceBack}
+  caption="Version of the device with the camera attached directly to the enclosure"
+/>
 
-{{<image src="images/baristaEncounter" caption="Asking: 'how's your day going' to a barista">}}
+<ResizedImageWithCaption src={baristaEncounter} caption="Asking: 'how's your day going' to a barista" />
 
-{{<image src="images/classic" caption="What should I do in a bar?  Let's compare the Classic Dan vs. the New Self-Driving Dan as instructed by the device.">}}
+<ResizedImageWithCaption
+  src={classic}
+  caption="What should I do in a bar?  Let's compare the Classic Dan vs. the New Self-Driving Dan as instructed by the device."
+/>
+
+export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout>;

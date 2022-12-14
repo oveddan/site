@@ -6,7 +6,7 @@ import html from 'remark-html';
 
 const portfolioFolder = join(process.cwd(), 'content/portfolio');
 
-export type PortfolioItem = {
+export type PortfolioItemMeta = {
   title: string;
   date: number;
   draft?: boolean;
@@ -14,8 +14,11 @@ export type PortfolioItem = {
   image: string;
   animatedImage?: string;
   showonlyimage?: boolean;
-  content: string;
   summary: string;
+};
+
+export type PortfolioItem = PortfolioItemMeta & {
+  content: string;
 };
 
 const getPortfolioItem = async (slug: string) => {
