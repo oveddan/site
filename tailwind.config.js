@@ -7,6 +7,10 @@ module.exports = {
   darkMode: 'class',
   plugins: [require('@tailwindcss/typography')],
   theme: {
+    fontFamily: {
+      sans: ['Roboto', 'sans-serif'],
+      mono: ['Martian Mono', 'monospace'],
+    },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
       sm: ['0.875rem', { lineHeight: '1.5rem' }],
