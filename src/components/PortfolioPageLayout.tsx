@@ -73,12 +73,6 @@ export const Pattern = () => (
   </div>
 );
 
-const Wrapper = ({ children }: { children: JSX.Element | JSX.Element[] }) => (
-  <div className="relative overflow-hidden py-16">
-    <div className="relative px-4 sm:px-6 lg:px-8 prose dark:prose-invert">{children}</div>
-  </div>
-);
-
 export function formatDate(date: number) {
   return new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
