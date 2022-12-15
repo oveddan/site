@@ -9,17 +9,24 @@ export type PortfolioItemMeta = {
   draft?: boolean;
   weight: number;
   image: string;
-  animatedImage?: string;
+  animatedImage: string;
   showonlyimage?: boolean;
   summary: string;
 };
 
-const getPortfolioItem = async (slug: string) => {
+export type MetaWithSlug = PortfolioItemMeta & { slug: string };
+
+const getPortfolioItem = async (slug: string): Promise<MetaWithSlug> => {
   // read the portfolio file
-  const { meta } = await import(`../pages/portfolio/${slug}/index.mdx`);
+  const data = await import(`../pages/portfolio/${slug}/index.mdx`);
   // parse its matter
 
-  return meta as PortfolioItemMeta;
+  const meta = data.meta as PortfolioItemMeta;
+
+  return {
+    ...meta,
+    slug,
+  };
 };
 
 export const getPortfolioItems = async () => {
