@@ -1,0 +1,35 @@
+import { PortfolioPageLayout } from '@/components/PortfolioPageLayout';
+import { Vimeo, YouTube, ResizedImageWithCaption as Image } from '@/components/partials';
+import { meta } from './meta';
+
+<Vimeo videoId="306108728" />
+
+This performance was done in collaboration with [Hadar ben Tzur](https://www.hadarbentzur.com/), to a poem by "Proof for the Existence of God" by Jorge Luis Borges.
+
+Illustrations and readings were by Hadar. Both generating the zoetrope discs, and playing them back was done in TouchDesigner by me.
+
+**All photos below were taken by Daniele Iachella**
+
+<Image src={require('./images/dan_hadar.jpg')} />
+
+<Image src={require('./images/birds.jpg')} />
+
+<Image src={require('./images/infinity.jpg')} />
+
+<Image src={require('./images/shantell.jpg')} />
+
+<Image src={require('./images/crowd.jpg')} />
+
+<Image src={require('./images/infinityClose.jpg')} />
+
+<Image src={require('./images/turntable.jpg')} />
+
+<Image src={require('./images/bright_colors.jpg')} />
+
+<Image src={require('./images/rotating_and_effect.jpg')} />
+
+<Image src={require('./images/infinityClose.jpg')} />
+
+export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout>;
+
+;
