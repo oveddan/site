@@ -5,7 +5,6 @@ import { Prose } from './Prose';
 import { GiOfficeChair } from 'react-icons/gi';
 import { AiFillCalendar, AiFillCode } from 'react-icons/ai';
 import { BsFillPeopleFill } from 'react-icons/bs';
-import { Component } from 'react';
 import Head from 'next/head';
 
 export const Pattern = () => (
@@ -80,7 +79,7 @@ export const Pattern = () => (
 
 export function formatDate(date: number) {
   return new Date(date).toLocaleDateString('en-US', {
-    month: 'long',
+    month: 'short',
     year: 'numeric',
     timeZone: 'UTC',
   });
@@ -106,23 +105,24 @@ const Header = ({ meta }: { meta: PortfolioItemMeta }) => (
     <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 text-zinc-900 dark:text-zinc-100">
       {meta.projectType && (
         <div className={headerItemClass}>
-          <GiOfficeChair className={iconItemClass} aria-hidden="true" />
+          <GiOfficeChair className={iconItemClass} aria-hidden="true" title="Project Type" />
           {meta.projectType}
         </div>
       )}
       {meta.role && (
         <div className={headerItemClass}>
-          <BsFillPeopleFill className={iconItemClass} aria-hidden="true" />
+          <BsFillPeopleFill className={iconItemClass} aria-hidden="true" title="Role" />
           {meta.role}
         </div>
       )}
       <div className={headerItemClass}>
-        <AiFillCode className={iconItemClass} aria-hidden="true" />
+        <AiFillCode className={iconItemClass} aria-hidden="true" title="Tech" />
         {meta.tags.join(', ')}
       </div>
       <div className={headerItemClass}>
-        <AiFillCalendar className={iconItemClass} aria-hidden="true" />
+        <AiFillCalendar className={iconItemClass} aria-hidden="true" title="Date" />
         {formatDate(meta.dateStart)}
+        {meta.dateEnd && ` - ${formatDate(meta.dateEnd)}`}
       </div>
     </div>
 

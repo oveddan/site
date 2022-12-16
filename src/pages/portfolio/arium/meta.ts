@@ -3,6 +3,7 @@ import { PortfolioItemMeta, ProjectType } from '@/api/types';
 export const meta: PortfolioItemMeta = {
   title: 'Arium',
   dateStart: Date.parse('2020-09-01T22:52:10-04:00'),
+  dateEnd: Date.parse('2022-06-01T22:52:10-04:00'),
   draft: false,
   animatedImage: './images/arium-highlights.gif',
   image: './images/arium-image.jpg',
