@@ -5,6 +5,7 @@ import { SimpleLayout } from '@/components/SimpleLayout';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { BsGithub } from 'react-icons/bs';
 
 interface Props {
   portfolioItems: MetaWithSlug[];
@@ -31,6 +32,12 @@ function LinkIcon(props: any) {
   );
 }
 
+const projectLink = (project: MetaWithSlug) => {
+  if (project.links.externalArticle) return project.links.externalArticle;
+
+  return `/portfolio/${project.slug}`;
+};
+
 const Index: NextPage<Props> = ({ portfolioItems }) => {
   return (
     <Layout>
@@ -54,13 +61,18 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
                 />
               </div>
               <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <CardLink href={`/portfolio/${project.slug}`}>{project.title}</CardLink>
+                <CardLink href={projectLink(project)}>{project.title}</CardLink>
               </h2>
               <CardDescription>{project.summary}</CardDescription>
-              {/* <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-                <LinkIcon className="h-6 w-6 flex-none" />
-                <span className="ml-2">{project.}</span>
-              </p> */}
+              {/* {project.links && (
+                <p className="relative z-50 text-xl mt-6 flex transition dark:text-zinc-200">
+                  {project.links.github && (
+                    <a href={project.links.github} className="relative z-50">
+                      <BsGithub />
+                    </a>
+                  )}
+                </p>
+              )} */}
             </Card>
           ))}
         </ul>

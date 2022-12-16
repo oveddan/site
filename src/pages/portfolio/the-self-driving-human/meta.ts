@@ -1,4 +1,4 @@
-import { PortfolioItemMeta, ProjectType } from '@/api/types';
+import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'The Self-Driving Human',
@@ -15,6 +15,7 @@ export const meta: PortfolioItemMeta = {
     github: null,
   },
   projectType: ProjectType.gradSchool,
-  role: 'Team Lead',
-  tags: [],
+  role: Role.Artist,
+  categories: [Category.Performance, Category.MachineLearning],
+  tech: [Tech.Python, Tech.DigitalFab, Tech.Hardware, Tech.OpenCV, Tech.Python, Tech.Tensorflow],
 };

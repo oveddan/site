@@ -1,4 +1,4 @@
-import { PortfolioItemMeta, ProjectType } from '@/api/types';
+import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'StarPower',
@@ -14,7 +14,8 @@ export const meta: PortfolioItemMeta = {
     externalArticle: null,
     github: null,
   },
-  projectType: ProjectType.art,
-  role: 'Creator',
-  tags: [],
+  projectType: ProjectType.personal,
+  role: Role.Artist,
+  categories: [Category.Installation],
+  tech: [Tech.DigitalFab, Tech.Hardware, Tech.TouchDesigner, Tech.Led],
 };

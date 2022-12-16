@@ -1,4 +1,4 @@
-import { PortfolioItemMeta, ProjectType } from '@/api/types';
+import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'Presence - Gaze Detection Version 1',
@@ -16,6 +16,7 @@ export const meta: PortfolioItemMeta = {
     github: 'https://github.com/oveddan/presence',
     demo: null,
   },
-  role: 'Creator',
-  tags: ['computer vision', 'installation'],
+  role: Role.Artist,
+  categories: [Category.Installation, Category.MachineLearning],
+  tech: [Tech.Python, Tech.OpenCV, Tech.DigitalFab, Tech.Hardware],
 };

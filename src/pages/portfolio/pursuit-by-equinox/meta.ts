@@ -1,4 +1,4 @@
-import { PortfolioItemMeta, ProjectType } from '@/api/types';
+import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'The Pursuit by Equinox',
@@ -16,6 +16,7 @@ export const meta: PortfolioItemMeta = {
     demo: null,
   },
   projectType: ProjectType.clientWork,
-  role: 'Lead Developer',
-  tags: [],
+  role: Role.TeamLead,
+  categories: [],
+  tech: [Tech.React, Tech.Javascript, Tech.NodeJS, Tech.Threejs],
 };

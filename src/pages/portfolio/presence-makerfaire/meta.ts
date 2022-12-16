@@ -1,4 +1,4 @@
-import { PortfolioItemMeta, ProjectType } from '@/api/types';
+import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'Presence',
@@ -15,6 +15,7 @@ export const meta: PortfolioItemMeta = {
     github: null,
   },
   projectType: ProjectType.gradSchool,
-  role: 'Creator',
-  tags: ['computer vision'],
+  role: Role.Artist,
+  categories: [Category.MachineLearning, Category.Installation],
+  tech: [Tech.DigitalFab, Tech.Python, Tech.Tensorflowjs, Tech.TouchDesigner, Tech.Hardware],
 };

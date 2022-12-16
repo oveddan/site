@@ -117,7 +117,7 @@ const Header = ({ meta }: { meta: PortfolioItemMeta }) => (
       )}
       <div className={headerItemClass}>
         <AiFillCode className={iconItemClass} aria-hidden="true" title="Tech" />
-        {meta.tags.join(', ')}
+        {meta.categories.join(', ')}
       </div>
       <div className={headerItemClass}>
         <AiFillCalendar className={iconItemClass} aria-hidden="true" title="Date" />

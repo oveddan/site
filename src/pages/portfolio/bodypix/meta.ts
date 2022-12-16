@@ -1,4 +1,4 @@
-import { PortfolioItemMeta, ProjectType } from '@/api/types';
+import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'BodyPix in Tensorflow.js',
@@ -17,6 +17,7 @@ export const meta: PortfolioItemMeta = {
     demo: 'https://storage.googleapis.com/tfjs-models/demos/body-pix/index.html',
   },
   projectType: ProjectType.clientWork,
-  role: 'Computer Vision Engineer',
-  tags: ['computer vision', 'tensorflow', 'open source'],
+  role: Role.MlEngineer,
+  categories: [Category.MachineLearning],
+  tech: [Tech.Javascript, Tech.Tensorflowjs],
 };

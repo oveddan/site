@@ -1,4 +1,4 @@
-import { PortfolioItemMeta, ProjectType } from '@/api/types';
+import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'Voronoi Cellular Zoetrope',
@@ -15,6 +15,7 @@ export const meta: PortfolioItemMeta = {
     demo: null,
   },
   projectType: ProjectType.gradSchool,
-  role: 'Creator',
-  tags: [],
+  role: Role.Artist,
+  categories: [Category.Installation],
+  tech: [Tech.DigitalFab],
 };

@@ -1,4 +1,4 @@
-import { PortfolioItemMeta, ProjectType } from '@/api/types';
+import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'PoseNet in Tensorflow.js',
@@ -10,13 +10,14 @@ export const meta: PortfolioItemMeta = {
   showonlyimage: true,
   summary:
     'PoseNet in a machine learning model which allows for real-time human pose estimation with any webcam.  In collaboration with the Google Creative Lab, I open-sourced an easy to use Tensorflow.js version of the model.',
-  tags: ['Machine learning'],
   projectType: ProjectType.clientWork,
   links: {
     externalArticle:
-      '//medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5',
-    github: '//github.com/tensorflow/tfjs-models/tree/7eec5628f086b8e61dd65f0cfde511a1db8ac103/posenet',
-    demo: '//storage.googleapis.com/tfjs-models/demos/posenet/camera.html',
+      'https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5',
+    github: 'https://github.com/tensorflow/tfjs-models/tree/7eec5628f086b8e61dd65f0cfde511a1db8ac103/posenet',
+    demo: 'https://storage.googleapis.com/tfjs-models/demos/posenet/camera.html',
   },
-  role: 'Computer Vision Engineer',
+  role: Role.MlEngineer,
+  categories: [Category.MachineLearning],
+  tech: [Tech.Javascript, Tech.Tensorflowjs],
 };
