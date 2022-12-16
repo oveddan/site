@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { CSSProperties } from 'react';
-import { InstagramEmbed } from 'react-social-media-embed';
+import { InstagramEmbed, TwitterEmbed } from 'react-social-media-embed';
 
 const videoWrapperStyles: CSSProperties = {
   position: 'relative',
@@ -35,6 +35,12 @@ export const YouTube = ({ videoId }: { videoId: string }) => (
 export const Instagram = ({ postId }: { postId: string }) => (
   <div style={{ display: 'flex', justifyContent: 'center' }} className="my-8">
     <InstagramEmbed url={`https://www.instagram.com/p/${postId}/`} width={700} captioned />
+  </div>
+);
+
+export const Twitter = ({ userId, tweetId }: { userId: string; tweetId: string }) => (
+  <div style={{ display: 'flex', justifyContent: 'center' }} className="my-8">
+    <TwitterEmbed url={`https://twitter.com/${userId}/status/${tweetId}`} width={700} />
   </div>
 );
 

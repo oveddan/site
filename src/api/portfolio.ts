@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { readdirAsync } from './util';
+import { readdir } from 'fs/promises';
 
 const portfolioFolder = join(process.cwd(), 'src/pages/portfolio');
 
@@ -29,8 +29,16 @@ const getPortfolioItem = async (slug: string): Promise<MetaWithSlug> => {
   };
 };
 
+async function getFoldersInPath(path: string) {
+  const fileOrFolder = await readdir(path, { withFileTypes: true });
+
+  return fileOrFolder.filter((x) => x.isDirectory()).map((x) => x.name);
+  // .filter(dirent => dirent.isDirectory())
+  // .map(dirent => dirent.name)
+}
+
 export const getPortfolioItems = async () => {
-  const portfolioItems = await readdirAsync(portfolioFolder);
+  const portfolioItems = await getFoldersInPath(portfolioFolder);
 
   const nonDrafts = (await Promise.all(portfolioItems.map(getPortfolioItem))).filter((x) => !x.draft);
 

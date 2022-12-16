@@ -36,11 +36,11 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
     <Layout>
       <Head>
         <title>Projects - Dan Oved</title>
-        <meta name="description" content="Things I’ve made trying to put my dent in the universe." />
+        <meta name="description" content="Dan Oved's Portfolio" />
       </Head>
       <SimpleLayout
         title="Full-stack engineer, founder, and explorer of the soon-to-be possible"
-        intro="As an experienced programmer and veteran builder, I gravitate towards discovery and innovation, combining technologies in novel ways to enable new forms of creative expression and possibilities.  Here is a curated selection of projects I've worked on:"
+        intro="As a seasoned programmer and builder, I thrive on innovation and exploration. I enjoy combining technologies in unique ways to unlock new avenues of creative expression and possibility. Here are a few of my standout projects:"
       >
         <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {portfolioItems.map((project) => (
