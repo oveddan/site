@@ -2,7 +2,7 @@ import { PortfolioItemMeta, ProjectType } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'StarPower',
-  date: Date.parse('2019-01-17T19:31:06-05:00'),
+  dateStart: Date.parse('2019-01-17T19:31:06-05:00'),
   draft: false,
   image: './images/starpower.png',
   animatedImage: './images/starpower.gif',

@@ -10,7 +10,7 @@ export enum ProjectType {
 
 export type PortfolioItemMeta = {
   title: string;
-  date: number;
+  dateStart: number;
   draft?: boolean;
   weight: number;
   image: string;

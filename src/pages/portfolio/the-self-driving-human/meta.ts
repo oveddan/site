@@ -2,7 +2,7 @@ import { PortfolioItemMeta, ProjectType } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'The Self-Driving Human',
-  date: Date.parse('2019-05-20T22:52:10-04:00'),
+  dateStart: Date.parse('2019-05-20T22:52:10-04:00'),
   draft: false,
   animatedImage: './images/self_driving_human.gif',
   image: './images/self-driving-human-image.jpg',

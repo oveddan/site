@@ -2,7 +2,7 @@ import { PortfolioItemMeta, ProjectType } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'Presence',
-  date: Date.parse('2019-01-28T22:39:13-05:00'),
+  dateStart: Date.parse('2019-01-28T22:39:13-05:00'),
   draft: false,
   image: './images/presence-makerfaire.png',
   animatedImage: './images/presence-makerfaire.gif',

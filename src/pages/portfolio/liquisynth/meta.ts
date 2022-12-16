@@ -2,7 +2,7 @@ import { PortfolioItemMeta, ProjectType } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'NIME: The Liquisynth',
-  date: Date.parse('2018-12-12T13:43:46-05:00'),
+  dateStart: Date.parse('2018-12-12T13:43:46-05:00'),
   draft: false,
   image: './images/nime.png',
   animatedImage: './images/nime_performance.gif',

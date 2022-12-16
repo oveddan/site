@@ -1,7 +1,12 @@
-import { PortfolioItemMeta } from '@/api/portfolio';
+import { PortfolioItemMeta } from '@/api/types';
 import { Container } from './Container';
 import Layout from './Layout';
 import { Prose } from './Prose';
+import { GiOfficeChair } from 'react-icons/gi';
+import { AiFillCalendar, AiFillCode } from 'react-icons/ai';
+import { BsFillPeopleFill } from 'react-icons/bs';
+import { Component } from 'react';
+import Head from 'next/head';
 
 export const Pattern = () => (
   <div className="hidden lg:absolute lg:inset-y-0 lg:block lg:h-full lg:w-full lg:[overflow-anchor:none]">
@@ -75,12 +80,14 @@ export const Pattern = () => (
 
 export function formatDate(date: number) {
   return new Date(date).toLocaleDateString('en-US', {
-    day: 'numeric',
     month: 'long',
     year: 'numeric',
     timeZone: 'UTC',
   });
 }
+
+const headerItemClass = 'mt-2 flex items-center text-sm ';
+const iconItemClass = 'mr-1.5 h-5 w-5 flex-shrink-0';
 
 const Header = ({ meta }: { meta: PortfolioItemMeta }) => (
   <div className="mx-auto max-w-prose text-lg">
@@ -92,11 +99,32 @@ const Header = ({ meta }: { meta: PortfolioItemMeta }) => (
       <span className="ml-3">{formatDate(meta.date)}</span>
     </time> */}
     <h1>
-      <span className="block text-center text-lg font-semibold text-indigo-600">Introducing</span>
       <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 dark:text-zinc-100 sm:text-4xl">
         {meta.title}
       </span>
     </h1>
+    <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 text-zinc-900 dark:text-zinc-100">
+      {meta.projectType && (
+        <div className={headerItemClass}>
+          <GiOfficeChair className={iconItemClass} aria-hidden="true" />
+          {meta.projectType}
+        </div>
+      )}
+      {meta.role && (
+        <div className={headerItemClass}>
+          <BsFillPeopleFill className={iconItemClass} aria-hidden="true" />
+          {meta.role}
+        </div>
+      )}
+      <div className={headerItemClass}>
+        <AiFillCode className={iconItemClass} aria-hidden="true" />
+        {meta.tags.join(', ')}
+      </div>
+      <div className={headerItemClass}>
+        <AiFillCalendar className={iconItemClass} aria-hidden="true" />
+        {formatDate(meta.dateStart)}
+      </div>
+    </div>
 
     <p className="mt-8 text-xl leading-8 prose dark:prose-invert">{meta.summary}</p>
   </div>
@@ -111,6 +139,13 @@ export const PortfolioPageLayout = ({
 }) => (
   <>
     <Layout>
+      <Head>
+        <title>{`Dan Oved's portfolio - ${meta.title}`}</title>
+        <meta name="description" content={meta.summary} />
+        <meta name="og:title" content={`Dan Oved's portfolio - ${meta.title}`} />
+        <meta name="og:description" content={meta.summary} />
+        {/* <meta name="og:image" content={require(meta.image)} /> */}
+      </Head>
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">

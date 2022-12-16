@@ -2,7 +2,7 @@ import { PortfolioItemMeta, ProjectType } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'Voronoi Cellular Zoetrope',
-  date: Date.parse('2018-01-23T17:26:42-05:00'),
+  dateStart: Date.parse('2018-01-23T17:26:42-05:00'),
   draft: false,
   image: './images/zoetrope_featured_image.gif',
   animatedImage: './images/zoetrope_featured.gif',

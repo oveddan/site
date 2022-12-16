@@ -2,7 +2,7 @@ import { PortfolioItemMeta, ProjectType } from '@/api/types';
 
 export const meta: PortfolioItemMeta = {
   title: 'PoseNet in Tensorflow.js',
-  date: Date.parse('2018-05-28T15:15:18-04:00'),
+  dateStart: Date.parse('2018-05-28T15:15:18-04:00'),
   draft: false,
   weight: -2,
   image: './images/posenet-multipose-resized.png',
