@@ -1,24 +1,14 @@
 import { join } from 'path';
-import { readdir } from 'fs/promises';
+import { PortfolioItemMeta } from './types';
+import { readdirAsync } from './util';
 
 const portfolioFolder = join(process.cwd(), 'src/pages/portfolio');
-
-export type PortfolioItemMeta = {
-  title: string;
-  date: number;
-  draft?: boolean;
-  weight: number;
-  image: string;
-  animatedImage: string;
-  showonlyimage?: boolean;
-  summary: string;
-};
 
 export type MetaWithSlug = PortfolioItemMeta & { slug: string };
 
 const getPortfolioItem = async (slug: string): Promise<MetaWithSlug> => {
   // read the portfolio file
-  const data = await import(`../pages/portfolio/${slug}/index.mdx`);
+  const data = await import(`../pages/portfolio/${slug}/meta.ts`);
   // parse its matter
 
   const meta = data.meta as PortfolioItemMeta;
@@ -30,7 +20,7 @@ const getPortfolioItem = async (slug: string): Promise<MetaWithSlug> => {
 };
 
 async function getFoldersInPath(path: string) {
-  const fileOrFolder = await readdir(path, { withFileTypes: true });
+  const fileOrFolder = await readdirAsync(path, { withFileTypes: true });
 
   return fileOrFolder.filter((x) => x.isDirectory()).map((x) => x.name);
   // .filter(dirent => dirent.isDirectory())
