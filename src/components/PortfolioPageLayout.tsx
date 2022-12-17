@@ -5,6 +5,7 @@ import { Prose } from './Prose';
 import { GiOfficeChair } from 'react-icons/gi';
 import { AiFillCalendar, AiFillCode } from 'react-icons/ai';
 import { BsFillPeopleFill } from 'react-icons/bs';
+import { MdCategory } from 'react-icons/md';
 import Head from 'next/head';
 
 export const Pattern = () => (
@@ -102,7 +103,7 @@ const Header = ({ meta }: { meta: PortfolioItemMeta }) => (
         {meta.title}
       </span>
     </h1>
-    <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 text-zinc-900 dark:text-zinc-100">
+    <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 text-zinc-900 dark:text-zinc-100 justify-center">
       {meta.projectType && (
         <div className={headerItemClass}>
           <GiOfficeChair className={iconItemClass} aria-hidden="true" title="Project Type" />
@@ -116,14 +117,19 @@ const Header = ({ meta }: { meta: PortfolioItemMeta }) => (
         </div>
       )}
       <div className={headerItemClass}>
-        <AiFillCode className={iconItemClass} aria-hidden="true" title="Tech" />
+        <MdCategory className={iconItemClass} aria-hidden="true" title="Tech" />
         {meta.categories.join(', ')}
       </div>
+
       <div className={headerItemClass}>
+        <AiFillCode className={iconItemClass} aria-hidden="true" title="Tech" />
+        {meta.tech.join(', ')}
+      </div>
+      {/* <div className={headerItemClass}>
         <AiFillCalendar className={iconItemClass} aria-hidden="true" title="Date" />
         {formatDate(meta.dateStart)}
         {meta.dateEnd && ` - ${formatDate(meta.dateEnd)}`}
-      </div>
+      </div> */}
     </div>
 
     <p className="mt-8 text-xl leading-8 prose dark:prose-invert">{meta.summary}</p>
