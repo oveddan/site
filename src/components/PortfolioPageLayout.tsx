@@ -146,9 +146,9 @@ export const PortfolioPageLayout = ({
   <>
     <Layout>
       <Head>
-        <title>{`Dan Oved's portfolio - ${meta.title}`}</title>
+        <title>{`${meta.title} - Dan Oved's portfolio`}</title>
         <meta name="description" content={meta.summary} />
-        <meta name="og:title" content={`Dan Oved's portfolio - ${meta.title}`} />
+        <meta name="og:title" content={`${meta.title} - Dan Oved's portfolio`} />
         <meta name="og:description" content={meta.summary} />
         {/* <meta name="og:image" content={require(meta.image)} /> */}
       </Head>

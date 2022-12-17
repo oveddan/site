@@ -1,9 +1,9 @@
 export enum ProjectType {
   startup = 'startup',
   hackathonProject = 'hackathon project',
-  personal = 'personal',
+  personal = 'personal project',
   teaching = 'teaching',
-  gradSchool = 'grad school',
+  gradSchool = 'Grad school project',
   clientWork = 'client work',
 }
 export enum Category {
