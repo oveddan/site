@@ -30,7 +30,7 @@ export function useDarkMode() {
 
   const updateMode = useCallback(() => {
     setIsDarkMode(darkModeMediaQuery.matches);
-  }, []);
+  }, [darkModeMediaQuery.matches]);
 
   const updateModeWithoutTransitions = useCallback(() => {
     disableTransitionsTemporarily();
