@@ -10,7 +10,7 @@ export const meta: PortfolioItemMeta = {
   weight: -2,
   summary:
     'Arium is a browser-based, real-time collaborative platform for NFT artists and creators to build 3D virtual worlds. It features spatial video and audio chat, providing a connected and serendipitous social experience for users.',
-  tech: [Tech.React, Tech.Javascript, Tech.Threejs, Tech.Firebase, Tech.WebRTC],
+  tech: [Tech.React, Tech.Javascript, Tech.Threejs /*Tech.Firebase, Tech.WebRTC*/],
   categories: [Category.Metaverse, Category.Web3],
   role: Role.CTOCoFounder,
   links: {

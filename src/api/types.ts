@@ -22,14 +22,14 @@ export enum Tech {
   Tensorflowjs = 'TensorflowJs',
   Python = 'Python',
   Threejs = 'Three.js',
-  DigitalFab = 'Digital Fabrication',
+  DigitalFab = 'Fabrication',
   Hardware = 'Hardware',
-  Firebase = 'Firebase',
-  WebRTC = 'WebRTC',
+  // Firebase = 'Firebase',
+  // WebRTC = 'WebRTC',
   TouchDesigner = 'TouchDesigner',
-  Led = 'led',
-  OpenCV = 'OpenCV',
-  NodeJS = 'Node.js',
+  Led = 'LED',
+  // OpenCV = 'OpenCV',
+  // NodeJS = 'Node.js',
 }
 
 export enum Role {
@@ -40,7 +40,12 @@ export enum Role {
   Artist = 'Artist',
 }
 
-export type PortfolioItemMeta = {
+export type HasPortfolioItemFilters = {
+  categories: Category[];
+  tech: Tech[];
+};
+
+export type PortfolioItemMeta = HasPortfolioItemFilters & {
   title: string;
   dateStart: number;
   dateEnd?: number | null;
@@ -50,8 +55,6 @@ export type PortfolioItemMeta = {
   animatedImage: string;
   showonlyimage?: boolean;
   summary: string;
-  categories: Category[];
-  tech: Tech[];
   links: {
     github: string | null;
     demo: string | null;

@@ -1,11 +1,12 @@
 import { getPortfolioItems, MetaWithSlug } from '@/api/portfolio';
 import { Card, CardDescription, CardLink } from '@/components/Card';
+import Filters from '@/components/Filters';
 import Layout from '@/components/Layout';
 import { SimpleLayout } from '@/components/SimpleLayout';
+import { useFilteredProjects, useFilters } from '@/hooks/useFilters';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { BsGithub } from 'react-icons/bs';
 
 interface Props {
   portfolioItems: MetaWithSlug[];
@@ -39,6 +40,10 @@ const projectLink = (project: MetaWithSlug) => {
 };
 
 const Index: NextPage<Props> = ({ portfolioItems }) => {
+  const filters = useFilters(portfolioItems);
+
+  const filteredProjects = useFilteredProjects(filters.activeFilters, portfolioItems);
+
   return (
     <Layout>
       <Head>
@@ -49,8 +54,9 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
         title="Full-stack engineer, founder, and explorer of the soon-to-be possible"
         intro="As a seasoned programmer and builder, I thrive on innovation and exploration. I enjoy combining technologies in unique ways to unlock new avenues of creative expression and possibility. Here are a few of my standout projects:"
       >
+        <Filters {...filters} />
         <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 m:grid-cols-2 lg:grid-cols-3">
-          {portfolioItems.map((project) => (
+          {filteredProjects.map((project) => (
             <Card as="li" key={project.title}>
               <div className="relative z-10 flex items-center justify-center rounded-lg bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                 <Image

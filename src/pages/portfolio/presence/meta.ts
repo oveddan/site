@@ -18,5 +18,5 @@ export const meta: PortfolioItemMeta = {
   },
   role: Role.Artist,
   categories: [Category.Installation, Category.MachineLearning],
-  tech: [Tech.Python, Tech.OpenCV, Tech.DigitalFab, Tech.Hardware],
+  tech: [Tech.Python, /*Tech.OpenCV, */ Tech.DigitalFab, Tech.Hardware],
 };
