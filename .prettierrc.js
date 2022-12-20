@@ -5,4 +5,12 @@ module.exports = {
   singleQuote: true,
   printWidth: 120,
   bracketSpacing: true,
-};
+  overrides: [
+    {
+      files: '*.mdx',
+      options: {
+        semi: false,
+      },
+    },
+  ],
+}
