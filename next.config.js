@@ -18,4 +18,16 @@ module.exports = withMDX({
   pageExtensions: ['tsx', 'jsx', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
+  async rewrites() {
+    return [
+      {
+        source: '/blog',
+        destination: 'https://danblog.netlify.app/blog',
+      },
+      {
+        source: '/blog/:slug',
+        destination: 'https://danblog.netlify.app/:slug', // Matched parameters can be used in the destination
+      },
+    ];
+  },
 });
