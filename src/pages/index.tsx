@@ -51,8 +51,8 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
         <meta name="description" content="Dan Oved's Portfolio" />
       </Head>
       <SimpleLayout
-        title="Full-stack engineer, founder, and explorer of the soon-to-be possible"
-        intro="As a seasoned programmer and builder, I thrive on innovation and exploration. I enjoy combining technologies in unique ways to unlock new avenues of creative expression and possibility. Here are a few of my standout projects:"
+        title="Dan Oved: creative full-stack engineer and founder exploring the soon-to-be possible"
+        intro="Here are curated selection projects I've worked on:"
       >
         <Filters {...filters} />
         <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 m:grid-cols-2 lg:grid-cols-3">
