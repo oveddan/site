@@ -2,7 +2,7 @@
   publish = ".next"
   command = "yarn build"
 
-## This rule redirects to an external API, signing requests with a secret
+## blog redirect
 [[redirects]]
   from = "/blog*"
   to = "https://danblog.netlify.app/blog/:splat"
@@ -10,3 +10,19 @@
   force = true # COMMENT: ensure that we always redirect
   headers = {X-From = "Netlify"}
   signed = "API_SIGNATURE_TOKEN"
+
+## www.danioved.com => danoved.xyz
+[[redirects]]
+  from = "https://www.danioved.com*"
+  to = "https://danoved.xyz/:splat"
+  status = 301
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
+  signed = "API_SIGNATURE_TOKEN"
+
+## danoved.com => danoved.xyz
+[[redirect]]
+  from = 'https://danoved.com/*'
+  to = 'https://danoved.xyz/:splat'
+  status = 301
+  force = true
