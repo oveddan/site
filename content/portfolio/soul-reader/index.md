@@ -1,15 +1,12 @@
 ---
-title: "The Soul Reader"
+title: 'The Soul Reader'
 date: 2018-04-30T04:26:01-04:00
 draft: false
 aliases:
   - /soulreader
 hideFromHomePage: true
+summary: The soul reader uses the focus of a viewer's gaze to generate imagery that's a reflection of their subconscious.
 ---
-
-The soul reader uses the focus of a viewer's gaze to generate imagery that's a reflection of their subconscious.
-
-<!--more-->
 
 {{< youtube Y3T8vKHQN_4 >}}
 
