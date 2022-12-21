@@ -1,5 +1,4 @@
-import { MetaWithSlug } from '@/api/portfolio';
-import { HasPortfolioItemFilters, PortfolioItemMeta } from '@/api/types';
+import { Category, HasPortfolioItemFilters, PortfolioItemMeta, Tech } from '@/api/types';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 export const getFilters = (projects: PortfolioItemMeta[]) => {
@@ -18,44 +17,29 @@ export const getFilters = (projects: PortfolioItemMeta[]) => {
 
 export type Filters = ReturnType<typeof getFilters>;
 
-type ActiveFilters = {
-  [key in keyof Filters]?: Set<string>;
-};
+type ActiveFilter = { filterType: keyof Filters; value: string } | undefined;
 
 export const useFilters = (projects: PortfolioItemMeta[]) => {
   const filters = useMemo(() => getFilters(projects), [projects]);
 
-  const [activeFilters, setActiveFilters] = useState<ActiveFilters>({});
+  const [activeFilter, setActiveFilter] = useState<ActiveFilter>(undefined);
 
   const toggleFilter = useCallback((filterType: keyof Filters, value: string) => {
-    setActiveFilters((existing) => {
-      if (!existing[filterType]) {
-        return { ...existing, [filterType]: new Set([value]) };
+    setActiveFilter((existing) => {
+      if (existing) {
+        if (existing.filterType === filterType && existing.value === value) {
+          return undefined;
+        }
       }
-
-      const clonedSet = new Set(existing[filterType]);
-
-      if (clonedSet.has(value)) {
-        clonedSet.delete(value);
-      } else {
-        clonedSet.add(value);
-      }
-
-      // if result is empty, then remove from list
-      if (clonedSet.size === 0) {
-        const { [filterType]: _, ...rest } = existing;
-        return rest;
-      }
-
       return {
-        ...existing,
-        [filterType]: clonedSet,
+        filterType,
+        value,
       };
     });
   }, []);
 
   return {
-    activeFilters,
+    activeFilter,
     filters,
     toggleFilter,
   };
@@ -63,35 +47,30 @@ export const useFilters = (projects: PortfolioItemMeta[]) => {
 
 export type FilterProps = ReturnType<typeof useFilters>;
 
-const matchesFilter = (attributes: string[], filter: Set<string> | undefined): boolean => {
-  if (!filter) return true;
+const filterProjects = <T extends HasPortfolioItemFilters>(projects: T[], activeFilter: ActiveFilter) => {
+  if (!activeFilter) return projects;
 
-  return attributes.some((attribute) => filter.has(attribute));
-};
-
-const filterProjects = <T extends HasPortfolioItemFilters>(projects: T[], activeFilters: ActiveFilters) => {
   return projects.filter((project) => {
-    if (!matchesFilter(project.categories, activeFilters.category)) {
-      return false;
+    if (activeFilter.filterType === 'category') {
+      return project.categories.includes(activeFilter.value as Category);
     }
-    if (!matchesFilter(project.tech, activeFilters.tech)) {
-      return false;
+    if (activeFilter.filterType === 'tech') {
+      return project.tech.includes(activeFilter.value as Tech);
     }
-    return true;
   });
 };
 
-export const useFilteredProjects = <T extends HasPortfolioItemFilters>(activeFilters: ActiveFilters, projects: T[]) => {
+export const useFilteredProjects = <T extends HasPortfolioItemFilters>(activeFilter: ActiveFilter, projects: T[]) => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
   useEffect(() => {
-    const filtered = filterProjects(projects, activeFilters);
+    const filtered = filterProjects(projects, activeFilter);
     console.log({
       filtered,
-      activeFilters,
+      activeFilters: activeFilter,
     });
     setFilteredProjects(filtered);
-  }, [projects, activeFilters]);
+  }, [projects, activeFilter]);
 
   return filteredProjects;
 };

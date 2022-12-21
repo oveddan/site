@@ -42,7 +42,7 @@ const projectLink = (project: MetaWithSlug) => {
 const Index: NextPage<Props> = ({ portfolioItems }) => {
   const filters = useFilters(portfolioItems);
 
-  const filteredProjects = useFilteredProjects(filters.activeFilters, portfolioItems);
+  const filteredProjects = useFilteredProjects(filters.activeFilter, portfolioItems);
 
   return (
     <Layout>
