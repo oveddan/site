@@ -78,8 +78,9 @@ export default function About() {
                 something unique and delightful.
               </p>
               <p>
-                My main frameworks of choice include Typescript, React, Solidity, Three.js, TouchDesigner, Tensorflow,
-                and Tensorflow.js. My areas of interest are web3/the blockchain, the metaverse, and machine learning.
+                My main frameworks/languages of choice include Typescript, React, Solidity, Three.js, TouchDesigner,
+                Python, Tensorflow, and Tensorflow.js. My areas of interest are web3/the blockchain, the metaverse, and
+                machine learning.
               </p>
               <p>
                 I am a graduate of the graduate program at the Interactive Telecommunication Program (ITP) at NYU's
