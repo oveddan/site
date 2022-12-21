@@ -48,7 +48,7 @@ export default function About() {
     <Layout>
       <Head>
         <title>About - Dan Oved</title>
-        <meta name="description" content="I’m Dan Oved. I live in New York City, where I design the future." />
+        <meta name="description" content="I’m Dan Oved. Polyglot Pioneer at the Intersection of Art and Technology." />
       </Head>
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
@@ -64,30 +64,31 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Spencer Sharp. I live in New York City, where I design the future.
+              I’m Dan Oved, Polyglot Pioneer at the Intersection of Art and Technology.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I’ve loved making things for as long as I can remember, and wrote my first program when I was 6 years
-                old, just two weeks after my mom brought home the brand new Macintosh LC 550 that I taught myself to
-                type on.
+                As a polyglot and full-stack engineer with an entrepreneurial spirit, I have always been drawn to the
+                challenge of building products from the ground up. I am deeply committed to understanding the needs and
+                wants of users and strive to create something that meets their needs in a creative and innovative way. I
+                see myself working at the intersection of art and technology, where I can bring my unique perspective
+                and ideas to the table. I am always inventing and striving to create things that haven't been done
+                before, pushing the boundaries of what is possible. As a founder, I have learned to be resourceful and
+                adaptable, with a strong ability to bring together a diverse range of skills and expertise to create
+                something unique and delightful.
               </p>
               <p>
-                The only thing I loved more than computers as a kid was space. When I was 8, I climbed the 40-foot oak
-                tree at the back of our yard while wearing my older sister’s motorcycle helmet, counted down from three,
-                and jumped — hoping the tree was tall enough that with just a bit of momentum I’d be able to get to
-                orbit.
+                My main frameworks of choice include Typescript, React, Solidity, Three.js, TouchDesigner, Tensorflow,
+                and Tensorflow.js. My areas of interest are web3/the blockchain, the metaverse, and machine learning.
               </p>
               <p>
-                I spent the next few summers indoors working on a rocket design, while I recovered from the multiple
-                surgeries it took to fix my badly broken legs. It took nine iterations, but when I was 15 I sent my
-                dad’s Blackberry into orbit and was able to transmit a photo back down to our family computer from
-                space.
-              </p>
-              <p>
-                Today, I’m the founder of Planetaria, where we’re working on civilian space suits and manned shuttle
-                kits you can assemble at home so that the next generation of kids really <em>can</em> make it to orbit —
-                from the comfort of their own backyards.
+                I am a graduate of the graduate program at the Interactive Telecommunication Program (ITP) at NYU's
+                Tisch School of the Arts. After graduation, I continued on as a research resident and adjunct faculty at
+                ITP. I have also worked as a computer vision engineer with the Google Creative Lab and New York Times'
+                R&D, and was CTO and Co-Founder of Arium, a browser-based collaborative virtual world builder and events
+                platform for NFT artists and curators. I have participated in several Ethereum-based hackathons, leading
+                teams and prototyping ideas. I have placed first in some of these hackathons and been selected as a
+                finalist in others.
               </p>
             </div>
           </div>
