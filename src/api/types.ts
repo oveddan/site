@@ -17,6 +17,7 @@ export enum Category {
 
 export enum Tech {
   React = 'React',
+  Solidity = 'Solidity',
   Javascript = 'Javascript',
   Tensorflow = 'Tensorflow',
   Tensorflowjs = 'TensorflowJs',
