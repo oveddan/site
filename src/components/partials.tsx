@@ -32,15 +32,18 @@ export const YouTube = ({ videoId }: { videoId: string }) => (
   </div>
 );
 
+const embedWidth = 600;
+
 export const Instagram = ({ postId }: { postId: string }) => (
   <div style={{ display: 'flex', justifyContent: 'center' }} className="my-8">
-    <InstagramEmbed url={`https://www.instagram.com/p/${postId}/`} width={700} captioned />
+    <InstagramEmbed url={`https://www.instagram.com/p/${postId}/`} width={embedWidth} captioned />
   </div>
 );
 
 export const Twitter = ({ userId, tweetId }: { userId: string; tweetId: string }) => (
-  <div style={{ display: 'flex', justifyContent: 'center' }} className="my-8">
-    <TwitterEmbed url={`https://twitter.com/${userId}/status/${tweetId}`} width={700} />
+  <div className="flex justify-center my-8 mx-auto" style={{ width: embedWidth }}>
+    {/* <TwitterTweetEmbed  tweetId={tweetId} /> */}
+    <TwitterEmbed url={`https://twitter.com/${userId}/status/${tweetId}`} width={embedWidth} />
   </div>
 );
 
