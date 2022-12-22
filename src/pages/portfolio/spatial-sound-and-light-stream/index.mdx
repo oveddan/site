@@ -1,0 +1,15 @@
+import { PortfolioPageLayout } from '@/components/PortfolioPageLayout'
+import { YouTube, ResizedImageWithCaption, Twitter, Vimeo } from '@/components/partials'
+import { meta } from './meta'
+
+<Vimeo videoId="533617730" />
+
+The idea for this performance was inspired by a 4DSound event I attended at a church in Amsterdam in October 2019. At this event, 40 speakers were placed in a circle and sound and light moved around in sync, played from analog modular synthesizers. When the COVID-19 pandemic hit and it became impossible to have a physical performance space, I began exploring the possibility of creating a similar experience in a virtual space.
+
+To overcome the 10-30 second delay typical in live streams, I embedded values that I controlled and values extracted from musical instruments into pixels hidden in the stream. These values were then unpacked and used to change elements in the space in real-time, ensuring that the modifications were in sync with the audio and video in the stream.
+
+In the performance, multichannel audio is streamed into a virtual 3D space, and each channel of audio is attached to a light. I control the position of the light through encoded values, and the characteristics of the light, including size, brightness, and color, are continuously modified by properties of the sound. When viewed with headphones, the audio moves in sync with the light around the viewer's head, creating the illusion of being in a real space with moving sound and light.
+
+This work unlocks new possibilities for browser-based multi-channel audio and 3D visual live streaming.
+
+export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout>
