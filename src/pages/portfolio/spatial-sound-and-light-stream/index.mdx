@@ -1,5 +1,11 @@
 import { PortfolioPageLayout } from '@/components/PortfolioPageLayout'
-import { YouTube, ResizedImageWithCaption, Twitter, Vimeo } from '@/components/partials'
+import {
+  YouTube,
+  ResizedImageWithCaption,
+  Twitter,
+  Vimeo,
+  ResizedImageWithCaption as Image,
+} from '@/components/partials'
 import { meta } from './meta'
 
 <Vimeo videoId="533617730" />
@@ -11,5 +17,29 @@ To overcome the 10-30 second delay typical in live streams, I embedded values th
 In the performance, multichannel audio is streamed into a virtual 3D space, and each channel of audio is attached to a light. I control the position of the light through encoded values, and the characteristics of the light, including size, brightness, and color, are continuously modified by properties of the sound. When viewed with headphones, the audio moves in sync with the light around the viewer's head, creating the illusion of being in a real space with moving sound and light.
 
 This work unlocks new possibilities for browser-based multi-channel audio and 3D visual live streaming.
+
+## A bit more detail on how it works
+
+<Image
+  src={require('./images/bitwig-audio.gif')}
+  caption="Audio is synthesized live in Bitwig Studio using Softube Modular reproductions of analog modular synthesizers.  X and Y positions of left and right channels are generated as seen on the bottom right, and transmitted via midi to TouchDesigner.  Additional characteristics of the synthesized sounds, such as pulse, timber, and reverb amount are also sent via midi to TouchDesigner."
+/>
+
+<Image
+  src={require('./images/midi-signals.gif')}
+  caption="In TouchDesigner, the midi signals from Bitwig are converted into grayscale pixel values.  These pixels are packed into the stream to be parsed later in the front-end metaverse renderer."
+/>
+
+<Image
+  src={require('./images/stream-all-together.gif')}
+  caption="The different camera angles, the screencpature of the audio, and the pixel values extracted from the midi are packed together into one video feed in OBS Studio and streamed out to Mux along with the live synthesized audio.  These different screens can be unpacked later in the 3d space, and the pixel values can be parsed to modulate the lights attached to the sound."
+/>
+
+<Image
+  src={require('./images/in-space-all-together.gif')}
+  caption="In the virtual space, the audio is attached to a light, and the light is controlled by the pixel values extracted from the stream.  The light is also modulated by the characteristics of the sound, such as pulse, timber, and reverb amount.  The light moves around the viewer's head, creating the illusion of being in a real space with moving sound and light.  Additional screens from the stream, such as the instrument view, are extracted and placed in the space."
+/>
+
+[View a live demo here](https://soundmove.space)
 
 export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout>
