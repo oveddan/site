@@ -20,20 +20,28 @@ This work unlocks new possibilities for browser-based multi-channel audio and 3D
 
 ## A bit more detail on how it works
 
+### Sound synthesis + midi signal generation with Bitwig Studio + Softube Modular
+
 <Image
   src={require('./images/bitwig-audio.gif')}
   caption="Audio is synthesized live in Bitwig Studio using Softube Modular reproductions of analog modular synthesizers.  X and Y positions of left and right channels are generated as seen on the bottom right, and transmitted via midi to TouchDesigner.  Additional characteristics of the synthesized sounds, such as pulse, timber, and reverb amount are also sent via midi to TouchDesigner."
 />
+
+### Midi parsing + pixel value video generation in TouchDesigner
 
 <Image
   src={require('./images/midi-signals.gif')}
   caption="In TouchDesigner, the midi signals from Bitwig are converted into grayscale pixel values.  These pixels are packed into the stream to be parsed later in the front-end metaverse renderer."
 />
 
+### Audio + light modulation values + camera feed streaming with OBS Studio + Mux
+
 <Image
   src={require('./images/stream-all-together.gif')}
   caption="The different camera angles, the screencpature of the audio, and the pixel values extracted from the midi are packed together into one video feed in OBS Studio and streamed out to Mux along with the live synthesized audio.  These different screens can be unpacked later in the 3d space, and the pixel values can be parsed to modulate the lights attached to the sound."
 />
+
+### Audio channel splitting + sound & light position & light characteristics + additional screens projected into the Three.js metaverse space
 
 <Image
   src={require('./images/in-space-all-together.gif')}
