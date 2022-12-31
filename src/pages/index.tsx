@@ -52,7 +52,7 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
       </Head>
       <SimpleLayout
         title="Dan Oved: creative full-stack engineer and founder exploring the soon-to-be possible"
-        intro="Here are curated selection projects I've worked on:"
+        intro="Here is a curated selection projects I've worked on:"
       >
         <Filters {...filters} />
         <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 m:grid-cols-2 lg:grid-cols-3">
