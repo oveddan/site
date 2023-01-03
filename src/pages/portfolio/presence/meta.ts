@@ -9,7 +9,7 @@ export const meta: PortfolioItemMeta = {
   animatedImage: './images/presence.gif',
   showonlyimage: true,
   summary:
-    'Presence is a kinetic sculpture that is controlled by a viewer’s gaze. It uses a webcam and computer vision to detect where a user is looking, and alters its shape to reflect this focal point.',
+    '"Presence" is a kinetic sculpture that uses computer vision to watch how a person stands or moves, and then changes its own shape to match the person\'s body. It was on display at the 2018 Maker Faire event.',
   projectType: ProjectType.gradSchool,
   links: {
     externalArticle: null,
