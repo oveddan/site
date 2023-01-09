@@ -52,7 +52,7 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
       </Head>
       <SimpleLayout
         title="Dan Oved: creative full-stack engineer and founder exploring the soon-to-be possible"
-        intro="I have built numerous projects, many of them open-source, ranging from machine learning applications to virtual world building platforms to blockchain-based protocols. My work has been featured in hackathons, startups, and even within larger organizations. I am drawn to projects that push the boundaries of what is recently possible and drive innovation. I am constantly striving to create something unique that push the envelope of what’s possible. Here is a curated sample of some of my work:"
+        intro="I have built a variety of projects, many of them open-source, ranging from machine learning applications to virtual world building platforms to blockchain-based protocols. These projects have been made in the context of startups, hackathons, art/performance, and even within larger organizations. I am drawn to projects that push the boundaries of what is recently possible and drive innovation. I am constantly striving to create something unique that push the envelope of what’s possible. Here is a curated sample of some of my work:"
       >
         <Filters {...filters} />
         <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 m:grid-cols-2 lg:grid-cols-3">
