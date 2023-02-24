@@ -99,11 +99,11 @@ const Header = ({ meta }: { meta: PortfolioItemMeta }) => (
       <span className="ml-3">{formatDate(meta.date)}</span>
     </time> */}
     <h1>
-      <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 dark:text-zinc-100 sm:text-4xl">
+      <span className="mt-2 block text-center text-3xl font-bold font-mono  leading-8 tracking-tight text-gray-900 dark:text-zinc-100 sm:text-4xl">
         {meta.title}
       </span>
     </h1>
-    <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 text-zinc-900 dark:text-zinc-100 justify-center">
+    <div className="mt-1 font-mono  flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 text-zinc-900 dark:text-zinc-100 justify-center">
       {meta.projectType && (
         <div className={headerItemClass}>
           <GiOfficeChair className={iconItemClass} aria-hidden="true" title="Project Type" />
