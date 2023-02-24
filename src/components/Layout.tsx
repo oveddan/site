@@ -14,9 +14,9 @@ const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
           <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
         </div>
       </div>
-      <div className="relative">
+      <div className={clsx(inter.variable, mono.variable, 'font-sans relative')}>
         <Header />
-        <main className={clsx(inter.variable, mono.variable, 'font-sans')}>{children}</main>
+        <main>{children}</main>
         <Footer />
       </div>
     </>
