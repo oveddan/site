@@ -107,7 +107,7 @@ function NavItem({ href, children }: NavItemProps) {
       <Link
         href={href}
         className={clsx(
-          'relative block px-3 py-2 transition',
+          'relative block px-3 py-2 transition font-mono',
           isActive ? 'text-teal-500 dark:text-teal-400' : 'hover:text-teal-500 dark:hover:text-teal-400'
         )}
       >

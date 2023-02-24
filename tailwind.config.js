@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -8,8 +10,8 @@ module.exports = {
   plugins: [require('@tailwindcss/typography')],
   theme: {
     fontFamily: {
-      sans: ['Roboto', 'sans-serif'],
-      mono: ['Martian Mono', 'monospace'],
+      sans: ['var(--font-inter)', ...fontFamily.sans],
+      mono: ['var(--font-roboto)', ...fontFamily.mono],
     },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],

@@ -1,5 +1,10 @@
-import { Footer } from '@/components/Footer';
-import { Header } from '@/components/Header';
+import { Footer } from '@/components/shared/Footer';
+import { Header } from '@/components/shared/Header';
+import clsx from 'clsx';
+import { Inter, Roboto_Mono } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const mono = Roboto_Mono({ subsets: ['latin'], variable: '--font-roboto' });
 
 const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   return (
@@ -9,7 +14,7 @@ const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
           <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
         </div>
       </div>
-      <div className="relative">
+      <div className={clsx(inter.variable, mono.variable, 'font-sans relative')}>
         <Header />
         <main>{children}</main>
         <Footer />
