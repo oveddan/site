@@ -1,6 +1,5 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import clsx from 'clsx';
-import { PortfolioItemMeta } from '@/api/types';
 import { FilterProps, Filters } from '@/hooks/useFilters';
 
 const FilterChipComponent = ({
@@ -18,7 +17,7 @@ const FilterChipComponent = ({
   return (
     <button
       className={clsx(
-        'inline-flex items-center px-3 text-sm font-medium m-1 py-1 rounded-lg border border-solid border-black dark:text-white dark:border-white',
+        'inline-flex items-center px-3 text-sm font-medium font-mono m-1 py-1 rounded-lg border border-solid border-black dark:text-white dark:border-white',
         {
           'bg-orange-500': selected,
           'bg-gray-200 text-gray-500 border-gray-300 hover:border-black hover:text-black dark:bg-gray-700 dark:border-gray-400 dark:text-gray-400 dark:hover:text-white dark:hover:border-white':

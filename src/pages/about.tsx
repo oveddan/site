@@ -4,7 +4,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 import { Container } from '@/components/Container';
-import { TwitterIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
+import { TwitterIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '@/components/shared/SocialIcons';
 import portraitImage from '@/images/portrait.jpg';
 import Layout from '@/components/Layout';
 

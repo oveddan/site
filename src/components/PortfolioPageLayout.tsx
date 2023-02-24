@@ -1,9 +1,9 @@
 import { PortfolioItemMeta } from '@/api/types';
 import { Container } from './Container';
 import Layout from './Layout';
-import { Prose } from './Prose';
+import { Prose } from './shared/Prose';
 import { GiOfficeChair } from 'react-icons/gi';
-import { AiFillCalendar, AiFillCode } from 'react-icons/ai';
+import { AiFillCode } from 'react-icons/ai';
 import { BsFillPeopleFill } from 'react-icons/bs';
 import { MdCategory } from 'react-icons/md';
 import Head from 'next/head';

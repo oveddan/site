@@ -43,7 +43,7 @@ export function CardTitle({
   children: React.ReactNode;
 }) {
   return (
-    <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+    <Component className="text-base font-semibold font-mono tracking-tight text-zinc-800 dark:text-zinc-100">
       {href ? <CardLink href={href}>{children}</CardLink> : children}
     </Component>
   );
