@@ -14,7 +14,7 @@ export const meta: PortfolioItemMeta = {
   role: Role.Builder,
   links: {
     github: null,
-    demo: 'https://sound-move.space',
+    demo: 'https://soundmove.space',
     externalArticle: null,
   },
   projectType: ProjectType.personal,
