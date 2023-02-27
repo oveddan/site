@@ -1,0 +1,21 @@
+import { PortfolioPageLayout } from '@/components/PortfolioPageLayout'
+import { YouTube, ResizedImageWithCaption, Twitter } from '@/components/partials'
+import { meta } from './meta'
+
+w@y_p01nt: Create and Mint Content-rich 3D Virtual Worlds as NFTs on any EVM compatible blockchain and IPFS
+
+<Twitter userId="0xKNNY" tweetId="1554797275645452293" />
+
+w@y_p01nt is an open-source platform developed by Dan Oved and Louis Parker that enables 3D artists to create and mint content-rich virtual worlds as ownable ERC721 NFTs. The platform was created for the EthGlobal HackFS hackathon, which focused on building a decentralized file system for a decentralized web, and was selected as a top 10 finalist out of 197 teams.
+
+w@y_p01nt is a serverless application that runs entirely in the browser, built with React and hosted on IPFS. The scene assets and graph are stored on IPFS, while any EVM-compatible blockchain serves as the ownership and network layer between worlds.
+
+<YouTube videoId="i-CmcTKGqKA" />
+
+The front-end of w@y_p01nt is built with React, and the 3D scene and editor are rendered using react-three-fiber. With Waypoint, virtual world creators can connect their worlds to on-chain portals and users can own and explore them as NFTs.
+
+The ERC721 virtual worlds created with w@y_p01nt can be explored through standard marketplaces like OpenSea. This is possible because the scene is rendered using an interactive HTML page, which is set as the animation_url of the NFT. This allows users to view and interact with the virtual world directly from within the marketplace.
+
+export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout
+
+>
