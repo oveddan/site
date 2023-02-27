@@ -9,8 +9,10 @@ import { MdCategory } from 'react-icons/md';
 import Head from 'next/head';
 import { FaGithub } from 'react-icons/fa';
 import { BsDoorOpenFill } from 'react-icons/bs';
-import { IconType } from 'react-icons';
 import clsx from 'clsx';
+import { projectImageSrc } from '@/hooks/useProjectImageSrc';
+import { MetaWithSlug } from '@/api/portfolio';
+import { useRouter } from 'next/router';
 
 export function formatDate(date: number) {
   return new Date(date).toLocaleDateString('en-US', {
@@ -103,29 +105,34 @@ export const PortfolioPageLayout = ({
   meta,
   children,
 }: {
-  meta: PortfolioItemMeta;
+  meta: MetaWithSlug;
   children: JSX.Element | JSX.Element[];
-}) => (
-  <>
-    <Layout>
-      <Head>
-        <title>{`${meta.title} - Dan Oved's portfolio`}</title>
-        <meta name="description" content={meta.summary} />
-        <meta name="og:title" content={`${meta.title} - Dan Oved's portfolio`} />
-        <meta name="og:description" content={meta.summary} />
-        {/* <meta name="og:image" content={require(meta.image)} /> */}
-      </Head>
-      <Container className="mt-16 lg:mt-32">
-        <div className="xl:relative">
-          <div className="mx-auto max-w-2xl">
-            <article>
-              <Header meta={meta} />
+}) => {
+  const router = useRouter();
+  const parts = router.pathname.split('/');
+  const slug = parts[parts.length - 1];
+  return (
+    <>
+      <Layout>
+        <Head>
+          <title>{`${meta.title} - Dan Oved's portfolio`}</title>
+          <meta name="description" content={meta.summary} />
+          <meta name="og:title" content={`${meta.title} - Dan Oved's portfolio`} />
+          <meta name="og:description" content={meta.summary} />
+          <meta name="og:image" content={projectImageSrc({ slug, fileName: meta.image })} />
+        </Head>
+        <Container className="mt-16 lg:mt-32">
+          <div className="xl:relative">
+            <div className="mx-auto max-w-2xl">
+              <article>
+                <Header meta={meta} />
 
-              <Prose className="mt-8">{children}</Prose>
-            </article>
+                <Prose className="mt-8">{children}</Prose>
+              </article>
+            </div>
           </div>
-        </div>
-      </Container>
-    </Layout>
-  </>
-);
+        </Container>
+      </Layout>
+    </>
+  );
+};

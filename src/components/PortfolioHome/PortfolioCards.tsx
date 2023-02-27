@@ -1,6 +1,7 @@
 import { MetaWithSlug } from '@/api/portfolio';
 import { Card, CardDescription, CardLink } from './Card';
 import Image from 'next/image';
+import { projectImageSrc } from '@/hooks/useProjectImageSrc';
 
 export const PortfolioCards = ({
   filteredProjects,
@@ -14,7 +15,7 @@ export const PortfolioCards = ({
       <Card as="li" key={project.title}>
         <div className="relative z-10 flex items-center justify-center rounded-lg bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
           <Image
-            src={require(`@/pages/portfolio/${project.slug}/${project.animatedImage.replace('./', '')}`)}
+            src={projectImageSrc({ slug: project.slug, fileName: project.animatedImage })}
             alt=""
             className="rounded-lg"
             unoptimized
