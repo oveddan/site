@@ -119,7 +119,7 @@ export const PortfolioPageLayout = ({
           <meta name="description" content={meta.summary} />
           <meta name="og:title" content={`${meta.title} - Dan Oved's portfolio`} />
           <meta name="og:description" content={meta.summary} />
-          <meta name="og:image" content={projectImageSrc({ slug, fileName: meta.image })} />
+          {meta.image && <meta name="og:image" content={projectImageSrc({ slug, fileName: meta.image })} />}
         </Head>
         <Container className="mt-16 lg:mt-32">
           <div className="xl:relative">

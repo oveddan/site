@@ -52,7 +52,7 @@ export type PortfolioItemMeta = HasPortfolioItemFilters & {
   dateEnd?: number | null;
   draft?: boolean;
   weight: number;
-  image: string;
+  image?: string;
   animatedImage: string;
   showonlyimage?: boolean;
   summary: string;
