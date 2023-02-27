@@ -3,7 +3,7 @@ import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/type
 export const meta: PortfolioItemMeta = {
   title: 'w@y_p01nt',
   dateStart: Date.parse('2022-07-01T22:52:10-04:00'),
-  dateEnd: Date.parse('2022-07-30T22:52:10-04:00'),
+  // dateEnd: Date.parse('2022-07-30T22:52:10-04:00'),
   draft: false,
   animatedImage: './images/waypoint.gif',
   image: './images/waypoint-image.jpg',
