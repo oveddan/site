@@ -29,8 +29,8 @@ module.exports = withMDX({
         destination: 'https://danblog.netlify.app/:slug*', // Matched parameters can be used in the destination
       },
       {
-        source: '/resumes/:slug*',
-        destination: 'https://dano-resume.netlify.app/resumes/:slug*', // Matched parameters can be used in the destination
+        source: '/resume/:slug*',
+        destination: 'https://dano-resume.netlify.app/resume/:slug*', // Matched parameters can be used in the destination
       },
     ];
   },
