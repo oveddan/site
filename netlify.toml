@@ -2,24 +2,6 @@
   publish = ".next"
   command = "yarn build"
 
-## blog redirect
-[[redirects]]
-  from = "/blog*"
-  to = "https://danblog.netlify.app/blog/:splat"
-  status = 200
-  force = true # COMMENT: ensure that we always redirect
-  headers = {X-From = "Netlify"}
-  signed = "API_SIGNATURE_TOKEN"
-
-## blog redirect
-[[redirects]]
-  from = "/resume*"
-  to = "https://dano-resume.netlify.app/resume/:splat"
-  status = 200
-  force = true # COMMENT: ensure that we always redirect
-  headers = {X-From = "Netlify"}
-  signed = "API_SIGNATURE_TOKEN"
-
 ## www.danioved.com => danoved.xyz
 [[redirects]]
   from = "https://www.danioved.com*"
