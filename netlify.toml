@@ -14,7 +14,7 @@
 ## blog redirect
 [[redirects]]
   from = "/resume*"
-  to = "https://dano-resume.netlify.app/blog/:splat"
+  to = "https://dano-resume.netlify.app/resume/:splat"
   status = 200
   force = true # COMMENT: ensure that we always redirect
   headers = {X-From = "Netlify"}
