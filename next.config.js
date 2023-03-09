@@ -20,28 +20,4 @@ module.exports = withMDX({
   pageExtensions: ['tsx', 'jsx', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
-  async rewrites() {
-    return [
-      {
-        source: '/blog',
-        destination: 'https://danblog.netlify.app/blog',
-      },
-      {
-        source: '/blog/:slug',
-        destination: 'https://danblog.netlify.app/:slug*', // Matched parameters can be used in the destination
-      },
-      {
-        source: '/cv',
-        destination: `${resumeBaseUrl}/resume`, // Matched parameters can be used in the destination
-      },
-      {
-        source: '/resume',
-        destination: `${resumeBaseUrl}/resume`, // Matched parameters can be used in the destination
-      },
-      {
-        source: '/resume/:slug*',
-        destination: `${resumeBaseUrl}/resume/:slug*`, // Matched parameters can be used in the destination
-      },
-    ];
-  },
 });
