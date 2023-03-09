@@ -31,6 +31,10 @@ module.exports = withMDX({
         destination: 'https://danblog.netlify.app/:slug*', // Matched parameters can be used in the destination
       },
       {
+        source: '/cv',
+        destination: `${resumeBaseUrl}/resume`, // Matched parameters can be used in the destination
+      },
+      {
         source: '/resume',
         destination: `${resumeBaseUrl}/resume`, // Matched parameters can be used in the destination
       },
