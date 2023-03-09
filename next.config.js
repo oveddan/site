@@ -13,11 +13,31 @@ const withMDX = require('@next/mdx')({
   },
 });
 
-const resumeBaseUrl = process.env.RESUME_BASE_URL || 'http://localhost:3000';
+const resumeBaseUrl = process.env.RESUME_BASE_URL;
 
 module.exports = withMDX({
   // Append the default value with md extensions
   pageExtensions: ['tsx', 'jsx', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
+  async rewrites() {
+    return [
+      {
+        source: '/blog',
+        destination: 'https://danblog.netlify.app/blog/',
+      },
+      {
+        source: '/blog/:slug*',
+        destination: 'https://danblog.netlify.app/blog/:slug*/', // Matched parameters can be used in the destination
+      },
+      {
+        source: '/resume',
+        destination: `${resumeBaseUrl}/resume`, // Matched parameters can be used in the destination
+      },
+      {
+        source: '/resume/:slug*',
+        destination: `${resumeBaseUrl}/resume/:slug*`, // Matched parameters can be used in the destination
+      },
+    ];
+  },
 });
