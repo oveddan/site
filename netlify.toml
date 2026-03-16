@@ -20,6 +20,13 @@
   headers = {X-From = "Netlify"}
   signed = "API_SIGNATURE_TOKEN"
 
+## www.danoved.xyz => danoved.xyz
+[[redirects]]
+  from = "https://www.danoved.xyz/*"
+  to = "https://danoved.xyz/:splat"
+  status = 301
+  force = true
+
 ## www.danioved.com => danoved.xyz
 [[redirects]]
   from = "https://www.danioved.com*"
