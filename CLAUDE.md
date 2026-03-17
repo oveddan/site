@@ -28,6 +28,26 @@ External content (itp-blog, resume) is proxied via Netlify redirects configured 
 - `netlify.toml` — Netlify redirects (proxy rules with `force = true`, `status = 200`, signed auth headers)
 - `next.config.js` — Next.js config (MDX, rewrites for resume only)
 
+## Deployment Troubleshooting
+
+When encountering deployment issues (redirect loops, 404s, proxy failures, build errors), follow this process:
+
+1. **Diagnose**: Check `netlify.toml` and `next.config.js` for conflicting redirect/rewrite rules. Use `curl -sI <url>` to inspect response headers.
+2. **Fix**: Apply the fix and update this CLAUDE.md with what went wrong and the resolution so the issue doesn't recur.
+3. **Verify**: Run `yarn build` locally to confirm the fix doesn't break the build.
+
+### Known issues and fixes
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| ERR_TOO_MANY_REDIRECTS on `/itp-blog` | Duplicate proxy rules in both `netlify.toml` and `next.config.js`. `@netlify/plugin-nextjs` converts Next.js rewrites to Netlify redirects, conflicting with manual `netlify.toml` rules. | Remove the Next.js rewrite for any path already handled in `netlify.toml`. Only configure the proxy in one place. |
+
+### Rules to prevent regressions
+
+- Never duplicate a proxy/redirect in both `netlify.toml` and `next.config.js` — pick one.
+- For paths that need Netlify's `signed` auth header, always use `netlify.toml` (Next.js rewrites can't add custom headers to proxy requests).
+- After any routing change, verify with `curl -sIL https://danoved.xyz/<path>` that no redirect loop exists.
+
 ## Common Commands
 
 - `yarn dev` — Start dev server
