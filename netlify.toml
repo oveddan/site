@@ -2,9 +2,9 @@
   publish = ".next"
   command = "yarn build"
 
-## blog redirect
+## itp blog redirect
 [[redirects]]
-  from = "/blog*"
+  from = "/itp-blog*"
   to = "https://danblog.netlify.app/blog/:splat"
   status = 200
   force = true # COMMENT: ensure that we always redirect

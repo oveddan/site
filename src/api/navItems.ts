@@ -8,7 +8,7 @@ export const navItems: { text: string; path: string }[] = [
   //   path: '/about',
   // },
   // {
-  //   text: 'blog',
-  //   path: '/blog',
+  //   text: 'itp blog',
+  //   path: '/itp-blog',
   // },
 ];
