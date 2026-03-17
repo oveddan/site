@@ -23,11 +23,11 @@ module.exports = withMDX({
   async rewrites() {
     return [
       {
-        source: '/blog',
+        source: '/itp-blog',
         destination: 'https://danblog.netlify.app/blog/',
       },
       {
-        source: '/blog/:slug*',
+        source: '/itp-blog/:slug*',
         destination: 'https://danblog.netlify.app/blog/:slug*/', // Matched parameters can be used in the destination
       },
       {
