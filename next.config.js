@@ -23,14 +23,6 @@ module.exports = withMDX({
   async rewrites() {
     return [
       {
-        source: '/itp-blog',
-        destination: 'https://danblog.netlify.app/blog/',
-      },
-      {
-        source: '/itp-blog/:slug*',
-        destination: 'https://danblog.netlify.app/blog/:slug*/', // Matched parameters can be used in the destination
-      },
-      {
         source: '/resume',
         destination: `${resumeBaseUrl}/resume`, // Matched parameters can be used in the destination
       },
