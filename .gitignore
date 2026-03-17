@@ -4,3 +4,4 @@ node_modules
 hugo
 .next
 yarn-error.log
+public/sitemap.xml
