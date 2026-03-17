@@ -47,10 +47,10 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
   return (
     <Layout>
       <Head>
-        <title>Projects - Dan Oved</title>
-        <meta name="description" content="Dan Oved's Portfolio" />
+        <title>Creative Projects - Dan Oved</title>
+        <meta name="description" content="Dan Oved's Creative Projects" />
       </Head>
-      <SimpleLayout title="Dan Oved's Portfolio" intro="">
+      <SimpleLayout title="Dan Oved's Creative Projects" intro="">
         <Filters {...filters} />
         <PortfolioCards filteredProjects={filteredProjects} projectLink={projectLink} />
       </SimpleLayout>
