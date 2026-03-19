@@ -3,7 +3,7 @@ import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/type
 export const meta: PortfolioItemMeta = {
   title: 'Presence - Gaze Detection Version 1',
   dateStart: Date.parse('2018-01-21T16:08:45-05:00'),
-  draft: false,
+  draft: true,
   weight: 2,
   image: './images/presence_image.png',
   animatedImage: './images/presence.gif',

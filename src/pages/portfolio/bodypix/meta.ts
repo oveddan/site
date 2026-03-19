@@ -9,7 +9,7 @@ export const meta: PortfolioItemMeta = {
   animatedImage: './images/bodypix.gif',
   showonlyimage: true,
   summary:
-    'BodyPix in an open-source machine learning model which allows for person and body-part segmentation. In collaboration with researchers at Google I open-sourced a Tensorflow.js version of the model.',
+    'BodyPix is an open-source machine learning model for person and body-part segmentation. In collaboration with researchers at Google, I open-sourced a TensorFlow.js version so that body segmentation could run entirely in the browser — keeping user data on-device and making the technology accessible to any web developer.',
   links: {
     externalArticle:
       'https://medium.com/tensorflow/introducing-bodypix-real-time-person-segmentation-in-the-browser-with-tensorflow-js-f1948126c2a0',

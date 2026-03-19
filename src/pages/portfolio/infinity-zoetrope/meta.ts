@@ -8,7 +8,7 @@ export const meta: PortfolioItemMeta = {
   // image: './images/zoetrope_image.png',
   animatedImage: './images/zoetrope.gif',
   summary:
-    'The infinity zoetrope is a performance that combines real life and the imagination by turning an analog form into something limitless. It was shown at the Museum of the Moving Image for a class taught by Shantell Martin. By using digital technology to capture a rotating disk at the right speed, the infinity zoetrope creates an infinite loop that appears to extend into another dimension through the use of color and transformation.',
+    'The Infinity Zoetrope bridges analog and digital: a camera captures a rotating physical disk at a precise frame rate, creating an infinite loop that appears to extend into another dimension through color and transformation. Shown at the Museum of the Moving Image for a class taught by Shantell Martin.',
   categories: [Category.Performance],
   links: {
     demo: null,
