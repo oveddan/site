@@ -62,7 +62,7 @@ The site serves `/llms.txt` and `/llms-full.txt` endpoints following the [llms.t
 - These rewrites are safe — no conflicting rules in `netlify.toml`
 - Responses are cached (`s-maxage=3600, stale-while-revalidate=86400`)
 - Content is dynamically generated from portfolio metadata (`src/api/portfolio.ts`) and raw MDX files
-- About page text is stored as a constant in `llmsContent.ts` (update if `about.tsx` changes)
+- About page content is linked, not inlined (can be added later once the about page is finalized)
 
 ## Common Commands
 
