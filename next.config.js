@@ -20,6 +20,9 @@ module.exports = withMDX({
   pageExtensions: ['tsx', 'jsx', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    unoptimized: true,
+  },
   async rewrites() {
     return [
       {
