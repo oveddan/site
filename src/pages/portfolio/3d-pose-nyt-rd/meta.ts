@@ -3,7 +3,7 @@ import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/type
 export const meta: PortfolioItemMeta = {
   title: '3D Pose Estimation for Athletes',
   dateStart: Date.parse('2020-01-01T15:15:18-04:00'),
-  draft: false,
+  draft: true,
   weight: 3,
   image: './images/3d-pose.webp',
   animatedImage: './images/3d-pose.gif',

@@ -9,7 +9,7 @@ export const meta: PortfolioItemMeta = {
   animatedImage: './images/posenet-multipose-resized.gif',
   showonlyimage: true,
   summary:
-    'PoseNet in a machine learning model which allows for real-time human pose estimation with any webcam.  In collaboration with the Google Creative Lab, I open-sourced an easy to use Tensorflow.js version of the model.',
+    'PoseNet is a machine learning model for real-time human pose estimation in the browser. I collaborated with the Google Creative Lab to open-source an accessible TensorFlow.js version — because pose estimation should not require a powerful GPU or a computer science degree to use.',
   projectType: ProjectType.clientWork,
   links: {
     externalArticle:

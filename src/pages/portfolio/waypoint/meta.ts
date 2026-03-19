@@ -9,7 +9,7 @@ export const meta: PortfolioItemMeta = {
   image: './images/waypoint-image.jpg',
   weight: -2,
   summary:
-    'Built for the EthGlobal HackFS online hackathon, and selected to be a finalist, w@y_p01nt is an open-source application and protocol that lets 3d artists and online communities build decentralized networks of ownable and interoperable virtual worlds',
+    'What if virtual worlds could be truly owned and connected by the communities that build them? w@y_p01nt is an open-source protocol that lets 3D artists and communities create decentralized networks of interoperable virtual worlds. Selected as a finalist at EthGlobal HackFS.',
   tech: [Tech.React, Tech.Javascript, Tech.Threejs, Tech.Solidity /*Tech.Firebase, Tech.WebRTC*/],
   categories: [Category.Metaverse, Category.Web3],
   role: Role.TeamLead,

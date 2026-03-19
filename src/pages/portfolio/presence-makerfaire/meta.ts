@@ -8,7 +8,7 @@ export const meta: PortfolioItemMeta = {
   animatedImage: './images/presence-makerfaire.gif',
   weight: 0,
   summary:
-    'Presence is a kinetic scultpure that use pose estimation powered by PoseNet to perceive and mimic the form of the viewer.  It was shown at the 2018 Makerfaire.',
+    'What does it mean for a sculpture to see you? Presence is a kinetic sculpture that uses PoseNet-powered pose estimation to perceive and mimic the viewer\'s form in real time. Shown at the 2018 Makerfaire.',
   links: {
     demo: null,
     externalArticle: null,
