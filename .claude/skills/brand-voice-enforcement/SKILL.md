@@ -1,17 +1,16 @@
 ---
 name: brand-voice-enforcement
 description: >
-  This skill applies brand guidelines to content creation. It should be used when
-  the user asks to "write an email", "draft a proposal", "create a pitch deck",
-  "write a LinkedIn post", "draft a presentation", "write a Slack message",
-  "draft sales content", or any content creation request where brand voice should
-  be applied. Also triggers on "on-brand", "brand voice", "enforce voice",
-  "apply brand guidelines", "brand-aligned content", "write in our voice",
-  "use our brand tone", "make this sound like us", "rewrite this in our tone",
-  or "this doesn't sound on-brand".
+  This skill applies brand voice guidelines when generating or editing content for
+  this portfolio site. It should be used when the user asks to "write a project
+  description", "write a portfolio article", "write a blog post", "update the
+  about page", "write a bio", "add a new project", "rewrite this section", or any
+  content creation/editing request for this site. Also triggers on "on-brand",
+  "brand voice", "in my voice", "make this sound like me", "rewrite this in my
+  tone", or "this doesn't sound right".
 ---
 # Brand Voice Enforcement
-Apply existing brand guidelines to all sales and marketing content generation. Load the user's brand guidelines, apply voice constants and tone flexes to the content request, validate output, and explain brand choices.
+Apply brand voice guidelines when generating or editing content for this portfolio site. Load the guidelines, apply voice constants and tone flexes to the content request, validate output, and explain brand choices.
 ## Loading Brand Guidelines
 Find the user's brand guidelines using this sequence. Stop as soon as you find them:
 1. **Session context** — Check if brand guidelines were provided earlier in this session. If so, they are already in the conversation. Use them directly.
@@ -22,9 +21,9 @@ Find the user's brand guidelines using this sequence. Stop as soon as you find t
 ## Enforcement Workflow
 ### 1. Analyze the Content Request
 Before writing, identify:
-- **Content type**: email, presentation, proposal, social post, message, etc.
-- **Target audience**: role, seniority, industry, company stage
-- **Key messages needed**: which message pillars apply
+- **Content type**: portfolio summary (meta), portfolio article, blog post (process or conceptual), about/bio page, open-source README
+- **Target audience**: who will read this — technical peers, potential collaborators, general audience
+- **Key messages needed**: which message pillars apply (cross-disciplinary maker, technology as investigation, open process)
 - **Specific requirements**: length, format, tone overrides
 ### 2. Apply Voice Constants
 Voice is the brand's personality — it stays constant across all content:
