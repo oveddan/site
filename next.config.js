@@ -18,9 +18,6 @@ const resumeBaseUrl = process.env.RESUME_BASE_URL;
 module.exports = withMDX({
   // Append the default value with md extensions
   pageExtensions: ['tsx', 'jsx', 'mdx'],
-  images: {
-    unoptimized: true,
-  },
   reactStrictMode: true,
   swcMinify: true,
   async rewrites() {

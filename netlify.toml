@@ -2,6 +2,9 @@
   publish = ".next"
   command = "yarn build"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 ## itp blog redirect
 [[redirects]]
   from = "/itp-blog*"
