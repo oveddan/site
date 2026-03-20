@@ -5,6 +5,12 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+[[plugins]]
+  package = "netlify-plugin-cache"
+
+  [plugins.inputs]
+    paths = [".next/cache"]
+
 ## itp blog redirect
 [[redirects]]
   from = "/itp-blog*"
