@@ -54,10 +54,15 @@ export const useFilters = (projects: PortfolioItemMeta[]) => {
     });
   }, []);
 
+  const clearFilters = useCallback(() => {
+    setActiveFilters({});
+  }, []);
+
   return {
     activeFilters,
     filters,
     toggleFilter,
+    clearFilters,
   };
 };
 

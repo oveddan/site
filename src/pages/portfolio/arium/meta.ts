@@ -11,7 +11,7 @@ export const meta: PortfolioItemMeta = {
   summary:
     'Flat video calls strip away the serendipity of being in a room together — spatial presence changes how people connect. Arium is a browser-based platform I co-founded where artists and creators build 3D virtual worlds with real-time spatial video and audio chat.',
   tech: [Tech.React, Tech.Javascript, Tech.Threejs /*Tech.Firebase, Tech.WebRTC*/],
-  categories: [Category.Metaverse, Category.Web3],
+  categories: [Category.Web3Metaverse],
   role: Role.CTOCoFounder,
   links: {
     github: 'https://github.com/arium-digital/arium-builder',

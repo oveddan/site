@@ -52,6 +52,11 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
       </Head>
       <SimpleLayout title="Dan Oved's Creative Projects" intro="">
         <Filters {...filters} />
+        {Object.keys(filters.activeFilters).length > 0 ? (
+          <p className="mb-4 text-sm text-zinc-500 dark:text-zinc-400 font-mono">
+            Showing {filteredProjects.length} of {portfolioItems.length} projects
+          </p>
+        ) : null}
         <PortfolioCards filteredProjects={filteredProjects} projectLink={projectLink} />
       </SimpleLayout>
     </Layout>

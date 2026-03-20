@@ -8,10 +8,8 @@ export enum ProjectType {
 }
 export enum Category {
   MachineLearning = 'machine learning',
-  Web3 = 'web3',
+  Web3Metaverse = 'web3 / metaverse',
   Performance = 'performance',
-  Sound = 'sound',
-  Metaverse = 'metaverse',
   Installation = 'installation',
 }
 
@@ -19,18 +17,11 @@ export enum Tech {
   React = 'React',
   Solidity = 'Solidity',
   Javascript = 'Javascript',
-  Tensorflow = 'Tensorflow',
-  Tensorflowjs = 'TensorflowJs',
+  Tensorflow = 'TensorFlow',
   Python = 'Python',
   Threejs = 'Three.js',
-  DigitalFab = 'Fabrication',
-  Hardware = 'Hardware',
-  // Firebase = 'Firebase',
-  // WebRTC = 'WebRTC',
+  PhysicalComputing = 'Physical Computing',
   TouchDesigner = 'TouchDesigner',
-  Led = 'LED',
-  // OpenCV = 'OpenCV',
-  // NodeJS = 'Node.js',
 }
 
 export enum Role {

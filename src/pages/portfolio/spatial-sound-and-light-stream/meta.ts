@@ -10,7 +10,7 @@ export const meta: PortfolioItemMeta = {
   summary:
     'Spatial Sound and Light Stream is a performance that combines multi-channel sound and 3D visual elements in a live stream. The sound is linked to balls of light that move around in real-time, controlled by the performer and modulated by the sound. This creates an immersive, visual, and binaural listening experience. I performed it in a virtual environment called Yorb as part of the ITP residents show.',
   tech: [Tech.Javascript, Tech.Threejs, Tech.TouchDesigner],
-  categories: [Category.Metaverse, Category.Performance, Category.Sound],
+  categories: [Category.Web3Metaverse, Category.Performance],
   role: Role.Builder,
   links: {
     github: null,

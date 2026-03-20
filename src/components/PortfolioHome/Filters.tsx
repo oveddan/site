@@ -44,7 +44,7 @@ const getFilterChips = (filters: FilterProps['filters']): FilterChip[] => {
   return chips;
 };
 
-const Filters = ({ filters, activeFilters, toggleFilter }: FilterProps) => {
+const Filters = ({ filters, activeFilters, toggleFilter, clearFilters }: FilterProps) => {
   const filterChips = useMemo(() => getFilterChips(filters), [filters]);
 
   const filterKeys = Object.keys(activeFilters);
@@ -54,6 +54,19 @@ const Filters = ({ filters, activeFilters, toggleFilter }: FilterProps) => {
   return (
     <div className="hidden md:block">
       <div className="my-16">
+        <button
+          className={clsx(
+            'inline-flex items-center px-3 text-sm font-medium font-mono m-1 py-1 rounded-lg border border-solid border-black dark:text-white dark:border-white',
+            {
+              'bg-orange-500': !anySelected,
+              'bg-gray-200 text-gray-500 border-gray-300 hover:border-black hover:text-black dark:bg-gray-700 dark:border-gray-400 dark:text-gray-400 dark:hover:text-white dark:hover:border-white':
+                anySelected,
+            }
+          )}
+          onClick={clearFilters}
+        >
+          all
+        </button>
         {filterChips.map((chip) => {
           const key = `${chip.filterType}-${chip.value}`;
           return (

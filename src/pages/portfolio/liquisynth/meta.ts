@@ -16,6 +16,6 @@ export const meta: PortfolioItemMeta = {
     externalArticle: null,
     github: null,
   },
-  categories: [Category.Performance, Category.Sound],
-  tech: [Tech.TouchDesigner, Tech.DigitalFab, Tech.Hardware],
+  categories: [Category.Performance],
+  tech: [Tech.TouchDesigner, Tech.PhysicalComputing],
 };

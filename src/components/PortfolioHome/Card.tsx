@@ -21,11 +21,16 @@ export function Card({
   return <Component className={clsx(className, 'group relative flex flex-col items-start')}>{children}</Component>;
 }
 
-export function CardLink({ children, ...props }: { children: React.ReactNode } & React.ComponentProps<typeof Link>) {
+export function CardLink({ children, href, ...props }: { children: React.ReactNode } & React.ComponentProps<typeof Link>) {
+  const isExternal = typeof href === 'string' && href.startsWith('http');
   return (
     <>
       <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
-      <Link {...props}>
+      <Link
+        href={href}
+        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        {...props}
+      >
         <span className="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
         <span className="relative z-10">{children}</span>
       </Link>

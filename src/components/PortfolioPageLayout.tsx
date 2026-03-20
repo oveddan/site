@@ -13,6 +13,7 @@ import clsx from 'clsx';
 import { projectImageSrc } from '@/hooks/useProjectImageSrc';
 import { MetaWithSlug } from '@/api/portfolio';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export function formatDate(date: number) {
   return new Date(date).toLocaleDateString('en-US', {
@@ -124,6 +125,15 @@ export const PortfolioPageLayout = ({
         <Container className="mt-16 lg:mt-32">
           <div className="xl:relative">
             <div className="mx-auto max-w-2xl">
+              <Link
+                href="/"
+                className="group mb-8 flex items-center text-sm font-medium text-zinc-500 hover:text-teal-500 dark:text-zinc-400 dark:hover:text-teal-400 transition"
+              >
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mr-2 h-4 w-4 stroke-current">
+                  <path d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Back to portfolio
+              </Link>
               <article>
                 <Header meta={meta} />
 

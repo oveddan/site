@@ -15,8 +15,14 @@ const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
         </div>
       </div>
       <div className={clsx(inter.variable, mono.variable, 'font-sans relative')}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:rounded-md focus:bg-teal-500 focus:px-4 focus:py-2 focus:text-white focus:outline-none"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </div>
     </>

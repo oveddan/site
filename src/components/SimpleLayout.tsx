@@ -7,7 +7,7 @@ export function SimpleLayout({
 }: {
   title: string;
   intro: string;
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
 }) {
   return (
     <Container className="mt-16 sm:mt-32">

@@ -154,7 +154,7 @@ function AvatarContainer({ className, ...props }: any) {
 
 function Avatar({ large = false, className, ...props }: any) {
   return (
-    <Link href="/" aria-label="Home" className={clsx(className, 'pointer-events-auto')} {...props}>
+    <Link href="/" aria-label="Home" title="Home" className={clsx(className, 'pointer-events-auto')} {...props}>
       <Image
         src={avatarImage}
         alt=""

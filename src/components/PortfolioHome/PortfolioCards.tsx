@@ -1,5 +1,5 @@
 import { MetaWithSlug } from '@/api/portfolio';
-import { Card, CardDescription, CardLink } from './Card';
+import { Card, CardCta, CardDescription, CardLink } from './Card';
 import Image from 'next/image';
 import { projectImageSrc } from '@/hooks/useProjectImageSrc';
 
@@ -25,15 +25,18 @@ export const PortfolioCards = ({
           <CardLink href={projectLink(project)}>{project.title}</CardLink>
         </h2>
         <CardDescription>{project.summary}</CardDescription>
-        {/* {project.links && (
-                <p className="relative z-50 text-xl mt-6 flex transition dark:text-zinc-200">
-                  {project.links.github && (
-                    <a href={project.links.github} className="relative z-50">
-                      <BsGithub />
-                    </a>
-                  )}
-                </p>
-              )} */}
+        <CardCta>
+          {project.links.externalArticle ? (
+            <>
+              Read article
+              <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" className="ml-1 h-3 w-3 stroke-current">
+                <path d="M3.5 1.5h7v7M10.5 1.5 1.5 10.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </>
+          ) : (
+            'View project'
+          )}
+        </CardCta>
       </Card>
     ))}
   </ul>

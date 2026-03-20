@@ -19,5 +19,5 @@ export const meta: PortfolioItemMeta = {
   projectType: ProjectType.clientWork,
   role: Role.MlEngineer,
   categories: [Category.MachineLearning],
-  tech: [Tech.Javascript, Tech.Tensorflowjs],
+  tech: [Tech.Javascript, Tech.Tensorflow],
 };

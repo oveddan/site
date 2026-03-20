@@ -17,6 +17,6 @@ export const meta: PortfolioItemMeta = {
   },
   projectType: ProjectType.clientWork,
   role: Role.TeamLead,
-  categories: [],
+  categories: [Category.Installation],
   tech: [Tech.React, Tech.Javascript], //, Tech.NodeJS, Tech.Threejs],
 };

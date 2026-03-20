@@ -10,7 +10,7 @@ export const meta: PortfolioItemMeta = {
   summary:
     'What happens when acquiring art changes the space it lives in? H3LIX - Visual Massage is a virtual exhibit of 300 handmade GIF art pieces mintable on Ethereum via a custom ERC721 contract. As pieces are collected, the exhibit itself transforms — door frames illuminate and windows appear on the outside of the room.',
   tech: [Tech.React, Tech.Javascript, Tech.Threejs, Tech.Solidity],
-  categories: [Category.Metaverse, Category.Web3],
+  categories: [Category.Web3Metaverse],
   role: Role.TeamLead,
   links: {
     github: null,

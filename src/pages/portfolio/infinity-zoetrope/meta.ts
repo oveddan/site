@@ -17,5 +17,5 @@ export const meta: PortfolioItemMeta = {
   },
   projectType: ProjectType.gradSchool,
   role: Role.Artist,
-  tech: [Tech.TouchDesigner, Tech.DigitalFab],
+  tech: [Tech.TouchDesigner, Tech.PhysicalComputing],
 };

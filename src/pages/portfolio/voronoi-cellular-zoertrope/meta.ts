@@ -17,5 +17,5 @@ export const meta: PortfolioItemMeta = {
   projectType: ProjectType.gradSchool,
   role: Role.Artist,
   categories: [Category.Installation],
-  tech: [Tech.DigitalFab],
+  tech: [Tech.PhysicalComputing],
 };
