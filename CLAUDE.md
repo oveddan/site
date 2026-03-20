@@ -9,7 +9,7 @@ Personal portfolio site for danoved.xyz, built with Next.js 13 (TypeScript) and 
 - **Framework**: Next.js 13.2.1 with TypeScript 5.0
 - **Styling**: React 18.2.0
 - **Content**: MDX support via `@next/mdx`, mermaid diagrams via `mdx-mermaid`
-- **Deployment**: Netlify (with `@netlify/plugin-nextjs`), Node 20 (set in `netlify.toml`)
+- **Deployment**: Netlify (with `@netlify/plugin-nextjs`), Node 20 (set in `.nvmrc`)
 - **Build**: `yarn build` (yarn only — do not use npm or create `package-lock.json`)
 
 ## Key Architecture Decisions
@@ -46,6 +46,7 @@ When encountering deployment issues (redirect loops, 404s, proxy failures, build
 | `undefined` cannot be serialized as JSON | Portfolio meta uses `undefined` for optional fields like `dateEnd`. Next.js `getStaticProps` requires all values to be JSON-serializable. | Use `null` instead of `undefined` in portfolio meta files. |
 | `package-lock.json` conflicts with yarn | Running `npm install` creates `package-lock.json` alongside `yarn.lock`, causing resolution inconsistencies on Netlify. | Never use npm in this project. If `package-lock.json` appears, delete it. |
 | TypeScript type errors from d3/mermaid | `mermaid`'s transitive d3 type dependencies use TypeScript 5.0+ features (`const` type parameters). | Keep TypeScript at 5.0+. Do not downgrade. |
+| Netlify build fails on `yarn install` with engine incompatibility | `.nvmrc` specified Node 18 but a dependency (`marked@16`) requires Node >= 20. Netlify prioritizes `.nvmrc` over `NODE_VERSION` in `netlify.toml`. | Update `.nvmrc` to `20`. Only set Node version in `.nvmrc` — do not duplicate in `netlify.toml` `[build.environment]`. |
 
 ### Rules to prevent regressions
 
@@ -55,6 +56,7 @@ When encountering deployment issues (redirect loops, 404s, proxy failures, build
 - Use `null` (not `undefined`) for optional fields in portfolio meta — Next.js cannot serialize `undefined` in `getStaticProps`.
 - Only use yarn. Never run `npm install` — it creates `package-lock.json` which conflicts with `yarn.lock` on Netlify.
 - Portfolio animated GIFs should be ~360×277px, typically 1-3MB.
+- Node version is set in `.nvmrc` only — do not also set `NODE_VERSION` in `netlify.toml` (Netlify prioritizes `.nvmrc`, so duplicating causes confusion when they drift apart).
 
 ### llms.txt API (AI agent content access)
 
