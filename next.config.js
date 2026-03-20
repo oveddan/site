@@ -23,6 +23,14 @@ module.exports = withMDX({
   async rewrites() {
     return [
       {
+        source: '/llms.txt',
+        destination: '/api/llms',
+      },
+      {
+        source: '/llms-full.txt',
+        destination: '/api/llms-full',
+      },
+      {
         source: '/resume',
         destination: `${resumeBaseUrl}/resume`, // Matched parameters can be used in the destination
       },

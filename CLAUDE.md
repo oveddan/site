@@ -48,6 +48,22 @@ When encountering deployment issues (redirect loops, 404s, proxy failures, build
 - For paths that need Netlify's `signed` auth header, always use `netlify.toml` (Next.js rewrites can't add custom headers to proxy requests).
 - After any routing change, verify with `curl -sIL https://danoved.xyz/<path>` that no redirect loop exists.
 
+### llms.txt API (AI agent content access)
+
+The site serves `/llms.txt` and `/llms-full.txt` endpoints following the [llms.txt standard](https://llmstxt.org/) to make content accessible to AI agents.
+
+- **`/llms.txt`** — Lightweight markdown index with project titles, summaries, and links
+- **`/llms-full.txt`** — Complete content dump with all project metadata and cleaned MDX content
+
+**Implementation:**
+- API routes at `src/pages/api/llms.ts` and `src/pages/api/llms-full.ts`
+- Content generation logic in `src/api/llmsContent.ts`
+- Next.js rewrites in `next.config.js` map `/llms.txt` → `/api/llms` and `/llms-full.txt` → `/api/llms-full`
+- These rewrites are safe — no conflicting rules in `netlify.toml`
+- Responses are cached (`s-maxage=3600, stale-while-revalidate=86400`)
+- Content is dynamically generated from portfolio metadata (`src/api/portfolio.ts`) and raw MDX files
+- About page content is linked, not inlined (can be added later once the about page is finalized)
+
 ## Common Commands
 
 - `yarn dev` — Start dev server
