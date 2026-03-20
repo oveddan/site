@@ -3,6 +3,5 @@ node_modules
 **/*.DS_STORE
 hugo
 .next
-yarn-error.log
 # Local Netlify folder
 .netlify
