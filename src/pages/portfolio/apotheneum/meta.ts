@@ -3,7 +3,7 @@ import { Category, PortfolioItemMeta, ProjectType, Role, Tech } from '@/api/type
 export const meta: PortfolioItemMeta = {
   title: 'Apotheneum: Treetop Transmissions',
   dateStart: Date.parse('2025-06-01'),
-  dateEnd: undefined,
+  dateEnd: null,
   draft: false,
   weight: -3,
   image: './images/apoth.jpg',
