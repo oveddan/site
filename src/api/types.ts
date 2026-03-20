@@ -29,6 +29,7 @@ export enum Tech {
   // WebRTC = 'WebRTC',
   TouchDesigner = 'TouchDesigner',
   Led = 'LED',
+  Java = 'Java',
   // OpenCV = 'OpenCV',
   // NodeJS = 'Node.js',
 }
