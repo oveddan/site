@@ -36,6 +36,8 @@ When encountering deployment issues (redirect loops, 404s, proxy failures, build
 2. **Fix**: Apply the fix and update this CLAUDE.md with what went wrong and the resolution so the issue doesn't recur.
 3. **Verify**: Run `yarn build` locally to confirm the fix doesn't break the build.
 
+**Self-update rule:** Whenever you learn something new about deployment, build configuration, common errors, or project conventions, immediately add it to this file — in the appropriate section (known issues, rules, tech stack, etc.). This file is the project's institutional memory.
+
 ### Known issues and fixes
 
 | Issue | Cause | Fix |
