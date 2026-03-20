@@ -56,6 +56,7 @@ When encountering deployment issues (redirect loops, 404s, proxy failures, build
 - Use `null` (not `undefined`) for optional fields in portfolio meta — Next.js cannot serialize `undefined` in `getStaticProps`.
 - Only use pnpm. Never run `npm install` or `yarn install` — they create conflicting lockfiles alongside `pnpm-lock.yaml` on Netlify.
 - Portfolio animated GIFs should be ~360×277px, typically 1-3MB.
+- `externalArticle` in portfolio meta overrides the card link target — only set it when the project has no on-site MDX page. If the project has its own `index.mdx`, leave `externalArticle` as `null`.
 - Node version is set in `.nvmrc` only — do not also set `NODE_VERSION` in `netlify.toml` (Netlify prioritizes `.nvmrc`, so duplicating causes confusion when they drift apart).
 
 ### llms.txt API (AI agent content access)

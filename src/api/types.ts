@@ -60,6 +60,8 @@ export type PortfolioItemMeta = HasPortfolioItemFilters & {
   links: {
     github: string | null;
     demo: string | null;
+    /** When set, the portfolio card links to this URL instead of the on-site `/portfolio/{slug}` page.
+     *  Only use for projects with no on-site MDX article (e.g., external Medium posts, NYT R&D pages). */
     externalArticle: string | null;
   };
   role: Role;
