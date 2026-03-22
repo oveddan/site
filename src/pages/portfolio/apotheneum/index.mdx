@@ -6,7 +6,7 @@ import { meta } from './meta'
 
 ## Layers of Translation
 
-George Vlad's field recordings capture the Congo Basin and Amazon rainforests as they sound right now — ecosystems that will likely still exist in some form, but reshaped by climate change, altered weather patterns, and human activity. These high-resolution audio captures are a timestamp of the present moment.
+[George Vlad's](https://mindful-audio.com/sound-effects-libraries#/african-jungle/) field recordings capture the [Congo Basin](https://mindful-audio.com/sound-effects-libraries#/african-jungle/) and [Amazon](https://mindful-audio.com/sound-effects-libraries#/amazon-jungle/) rainforests as they sound right now — ecosystems that will likely still exist in some form, but reshaped by climate change, altered weather patterns, and human activity. These high-resolution audio captures are a timestamp of the present moment.
 
 There were no photographs. No video. Just sound.
 
@@ -35,9 +35,9 @@ graph LR
   Controllers --> Haptics[Haptic Bed]
 ```
 
-The field recordings play through Bitwig, where all the tracks are laid out as arrangements with automation. That automation controls not just the audio mix but also faders, scene transitions, and effect parameters in the lighting engine — so the entire composition, sound and light, is scored in one timeline.
+The field recordings play through [Bitwig](https://bitwig.com), where all the tracks are laid out as arrangements with automation. That automation controls not just the audio mix but also faders, scene transitions, and effect parameters in the lighting engine — so the entire composition, sound and light, is scored in one timeline.
 
-Bitwig sends audio to the surround speakers and OSC messages to Chromatik, the lighting engine. Chromatik outputs DMX to controllers that drive both the 13,280 LED nodes and the 96 servo motors in the haptic bed. When thunder rolls through the speakers, it ripples across the walls and translates into a rumbling sensation through the haptic bed.
+[Bitwig](https://bitwig.com) sends audio to the surround speakers and OSC messages to [Chromatik](https://chromatik.co/), the lighting engine. Chromatik outputs DMX to controllers that drive both the 13,280 LED nodes and the 96 servo motors in the haptic bed. When thunder rolls through the speakers, it ripples across the walls and translates into a rumbling sensation through the haptic bed.
 
 ## Treetop Transmissions: Scene by Scene
 
@@ -65,54 +65,54 @@ The storm clears and night gives way to dawn. Birds emerge, flocking algorithms 
 
 The birds continue as the scene gives way to a morning glow driven by Agnes Pelton's [*Awakening*](https://sam.nmartmuseum.org/objects/15773/awakening) — a landscape with a golden trumpet in the sky, stars at left, and purple and brown mountains whose silhouette traces the profile of her father's face. An orb pulses at the center. The background image slowly deforms and pixelates until the piece ends.
 
-{/* TODO: Expand scene descriptions in future PR */}
-
 ## The Patterns
 
-Each pattern interprets a natural phenomenon from the recordings — with no visual reference, generative algorithms built with Claude imagine what it looks like.
+Each pattern interprets a natural phenomenon from the recordings. With no visual reference, I described the behaviors and aesthetics I wanted, then implemented the generative algorithms with Claude as a coding collaborator.
 
 ### Ants — Colony Pathfinding Simulation
 
-With no visual reference for the nocturnal forest, I started from the sounds of activity in the undergrowth. I described the behavior to Claude — a colony pathfinding simulation where ants explore the outer surface seeking a destination. Once an ant finds it, it returns home on the inner surface carrying the information. More ants join, and eventually a streaming path forms — ants flowing outward on one canvas, returning on the other.
+With no visual reference for the nocturnal forest, I started from the sounds of activity in the undergrowth. The result is a colony pathfinding simulation where ants explore the outer surface seeking a destination. Once an ant finds it, it returns home on the inner surface carrying the information. More ants join, and eventually a streaming path forms — ants flowing outward on one canvas, returning on the other.
 
-{/* TODO: Add code snippet and GitHub link when repo is shared */}
+[View source on GitHub](https://github.com/Apotheneum/Apotheneum)
 
 ### Boids — Craig Reynolds Flocking
 
-The sunrise recordings are full of birdsong — dozens of species calling at once. I asked Claude to research flocking algorithms and implement the most suitable one for the piece. It landed on Craig Reynolds' boids model, where each bird follows three simple rules: separate from neighbors, align with their heading, and cohere toward the group center. The emergent behavior — murmurations that split, merge, and wheel across the canvases — comes from those three rules alone.
+The sunrise recordings are full of birdsong — dozens of species calling at once. The flocking algorithm is based on Craig Reynolds' boids model, where each bird follows three simple rules: separate from neighbors, align with their heading, and cohere toward the group center. The emergent behavior — murmurations that split, merge, and wheel across the canvases — comes from those three rules alone.
 
-{/* TODO: Add code snippet and GitHub link when repo is shared */}
+[View source on GitHub](https://github.com/Apotheneum/Apotheneum)
 
 ### Lightning — Randomized Strike Generation
 
-Thunder in the Amazon recordings is enormous — long rolling cracks that fill the space. I found an [NVIDIA research paper on lightning rendering](https://developer.download.nvidia.com/SDK/10/direct3d/Source/Lightning/doc/lightning_doc.pdf) and fed it to Claude, which parsed the document and implemented the algorithms. It produced four approaches: midpoint displacement, L-systems, rapidly-exploring random trees, and a physically-based model. Each thunder strike randomly selects one of the four and randomizes the parameters within that algorithm, so no two bolts look the same.
+Thunder in the Amazon recordings is enormous — long rolling cracks that fill the space. Starting from an [NVIDIA research paper on lightning rendering](https://developer.download.nvidia.com/SDK/10/direct3d/Source/Lightning/doc/lightning_doc.pdf), the implementation uses four distinct approaches: midpoint displacement, L-systems, rapidly-exploring random trees, and a physically-based model. Each thunder strike randomly selects one of the four and randomizes the parameters within that algorithm, so no two bolts look the same.
 
-{/* TODO: Add code snippet and GitHub link when repo is shared */}
+[View source on GitHub](https://github.com/Apotheneum/Apotheneum)
 
 ### Fireflies — Organic Particle System
 
-I wanted to create the feeling of the forest being alive at night. I wanted each firefly to pulse at its own rhythm. Claude came up with a dual-oscillation glow — two overlapping cycles per firefly — so the pulses feel organic rather than mechanical. They drift across the canvases with unhurried motion.
+I wanted to create the feeling of the forest being alive at night, with each firefly pulsing at its own rhythm. A dual-oscillation glow — two overlapping cycles per firefly — makes the pulses feel organic rather than mechanical. They drift across the canvases with unhurried motion.
 
-{/* TODO: Add code snippet and GitHub link when repo is shared */}
+[View source on GitHub](https://github.com/Apotheneum/Apotheneum)
 
 ### EdgeTracer — Binaural Beat Visualization
 
-The binaural beats in the night chorus needed a visual counterpart. I asked Claude to build a geometric path tracer — lines that crawl along the edges of the LED grid, tracing angular paths synced to the beat.
+The binaural beats in the night chorus needed a visual counterpart — a geometric path tracer where lines crawl along the edges of the LED grid, tracing angular paths synced to the beat.
 
-{/* TODO: Add code snippet and GitHub link when repo is shared */}
+[View source on GitHub](https://github.com/Apotheneum/Apotheneum)
 
 ### Kaleidoscope — 3D Polar Coordinate Deformation
 
-Kaleidoscope is a pattern I originally built for Robot Heart, where I used it extensively to render images onto screens in their art pieces — in particular Brandeaux and Shadybot. I brought it into this project to bring static imagery alive and create dynamic morphing color effects. It takes an image and deforms it through 3D polar coordinate transformations, creating kaleidoscopic distortions that shift over time.
+Kaleidoscope is a pattern I originally built for [Robot Heart](https://www.instagram.com/p/CxBfyhryObm/), where I used it extensively to render images onto screens in their art pieces — in particular [Shadybot](https://www.instagram.com/p/CxBfyhryObm/). I brought it into this project to bring static imagery alive and create dynamic morphing color effects. It takes an image and deforms it through 3D polar coordinate transformations, creating kaleidoscopic distortions that shift over time.
 
-{/* TODO: Add code snippet and GitHub link when repo is shared */}
+[View source on GitHub](https://github.com/Apotheneum/Apotheneum)
 
 ### Hyperspace — Star Field
 
-I prompted Claude to generate a hyperspace effect like the jump to lightspeed in Star Wars. 5,000 particles stream past with configurable orientation and direction on each of the four canvases — cube inner and outer, cylinder inner and outer. Blur effects combined with fast speed create the streaking sensation of traveling through hyperspace.
+A hyperspace effect inspired by the jump to lightspeed in Star Wars. 5,000 particles stream past with configurable orientation and direction on each of the four canvases — cube inner and outer, cylinder inner and outer. Blur effects combined with fast speed create the streaking sensation of traveling through hyperspace.
 
-{/* TODO: Add code snippet and GitHub link when repo is shared */}
+[View source on GitHub](https://github.com/Apotheneum/Apotheneum)
 
-{/* TODO: Deployment — Burning Man 2025 + Art Basel Miami 2025 */}
+## Deployments
+
+The Apotheneum was deployed in Deep Playa at Burning Man 2025, and at the Art With Me festival during Art Basel Miami in December 2025.
 
 export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout>

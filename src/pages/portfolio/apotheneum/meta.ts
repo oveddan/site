@@ -15,7 +15,7 @@ export const meta: PortfolioItemMeta = {
   links: {
     demo: null,
     externalArticle: null,
-    github: null,
+    github: 'https://github.com/Apotheneum/Apotheneum',
   },
   categories: [Category.Installation, Category.Sound, Category.Performance],
   tech: [Tech.Java, Tech.Led, Tech.Hardware],
