@@ -78,18 +78,18 @@ export default function About() {
                 something unique and delightful.`}
               </p>
               <p>
-                {`My main frameworks/languages of choice include Typescript, React, Solidity, Three.js, TouchDesigner,
-                Python, Tensorflow, and Tensorflow.js. My areas of interest are web3/the blockchain, the metaverse, and
-                machine learning.`}
+                {`My main frameworks and languages include Solidity, TypeScript, React, Three.js, Python, and
+                TensorFlow. My areas of focus are protocol engineering, onchain systems, and creative technology.`}
               </p>
               <p>
-                {`I am a graduate of the graduate program at the Interactive Telecommunication Program (ITP) at NYU's
-                Tisch School of the Arts. After graduation, I continued on as a research resident and adjunct faculty at
-                ITP. I have also worked as a computer vision engineer with the Google Creative Lab and New York Times'
-                R&D, and was CTO and Co-Founder of Arium, a browser-based collaborative virtual world builder and events
-                platform for NFT artists and curators. I have participated in several Ethereum-based hackathons, leading
-                teams and prototyping ideas. I have placed first in some of these hackathons and been selected as a
-                finalist in others.`}
+                {`I currently work as Lead Protocol Engineer at Zora, where I've architected core protocol contracts
+                including the Coins token launch system (powering $1.56B in volume), the 1155 NFT minting contracts, and
+                an upgrade to Uniswap V4. Before Zora, I was CTO and Co-Founder of Arium, a browser-based collaborative
+                virtual world builder for NFT artists and curators. I've also worked as a computer vision engineer with
+                the Google Creative Lab and New York Times R&D, and am a graduate of the Interactive Telecommunications
+                Program (ITP) at NYU's Tisch School of the Arts, where I continued on as a research resident and adjunct
+                faculty. I've participated in several Ethereum hackathons, leading teams and placing first or as finalist
+                in multiple events.`}
               </p>
             </div>
           </div>
