@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import clsx from 'clsx';
 
 export function Prose({ children, className }: { children: JSX.Element | JSX.Element[]; className?: string }) {

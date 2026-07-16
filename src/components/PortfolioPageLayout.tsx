@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { PortfolioItemMeta } from '@/api/types';
 import { Container } from './Container';
 import Layout from './Layout';
