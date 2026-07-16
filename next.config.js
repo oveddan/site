@@ -23,7 +23,6 @@ module.exports = withMDX({
   // or Next.js silently ignores them and they 404 in prod (e.g. /api/llms).
   pageExtensions: ['tsx', 'jsx', 'mdx'],
   reactStrictMode: true,
-  swcMinify: true,
   async rewrites() {
     return [
       {
