@@ -48,6 +48,7 @@ When encountering deployment issues (redirect loops, 404s, proxy failures, build
 | TypeScript type errors from d3/mermaid | `mermaid`'s transitive d3 type dependencies use TypeScript 5.0+ features (`const` type parameters). | Keep TypeScript at 5.0+. Do not downgrade. |
 | Netlify build fails on `pnpm install` with engine incompatibility | `.nvmrc` specified Node 18 but a dependency (`marked@16`) requires Node >= 20. Netlify prioritizes `.nvmrc` over `NODE_VERSION` in `netlify.toml`. | Update `.nvmrc` to `20`. Only set Node version in `.nvmrc` — do not duplicate in `netlify.toml` `[build.environment]`. |
 | `/llms.txt` and `/llms-full.txt` (and raw `/api/llms`) 404 in production | `pageExtensions` in `next.config.js` is `['tsx', 'jsx', 'mdx']` (drops the `ts`/`js` defaults so colocated `meta.ts` files under `pages/portfolio/*/` aren't treated as pages). The API route files were `.ts`, an extension not in the list, so Next.js silently ignored them — they never appeared in the build's route table. | Name API route files with a listed extension — `.tsx`, not `.ts` (e.g. `src/pages/api/llms.tsx`). Do NOT add `ts`/`js` back to `pageExtensions`: it turns every `meta.ts` into an invalid page ("found pages without a React Component as default export") and breaks the build. |
+| Netlify warns "Node version deprecation for serverless functions" / functions runtime on Node 16.x | The **Functions runtime** Node version is a SEPARATE setting from the build Node version (`.nvmrc`). The API routes (`/api/llms*`) deploy as functions; their runtime was pinned to Node 16 by a stale Netlify UI setting / old env var, not by anything in the repo. | Pin it in `netlify.toml`: `[build.environment] AWS_LAMBDA_JS_RUNTIME = "nodejs20.x"`. Keep it in sync with `.nvmrc`. This does NOT violate the "`.nvmrc` only" rule below — that rule is about `NODE_VERSION` (build node); `AWS_LAMBDA_JS_RUNTIME` is the functions runtime, a different variable. |
 
 ### Rules to prevent regressions
 
@@ -58,7 +59,7 @@ When encountering deployment issues (redirect loops, 404s, proxy failures, build
 - Only use pnpm. Never run `npm install` or `yarn install` — they create conflicting lockfiles alongside `pnpm-lock.yaml` on Netlify.
 - Portfolio animated GIFs should be ~360×277px, typically 1-3MB.
 - `externalArticle` in portfolio meta overrides the card link target — only set it when the project has no on-site MDX page. If the project has its own `index.mdx`, leave `externalArticle` as `null`.
-- Node version is set in `.nvmrc` only — do not also set `NODE_VERSION` in `netlify.toml` (Netlify prioritizes `.nvmrc`, so duplicating causes confusion when they drift apart).
+- Node version is set in `.nvmrc` only — do not also set `NODE_VERSION` in `netlify.toml` (Netlify prioritizes `.nvmrc`, so duplicating causes confusion when they drift apart). Note: `AWS_LAMBDA_JS_RUNTIME` in `netlify.toml` is a *different* setting — it pins the serverless Functions runtime (see known issues), not the build node — and must be kept in sync with `.nvmrc`.
 
 ### llms.txt API (AI agent content access)
 
