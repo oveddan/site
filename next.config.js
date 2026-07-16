@@ -16,7 +16,11 @@ const withMDX = require('@next/mdx')({
 const resumeBaseUrl = process.env.RESUME_BASE_URL;
 
 module.exports = withMDX({
-  // Append the default value with md extensions
+  // Append the default value with md extensions.
+  // NOTE: 'ts'/'js' are intentionally omitted so colocated portfolio `meta.ts` files
+  // under pages/portfolio/*/ are NOT treated as pages (they have no default component).
+  // Consequence: API routes must use a listed extension — name them `.tsx`, not `.ts`,
+  // or Next.js silently ignores them and they 404 in prod (e.g. /api/llms).
   pageExtensions: ['tsx', 'jsx', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
