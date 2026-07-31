@@ -93,7 +93,7 @@ check(
 check(llms.includes('(?!ClickToPlayVideo\\b)'), 'the generic JSX strip lost its ClickToPlayVideo guard');
 
 // 6. If a build is present, the prerendered DOM must contain no MP4 at all, and the preview image
-// (loaded eagerly, unlike the video) must be present with a src built from the media host.
+// (lazily loaded, unlike the video which waits for a click) must have a src built from the media host.
 const html = '.next/server/pages/portfolio/apotheneum.html';
 if (existsSync(join(root, html))) {
   const rendered = read(html);

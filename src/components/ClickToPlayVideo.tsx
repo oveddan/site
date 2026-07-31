@@ -8,9 +8,9 @@ export type ClickToPlayVideoProps = {
   /** Human readable runtime, e.g. "3:09". */
   duration: string;
   /**
-   * Optional first-frame still, shown in the facade before the video is fetched. Loaded with the
-   * page (unlike the MP4) since it costs a few KB, not tens of megabytes. Never passed to the
-   * native `poster` attribute — the facade renders it as an <img> instead.
+   * Optional first-frame still, shown in the facade before the video is fetched. Lazily loaded as
+   * the facade approaches the viewport; unlike the MP4, it does not wait for a click. Never passed
+   * to the native `poster` attribute — the facade renders it as an <img> instead.
    */
   previewImage?: string | null;
 };
