@@ -7,8 +7,12 @@ export type ChapterVideoProps = {
   title: string;
   /** Human readable runtime, e.g. "3:09". */
   duration: string;
-  /** Optional poster still — lazily loaded, so it costs nothing on initial render. */
-  poster?: string | null;
+  /**
+   * Optional first-frame still, shown in the facade before the video is fetched. Loaded with the
+   * page (unlike the MP4) since it costs a few KB, not tens of megabytes. Never passed to the
+   * native `poster` attribute — the facade renders it as an <img> instead.
+   */
+  previewImage?: string | null;
 };
 
 type Status = 'idle' | 'loading' | 'playing' | 'error';
@@ -26,7 +30,7 @@ const players = new Set<HTMLVideoElement>();
  * stack, which is what mobile Safari requires) but carries no `src` and no `poster` attribute, so
  * `preload="none"` has nothing to fetch. A CSS facade covers it until playback actually begins.
  */
-export function ChapterVideo({ src, title, duration, poster }: ChapterVideoProps) {
+export function ChapterVideo({ src, title, duration, previewImage }: ChapterVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [status, setStatus] = useState<Status>('idle');
 
@@ -91,15 +95,14 @@ export function ChapterVideo({ src, title, duration, poster }: ChapterVideoProps
               status === 'loading' && 'pointer-events-none'
             )}
           >
-            {poster ? (
+            {previewImage ? (
               <>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={poster}
-                  alt=""
+                  src={previewImage}
+                  alt={`First frame of "${title}"`}
                   loading="lazy"
                   decoding="async"
-                  aria-hidden="true"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/30 to-zinc-950/50" />
