@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useCallback, useRef, useState } from 'react';
 
-export type ChapterVideoProps = {
+export type ClickToPlayVideoProps = {
   /** Absolute URL of the MP4. Never attached to the <video> until the visitor asks for it. */
   src: string;
   title: string;
@@ -30,7 +30,7 @@ const players = new Set<HTMLVideoElement>();
  * stack, which is what mobile Safari requires) but carries no `src` and no `poster` attribute, so
  * `preload="none"` has nothing to fetch. A CSS facade covers it until playback actually begins.
  */
-export function ChapterVideo({ src, title, duration, previewImage }: ChapterVideoProps) {
+export function ClickToPlayVideo({ src, title, duration, previewImage }: ClickToPlayVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [status, setStatus] = useState<Status>('idle');
 

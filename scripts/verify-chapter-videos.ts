@@ -44,22 +44,22 @@ check(
 const media = read('src/api/media.ts');
 check(media.includes('NEXT_PUBLIC_MEDIA_BASE_URL'), 'media.ts no longer reads NEXT_PUBLIC_MEDIA_BASE_URL');
 
-// 2. Exactly one <ChapterVideo /> per chapter in the article, and the YouTube overview is intact.
+// 2. Exactly one <ClickToPlayVideo /> per chapter in the article, and the YouTube overview is intact.
 const mdx = read('src/pages/portfolio/apotheneum/index.mdx');
-const embeds = mdx.match(/<ChapterVideo\b[^>]*\/>/g) ?? [];
-check(embeds.length === EXPECTED.length, `expected ${EXPECTED.length} ChapterVideo embeds, found ${embeds.length}`);
+const embeds = mdx.match(/<ClickToPlayVideo\b[^>]*\/>/g) ?? [];
+check(embeds.length === EXPECTED.length, `expected ${EXPECTED.length} ClickToPlayVideo embeds, found ${embeds.length}`);
 for (const [id] of EXPECTED) {
   const uses = embeds.filter((tag) => tag.includes(`chapters.${id}`) || tag.includes(`chapters['${id}']`));
-  check(uses.length === 1, `expected exactly one ChapterVideo for "${id}", found ${uses.length}`);
+  check(uses.length === 1, `expected exactly one ClickToPlayVideo for "${id}", found ${uses.length}`);
 }
 check(/<YouTube videoId="lkWg-qsuenw" \/>/.test(mdx), 'the YouTube overview embed was modified');
 
 // 3. The player never ships an eager source.
-const player = read('src/components/ChapterVideo.tsx');
-check(player.includes('preload="none"'), 'ChapterVideo lost preload="none"');
-check(!/<video[^>]*\ssrc=/.test(player), 'ChapterVideo renders a src attribute on <video>');
-check(!/<video[^>]*\sposter=/.test(player), 'ChapterVideo renders a native poster attribute');
-check(!player.includes('crossOrigin'), 'ChapterVideo sets crossOrigin');
+const player = read('src/components/ClickToPlayVideo.tsx');
+check(player.includes('preload="none"'), 'ClickToPlayVideo lost preload="none"');
+check(!/<video[^>]*\ssrc=/.test(player), 'ClickToPlayVideo renders a src attribute on <video>');
+check(!/<video[^>]*\sposter=/.test(player), 'ClickToPlayVideo renders a native poster attribute');
+check(!player.includes('crossOrigin'), 'ClickToPlayVideo sets crossOrigin');
 check(player.includes('loading="lazy"'), 'the preview image is no longer lazy');
 check(
   player.includes('tabIndex={showFacade ? -1 : undefined}'),
@@ -68,8 +68,8 @@ check(
 
 // 4. The preview image renders in the clickable facade, not on the <video>, with a label that
 // describes the image rather than repeating the button's accessible name.
-check(player.includes('previewImage'), 'ChapterVideo no longer accepts a previewImage prop');
-check(/<img\b[^>]*\bsrc=\{previewImage\}/.test(player), 'ChapterVideo does not render previewImage as an <img>');
+check(player.includes('previewImage'), 'ClickToPlayVideo no longer accepts a previewImage prop');
+check(/<img\b[^>]*\bsrc=\{previewImage\}/.test(player), 'ClickToPlayVideo does not render previewImage as an <img>');
 check(!/<img\b[^>]*\salt=""/.test(player), 'the preview image has an empty alt — it must carry a useful label');
 check(
   !/<img\b[^>]*\baria-hidden="true"/.test(player),
@@ -83,11 +83,14 @@ check(!/\balt=\{`Play /.test(player), "the preview image alt text duplicates the
 
 // 5. llms.txt renders chapter references instead of stripping them.
 const llms = read('src/api/llmsContent.ts');
-const convertIndex = llms.indexOf('<ChapterVideo');
+const convertIndex = llms.indexOf('<ClickToPlayVideo');
 const stripIndex = llms.indexOf('[A-Z]\\w+\\s+[\\s\\S]*?');
-check(convertIndex !== -1, 'llmsContent.ts no longer converts ChapterVideo tags');
-check(stripIndex === -1 || convertIndex < stripIndex, 'ChapterVideo conversion must run before the generic JSX strip');
-check(llms.includes('(?!ChapterVideo\\b)'), 'the generic JSX strip lost its ChapterVideo guard');
+check(convertIndex !== -1, 'llmsContent.ts no longer converts ClickToPlayVideo tags');
+check(
+  stripIndex === -1 || convertIndex < stripIndex,
+  'ClickToPlayVideo conversion must run before the generic JSX strip'
+);
+check(llms.includes('(?!ClickToPlayVideo\\b)'), 'the generic JSX strip lost its ClickToPlayVideo guard');
 
 // 6. If a build is present, the prerendered DOM must contain no MP4 at all, and the preview image
 // (loaded eagerly, unlike the video) must be present with a src built from the media host.

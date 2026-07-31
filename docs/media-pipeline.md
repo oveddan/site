@@ -108,10 +108,10 @@ behaves](#how-the-player-behaves)), so it needs its own file:
   still bumps the version rather than overwriting an `immutable` object.
 
 - **Link it in `chapters.ts`**: pass the preview's object key to the `chapter()` helper, which
-  builds the `previewImage` URL through `mediaUrl()` — never hardcode the media host. `ChapterVideo`
-  renders `previewImage` inside the clickable facade as an `<img>` with an alt describing the still
-  (e.g. `First frame of "<title>"`), not the button's own accessible name, and never assigns it to
-  the native `<video poster>` attribute.
+  builds the `previewImage` URL through `mediaUrl()` — never hardcode the media host.
+  `ClickToPlayVideo` renders `previewImage` inside the clickable facade as an `<img>` with an alt
+  describing the still (e.g. `First frame of "<title>"`), not the button's own accessible name,
+  and never assigns it to the native `<video poster>` attribute.
 
 ## 4. Verify public delivery
 
@@ -142,7 +142,7 @@ All five current objects were verified this way against `media.danoved.xyz`; byt
    images](#3-extract-and-upload-preview-images)) to `src/pages/portfolio/apotheneum/chapters.ts`
    with the chapter's title and runtime. URLs are built from both keys by `mediaUrl()` — never
    hardcode a host.
-2. Drop `<ChapterVideo {...chapters.<id>} />` into `index.mdx` under the matching prose section.
+2. Drop `<ClickToPlayVideo {...chapters.<id>} />` into `index.mdx` under the matching prose section.
 3. Nothing else: `src/api/llmsContent.ts` picks the tag up and renders it into `/llms-full.txt` as
    a readable `[Video: Title (runtime) — url]` reference.
 
@@ -158,7 +158,7 @@ All five current objects were verified this way against `media.danoved.xyz`; byt
 
 ## How the player behaves
 
-`src/components/ChapterVideo.tsx` makes **zero** MP4 requests until a visitor clicks play: the
+`src/components/ClickToPlayVideo.tsx` makes **zero** MP4 requests until a visitor clicks play: the
 `<video>` is mounted with `preload="none"` and no `src` and no `poster` attribute, covered by a CSS
 facade. The click handler assigns `video.src` and calls `video.play()` synchronously in the same
 user-gesture stack (required by mobile Safari), moves focus to the native controls, and hides the

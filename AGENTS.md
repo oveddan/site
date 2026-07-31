@@ -50,7 +50,7 @@ devDependency), e.g. `tsx scripts/verify-chapter-videos.ts` via the `verify:medi
 - Never commit video masters (`*.mp4` / `*.mov` are ignored). Store them in the Cloudflare R2 bucket `danoved-media` and refer to object keys through `mediaUrl()` in `src/api/media.ts`.
 - Do not hardcode a media host in page code. The public base is `NEXT_PUBLIC_MEDIA_BASE_URL`; its production value is `https://media.danoved.xyz`. The r2.dev address remains the deliberate fallback for development/recovery.
 - R2 video objects are immutable. A changed export needs a new, versioned object key, not an overwrite.
-- A `ChapterVideo` must make no MP4 request before a visitor clicks: no `src`, no native `poster`, `preload="none"`, and assign/play the source synchronously from the click handler. Validate with `pnpm build && pnpm verify:media`.
+- A `ClickToPlayVideo` must make no MP4 request before a visitor clicks: no `src`, no native `poster`, `preload="none"`, and assign/play the source synchronously from the click handler. Validate with `pnpm build && pnpm verify:media`.
 
 ## Institutional memory
 
