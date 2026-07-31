@@ -5,3 +5,7 @@ hugo
 .next
 # Local Netlify folder
 .netlify
+
+# Video masters and clip working files — host on R2, never in git
+*.mp4
+*.mov

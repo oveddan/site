@@ -2,15 +2,8 @@
   publish = ".next"
   command = "pnpm build"
 
-# Pin the serverless Functions runtime (the Node version API routes run on).
-# This is SEPARATE from the build Node version (`.nvmrc` = 20). Without this,
-# the functions runtime can lag behind on a stale value pinned in the Netlify UI
-# (Netlify warned it was Node 16.x, deprecated). Keep this in sync with `.nvmrc`.
 [functions]
   node_bundler = "esbuild"
-
-[build.environment]
-  AWS_LAMBDA_JS_RUNTIME = "nodejs20.x"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

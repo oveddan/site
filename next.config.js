@@ -16,6 +16,12 @@ const withMDX = require('@next/mdx')({
 const resumeBaseUrl = process.env.RESUME_BASE_URL;
 
 module.exports = withMDX({
+  // Portfolio images are emitted as static assets. llmsContent's filesystem reads otherwise make
+  // the tracer copy the entire source image library into Netlify's server handler, where it is
+  // unused and can exceed Lambda's 250 MiB uncompressed function limit.
+  outputFileTracingExcludes: {
+    '/*': ['./src/pages/portfolio/**/images/**'],
+  },
   // Append the default value with md extensions.
   // NOTE: 'ts'/'js' are intentionally omitted so colocated portfolio `meta.ts` files
   // under pages/portfolio/*/ are NOT treated as pages (they have no default component).
