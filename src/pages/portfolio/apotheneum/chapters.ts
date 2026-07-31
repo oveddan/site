@@ -28,35 +28,35 @@ export const chapters = {
     'hyperspace',
     'Hyperspace — Entry',
     '5:10',
-    'apotheneum/01-hyperspace-v2.mp4',
+    'apotheneum/01-hyperspace-v3.mp4',
     'apotheneum/previews/01-hyperspace-first-frame-v1.avif'
   ),
   'night-chorus': chapter(
     'night-chorus',
     'Night Chorus — Nocturnal Forest',
     '4:06',
-    'apotheneum/02-night-chorus-v2.mp4',
+    'apotheneum/02-night-chorus-v3.mp4',
     'apotheneum/previews/02-night-chorus-first-frame-v1.avif'
   ),
   rain: chapter(
     'rain',
     'Rain — Canopy Weather',
     '3:09',
-    'apotheneum/03-rain.mp4',
+    'apotheneum/03-rain-v3.mp4',
     'apotheneum/previews/03-rain-first-frame-v1.avif'
   ),
   thunderstorm: chapter(
     'thunderstorm',
     'Thunderstorm — Peak Drama',
     '3:07',
-    'apotheneum/04-thunderstorm-v2.mp4',
+    'apotheneum/04-thunderstorm-v3.mp4',
     'apotheneum/previews/04-thunderstorm-first-frame-v1.avif'
   ),
   sunrise: chapter(
     'sunrise',
     'Sunrise — Resolution',
     '3:48',
-    'apotheneum/05-sunrise-v2.mp4',
+    'apotheneum/05-sunrise-v3.mp4',
     'apotheneum/previews/05-sunrise-first-frame-v1.avif'
   ),
 } satisfies Record<string, Chapter>;

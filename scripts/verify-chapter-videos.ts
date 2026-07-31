@@ -21,21 +21,21 @@ const check = (ok: boolean, message: string): void => {
 type ExpectedChapter = [id: string, key: string, duration: string, previewKey: string];
 
 const EXPECTED: ExpectedChapter[] = [
-  ['hyperspace', 'apotheneum/01-hyperspace-v2.mp4', '5:10', 'apotheneum/previews/01-hyperspace-first-frame-v1.avif'],
+  ['hyperspace', 'apotheneum/01-hyperspace-v3.mp4', '5:10', 'apotheneum/previews/01-hyperspace-first-frame-v1.avif'],
   [
     'night-chorus',
-    'apotheneum/02-night-chorus-v2.mp4',
+    'apotheneum/02-night-chorus-v3.mp4',
     '4:06',
     'apotheneum/previews/02-night-chorus-first-frame-v1.avif',
   ],
-  ['rain', 'apotheneum/03-rain.mp4', '3:09', 'apotheneum/previews/03-rain-first-frame-v1.avif'],
+  ['rain', 'apotheneum/03-rain-v3.mp4', '3:09', 'apotheneum/previews/03-rain-first-frame-v1.avif'],
   [
     'thunderstorm',
-    'apotheneum/04-thunderstorm-v2.mp4',
+    'apotheneum/04-thunderstorm-v3.mp4',
     '3:07',
     'apotheneum/previews/04-thunderstorm-first-frame-v1.avif',
   ],
-  ['sunrise', 'apotheneum/05-sunrise-v2.mp4', '3:48', 'apotheneum/previews/05-sunrise-first-frame-v1.avif'],
+  ['sunrise', 'apotheneum/05-sunrise-v3.mp4', '3:48', 'apotheneum/previews/05-sunrise-first-frame-v1.avif'],
 ];
 
 // 1. Chapter metadata is the single source of truth, and hosts are never hardcoded.

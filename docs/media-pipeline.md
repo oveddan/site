@@ -19,6 +19,13 @@ danoved.xyz. Video masters are **never** committed — `.gitignore` blocks `*.mp
 Export H.264 MP4, AAC audio, at the source resolution and frame rate of the sequence. Two settings
 matter downstream:
 
+- **Apotheneum 1080p wrapper.** Do not export the 3840×2160 `MultiCam` sequence directly to a
+  1920×1080 preset. Premiere/AME 2026 can evaluate the 1920×1080 HEVC camera angle in the wrong
+  coordinate space during that output downscale, rendering it in the bottom-right quarter with
+  black elsewhere. Export from the verified `MultiCam_WEB_1080` sequence instead: it is a
+  1920×1080, 29.97 fps wrapper containing the untouched 4K `MultiCam` sequence centered at 50%
+  Motion scale. A full-frame scan of all five July 2026 exports found no recurrence.
+
 - **Fast start / streamable.** The `moov` atom must sit before `mdat` or the browser has to
   download the whole file before it can show frame one. Verify the exported MP4 rather than
   relying on an AME preset label; if necessary, fix it after the fact with a stream copy (no
@@ -38,7 +45,7 @@ matter downstream:
 
 ## 2. Upload to R2
 
-Ordinary files (under 300 MB) go up with Wrangler directly. Set the content type and the immutable
+Ordinary files up to Wrangler's current 315 MB limit go up with Wrangler directly. Set the content type and the immutable
 cache header at upload time — R2 stores them on the object and serves them back on every request:
 
 ```sh
@@ -53,13 +60,12 @@ pnpm exec wrangler r2 object put \
 `--remote` is required: without it Wrangler writes to the local simulated bucket, not R2.
 
 **Object keys are versioned.** Because the objects are served `immutable`, a re-export must not
-reuse a key — bump it (`01-hyperspace-v2.mp4`) and update `chapters.ts`. That is why chapter 1 is
-already at `v2`.
+reuse a key — bump it (`01-hyperspace-v3.mp4`) and update `chapters.ts`.
 
-### Files over 300 MB
+### Files over 315 MB
 
-`wrangler r2 object put` goes through the R2 REST API, which caps a single-part upload at **300
-MB**; larger files fail. Wrangler has no multipart flag for `r2 object put`, so the large chapters
+`wrangler r2 object put` currently supports files up to **315 MB**; larger files fail. Wrangler has
+no multipart flag for `r2 object put`, so the large chapters
 were uploaded through a **temporary** Worker with an R2 binding that used the multipart API
 (`createMultipartUpload` → `uploadPart` → `completeMultipartUpload`) with **64 MiB parts**, run
 against the real bucket via a remote preview (`wrangler dev --remote`) and guarded by a
@@ -150,16 +156,16 @@ All five current objects were verified this way against `media.danoved.xyz`; byt
 
 | Chapter id     | Video object key                    | Preview image object key                                  | Runtime |
 | -------------- | ----------------------------------- | --------------------------------------------------------- | ------- |
-| `hyperspace`   | `apotheneum/01-hyperspace-v2.mp4`   | `apotheneum/previews/01-hyperspace-first-frame-v1.avif`   | 5:10    |
-| `night-chorus` | `apotheneum/02-night-chorus-v2.mp4` | `apotheneum/previews/02-night-chorus-first-frame-v1.avif` | 4:06    |
-| `rain`         | `apotheneum/03-rain.mp4`            | `apotheneum/previews/03-rain-first-frame-v1.avif`         | 3:09    |
-| `thunderstorm` | `apotheneum/04-thunderstorm-v2.mp4` | `apotheneum/previews/04-thunderstorm-first-frame-v1.avif` | 3:07    |
-| `sunrise`      | `apotheneum/05-sunrise-v2.mp4`      | `apotheneum/previews/05-sunrise-first-frame-v1.avif`      | 3:48    |
+| `hyperspace`   | `apotheneum/01-hyperspace-v3.mp4`   | `apotheneum/previews/01-hyperspace-first-frame-v1.avif`   | 5:10    |
+| `night-chorus` | `apotheneum/02-night-chorus-v3.mp4` | `apotheneum/previews/02-night-chorus-first-frame-v1.avif` | 4:06    |
+| `rain`         | `apotheneum/03-rain-v3.mp4`         | `apotheneum/previews/03-rain-first-frame-v1.avif`         | 3:09    |
+| `thunderstorm` | `apotheneum/04-thunderstorm-v3.mp4` | `apotheneum/previews/04-thunderstorm-first-frame-v1.avif` | 3:07    |
+| `sunrise`      | `apotheneum/05-sunrise-v3.mp4`      | `apotheneum/previews/05-sunrise-first-frame-v1.avif`      | 3:48    |
 
-The unversioned Night Chorus, Thunderstorm, and Sunrise objects are retained only as historical
-objects and must not be used: their uploads were truncated and do not contain a valid `moov` atom.
-The `v2` replacements above were packet-scanned, decode-tested at the beginning/middle/end, checked
-for `moov`-before-`mdat`, and checksum-verified after upload.
+Earlier objects are retained only as historical rollback artifacts. The `v3` replacements above
+were exported from the verified 1080p wrapper, scanned frame-by-frame for the quarter-frame failure,
+checked for BT.709 video and stereo AAC, verified for `moov`-before-`mdat`, and range-tested after
+upload.
 
 ## How the player behaves
 
