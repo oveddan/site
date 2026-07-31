@@ -75,7 +75,45 @@ Rules that go with that approach:
 - The multipart parts are set on the completed object with the same `content-type` and
   `cache-control` as the single-part path, so both routes produce identical objects.
 
-## 3. Verify public delivery
+## 3. Extract and upload preview images
+
+Each chapter's facade shows a first-frame still instead of the native `<video poster>` attribute
+(the component renders it as a plain `<img>` — see [How the player
+behaves](#how-the-player-behaves)), so it needs its own file:
+
+- **Extract frame zero** from the finished export, not an intermediate — the still must match what
+  playback actually starts on:
+
+  ```sh
+  ffmpeg -i chapter.mp4 -frames:v 1 -f image2 chapter-first-frame.avif
+  ```
+
+- **AVIF**, not JPEG/PNG: the facade is a single still shown at typical hero-video sizes, and AVIF
+  gives noticeably smaller files at equivalent quality, which matters because — unlike the MP4 —
+  this file loads on every page view, not just on click.
+
+- **Upload it like the video**, with the matching content type:
+
+  ```sh
+  pnpm exec wrangler r2 object put \
+    danoved-media/apotheneum/previews/03-rain-first-frame-v1.avif \
+    --file=./exports/03-rain-first-frame.avif \
+    --content-type=image/avif \
+    --cache-control="public, max-age=31536000, immutable" \
+    --remote
+  ```
+
+- **Object keys are versioned** the same way and for the same reason as the videos: previews live
+  under `apotheneum/previews/`, named `<NN>-<chapter>-first-frame-v<N>.avif`, and a re-extracted
+  still bumps the version rather than overwriting an `immutable` object.
+
+- **Link it in `chapters.ts`**: pass the preview's object key to the `chapter()` helper, which
+  builds the `previewImage` URL through `mediaUrl()` — never hardcode the media host.
+  `ClickToPlayVideo` renders `previewImage` inside the clickable facade as an `<img>` with an alt
+  describing the still (e.g. `First frame of "<title>"`), not the button's own accessible name,
+  and never assigns it to the native `<video poster>` attribute.
+
+## 4. Verify public delivery
 
 Range support is what makes seeking work. Check it against the public URL, not the API:
 
@@ -93,37 +131,42 @@ Expect:
 
 All five current objects were verified this way against `media.danoved.xyz`; byte-range delivery is working publicly. The r2.dev URL is useful as a fallback diagnostic endpoint.
 
-## 4. Point the site at the media host
+## 5. Point the site at the media host
 
 - `media.danoved.xyz` is connected to the bucket and `NEXT_PUBLIC_MEDIA_BASE_URL=https://media.danoved.xyz` is set for Netlify production builds.
 - `NEXT_PUBLIC_*` values are inlined at build time, so changing this value requires a production redeploy; no code change is needed.
 
-## 5. Add or update a chapter
+## 6. Add or update a chapter
 
-1. Add the object key to `src/pages/portfolio/apotheneum/chapters.ts` with its title and runtime.
-   URLs are built from the key by `mediaUrl()` — never hardcode a host.
-2. Drop `<ChapterVideo {...chapters.<id>} />` into `index.mdx` under the matching prose section.
+1. Add the video object key and the preview-image object key (see [Extract and upload preview
+   images](#3-extract-and-upload-preview-images)) to `src/pages/portfolio/apotheneum/chapters.ts`
+   with the chapter's title and runtime. URLs are built from both keys by `mediaUrl()` — never
+   hardcode a host.
+2. Drop `<ClickToPlayVideo {...chapters.<id>} />` into `index.mdx` under the matching prose section.
 3. Nothing else: `src/api/llmsContent.ts` picks the tag up and renders it into `/llms-full.txt` as
    a readable `[Video: Title (runtime) — url]` reference.
 
-Posters are optional and none exist yet. When one is added, upload it beside the video, set
-`poster` on the chapter, and it will lazy-load behind the facade — it never blocks first paint.
-
 ## Current object keys
 
-| Chapter id     | Object key                        | Runtime |
-| -------------- | --------------------------------- | ------- |
-| `hyperspace`   | `apotheneum/01-hyperspace-v2.mp4` | 5:10    |
-| `night-chorus` | `apotheneum/02-night-chorus.mp4`  | 4:06    |
-| `rain`         | `apotheneum/03-rain.mp4`          | 3:09    |
-| `thunderstorm` | `apotheneum/04-thunderstorm.mp4`  | 3:07    |
-| `sunrise`      | `apotheneum/05-sunrise.mp4`       | 3:48    |
+| Chapter id     | Video object key                  | Preview image object key                                  | Runtime |
+| -------------- | --------------------------------- | --------------------------------------------------------- | ------- |
+| `hyperspace`   | `apotheneum/01-hyperspace-v2.mp4` | `apotheneum/previews/01-hyperspace-first-frame-v1.avif`   | 5:10    |
+| `night-chorus` | `apotheneum/02-night-chorus.mp4`  | `apotheneum/previews/02-night-chorus-first-frame-v1.avif` | 4:06    |
+| `rain`         | `apotheneum/03-rain.mp4`          | `apotheneum/previews/03-rain-first-frame-v1.avif`         | 3:09    |
+| `thunderstorm` | `apotheneum/04-thunderstorm.mp4`  | `apotheneum/previews/04-thunderstorm-first-frame-v1.avif` | 3:07    |
+| `sunrise`      | `apotheneum/05-sunrise.mp4`       | `apotheneum/previews/05-sunrise-first-frame-v1.avif`      | 3:48    |
 
 ## How the player behaves
 
-`src/components/ChapterVideo.tsx` makes **zero** MP4 requests until a visitor clicks play: the
+`src/components/ClickToPlayVideo.tsx` makes **zero** MP4 requests until a visitor clicks play: the
 `<video>` is mounted with `preload="none"` and no `src` and no `poster` attribute, covered by a CSS
 facade. The click handler assigns `video.src` and calls `video.play()` synchronously in the same
 user-gesture stack (required by mobile Safari), moves focus to the native controls, and hides the
 facade once playback actually starts. Starting one chapter pauses any other on the page. If the
 file fails to load, the player offers a direct link to the MP4.
+
+The facade itself shows the `previewImage` still (see [Extract and upload preview
+images](#3-extract-and-upload-preview-images)) as a normal, lazily-loaded `<img>` — never the
+native `<video poster>` attribute, which would count as a video request before the click. The image
+gets its own descriptive alt text (the frame, not the action) so it isn't announced as a duplicate
+of the play button's accessible name.

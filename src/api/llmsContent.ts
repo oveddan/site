@@ -6,18 +6,19 @@ import { chapters as apotheneumChapters, Chapter } from '@/pages/portfolio/apoth
 const SITE_URL = 'https://danoved.xyz';
 
 /**
- * Chapter metadata keyed by id, so a <ChapterVideo /> tag in MDX can be rendered as a readable
+ * Chapter metadata keyed by id, so a <ClickToPlayVideo /> tag in MDX can be rendered as a readable
  * reference (title, runtime, direct MP4 URL) instead of being stripped as anonymous JSX.
  */
 const chapterVideos: Record<string, Chapter> = { ...apotheneumChapters };
 
 /**
- * MDX writes these as `<ChapterVideo {...chapters.rain} />` or `<ChapterVideo id="rain" />`.
+ * MDX writes these as `<ClickToPlayVideo {...chapters.rain} />` or
+ * `<ClickToPlayVideo id="rain" />`.
  * `[^>]*` keeps the match inside a single self-closing tag even when attributes span lines, so it
  * can never run past the tag the way a `[\s\S]*?` match could.
  */
-function convertChapterVideos(content: string): string {
-  return content.replace(/<ChapterVideo\b[^>]*\/>/g, (tag) => {
+function convertClickToPlayVideos(content: string): string {
+  return content.replace(/<ClickToPlayVideo\b[^>]*\/>/g, (tag) => {
     const spreadMatch = tag.match(/\bchapters(?:\.(\w+)|\[['"]([^'"]+)['"]\])/);
     const id = spreadMatch?.slice(1).find(Boolean) ?? tag.match(/\bid="([^"]+)"/)?.[1];
     if (!id) return '';
@@ -43,10 +44,10 @@ function formatLinks(links: MetaWithSlug['links']): string {
 }
 
 function cleanMdxContent(raw: string): string {
-  const withChapterVideos = convertChapterVideos(raw);
+  const withClickToPlayVideos = convertClickToPlayVideos(raw);
 
   return (
-    withChapterVideos
+    withClickToPlayVideos
       .split('\n')
       // Remove import lines
       .filter((line) => !line.match(/^import\s+/))
@@ -62,9 +63,9 @@ function cleanMdxContent(raw: string): string {
       // Remove Instagram embeds
       .replace(/<Instagram\s+[^/]*\/>/g, '')
       // Remove ResizedImageWithCaption and other self-closing JSX components.
-      // ChapterVideo is excluded: it is converted above, and this pattern spans newlines, so without
-      // the guard it could swallow a chapter reference (or the prose between two of them).
-      .replace(/<(?!ChapterVideo\b)[A-Z]\w+\s+[\s\S]*?\/>/g, '')
+      // ClickToPlayVideo is excluded: it is converted above, and this pattern spans newlines, so
+      // without the guard it could swallow a video reference (or the prose between two of them).
+      .replace(/<(?!ClickToPlayVideo\b)[A-Z]\w+\s+[\s\S]*?\/>/g, '')
       // Convert <b> to bold
       .replace(/<b>([\s\S]*?)<\/b>/g, '**$1**')
       // Convert <i> to italic
