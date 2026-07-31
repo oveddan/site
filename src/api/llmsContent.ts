@@ -1,8 +1,33 @@
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { getPortfolioItems, MetaWithSlug } from './portfolio';
+import { chapters as apotheneumChapters, Chapter } from '@/pages/portfolio/apotheneum/chapters';
 
 const SITE_URL = 'https://danoved.xyz';
+
+/**
+ * Chapter metadata keyed by id, so a <ChapterVideo /> tag in MDX can be rendered as a readable
+ * reference (title, runtime, direct MP4 URL) instead of being stripped as anonymous JSX.
+ */
+const chapterVideos: Record<string, Chapter> = { ...apotheneumChapters };
+
+/**
+ * MDX writes these as `<ChapterVideo {...chapters.rain} />` or `<ChapterVideo id="rain" />`.
+ * `[^>]*` keeps the match inside a single self-closing tag even when attributes span lines, so it
+ * can never run past the tag the way a `[\s\S]*?` match could.
+ */
+function convertChapterVideos(content: string): string {
+  return content.replace(/<ChapterVideo\b[^>]*\/>/g, (tag) => {
+    const spreadMatch = tag.match(/\bchapters(?:\.(\w+)|\[['"]([^'"]+)['"]\])/);
+    const id = spreadMatch?.slice(1).find(Boolean) ?? tag.match(/\bid="([^"]+)"/)?.[1];
+    if (!id) return '';
+
+    const chapter = chapterVideos[id];
+    if (!chapter) return `[Video: ${id}]`;
+
+    return `[Video: ${chapter.title} (${chapter.duration}) — ${chapter.src}]`;
+  });
+}
 
 function formatDate(timestamp: number): string {
   const date = new Date(timestamp);
@@ -18,30 +43,36 @@ function formatLinks(links: MetaWithSlug['links']): string {
 }
 
 function cleanMdxContent(raw: string): string {
-  return raw
-    .split('\n')
-    // Remove import lines
-    .filter((line) => !line.match(/^import\s+/))
-    // Remove export default line
-    .filter((line) => !line.match(/^export default/))
-    .join('\n')
-    // Convert YouTube embeds to links
-    .replace(/<YouTube\s+videoId="([^"]+)"\s*\/>/g, '[Video: https://youtube.com/watch?v=$1]')
-    // Convert Vimeo embeds to links
-    .replace(/<Vimeo\s+videoId="([^"]+)"\s*\/>/g, '[Video: https://vimeo.com/$1]')
-    // Remove Twitter embeds
-    .replace(/<Twitter\s+[^/]*\/>/g, '')
-    // Remove Instagram embeds
-    .replace(/<Instagram\s+[^/]*\/>/g, '')
-    // Remove ResizedImageWithCaption and other self-closing JSX components
-    .replace(/<[A-Z]\w+\s+[\s\S]*?\/>/g, '')
-    // Convert <b> to bold
-    .replace(/<b>([\s\S]*?)<\/b>/g, '**$1**')
-    // Convert <i> to italic
-    .replace(/<i>([\s\S]*?)<\/i>/g, '*$1*')
-    // Clean up excessive blank lines
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
+  const withChapterVideos = convertChapterVideos(raw);
+
+  return (
+    withChapterVideos
+      .split('\n')
+      // Remove import lines
+      .filter((line) => !line.match(/^import\s+/))
+      // Remove export default line
+      .filter((line) => !line.match(/^export default/))
+      .join('\n')
+      // Convert YouTube embeds to links
+      .replace(/<YouTube\s+videoId="([^"]+)"\s*\/>/g, '[Video: https://youtube.com/watch?v=$1]')
+      // Convert Vimeo embeds to links
+      .replace(/<Vimeo\s+videoId="([^"]+)"\s*\/>/g, '[Video: https://vimeo.com/$1]')
+      // Remove Twitter embeds
+      .replace(/<Twitter\s+[^/]*\/>/g, '')
+      // Remove Instagram embeds
+      .replace(/<Instagram\s+[^/]*\/>/g, '')
+      // Remove ResizedImageWithCaption and other self-closing JSX components.
+      // ChapterVideo is excluded: it is converted above, and this pattern spans newlines, so without
+      // the guard it could swallow a chapter reference (or the prose between two of them).
+      .replace(/<(?!ChapterVideo\b)[A-Z]\w+\s+[\s\S]*?\/>/g, '')
+      // Convert <b> to bold
+      .replace(/<b>([\s\S]*?)<\/b>/g, '**$1**')
+      // Convert <i> to italic
+      .replace(/<i>([\s\S]*?)<\/i>/g, '*$1*')
+      // Clean up excessive blank lines
+      .replace(/\n{3,}/g, '\n\n')
+      .trim()
+  );
 }
 
 function readMdxContent(slug: string): string | null {

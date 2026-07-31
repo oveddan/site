@@ -13,3 +13,9 @@ Install dependencies:
 Start the dev server:
 
     pnpm dev
+
+## Docs
+
+- [Project instructions](AGENTS.md) — shared rules for Codex and Claude.
+- [Media pipeline](docs/media-pipeline.md) — how video gets from Premiere to Cloudflare R2 to a page.
+- [Service operations](docs/service-operations.md) — operating Premiere, Cloudflare, Netlify, and DNS.
