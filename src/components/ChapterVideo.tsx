@@ -75,6 +75,7 @@ export function ChapterVideo({ src, title, duration, poster }: ChapterVideoProps
           controls
           playsInline
           preload="none"
+          tabIndex={showFacade ? -1 : undefined}
           width={1920}
           height={1080}
           className="absolute inset-0 h-full w-full bg-black"

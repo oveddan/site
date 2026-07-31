@@ -56,6 +56,10 @@ check(!/<video[^>]*\ssrc=/.test(player), 'ChapterVideo renders a src attribute o
 check(!/<video[^>]*\sposter=/.test(player), 'ChapterVideo renders a native poster attribute');
 check(!player.includes('crossOrigin'), 'ChapterVideo sets crossOrigin');
 check(player.includes('loading="lazy"'), 'the optional poster image is no longer lazy');
+check(
+  player.includes('tabIndex={showFacade ? -1 : undefined}'),
+  'the hidden native player can enter keyboard tab order before activation'
+);
 
 // 4. llms.txt renders chapter references instead of stripping them.
 const llms = read('src/api/llmsContent.ts');
