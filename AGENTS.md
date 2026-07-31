@@ -11,6 +11,10 @@ Useful operational references:
 - [Media pipeline](docs/media-pipeline.md) — video export, R2 upload, and page integration.
 - [Service operations](docs/service-operations.md) — Premiere, Cloudflare, Netlify, DNS, and verification.
 
+Standalone repository scripts under `scripts/` are TypeScript (`.ts`) and run with `tsx` (a
+devDependency), e.g. `tsx scripts/verify-chapter-videos.ts` via the `verify:media` pnpm script.
+`pageExtensions` excluding `ts`/`js` (below) only affects `src/pages`, not `scripts/`.
+
 ## Routing and deploy rules
 
 - External content is proxied by Netlify redirects in `netlify.toml`, not by duplicate Next.js rewrites. `@netlify/plugin-nextjs` converts Next.js rewrites into Netlify redirects; defining the same path in both causes redirect loops.

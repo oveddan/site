@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env -S pnpm tsx
 /**
  * Static guard for the chapter-video invariants (see docs/media-pipeline.md).
  *
@@ -11,14 +11,16 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = process.cwd();
-const read = (p) => readFileSync(join(root, p), 'utf-8');
+const read = (p: string): string => readFileSync(join(root, p), 'utf-8');
 
-const failures = [];
-const check = (ok, message) => {
+const failures: string[] = [];
+const check = (ok: boolean, message: string): void => {
   if (!ok) failures.push(message);
 };
 
-const EXPECTED = [
+type ExpectedChapter = [id: string, key: string, duration: string];
+
+const EXPECTED: ExpectedChapter[] = [
   ['hyperspace', 'apotheneum/01-hyperspace-v2.mp4', '5:10'],
   ['night-chorus', 'apotheneum/02-night-chorus.mp4', '4:06'],
   ['rain', 'apotheneum/03-rain.mp4', '3:09'],
