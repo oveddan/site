@@ -35,7 +35,7 @@ export const chapters = {
     'night-chorus',
     'Night Chorus — Nocturnal Forest',
     '4:06',
-    'apotheneum/02-night-chorus.mp4',
+    'apotheneum/02-night-chorus-v2.mp4',
     'apotheneum/previews/02-night-chorus-first-frame-v1.avif'
   ),
   rain: chapter(
@@ -49,14 +49,14 @@ export const chapters = {
     'thunderstorm',
     'Thunderstorm — Peak Drama',
     '3:07',
-    'apotheneum/04-thunderstorm.mp4',
+    'apotheneum/04-thunderstorm-v2.mp4',
     'apotheneum/previews/04-thunderstorm-first-frame-v1.avif'
   ),
   sunrise: chapter(
     'sunrise',
     'Sunrise — Resolution',
     '3:48',
-    'apotheneum/05-sunrise.mp4',
+    'apotheneum/05-sunrise-v2.mp4',
     'apotheneum/previews/05-sunrise-first-frame-v1.avif'
   ),
 } satisfies Record<string, Chapter>;

@@ -148,13 +148,18 @@ All five current objects were verified this way against `media.danoved.xyz`; byt
 
 ## Current object keys
 
-| Chapter id     | Video object key                  | Preview image object key                                  | Runtime |
-| -------------- | --------------------------------- | --------------------------------------------------------- | ------- |
-| `hyperspace`   | `apotheneum/01-hyperspace-v2.mp4` | `apotheneum/previews/01-hyperspace-first-frame-v1.avif`   | 5:10    |
-| `night-chorus` | `apotheneum/02-night-chorus.mp4`  | `apotheneum/previews/02-night-chorus-first-frame-v1.avif` | 4:06    |
-| `rain`         | `apotheneum/03-rain.mp4`          | `apotheneum/previews/03-rain-first-frame-v1.avif`         | 3:09    |
-| `thunderstorm` | `apotheneum/04-thunderstorm.mp4`  | `apotheneum/previews/04-thunderstorm-first-frame-v1.avif` | 3:07    |
-| `sunrise`      | `apotheneum/05-sunrise.mp4`       | `apotheneum/previews/05-sunrise-first-frame-v1.avif`      | 3:48    |
+| Chapter id     | Video object key                    | Preview image object key                                  | Runtime |
+| -------------- | ----------------------------------- | --------------------------------------------------------- | ------- |
+| `hyperspace`   | `apotheneum/01-hyperspace-v2.mp4`   | `apotheneum/previews/01-hyperspace-first-frame-v1.avif`   | 5:10    |
+| `night-chorus` | `apotheneum/02-night-chorus-v2.mp4` | `apotheneum/previews/02-night-chorus-first-frame-v1.avif` | 4:06    |
+| `rain`         | `apotheneum/03-rain.mp4`            | `apotheneum/previews/03-rain-first-frame-v1.avif`         | 3:09    |
+| `thunderstorm` | `apotheneum/04-thunderstorm-v2.mp4` | `apotheneum/previews/04-thunderstorm-first-frame-v1.avif` | 3:07    |
+| `sunrise`      | `apotheneum/05-sunrise-v2.mp4`      | `apotheneum/previews/05-sunrise-first-frame-v1.avif`      | 3:48    |
+
+The unversioned Night Chorus, Thunderstorm, and Sunrise objects are retained only as historical
+objects and must not be used: their uploads were truncated and do not contain a valid `moov` atom.
+The `v2` replacements above were packet-scanned, decode-tested at the beginning/middle/end, checked
+for `moov`-before-`mdat`, and checksum-verified after upload.
 
 ## How the player behaves
 
