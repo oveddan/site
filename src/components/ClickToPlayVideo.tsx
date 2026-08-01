@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export type ClickToPlayVideoProps = {
   /** Absolute URL of the MP4. Never attached to the <video> until the visitor asks for it. */
@@ -32,13 +32,32 @@ const players = new Set<HTMLVideoElement>();
  */
 export function ClickToPlayVideo({ src, title, duration, previewImage }: ClickToPlayVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
   const [status, setStatus] = useState<Status>('idle');
 
   const setVideoRef = useCallback((node: HTMLVideoElement | null) => {
     if (videoRef.current) players.delete(videoRef.current);
     videoRef.current = node;
     if (node) players.add(node);
+    setVideoEl(node);
   }, []);
+
+  // Scrolling a playing chapter fully out of view pauses it. Without this, audio from a chapter
+  // the visitor has left behind keeps running under the rest of the page. The playhead is kept, so
+  // scrolling back and pressing play resumes where they were.
+  useEffect(() => {
+    if (!videoEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting && !videoEl.paused) videoEl.pause();
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(videoEl);
+    return () => observer.disconnect();
+  }, [videoEl]);
 
   // Synchronous: assign the source and call play() in the same user-gesture stack. Deferring
   // either to an effect loses the gesture and playback is blocked on iOS.
