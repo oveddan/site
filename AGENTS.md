@@ -27,6 +27,18 @@ devDependency), e.g. `tsx scripts/verify-chapter-videos.ts` via the `verify:medi
   with `.nvmrc`.
 - Use pnpm only. Do not create `package-lock.json` or `yarn.lock` alongside `pnpm-lock.yaml`.
 
+## Dependency rules
+
+- `next` declares `sharp` as an *optional* dependency with its own range (`^0.34.3` as of 15.5.22).
+  Raising the root `sharp` pin past that range does not update the copy Next uses — pnpm installs a
+  second, older nested copy instead, so the advisory stays open. Pair the root bump with a
+  `pnpm.overrides` entry so both dedupe to one version, and check with `pnpm why sharp`.
+- Bound every `pnpm.overrides` replacement so it cannot cross a major the dependent does not accept.
+  `"fast-uri@<3.1.4": ">=3.1.4"` silently pulled 4.x into `ajv@8`, which declares `^3.0.1`; the
+  bounded `">=3.1.4 <4"` is correct. `sharp` is `0.x`, so its bound is `<0.36.0`.
+- Netlify's `@netlify/plugin-nextjs` routes `/_next/image` to the Netlify Image CDN, so Next's
+  own sharp optimizer does not normally run in the site Lambda.
+
 ## Next.js and content rules
 
 - `pageExtensions` deliberately excludes `ts` and `js`, so a route under `src/pages/api/` must use an included extension such as `.tsx`. Adding `ts` back makes colocated portfolio `meta.ts` files invalid pages.
