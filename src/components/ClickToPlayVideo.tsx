@@ -13,6 +13,8 @@ export type ClickToPlayVideoProps = {
    * to the native `poster` attribute — the facade renders it as an <img> instead.
    */
   previewImage?: string | null;
+  /** Facade shape. Defaults to 16:9; use 'portrait' for a 9:16 phone clip. */
+  aspect?: 'video' | 'portrait';
 };
 
 type Status = 'idle' | 'loading' | 'playing' | 'error';
@@ -30,7 +32,7 @@ const players = new Set<HTMLVideoElement>();
  * stack, which is what mobile Safari requires) but carries no `src` and no `poster` attribute, so
  * `preload="none"` has nothing to fetch. A CSS facade covers it until playback actually begins.
  */
-export function ClickToPlayVideo({ src, title, duration, previewImage }: ClickToPlayVideoProps) {
+export function ClickToPlayVideo({ src, title, duration, previewImage, aspect = 'video' }: ClickToPlayVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
   const [status, setStatus] = useState<Status>('idle');
@@ -92,7 +94,12 @@ export function ClickToPlayVideo({ src, title, duration, previewImage }: ClickTo
 
   return (
     <figure className="not-prose my-10">
-      <div className="relative isolate aspect-video w-full overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-zinc-900/10 dark:ring-white/10">
+      <div
+        className={clsx(
+          'relative isolate w-full overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-zinc-900/10 dark:ring-white/10',
+          aspect === 'portrait' ? 'aspect-[9/16]' : 'aspect-video'
+        )}
+      >
         <video
           ref={setVideoRef}
           controls

@@ -1,0 +1,181 @@
+import { PortfolioPageLayout } from '@/components/PortfolioPageLayout'
+import { ClickToPlayVideo } from '@/components/ClickToPlayVideo'
+import { meta } from './meta'
+import { renders } from './renders'
+import { clips } from './clips'
+import fossSetlist from './images/foss-setlist.jpg'
+import robotHeartInsideBlue from './images/robot-heart-inside-blue.jpg'
+import fossModularCase from './images/foss-modular-case.jpg'
+import cubeAtDusk from './images/cube-at-dusk.jpg'
+import robotHeartCrowd from './images/robot-heart-crowd.jpg'
+import robotHeartFromTheBus from './images/robot-heart-from-the-bus.jpg'
+import robotHeartCubeWide from './images/robot-heart-cube-wide.jpg'
+import fossGear from './images/foss-gear.jpg'
+import danModular from './images/dan-modular.jpg'
+
+export const Render = ({ r, children }) => (
+  <figure className="not-prose my-4">
+    <img src={r.src} alt={r.alt} width={r.width} height={r.height} loading="lazy" className="h-auto max-w-full rounded bg-black" />
+    {children ? <figcaption className="mt-1 font-mono text-xs text-zinc-500 dark:text-zinc-400 [&_a]:underline">{children}</figcaption> : null}
+  </figure>
+)
+
+export const Photo = ({ img, alt, children }) => (
+  <figure className="not-prose my-4">
+    <img src={img.src} alt={alt} width={img.width} height={img.height} loading="lazy" className="h-auto w-full rounded" />
+    {children ? <figcaption className="mt-1 font-mono text-xs text-zinc-500 dark:text-zinc-400 [&_a]:underline">{children}</figcaption> : null}
+  </figure>
+)
+
+export const Clip = ({ c, children }) => (
+  <figure className="not-prose my-6">
+    <ClickToPlayVideo src={c.src} title={c.title} duration={c.duration} previewImage={c.previewImage} aspect={c.aspect} />
+    {children ? <figcaption className="mt-1 font-mono text-xs text-zinc-500 dark:text-zinc-400 [&_a]:underline">{children}</figcaption> : null}
+  </figure>
+)
+
+<div className="not-prose mx-auto max-w-sm">
+  <Clip c={clips.heartControl}>Aug 24 → Sep 2. Aerial: Devon McLaughlin, <a href="https://www.instagram.com/devonmclaughlin/">@devonmclaughlin</a>.</Clip>
+</div>
+
+> ❯ I have a crazy idea. What if we could run the Robot Heart thing inside the cube? It would be just like a 3D rendering, spanning across. It's an orthographic projection looking from each side. … — Aug 24, 2:50 pm
+
+> ❯ Squash and merge. It looks great. — 8:51 pm
+
+The [Apotheneum](/portfolio/apotheneum) is a building-scale instrument: a 40×40×40-foot cube of LED net around a 30-foot cylinder, 26,560 light nodes, run by [Chromatik](https://chromatik.co/). The heart is [Robot Heart](https://www.instagram.com/robotheart/)'s sculpture, on top of their bus. The Twister is a Midi Fighter Twister, sixteen knobs.
+
+## Wednesday, September 2 — Robot Heart, at sunset
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={robotHeartCubeWide} alt="The cube lit pink in the dust, the crowd around it">The cube, the dust. Photo: C.J. Brion, <a href="https://www.instagram.com/_cjbrion/">@_cjbrion</a>.</Photo>
+  <Photo img={robotHeartCrowd} alt="The crowd in front of the cube, lit pink, in the dust">The crowd. Photo: C.J. Brion, <a href="https://www.instagram.com/_cjbrion/">@_cjbrion</a>.</Photo>
+  <Photo img={robotHeartFromTheBus} alt="Two silhouettes on the bus, the heart lit in the distance">From the bus. Photo: C.J. Brion, <a href="https://www.instagram.com/_cjbrion/">@_cjbrion</a>.</Photo>
+  <Photo img={robotHeartInsideBlue} alt="Inside the cube, everything blue, the crowd holding up phones">Inside, blue. Photo: C.J. Brion, <a href="https://www.instagram.com/_cjbrion/">@_cjbrion</a>.</Photo>
+</div>
+
+
+
+
+[Parra for Cuva](https://www.instagram.com/parra_for_cuva/) and [Orbit](https://www.instagram.com/orbitnotthechewinggum/), then [Jo.Ke](https://www.instagram.com/jo.ke___/). I was on the cube and the cylinder; Jasmine Sabio was on the heart.
+
+## Thursday and Friday nights, September 3–5 — FOSS
+
+<Clip c={clips.fossSunriseWide}>Saturday, first light. Two clips, spliced.</Clip>
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Clip c={clips.fossCrowd}>Friday night.</Clip>
+  <Clip c={clips.fossCylinder}>The cylinder.</Clip>
+  <Clip c={clips.fossInsideWarm}>Inside.</Clip>
+  <Clip c={clips.fossSunriseInside}>Sunrise through the net.</Clip>
+</div>
+
+<div className="not-prose mx-auto max-w-sm">
+  <Clip c={clips.fossSunriseOutside}>Sunrise, walking out.</Clip>
+</div>
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={fossModularCase} alt="An open case of modular synth modules and patch cables">FOSS's modular.</Photo>
+  <Photo img={fossGear} alt="An upright piano opened up with synth modules built into it, a keyboard in front">More of FOSS's gear.</Photo>
+  <Photo img={fossSetlist} alt="A handwritten setlist next to a sampler and a keyboard">The setlist.</Photo>
+  <Photo img={danModular} alt="A black modular case with white patch cables, the Expert Sleepers modules receiving the signal">My modular, where the signal from FOSS comes in: one Cat 7 cable between our two cases, a <a href="https://www.doepfer.de/a1809.htm">Doepfer A-180-9 Multicore</a> at each end, into the Expert Sleepers.</Photo>
+</div>
+
+<Photo img={cubeAtDusk} alt="The cube at dawn against an orange horizon">Saturday, first light.</Photo>
+
+Romain Collin, a few days later:
+
+> You were in it and you did it all the way until sunrise… you see the grass in the wind and the stuff — that blue is beautiful, the glacial blue against the orange, like cold and warm.
+
+## How it was built
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Clip c={clips.twisterChat}>A chat asks for new knob colors; the Twister changes. From the <a href="https://github.com/oveddan/mft-api">mft-api</a> README.</Clip>
+  <Clip c={clips.mftMapping}>Mapping the Midi Fighter Twister by talking.</Clip>
+  <Clip c={clips.cameraCorner}>"move the camera to face a corner"</Clip>
+  <Clip c={clips.tapTempo}>Tap tempo, on the bottom-right knob.</Clip>
+  <Clip c={clips.sampleHold}>Sample and hold.</Clip>
+  <Clip c={clips.bitwig}>I recorded FOSS's modular signals in their studio, brought the whole recording home, and linked it to Chromatik. Their kick and snare driving the envelopes that power the visuals. August.</Clip>
+  <Clip c={clips.palette}>Taking FOSS's feedback from the call and generating the palette with chromatik-mcp.</Clip>
+</div>
+
+> ❯ I have a midi twister fighter. Do you have access to the API repository that we have? I want to figure out how to turn the bottom right knob. When you press it, the trigger does a tap tempo. — Aug 16, 9:04 pm
+
+> ❯ check the transcript of my call with FOSS, from wispr. particular on the visual feedback mentions. extract what you can about it, cause I want to encode that feedback and incorporate it into the set — Aug 18, 9:46 pm
+
+> ❯ You just delete the old swatches, and maybe we don't need three colors. Maybe we just need two. Why do we need three colors? — Aug 19
+
+Excerpts from what came out of it three days later, a standing design file in the show repo, `design/color-system.md`. The quoted words are from the call:
+
+> **Avoid primary vertices, not hues.** Pure red, green, blue, yellow, white — "just really not very good for LEDs." The rule is distance from the vertex, not which hue: his own favorite hue is blue, and pure blue is his named example of what to avoid, while deep blue + cyan is the single frame he called "beautiful."
+>
+> **Depth comes from brightness, not desaturation.** On LEDs, dropping saturation mixes in white and reads as washed out rather than deep. Keep field colors at saturation ≥ 85.
+>
+> **No white.** "Underwhelming and cold… feels like a sound effect more than the actual show."
+>
+> **Composition = one hue-family field + one contrasting accent**, the accent on fixed geometry and at a lower presence than the field. Two bright fields side by side is the explicit "terrible" failure, even when neither color is individually wrong.
+>
+> **Green is not accent-only.** A cold, glacial teal/mint reads as a valid full field color. Saturated, grass-primary green is what's actually rejected.
+
+Four days later the rules became code: [PR #126](https://github.com/Apotheneum/Apotheneum/pull/126), a base class with a primary and a secondary color role, so the patterns written after it draw from one global palette.
+
+### Aug 25, midnight
+
+> ❯ Can you think of how we could design a fireball? It's like a point that moves out, and there's kind of like a sun, like an aura, like flames or little things in mini. When you move it, they're like the trail of stuff behind it … — 11:33 pm
+
+> ❯ Could you make a pattern simulating a bunch of tall grass or weeds swaying in the wind? Are there common algorithms? — 11:39 pm
+
+> ❯ Spin off subagents to implement this in Codex. In Codex, specify for each of them what the algorithm is. Each Codex thing runs in its own tmux session. — 11:42 pm
+
+> ❯ as the agents are working Have them occasionally send you back animated gifs that they make to show progress. — 11:53 pm
+
+The GIFs the agents attached to their own PRs, Aug 21–27, and the same patterns on the cube on September 2.
+
+<Render r={renders.heartCube}>Robot Heart · the agent's render · <a href="https://github.com/Apotheneum/Apotheneum/pull/118">PR #118</a></Render>
+<Clip c={clips.heartOnCube}>Robot Heart on the cube, September 2. Aerial: Devon McLaughlin, <a href="https://www.instagram.com/devonmclaughlin/">@devonmclaughlin</a>.</Clip>
+
+<Render r={renders.grassStormCube}>Grass · the agent's render · <a href="https://github.com/Apotheneum/Apotheneum/pull/122">PR #122</a></Render>
+<Clip c={clips.grassChromatik}>Grass in Chromatik, on the rig, Aug 26.</Clip>
+<Clip c={clips.grass}>Grass on the cube, September 2. Aerial: Devon McLaughlin, <a href="https://www.instagram.com/devonmclaughlin/">@devonmclaughlin</a>.</Clip>
+
+<Render r={renders.waterfall}>Waterfall · the agent's render · <a href="https://github.com/Apotheneum/Apotheneum/pull/93">PR #93</a></Render>
+<Clip c={clips.waterfall}>Waterfall on the cube, September 2. Aerial: Devon McLaughlin, <a href="https://www.instagram.com/devonmclaughlin/">@devonmclaughlin</a>.</Clip>
+
+<Render r={renders.fireballFire}>Fireball · the agent's render · <a href="https://github.com/Apotheneum/Apotheneum/pull/124">PR #124</a></Render>
+<Render r={renders.fireballHueSweep}>Fireball, hue modulated · <a href="https://github.com/Apotheneum/Apotheneum/pull/124">PR #124</a></Render>
+
+<Render r={renders.jungle}>Jungle · the agent's render · <a href="https://github.com/Apotheneum/Apotheneum/pull/130">PR #130</a></Render>
+
+<Render r={renders.dunes}>Dunes · the agent's render · <a href="https://github.com/Apotheneum/Apotheneum/pull/129">PR #129</a></Render>
+
+<Render r={renders.lavaLamp}>Lava Lamp · the agent's render · <a href="https://github.com/Apotheneum/Apotheneum/pull/128">PR #128</a></Render>
+
+<Render r={renders.vortexCube}>Vortex · the agent's render · <a href="https://github.com/Apotheneum/Apotheneum/pull/95">PR #95</a></Render>
+<div className="not-prose mx-auto max-w-xs">
+  <Render r={renders.vortexLookup}>Vortex, looking up from inside · <a href="https://github.com/Apotheneum/Apotheneum/pull/95">PR #95</a></Render>
+</div>
+
+<Render r={renders.rockfallCube}>Rockfall · the agent's render · <a href="https://github.com/Apotheneum/Apotheneum/pull/94">PR #94</a></Render>
+
+<div className="not-prose mx-auto max-w-xs">
+  <Render r={{ src: 'https://documentation.danoved.xyz/apotheneum/pr-114/a991189f981a0ed7127037d01c5998f8f3bde88c/MidiFighterTwister64.png', alt: 'The 64-control Twister template panel in Chromatik', width: 432, height: 592 }}>64-knob Twister template · <a href="https://github.com/Apotheneum/Apotheneum/pull/114">PR #114</a></Render>
+</div>
+
+Also <a href="https://github.com/Apotheneum/Apotheneum/pull/126">#126</a>, the primary/secondary color base class the later patterns draw from.
+
+### Aug 29–30
+
+> ❯ … Maybe just try a couple patterns tonight so you don't burn too many tokens. See how it goes. I'm going to see how you did in the morning. — Aug 29, 12:36 am
+
+> ❯ I want to take a step back. You've been really struggling with the mapping. Instead of you mapping the patterns, I'm just going to do it myself … — Aug 29, 5:41 pm
+
+> ❯ How stupid are you? I'm so frustrated. … — Aug 30, 6:59 pm
+
+> ❯ Sorry for being mean to you earlier. I'm pushing you hard. You're doing a great job. I couldn't have done this without you. You opened up a lot of possibilities for me, and I appreciate everything you've done. — Aug 30, 9:22 pm
+
+## The tools
+
+[chromatik-mcp](https://github.com/oveddan/chromatik-mcp) — an MCP server inside the Chromatik lighting engine, so an agent can read, compose into, and debug a running show. MIT.
+
+[mft-api](https://github.com/oveddan/mft-api) — read and write a Midi Fighter Twister's configuration from a chat. MIT.
+
+export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout>

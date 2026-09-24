@@ -9,3 +9,6 @@ hugo
 # Video masters and clip working files — host on R2, never in git
 *.mp4
 *.mov
+
+# local preview media for the treetop-live draft (real files live on R2)
+public/treetop-live-local/
