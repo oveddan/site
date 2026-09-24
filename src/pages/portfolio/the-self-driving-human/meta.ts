@@ -6,7 +6,7 @@ export const meta: PortfolioItemMeta = {
   draft: false,
   animatedImage: './images/self_driving_human.gif',
   image: './images/self-driving-human-image.jpg',
-  weight: -2,
+  weight: -2.5,
   summary:
     'What happens when we cede our everyday decisions to a machine? The Self-Driving Human is a wearable device and performance where a portable intelligent agent makes real-world decisions for its human participants. Built as my masters thesis at ITP.',
   links: {

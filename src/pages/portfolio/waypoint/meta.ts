@@ -7,7 +7,7 @@ export const meta: PortfolioItemMeta = {
   draft: false,
   animatedImage: './images/waypoint.gif',
   image: './images/waypoint-image.jpg',
-  weight: -2,
+  weight: 4,
   summary:
     'What if virtual worlds could be truly owned and connected by the communities that build them? w@y_p01nt is an open-source protocol that lets 3D artists and communities create decentralized networks of interoperable virtual worlds. Selected as a finalist at EthGlobal HackFS.',
   tech: [Tech.React, Tech.Javascript, Tech.Threejs, Tech.Solidity /*Tech.Firebase, Tech.WebRTC*/],

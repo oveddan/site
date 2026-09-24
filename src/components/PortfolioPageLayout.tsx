@@ -15,6 +15,16 @@ import { projectImageSrc } from '@/hooks/useProjectImageSrc';
 import { MetaWithSlug } from '@/api/portfolio';
 import { useRouter } from 'next/router';
 
+const SITE_URL = 'https://danoved.xyz';
+
+/** Resolve a static-image module (or its unwrapped data) to an absolute URL for share previews. */
+function absoluteImageUrl(imageModule: unknown): string | null {
+  const mod = imageModule as { default?: { src?: string }; src?: string } | string | null;
+  const src = typeof mod === 'string' ? mod : mod?.default?.src ?? mod?.src ?? null;
+  if (!src) return null;
+  return src.startsWith('http') ? src : `${SITE_URL}${src}`;
+}
+
 export function formatDate(date: number) {
   return new Date(date).toLocaleDateString('en-US', {
     month: 'short',
@@ -112,15 +122,25 @@ export const PortfolioPageLayout = ({
   const router = useRouter();
   const parts = router.pathname.split('/');
   const slug = parts[parts.length - 1];
+  const title = `${meta.title} - Dan Oved's portfolio`;
+  // projectImageSrc returns the webpack module for a static image; the URL is on `.default.src`
+  // (or `.src` when the import is already unwrapped). Share previews need an absolute URL.
+  const ogImage = meta.image ? absoluteImageUrl(projectImageSrc({ slug, fileName: meta.image })) : null;
   return (
     <>
       <Layout>
         <Head>
-          <title>{`${meta.title} - Dan Oved's portfolio`}</title>
+          <title>{title}</title>
           <meta name="description" content={meta.summary} />
-          <meta name="og:title" content={`${meta.title} - Dan Oved's portfolio`} />
-          <meta name="og:description" content={meta.summary} />
-          {meta.image && <meta name="og:image" content={projectImageSrc({ slug, fileName: meta.image })} />}
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={meta.summary} />
+          <meta property="og:url" content={`${SITE_URL}/portfolio/${slug}`} />
+          {ogImage && <meta property="og:image" content={ogImage} />}
+          <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={meta.summary} />
+          {ogImage && <meta name="twitter:image" content={ogImage} />}
         </Head>
         <Container className="mt-16 lg:mt-32">
           <div className="xl:relative">
