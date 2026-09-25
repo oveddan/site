@@ -1,17 +1,57 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
+// Design tokens. Each color is an RGB channel triplet defined in src/styles/globals.css for light
+// (`:root`) and dark (`.dark`), so one class works in both themes and alpha modifiers still apply
+// (`bg-ground/80`). Use these instead of raw zinc/teal classes.
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+const tokenValue = (name, alpha) => (alpha === undefined ? `rgb(var(--${name}))` : `rgb(var(--${name}) / ${alpha})`);
+
+// Prose colors come from the same tokens, so `dark:prose-invert` resolves to identical values.
+const proseColors = {
+  body: tokenValue('ink-2'),
+  headings: tokenValue('ink'),
+  links: tokenValue('accent'),
+  'links-hover': tokenValue('ink'),
+  underline: tokenValue('accent', 0.35),
+  'underline-hover': tokenValue('accent'),
+  bold: tokenValue('ink'),
+  counters: tokenValue('ink-3'),
+  bullets: tokenValue('ink-3'),
+  hr: tokenValue('line'),
+  'quote-borders': tokenValue('line'),
+  captions: tokenValue('ink-3'),
+  code: tokenValue('ink'),
+  'code-bg': tokenValue('surface'),
+  'pre-code': tokenValue('ink'),
+  'pre-bg': tokenValue('surface'),
+  'pre-border': tokenValue('line'),
+  'th-borders': tokenValue('line'),
+  'td-borders': tokenValue('line', 0.6),
+};
+const proseVars = (prefix) =>
+  Object.fromEntries(Object.entries(proseColors).map(([key, value]) => [`--tw-prose-${prefix}${key}`, value]));
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
-  theme: {
-    extend: {},
-  },
   darkMode: 'class',
   plugins: [require('@tailwindcss/typography')],
   theme: {
+    extend: {
+      colors: {
+        ground: token('ground'),
+        surface: token('surface'),
+        ink: token('ink'),
+        'ink-2': token('ink-2'),
+        'ink-3': token('ink-3'),
+        line: token('line'),
+        accent: token('accent'),
+        'accent-ink': token('accent-ink'),
+      },
+    },
     fontFamily: {
-      sans: ['var(--font-inter)', ...fontFamily.sans],
-      mono: ['var(--font-roboto)', ...fontFamily.mono],
+      sans: ['var(--font-sans)', ...fontFamily.sans],
+      mono: ['var(--font-mono)', ...fontFamily.mono],
     },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
@@ -30,69 +70,14 @@ module.exports = {
     },
     typography: (theme) => ({
       invert: {
-        css: {
-          '--tw-prose-body': 'var(--tw-prose-invert-body)',
-          '--tw-prose-headings': 'var(--tw-prose-invert-headings)',
-          '--tw-prose-links': 'var(--tw-prose-invert-links)',
-          '--tw-prose-links-hover': 'var(--tw-prose-invert-links-hover)',
-          '--tw-prose-underline': 'var(--tw-prose-invert-underline)',
-          '--tw-prose-underline-hover': 'var(--tw-prose-invert-underline-hover)',
-          '--tw-prose-bold': 'var(--tw-prose-invert-bold)',
-          '--tw-prose-counters': 'var(--tw-prose-invert-counters)',
-          '--tw-prose-bullets': 'var(--tw-prose-invert-bullets)',
-          '--tw-prose-hr': 'var(--tw-prose-invert-hr)',
-          '--tw-prose-quote-borders': 'var(--tw-prose-invert-quote-borders)',
-          '--tw-prose-captions': 'var(--tw-prose-invert-captions)',
-          '--tw-prose-code': 'var(--tw-prose-invert-code)',
-          '--tw-prose-code-bg': 'var(--tw-prose-invert-code-bg)',
-          '--tw-prose-pre-code': 'var(--tw-prose-invert-pre-code)',
-          '--tw-prose-pre-bg': 'var(--tw-prose-invert-pre-bg)',
-          '--tw-prose-pre-border': 'var(--tw-prose-invert-pre-border)',
-          '--tw-prose-th-borders': 'var(--tw-prose-invert-th-borders)',
-          '--tw-prose-td-borders': 'var(--tw-prose-invert-td-borders)',
-        },
+        css: Object.fromEntries(
+          Object.keys(proseColors).map((key) => [`--tw-prose-${key}`, `var(--tw-prose-invert-${key})`])
+        ),
       },
       DEFAULT: {
         css: {
-          '--tw-prose-body': theme('colors.zinc.600'),
-          '--tw-prose-headings': theme('colors.zinc.900'),
-          '--tw-prose-links': theme('colors.teal.500'),
-          '--tw-prose-links-hover': theme('colors.teal.600'),
-          '--tw-prose-underline': theme('colors.teal.500 / 0.2'),
-          '--tw-prose-underline-hover': theme('colors.teal.500'),
-          '--tw-prose-bold': theme('colors.zinc.900'),
-          '--tw-prose-counters': theme('colors.zinc.900'),
-          '--tw-prose-bullets': theme('colors.zinc.900'),
-          '--tw-prose-hr': theme('colors.zinc.100'),
-          '--tw-prose-quote-borders': theme('colors.zinc.200'),
-          '--tw-prose-captions': theme('colors.zinc.400'),
-          '--tw-prose-code': theme('colors.zinc.700'),
-          '--tw-prose-code-bg': theme('colors.zinc.300 / 0.2'),
-          '--tw-prose-pre-code': theme('colors.zinc.100'),
-          '--tw-prose-pre-bg': theme('colors.zinc.900'),
-          '--tw-prose-pre-border': 'transparent',
-          '--tw-prose-th-borders': theme('colors.zinc.200'),
-          '--tw-prose-td-borders': theme('colors.zinc.100'),
-
-          '--tw-prose-invert-body': theme('colors.zinc.400'),
-          '--tw-prose-invert-headings': theme('colors.zinc.200'),
-          '--tw-prose-invert-links': theme('colors.teal.400'),
-          '--tw-prose-invert-links-hover': theme('colors.teal.400'),
-          '--tw-prose-invert-underline': theme('colors.teal.400 / 0.3'),
-          '--tw-prose-invert-underline-hover': theme('colors.teal.400'),
-          '--tw-prose-invert-bold': theme('colors.zinc.200'),
-          '--tw-prose-invert-counters': theme('colors.zinc.200'),
-          '--tw-prose-invert-bullets': theme('colors.zinc.200'),
-          '--tw-prose-invert-hr': theme('colors.zinc.700 / 0.4'),
-          '--tw-prose-invert-quote-borders': theme('colors.zinc.500'),
-          '--tw-prose-invert-captions': theme('colors.zinc.500'),
-          '--tw-prose-invert-code': theme('colors.zinc.300'),
-          '--tw-prose-invert-code-bg': theme('colors.zinc.200 / 0.05'),
-          '--tw-prose-invert-pre-code': theme('colors.zinc.100'),
-          '--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 0.4)',
-          '--tw-prose-invert-pre-border': theme('colors.zinc.200 / 0.1'),
-          '--tw-prose-invert-th-borders': theme('colors.zinc.700'),
-          '--tw-prose-invert-td-borders': theme('colors.zinc.800'),
+          ...proseVars(''),
+          ...proseVars('invert-'),
 
           // Base
           color: 'var(--tw-prose-body)',
@@ -109,7 +94,10 @@ module.exports = {
           // Headings
           'h2, h3': {
             color: 'var(--tw-prose-headings)',
-            fontWeight: theme('fontWeight.semibold'),
+            fontFamily: theme('fontFamily.mono').join(', '),
+            fontWeight: theme('fontWeight.medium'),
+            letterSpacing: '-0.02em',
+            textWrap: 'balance',
           },
           h2: {
             fontSize: theme('fontSize.xl')[0],
@@ -129,15 +117,16 @@ module.exports = {
 
           // Images
           img: {
-            borderRadius: theme('borderRadius.3xl'),
+            borderRadius: theme('borderRadius.md'),
           },
 
           // Inline elements
           a: {
             color: 'var(--tw-prose-links)',
-            fontWeight: theme('fontWeight.semibold'),
+            fontWeight: theme('fontWeight.medium'),
             textDecoration: 'underline',
             textDecorationColor: 'var(--tw-prose-underline)',
+            textUnderlineOffset: '3px',
             transitionProperty: 'color, text-decoration-color',
             transitionDuration: theme('transitionDuration.150'),
             transitionTimingFunction: theme('transitionTimingFunction.in-out'),
@@ -154,9 +143,9 @@ module.exports = {
             display: 'inline-block',
             color: 'var(--tw-prose-code)',
             fontSize: theme('fontSize.sm')[0],
-            fontWeight: theme('fontWeight.semibold'),
+            fontWeight: theme('fontWeight.medium'),
             backgroundColor: 'var(--tw-prose-code-bg)',
-            borderRadius: theme('borderRadius.lg'),
+            borderRadius: theme('borderRadius.DEFAULT'),
             paddingLeft: theme('spacing.1'),
             paddingRight: theme('spacing.1'),
           },
@@ -164,7 +153,7 @@ module.exports = {
             color: 'inherit',
           },
           ':is(h2, h3) code': {
-            fontWeight: theme('fontWeight.bold'),
+            fontWeight: theme('fontWeight.semibold'),
           },
 
           // Quotes
@@ -178,7 +167,8 @@ module.exports = {
           // Figures
           figcaption: {
             color: 'var(--tw-prose-captions)',
-            fontSize: theme('fontSize.sm')[0],
+            fontFamily: theme('fontFamily.mono').join(', '),
+            fontSize: theme('fontSize.xs')[0],
             lineHeight: theme('lineHeight.6'),
             marginTop: theme('spacing.3'),
           },
@@ -226,7 +216,7 @@ module.exports = {
             fontSize: theme('fontSize.sm')[0],
             fontWeight: theme('fontWeight.medium'),
             backgroundColor: 'var(--tw-prose-pre-bg)',
-            borderRadius: theme('borderRadius.3xl'),
+            borderRadius: theme('borderRadius.lg'),
             padding: theme('spacing.8'),
             overflowX: 'auto',
             border: '1px solid',

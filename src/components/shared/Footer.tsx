@@ -1,38 +1,53 @@
-import type { JSX } from 'react';
-import Link from 'next/link';
+import { Container } from '@/components/Container';
 
-import { InnerContainer, OuterContainer } from '@/components/Container';
-import { navItems } from '@/api/navItems';
-
-function NavLink({ href, children }: { href: string; children: JSX.Element | JSX.Element[] | string }) {
-  return (
-    <Link href={href} className="transition hover:text-teal-500 dark:hover:text-teal-400">
-      {children}
-    </Link>
-  );
-}
+const elsewhere = [
+  { name: 'github', href: 'https://github.com/oveddan' },
+  { name: 'instagram', href: 'https://www.instagram.com/dan_oved/' },
+  { name: 'linkedin', href: 'https://www.linkedin.com/in/danoved/' },
+  { name: 'twitter', href: 'https://twitter.com/oveddan' },
+];
 
 export function Footer() {
   return (
-    <footer className="mt-32">
-      <OuterContainer>
-        <div className="border-t border-zinc-100 pt-10 pb-16 dark:border-zinc-700/40">
-          <InnerContainer>
-            <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-              <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                {navItems.map((item) => (
-                  <NavLink key={item.path} href={item.path}>
-                    {item.text}
-                  </NavLink>
-                ))}
-              </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Dan Oved. All rights reserved.
-              </p>
+    <footer className="mt-24">
+      <Container>
+        {/* The hairline sits inside the container so it lines up with the content column. */}
+        <div className="grid gap-[26px] border-t border-line pb-11 pt-9 font-mono text-[13px] leading-normal md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+          <div>
+            <h2 className="label mb-3.5">elsewhere</h2>
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              {elsewhere.map(({ name, href }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-sm text-ink transition-colors hover:text-accent focus-ring"
+                >
+                  {name}{' '}
+                  <span aria-hidden="true" className="text-ink-3">
+                    ↗
+                  </span>
+                </a>
+              ))}
             </div>
-          </InnerContainer>
+          </div>
+          <div className="flex flex-wrap gap-x-[18px] gap-y-1.5 text-ink-3">
+            {/* The year is baked in at build time and recomputed on hydration; they differ after Jan 1 until a rebuild. */}
+            <span suppressHydrationWarning>&copy; {new Date().getFullYear()} Dan Oved</span>
+            {/* A plain anchor: /llms.txt is a rewrite to an API route, not a client-side page. */}
+            <span>
+              for machines:{' '}
+              <a
+                href="/llms.txt"
+                className="rounded-sm text-ink-2 underline underline-offset-2 transition-colors hover:text-ink focus-ring"
+              >
+                llms.txt
+              </a>
+            </span>
+          </div>
         </div>
-      </OuterContainer>
+      </Container>
     </footer>
   );
 }

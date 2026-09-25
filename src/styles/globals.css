@@ -2,3 +2,50 @@
 @tailwind components;
 @import './prism.css';
 @tailwind utilities;
+
+/* Design tokens: RGB channel triplets consumed by the colors in tailwind.config.js.
+   The site is dark-first; `.dark` on <html> is set before paint by the script in _document.tsx. */
+@layer base {
+  :root {
+    --ground: 246 247 248;
+    --surface: 230 232 235;
+    --ink: 16 18 21;
+    --ink-2: 74 80 90;
+    --ink-3: 106 112 122;
+    --line: 220 223 227;
+    --accent: 8 128 111;
+    --accent-ink: 255 255 255;
+    --glow-opacity: 0.4;
+    color-scheme: light;
+  }
+
+  .dark {
+    --ground: 10 11 13;
+    --surface: 21 23 27;
+    --ink: 237 239 242;
+    --ink-2: 163 169 178;
+    --ink-3: 122 128 138;
+    --line: 32 35 40;
+    --accent: 69 214 192;
+    --accent-ink: 3 33 28;
+    --glow-opacity: 0.6;
+    color-scheme: dark;
+  }
+
+  ::selection {
+    background-color: rgb(var(--accent) / 0.3);
+  }
+}
+
+/* Shared treatments, so a change to either lands everywhere at once. */
+@layer components {
+  /* Keyboard focus on links and buttons: an accent outline, only for keyboard (focus-visible) focus. */
+  .focus-ring {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+  }
+
+  /* Small mono labels: filter row names, meta strip terms, "next project", the footer's "elsewhere". */
+  .label {
+    @apply font-mono text-[11px] uppercase leading-none tracking-[0.08em] text-ink-3;
+  }
+}
