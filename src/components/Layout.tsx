@@ -2,25 +2,31 @@ import type { JSX } from 'react';
 import { Footer } from '@/components/shared/Footer';
 import { Header } from '@/components/shared/Header';
 import clsx from 'clsx';
-import { Inter, Roboto_Mono } from 'next/font/google';
+import { IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const mono = Roboto_Mono({ subsets: ['latin'], variable: '--font-roboto' });
+// tailwind.config.js maps `font-sans` / `font-mono` to these variables.
+const sans = IBM_Plex_Sans({
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+});
+const mono = IBM_Plex_Mono({
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+});
 
 const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   return (
-    <>
-      <div className="fixed inset-0 flex justify-center sm:px-8">
-        <div className="flex w-full max-w-7xl lg:px-8">
-          <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
-        </div>
-      </div>
-      <div className={clsx(inter.variable, mono.variable, 'font-sans relative')}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </div>
-    </>
+    // Full-bleed shell. `min-h-screen` is the fallback for browsers without `svh`; the column keeps the
+    // footer at the bottom of short pages. (#__next sits between <body> and this, so `min-h-full` can't reach.)
+    <div className={clsx(sans.variable, mono.variable, 'flex min-h-screen min-h-svh flex-col font-sans')}>
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
   );
 };
 

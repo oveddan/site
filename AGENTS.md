@@ -50,6 +50,22 @@ devDependency), e.g. `tsx scripts/verify-chapter-videos.ts` via the `verify:medi
   `llmsContent` reads the portfolio tree dynamically, so Next otherwise traces those static images
   into Netlify's server handler and can exceed Lambda's 250 MiB uncompressed bundle limit.
 
+## Design system
+
+- Colors are tokens, not palette classes: `ground`, `surface`, `ink`, `ink-2`, `ink-3`, `line`,
+  `accent`, `accent-ink` in `tailwind.config.js`, backed by RGB-triplet CSS variables in
+  `src/styles/globals.css` for `:root` (light) and `.dark`. One class covers both themes, so new code
+  should not need `dark:` color variants or `zinc-`/`teal-` classes. Prose colors use the same tokens.
+- The site is dark-first. The inline script in `_document.tsx` sets `.dark` before paint from
+  `localStorage.theme`, defaulting to dark; `useDarkMode` persists the toggle. Don't move theme
+  detection back into a post-hydration effect — that reintroduces the white flash.
+- Type: IBM Plex Mono (`font-mono`) for titles, nav, labels and chips; IBM Plex Sans (`font-sans`) for
+  running text. Small mono labels use the `label` class and keyboard focus uses `focus-ring`, both in
+  `globals.css`'s components layer; use them instead of re-spelling the utilities.
+- Layout width comes from `Container` (1200px max, 20px/40px gutters). Portfolio media sits in an
+  `aspect-[360/277]` frame on the homepage and project headers, so off-size GIFs still line up.
+- About (`/about`) is intentionally unlinked until its bio is refreshed; see the comment in `navItems.ts`.
+
 ## AI-readable site content
 
 - `/llms.txt` is the lightweight portfolio index and `/llms-full.txt` is the complete generated content view.

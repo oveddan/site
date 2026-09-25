@@ -1,12 +1,12 @@
+import { utcYear } from '@/api/dates';
 import { getPortfolioItems, MetaWithSlug } from '@/api/portfolio';
-import { Card, CardDescription, CardLink } from '@/components/PortfolioHome/Card';
-import Filters from '@/components/PortfolioHome/Filters';
+import { Container } from '@/components/Container';
 import Layout from '@/components/Layout';
-import { SimpleLayout } from '@/components/SimpleLayout';
+import Filters from '@/components/PortfolioHome/Filters';
+import { PortfolioCards } from '@/components/PortfolioHome/PortfolioCards';
 import { useFilteredProjects, useFilters } from '@/hooks/useFilters';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import { PortfolioCards } from '@/components/PortfolioHome/PortfolioCards';
 
 interface Props {
   portfolioItems: MetaWithSlug[];
@@ -22,21 +22,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-function LinkIcon(props: any) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        d="M15.712 11.823a.75.75 0 1 0 1.06 1.06l-1.06-1.06Zm-4.95 1.768a.75.75 0 0 0 1.06-1.06l-1.06 1.06Zm-2.475-1.414a.75.75 0 1 0-1.06-1.06l1.06 1.06Zm4.95-1.768a.75.75 0 1 0-1.06 1.06l1.06-1.06Zm3.359.53-.884.884 1.06 1.06.885-.883-1.061-1.06Zm-4.95-2.12 1.414-1.415L12 6.344l-1.415 1.413 1.061 1.061Zm0 3.535a2.5 2.5 0 0 1 0-3.536l-1.06-1.06a4 4 0 0 0 0 5.656l1.06-1.06Zm4.95-4.95a2.5 2.5 0 0 1 0 3.535L17.656 12a4 4 0 0 0 0-5.657l-1.06 1.06Zm1.06-1.06a4 4 0 0 0-5.656 0l1.06 1.06a2.5 2.5 0 0 1 3.536 0l1.06-1.06Zm-7.07 7.07.176.177 1.06-1.06-.176-.177-1.06 1.06Zm-3.183-.353.884-.884-1.06-1.06-.884.883 1.06 1.06Zm4.95 2.121-1.414 1.414 1.06 1.06 1.415-1.413-1.06-1.061Zm0-3.536a2.5 2.5 0 0 1 0 3.536l1.06 1.06a4 4 0 0 0 0-5.656l-1.06 1.06Zm-4.95 4.95a2.5 2.5 0 0 1 0-3.535L6.344 12a4 4 0 0 0 0 5.656l1.06-1.06Zm-1.06 1.06a4 4 0 0 0 5.657 0l-1.061-1.06a2.5 2.5 0 0 1-3.535 0l-1.061 1.06Zm7.07-7.07-.176-.177-1.06 1.06.176.178 1.06-1.061Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
+/** "14 projects · 2018–2026" */
+const projectsSummary = (projects: MetaWithSlug[]) => {
+  const first = Math.min(...projects.map(({ dateStart }) => utcYear(dateStart)));
+  const last = Math.max(...projects.map(({ dateStart, dateEnd }) => utcYear(dateEnd || dateStart)));
+  const years = first === last ? `${first}` : `${first}–${last}`;
 
-const projectLink = (project: MetaWithSlug) => {
-  if (project.links.externalArticle) return project.links.externalArticle;
-
-  return `/portfolio/${project.slug}`;
+  return `${projects.length} projects · ${years}`;
 };
 
 const Index: NextPage<Props> = ({ portfolioItems }) => {
@@ -50,10 +42,22 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
         <title>Creative Projects - Dan Oved</title>
         <meta name="description" content="Dan Oved's Creative Projects" />
       </Head>
-      <SimpleLayout title="Dan Oved's Creative Projects" intro="">
-        <Filters {...filters} />
-        <PortfolioCards filteredProjects={filteredProjects} projectLink={projectLink} />
-      </SimpleLayout>
+      <Container>
+        <header className="pb-7 pt-14 md:pb-9 md:pt-[88px]">
+          <p className="mb-[18px] font-mono text-[12px] uppercase leading-none tracking-[0.08em] text-ink-3 tabular-nums">
+            {projectsSummary(portfolioItems)}
+          </p>
+          <h1 className="max-w-[18ch] text-balance font-mono text-[length:clamp(2rem,6.4vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-ink">
+            Dan Oved&apos;s Creative Projects
+          </h1>
+          <p className="mt-[22px] max-w-[48ch] text-pretty text-base leading-[1.55] text-ink-2 md:text-[1.1875rem]">
+            Installations, instruments and performances built from light, sound and machine learning — and the
+            open-source tools I make along the way.
+          </p>
+        </header>
+        <Filters {...filters} projects={portfolioItems} shown={filteredProjects.length} />
+        <PortfolioCards projects={filteredProjects} />
+      </Container>
     </Layout>
   );
 };
