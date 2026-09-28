@@ -22,6 +22,8 @@ The R2 bucket is `danoved-media`; the public media hostname is `media.danoved.xy
 
 Use the Cloudflare MCP for control-plane work: confirm the zone is active, manage DNS records, and attach/inspect the R2 custom domain. Netlify's production site record and the R2 media host are separate concerns. After a DNS or custom-domain change, verify both public resolution and HTTPS; do not infer success just from a dashboard state.
 
+Netlify must not keep a Netlify DNS zone for `danoved.xyz`. While one exists, Netlify renews a wildcard `*.danoved.xyz` certificate through a DNS-01 `_acme-challenge` TXT record written into its own zone, which Cloudflare never serves; renewal fails with `NXDOMAIN looking up TXT for _acme-challenge.danoved.xyz` and the site falls back to the `*.netlify.app` certificate (`ERR_CERT_COMMON_NAME_INVALID`). This expired the certificate on 2026-09-28. With the zone deleted, Netlify issued a Let's Encrypt certificate for `danoved.xyz` and `www.danoved.xyz` by HTTP-01. A leftover `danioved.com` Netlify DNS zone is still linked to the site, so its API still reports `managed_dns: true`; delete that zone too if a renewal ever fails the same way again. Check the served certificate with `openssl s_client -connect danoved.xyz:443 -servername danoved.xyz`, not the dashboard.
+
 ## Large uploads
 
 Use `wrangler r2 object put --remote` for ordinary files. Files larger than R2's 300 MB single-part limit require multipart upload. The established pattern is a temporary Worker with an R2 binding, a session-only bearer token, 64 MiB multipart parts, and a remote preview. Remove the Worker and its ignored upload workspace immediately after completion. Never commit upload tokens, credentials, or generated media files.

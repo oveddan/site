@@ -23,6 +23,13 @@
   headers = {X-From = "Netlify"}
   signed = "API_SIGNATURE_TOKEN"
 
+## old /blog paths => /itp-blog; the Hugo posts still hardcode /blog/images/... and /blog/posts/...
+[[redirects]]
+  from = "/blog/*"
+  to = "/itp-blog/:splat"
+  status = 301
+  force = true
+
 ## blog redirect
 [[redirects]]
   from = "/resume*"
