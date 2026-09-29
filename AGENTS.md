@@ -18,7 +18,7 @@ devDependency), e.g. `tsx scripts/verify-chapter-videos.ts` via the `verify:medi
 ## Routing and deploy rules
 
 - External content is proxied by Netlify redirects in `netlify.toml`, not by duplicate Next.js rewrites. `@netlify/plugin-nextjs` converts Next.js rewrites into Netlify redirects; defining the same path in both causes redirect loops.
-- `/itp-blog*` is configured in `netlify.toml`, along with a 301 from `/blog/*` to `/itp-blog/*`: the Hugo blog's posts hardcode `/blog/images/...` and `/blog/posts/...`, so removing it breaks every blog image. `/resume*` needs its existing `netlify.toml` rule and the Next.js rewrite that uses `RESUME_BASE_URL`; do not introduce a second equivalent rule.
+- `/itp-blog*` is configured in `netlify.toml`, along with a 301 from `/blog/*` to `/itp-blog/*`: the Hugo blog's posts hardcode `/blog/images/...` and `/blog/posts/...`, so removing it breaks every blog image. `/resume` is no longer served: resumes are private and sent as PDFs from the `oveddan/resume` repo.
 - Paths needing Netlify's `signed` auth header belong in `netlify.toml`, because a Next.js rewrite cannot add that request header.
 - After a routing change, check `curl -sIL https://danoved.xyz/<path>` for loops.
 - Keep the build Node version only in `.nvmrc`; do not add `NODE_VERSION` to `netlify.toml`.

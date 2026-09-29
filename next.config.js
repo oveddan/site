@@ -13,8 +13,6 @@ const withMDX = require('@next/mdx')({
   },
 });
 
-const resumeBaseUrl = process.env.RESUME_BASE_URL;
-
 module.exports = withMDX({
   // Portfolio images are emitted as static assets. llmsContent's filesystem reads otherwise make
   // the tracer copy the entire source image library into Netlify's server handler, where it is
@@ -38,14 +36,6 @@ module.exports = withMDX({
       {
         source: '/llms-full.txt',
         destination: '/api/llms-full',
-      },
-      {
-        source: '/resume',
-        destination: `${resumeBaseUrl}/resume`, // Matched parameters can be used in the destination
-      },
-      {
-        source: '/resume/:slug*',
-        destination: `${resumeBaseUrl}/resume/:slug*`, // Matched parameters can be used in the destination
       },
     ];
   },
