@@ -30,15 +30,6 @@
   status = 301
   force = true
 
-## blog redirect
-[[redirects]]
-  from = "/resume*"
-  to = "https://dano-resume.netlify.app/resume/:splat"
-  status = 200
-  force = true # COMMENT: ensure that we always redirect
-  headers = {X-From = "Netlify"}
-  signed = "API_SIGNATURE_TOKEN"
-
 ## www.danoved.xyz => danoved.xyz
 [[redirects]]
   from = "https://www.danoved.xyz/*"
