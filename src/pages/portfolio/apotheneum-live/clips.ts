@@ -28,6 +28,7 @@ function clip(id: string, title: string, duration: string, file: string, aspect:
 
 /** Object keys are versioned (-v1) so the bucket's immutable cache-control stays correct. */
 export const clips = {
+  grassThenHeart: clip('grass-then-heart', 'Grass, then the heart, from the air', '0:47', '06-grass-then-heart-v1.mp4', 'video'),
   heartControl: clip('heart-control', 'The heart, from the controls to the cube', '0:30', '00-heart-control-v1.mp4', 'portrait'),
   heartOnCube: clip('heart-on-cube', 'The heart on the cube, from the air', '0:40', '01-heart-on-cube-v4.mp4', 'video'),
   grass: clip('grass', 'Grass, from the air', '0:59', '02-grass-v3.mp4', 'video'),
