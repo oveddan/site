@@ -59,6 +59,9 @@ export type PortfolioItemMeta = HasPortfolioItemFilters & {
   summary: string;
   links: {
     github: string | null;
+    /** When a project's code spans several repos: one labelled button per entry, replacing the
+     *  single `github` button. Keep `github` pointing at the main repo. */
+    code?: { label: string; href: string }[];
     demo: string | null;
     /** When set, the portfolio card links to this URL instead of the on-site `/portfolio/{slug}` page.
      *  Only use for projects with no on-site MDX article (e.g., external Medium posts, NYT R&D pages). */
