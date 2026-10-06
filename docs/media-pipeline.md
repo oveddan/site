@@ -181,3 +181,19 @@ images](#3-extract-and-upload-preview-images)) as a normal, lazily-loaded `<img>
 native `<video poster>` attribute, which would count as a video request before the click. The image
 gets its own descriptive alt text (the frame, not the action) so it isn't announced as a duplicate
 of the play button's accessible name.
+
+## Estoa
+
+`src/pages/portfolio/estoa/media.ts` lists every Estoa object; all of them live under `estoa/` in the
+bucket, and only the homepage card (`images/estoa.gif`) and the share image (`images/og.jpg`) are in
+the repo. Layout of the keys:
+
+- `estoa/<clip>-v1.mp4` — phone clips, trimmed, audio removed, H.264 1080×1920, `moov` before `mdat`.
+- `estoa/previews/<clip>-first-frame-v1.avif` — the facade still for each clip.
+- `estoa/photos/<name>-v1.jpg` — build photos, EXIF/GPS stripped.
+- `estoa/renders/<name>-v1.webp` — simulator renders as animated WebP.
+
+When ffmpeg isn't usable, AVFoundation does the same job on macOS: an `AVMutableComposition` holding
+only the video track over the trimmed range, exported with `AVAssetExportPreset1280x720` and
+`shouldOptimizeForNetworkUse = true` (which puts `moov` first), and `AVAssetImageGenerator` at time
+zero for the first frame, then `avifenc`.

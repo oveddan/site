@@ -1,0 +1,231 @@
+import { PortfolioPageLayout } from '@/components/PortfolioPageLayout'
+import { meta } from './meta'
+import { ClickToPlayVideo } from '@/components/ClickToPlayVideo'
+import { renders, photos, clips } from './media'
+
+
+export const Photo = ({ img, alt, children }) => (
+  <figure className="not-prose my-4">
+    <img src={img.src} alt={alt} width={img.width} height={img.height} loading="lazy" className="h-auto w-full rounded" />
+    {children ? <figcaption className="mt-2 font-mono text-xs leading-relaxed text-ink-3">{children}</figcaption> : null}
+  </figure>
+)
+
+export const Clip = ({ c, children }) => (
+  <figure className="not-prose my-4">
+    <ClickToPlayVideo {...c} />
+    {children ? <figcaption className="mt-2 font-mono text-xs leading-relaxed text-ink-3">{children}</figcaption> : null}
+  </figure>
+)
+
+export const Render = ({ img, alt, children }) => (
+  <figure className="not-prose my-4">
+    <img src={img.src} alt={alt} width={img.width} height={img.height} loading="lazy" className="mx-auto h-auto w-full max-w-[320px] rounded bg-black" />
+    {children ? <figcaption className="mt-2 font-mono text-xs leading-relaxed text-ink-3">{children}</figcaption> : null}
+  </figure>
+)
+
+<div className="not-prose font-mono text-[13px] leading-relaxed text-ink-2">
+  Dan Oved, 2026 · Generative light: LEDs, ESP32, hidden presence sensor, 3D-printed PLA, frosted glass ·
+  Shown at <a href="https://www.instagram.com/abisal.galeria/" className="underline">Abisal</a>, Mexico City, in <a href="https://designclimatewk.grok.me/" className="underline">Design | Climate Week 2026</a>, October 6 to 11
+</div>
+
+{/* TODO(Dan): the finished piece on the wall, glowing. It replaces this render as the opening image. */}
+
+<Render img={renders.waves} alt="Dark water with a few waves crossing the disk, then long slow evenly spaced waves">
+</Render>
+
+{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): caption for the waves render */}
+
+## The idea
+
+{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): what a feed does; Estoa is endless too, the hidden radar notices moving vs still, restless when you move, settles and shows more when you stay */}
+
+You can't see the sensor from the front, and that's on purpose. You don't see the algorithm behind a feed either, only what it gives you.
+
+## What you see
+
+{/* TODO(Dan): the piece in the room, with the halo on the wall, ideally someone standing still in front of it. */}
+
+A round disk of light behind frosted glass, about 30 cm across, hanging on the wall.
+
+{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): move and it churns; stand still and it calms in stages: a few seconds, about ten seconds, half a minute (one more thing); also the halo on the wall */}
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Render img={renders.clouds} alt="A round disk of soft blue and white clouds that turns gold, then deep red, then back to blue">
+    Clouds. Blue while someone walks past. If they stay, it turns into a sunset.
+  </Render>
+  <Render img={renders.caustics} alt="Bright, wavy lines of light like the bottom of a swimming pool">
+    Caustics, the light on the bottom of a pool.
+  </Render>
+  <Render img={renders.pleamar} alt="Sea grass at dusk, slowly covered by rising water">
+    Pleamar. Sea grass at dusk, and the tide comes in over it while you hold still.
+  </Render>
+  <Render img={renders.candle} alt="A warm flickering candle flame in the middle of the disk">
+    Candle. It gutters when you move and stands tall when you're still.
+  </Render>
+  <Render img={renders.vortex} alt="Arms of light spiralling in towards a dark centre">
+    Vortex. It spins up, then unwinds into a slow eddy.
+  </Render>
+  <Render img={renders.tunnel} alt="Rings of light moving outwards, like flying down a tunnel">
+    Tunnel. It rushes, then slows toward a warm light at the end.
+  </Render>
+</div>
+
+<div className="not-prose font-mono text-xs leading-relaxed text-ink-3">
+  These are renders from a simulator that runs the real firmware, each one a scripted visit: nobody there, then someone
+  walking past, then someone standing still. Some are brightened to show up on a screen. A few of these patterns are in the newest version of the firmware and may not be on the wall yet.
+</div>
+
+The one more thing: some of the patterns hide a pair of eyes. {/* PLACEHOLDER (Pangram flagged, Dan to rewrite): how the eyes work: image and its opposite flicker 120 times a second, a staring eye averages them away */} A phone camera only catches one half at a time, so the eyes show up on your screen. Sometimes you catch them when your eyes dart past it.
+
+<Photo img={photos.hiddenEyes} alt="Ten frames of the caustics pattern. The first, averaged like a staring eye, shows nothing unusual. In several of the 1 ms frames two dark eye shapes appear.">
+  Caustics with the eyes in it. The first frame is about what a staring eye sees. The rest are single 1 ms exposures,
+  like a phone camera's, and in some of them the eyes show up.
+</Photo>
+
+## How it got here
+
+### From a spinning mirror to a sensor
+
+It started on September 25 as an LED disk and an ESP32 on my desk, and a lot of generative patterns. A few days later I found a round mirror at a flea market in Mexico City that used to turn on a table, and for a while the plan was to make the whole thing rotate.
+
+On October 2 I dropped that. Rotation was more that could break, and I wanted to work out what the piece was actually about. Presence seemed more interesting, so I got a radar that can tell when someone's there.
+
+{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): the stillness moment while testing at home; the show patterns rebuilt with three states: nobody, walking past, holding still */}
+
+The feed came last, the morning it got its name.
+
+<Photo img={photos.ledDisk} alt="A round white circuit board covered in rings of small LEDs">
+  The disk before anything else: 255 LEDs in concentric rings.
+</Photo>
+
+### The enclosure
+
+The enclosure is 3D printed. A Claude agent modelled it in OpenSCAD from my measurements, sketches and ideas, and I printed, soldered, drilled and put it all together by hand. The wall around the disk is clear PLA, printed in four quarters and glued with clear epoxy. Straight off the printer the layer lines smeared every LED into a vertical streak, so I wet-sanded it, and that turned it into an even frost.
+
+I printed about a dozen small test pieces before any real part. Fit tests, insert tests, and stacks of "height bricks" to find where the glass should sit. With the glass about 5.5 cm above the LEDs, no single LED shows through.
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={photos.glassGlow} alt="Frosted glass lit from below, a soft ring of white on blue with no single LEDs visible">
+    The frosted glass at the height I picked.
+  </Photo>
+  <Photo img={photos.wallGlowSanded} alt="A sanded strip of clear printed wall glowing evenly">
+    A sanded test strip of the clear wall.
+  </Photo>
+  <Photo img={photos.wallQuarters} alt="Four curved clear wall pieces and four thin ring pieces laid out on a blue towel">
+    The four wall quarters and the four quarters of the ring that holds the glass.
+  </Photo>
+  <Photo img={photos.frontAssembled} alt="The glued round wall with the frosted glass and ring on top, tape over the seams">
+    The front together for the first time, tape on the seams while the epoxy set.
+  </Photo>
+</div>
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={photos.diskInWall} alt="The LED disk sitting in its clear printed wall, no glass on yet">
+    The disk in its clear wall, before the glass went on.
+  </Photo>
+  <Photo img={photos.wallUnsanded} alt="The clear wall lit from inside before sanding, each LED smeared into a vertical streak">
+    The clear wall straight off the printer, before sanding: every LED turns into a vertical streak.
+  </Photo>
+  <Photo img={photos.spiderOnBed} alt="A clear printed four-armed spider on the printer bed">
+    The clear spider that holds the disk, on the print bed.
+  </Photo>
+  <Clip c={clips.heightBricks}>One of the stacks of height bricks I printed to find where the glass should sit.</Clip>
+  <Clip c={clips.frontOnDesk}>The front with the glass on, running on my desk at night.</Clip>
+</div>
+
+The box on the back took three tries. The first left the battery's end open to dust. The second was sealed, but the battery bay was half a millimetre too tight, the posts bulged when I melted the brass inserts in and two inserts pulled out, and the ESP32's USB port ran into the end of its plug tunnel. A one-hour test print checked the fixes, and the third box worked. The white filament ran out partway through printing it, so I finished it in clear, and now it fades from white to clear. I like it.
+
+The board slides into a groove in the box wall. There was no way to get a screwdriver to the screws on that end, so the groove does their job.
+
+<Photo img={photos.boardInGroove} alt="A green perfboard with the ESP32 on it, one end held in a groove in a white printed wall">
+  The board in its groove, on the first test print. It held first try.
+</Photo>
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={photos.backBoxFresh} alt="A white printed back box just off the printer">
+    A back box fresh off the printer.
+  </Photo>
+  <Photo img={photos.bulgedPost} alt="A printed post pushed out of shape around a brass insert">
+    One of the posts that bulged when I melted a brass insert into it.
+  </Photo>
+  <Photo img={photos.fixesTestPrint} alt="A small clear test print with a USB-C port screwed onto its posts">
+    The one-hour test print: the USB-C port and its screws, to check the fixes before printing the third box.
+  </Photo>
+  <Photo img={photos.backWithLid} alt="The back of the piece with its lid on, blue light leaking around the edge">
+    The back with the lid on, the side that hangs on the wall. The blue leaking out around the edge is the halo.
+  </Photo>
+</div>
+
+### The mirror
+
+The piece was designed to stand on the mirror from the flea market, which is glass in a black steel pan. The disk was going to bolt through it. The steel drilled easily. The glass didn't seem to be going anywhere, so I leaned on the drill, and it cracked from the hole straight across to the rim.
+
+So it went up without the mirror. The disk and its wall clamp straight onto the back box, and some light leaks out around the edge of the box onto the wall as a soft halo. I liked that more than I expected, and kept it.
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={photos.mirror} alt="A round mirror in a black steel pan">
+    The mirror from the flea market, glass in a black steel pan.
+  </Photo>
+  <Photo img={photos.frontOnMirror} alt="The clear wall and glass standing on the round mirror, tape on the seams">
+    The front standing on the mirror the way it was meant to, a couple of hours before the glass cracked.
+  </Photo>
+  <Photo img={photos.steelPanHole} alt="A drilled hole through the black steel back of the mirror">
+    The hole through the steel pan. The steel drilled easily.
+  </Photo>
+</div>
+
+{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): practising on the cracked mirror: glass flat on a board, plasticine dam of water, slowest speed, no pressure, came out clean */}
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={photos.mirrorCrackedHole} alt="A hole through the back of the mirror's steel pan, glass shards and powder around it">
+  </Photo>
+  <Photo img={photos.mirrorCleanHole} alt="A small clean hole drilled in mirror glass">
+  </Photo>
+</div>
+
+### The hidden sensor
+
+{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): the LD2410C 24 GHz radar sits under the frosted glass in the glowing gap, in a clear printed tray on the spider; at most a faint patch from the front */}
+
+<Photo img={photos.radarInTray} alt="The small radar board in a clear printed tray next to the edge of the LED disk">
+  The radar in its clear printed tray, below the face of the disk.
+</Photo>
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={photos.radarInPosition} alt="A small blue radar board laid at the edge of the LED disk, beside its input wires">
+  </Photo>
+  <Photo img={photos.radarInPlaceRender} alt="Render of the radar board in a small clear tray under the edge of the frosted glass">
+  </Photo>
+</div>
+
+### The patterns
+
+{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): patterns generated live on the ESP32; Dan directed them, Claude agents wrote the code, sent back with notes */}
+
+I tuned them in a browser preview that runs the same code and shows the piece in 3D, with buttons for nobody, moving and still, and in a simulator that runs the real firmware on my laptop and renders a visit as a GIF, like the ones above. Once it's on the wall the USB port is hard to get to, so new patterns go onto the board over Wi-Fi. It takes about a minute.
+
+One thing only showed up on the real disk. Dark, slow water flickered, because the dim levels were blinking too slowly. {/* PLACEHOLDER (Pangram flagged, Dan to rewrite): the fix: LED output split from drawing, faster refresh, a dither floor */}
+
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Clip c={clips.seaGrass}>Sea grass on the real disk, through the frosted glass.</Clip>
+  <Clip c={clips.slowSwirl}>A slow swirl inside the finished front.</Clip>
+  <Clip c={clips.benchOct2}>Early patterns on the bench through the frosted glass, October 2.</Clip>
+  <Photo img={photos.warmPatternBench} alt="A warm orange pattern glowing through frosted glass on the bench">
+    A warm pattern through the frosted glass on the bench.
+  </Photo>
+</div>
+
+## How it's made
+
+{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): spec list: 255 APA102 LEDs in concentric rings on a 242 mm disk; ESP32-S3, live patterns; refresh close to 1,000/s with temporal dithering; hidden LD2410C 24 GHz radar; printed enclosure, clear PLA wall and spider, frosted glass; internal battery, one switch; Wi-Fi updates; about 30 cm across, 10.5 cm off the wall */}
+
+<Photo img={renders.explode} alt="Animation of the enclosure coming apart and back together: top ring, frosted glass, wall, LED disk, radar, spider, back box and lid">
+</Photo>
+
+<Photo img={photos.exploded} alt="Labelled exploded view: top ring, frosted glass, wall, LED disk, radar on its tray, spider, back box, lid">
+</Photo>
+
+export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout>

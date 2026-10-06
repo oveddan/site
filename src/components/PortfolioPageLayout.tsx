@@ -69,6 +69,9 @@ const Header = ({ meta, slug }: { meta: MetaWithSlug; slug: string }) => (
       <h1 className="mt-4 text-balance font-mono text-[clamp(2rem,4.8vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-ink">
         {meta.title}
       </h1>
+      {meta.definition && (
+        <p className="mt-3 max-w-[52ch] text-pretty text-[15px] italic leading-relaxed text-ink-3">{meta.definition}</p>
+      )}
       <p className="mt-[18px] max-w-[52ch] text-pretty text-[17px] leading-relaxed text-ink-2">{meta.summary}</p>
       <Actions links={meta.links} />
     </div>

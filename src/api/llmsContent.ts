@@ -133,7 +133,8 @@ export async function generateLlmsFullTxt(): Promise<string> {
     const meta = formatPortfolioMeta(item);
     const mdxContent = readMdxContent(item.slug);
 
-    let section = `### ${item.title}\n\n${meta}\n\n${item.summary}`;
+    const definition = item.definition ? `_${item.definition}_\n\n` : '';
+    let section = `### ${item.title}\n\n${meta}\n\n${definition}${item.summary}`;
     if (mdxContent) {
       section += `\n\n${mdxContent}`;
     }

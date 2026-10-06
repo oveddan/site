@@ -49,6 +49,8 @@ export type HasPortfolioItemFilters = {
 
 export type PortfolioItemMeta = HasPortfolioItemFilters & {
   title: string;
+  /** Optional dictionary-style line shown in italics directly under the project page title. */
+  definition?: string | null;
   dateStart: number;
   dateEnd?: number | null;
   draft?: boolean;
