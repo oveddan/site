@@ -43,16 +43,23 @@ const ActionLink = ({ href, primary, children }: { href: string; primary: boolea
 );
 
 const Actions = ({ links }: { links: MetaWithSlug['links'] }) => {
-  if (!links.github && !links.demo) return null;
+  const hasCode = Boolean(links.github || links.code?.length);
+  if (!hasCode && !links.demo) return null;
   return (
     <div className="mt-6 flex flex-wrap gap-2">
-      {links.github && (
-        <ActionLink href={links.github} primary>
-          code on github ↗
-        </ActionLink>
-      )}
+      {links.code?.length
+        ? links.code.map(({ label, href }, i) => (
+            <ActionLink key={href} href={href} primary={i === 0}>
+              {`${label} ↗`}
+            </ActionLink>
+          ))
+        : links.github && (
+            <ActionLink href={links.github} primary>
+              code on github ↗
+            </ActionLink>
+          )}
       {links.demo && (
-        <ActionLink href={links.demo} primary={!links.github}>
+        <ActionLink href={links.demo} primary={!hasCode}>
           live demo ↗
         </ActionLink>
       )}

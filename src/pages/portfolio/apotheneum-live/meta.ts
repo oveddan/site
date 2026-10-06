@@ -17,6 +17,14 @@ export const meta: PortfolioItemMeta = {
     demo: null,
     externalArticle: null,
     github: 'https://github.com/oveddan/chromatik-mcp',
+    code: [
+      { label: 'chromatik-mcp', href: 'https://github.com/oveddan/chromatik-mcp' },
+      { label: 'mft-api', href: 'https://github.com/oveddan/mft-api' },
+      {
+        label: 'apotheneum PRs',
+        href: 'https://github.com/Apotheneum/Apotheneum/pulls?q=is%3Apr+author%3Aoveddan',
+      },
+    ],
   },
   categories: [Category.Installation, Category.Performance],
   tech: [Tech.Java, Tech.Led, Tech.Hardware],

@@ -37,7 +37,8 @@ function formatDate(timestamp: number): string {
 
 function formatLinks(links: MetaWithSlug['links']): string {
   const parts: string[] = [];
-  if (links.github) parts.push(`[GitHub](${links.github})`);
+  if (links.code?.length) links.code.forEach(({ label, href }) => parts.push(`[${label}](${href})`));
+  else if (links.github) parts.push(`[GitHub](${links.github})`);
   if (links.demo) parts.push(`[Demo](${links.demo})`);
   if (links.externalArticle) parts.push(`[Article](${links.externalArticle})`);
   return parts.join(' | ');
