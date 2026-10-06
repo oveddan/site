@@ -33,11 +33,11 @@ export const Render = ({ img, alt, children }) => (
 
 ## What it does
 
-There's a presence sensor hidden in there, and most people don't notice it. When you walk past, it quickens and churns. When you stop, it settles, and the longer you stay the more it changes. The clouds slow down, starlings gather, and then there's a sunset. Stay with the sea grass and the tide comes in over it. In the waves a whirl opens and starts turning, and much later a point of light rises in the middle.
+There's a presence sensor hidden inside, and most people don't notice it. When you walk past, it quickens and churns. When you stop, it settles, and the longer you stay the more it changes. The clouds slow down, starlings gather, and then there's a sunset. Stay with the sea grass and the tide comes in over it. In the waves a whirl opens and starts turning, and much later a point of light rises in the middle.
 
-It also keeps track of which patterns hold people still, and plays those more.
+It learns, too. Every time a pattern plays, it keeps track of how long people stood still in front of it, and it plays the ones that hold people more often. Every pattern still comes up. It remembers what it learned when it's switched off, so it keeps learning for as long as it hangs.
 
-Phones steal your attention. The AI behind Instagram is trained to keep you there. Estoa is like a stillness-rewarding social media feed. It focuses your attention on one thing, and it brings you into the room you're in.
+Phones steal your attention. The AI behind Instagram is trained to keep you there. Estoa focuses your attention on one thing, and it brings you into the room you're in.
 
 <div className="not-prose mx-auto max-w-sm">
   <Photo img={photos.installHallway} alt="Two men hanging the glowing disk on a wall in the gallery hallway">
@@ -49,7 +49,7 @@ Phones steal your attention. The AI behind Instagram is trained to keep you ther
 
 {/* TODO(Dan): the piece in the room, with the halo on the wall, ideally someone standing still in front of it. */}
 
-A disc of light behind frosted glass, about 30 cm across. I wanted really dreamy diffusion, almost so you don't notice there are diodes. There's a gap around the disc, because it's really cool when you look at it from the side. Some light leaks out around the back onto the wall as a soft halo. That wasn't planned, and I liked it more than I expected.
+A disc of light behind frosted glass, about 30 cm across. I wanted the diffusion dreamy, soft enough that you almost don't notice the diodes. I left a gap around the disc because of how it looks from the side. Some light leaks out around the back onto the wall as a soft halo. That wasn't planned, and I liked it more than I expected.
 
 The patterns are generated live and never repeat.
 
@@ -60,21 +60,21 @@ The patterns are generated live and never repeat.
 
 ## How I made it
 
-It started on September 25 with an LED disc and an ESP32 on my desk. The first thing it did was default to a rainbow. I hate that.
+It started on September 25 with an LED disc and an ESP32 on my desk. The first thing it showed was the default rainbow, which I can't stand.
 
-I picked up a round mirror at a flea market, and for a while the plan was to mount the disc on it and let it rotate. On October 2 I dropped that. Presence was the more interesting idea, and rotation was more that could break. When the radar first worked on the bench I thought, how does it know presence? It's pretty awesome.
+I picked up a round mirror at a flea market, and for a while the plan was to mount the disc on it and let it rotate. On October 2 I dropped that. Presence was the more interesting idea, and rotation was one more thing that could break. When the radar first worked on the bench, I couldn't tell how it knew I was there. I loved that.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
   <Photo img={photos.ledDisk} alt="A round white circuit board covered in rings of small LEDs">
     The disk before anything else: 255 LEDs in concentric rings.
   </Photo>
   <Photo img={photos.radarInTray} alt="The small radar board in a clear printed tray next to the edge of the LED disk">
-    The radar, an LD2410C, in its clear printed tray under the edge of the disk. You can see it a bit, but the light
+    The radar, an LD2410C, in its clear printed tray under the edge of the disk. It's just visible, but the light
     overtakes it.
   </Photo>
 </div>
 
-The enclosure is 3D printed, and I printed, sanded, soldered and assembled all of it by hand. The soldering took me all freaking day. The clear wall is printed in four quarters, because that's what fits on the printer, then sanded and glued with epoxy. Straight off the printer every LED turned into a vertical streak, and sanding fixed it. I'd never glued with epoxy before, and the first joint came apart when I picked it up too soon.
+The enclosure is 3D printed, and I printed, sanded, soldered and assembled all of it by hand. The soldering alone took a full day. The clear wall is printed in four quarters, because that's what fits on the printer, then sanded and glued with epoxy. Straight off the printer every LED turned into a vertical streak, and sanding fixed it. I'd never glued with epoxy before, and the first joint came apart when I picked it up too soon.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
   <Photo img={photos.wallUnsanded} alt="The clear wall lit from inside before sanding, each LED smeared into a vertical streak">
@@ -95,7 +95,7 @@ The enclosure is 3D printed, and I printed, sanded, soldered and assembled all o
   <Clip c={clips.frontOnDesk}>Running on my desk at night with the glass on.</Clip>
 </div>
 
-The box on the back took three tries. It needed to be mostly closed, because there's a lot of dust in Mexico. On the second one the posts bulged when I melted the brass inserts in. On the third the white filament ran out, so I finished it in clear. It looks cool, actually.
+The box on the back took three tries. It needed to be mostly closed, because there's a lot of dust in Mexico. On the second one the posts bulged when I melted the brass inserts in. On the third the white filament ran out, so I finished it in clear. I like how it looks.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
   <Photo img={photos.bulgedPost} alt="A printed post pushed out of shape around a brass insert">
@@ -109,7 +109,7 @@ The box on the back took three tries. It needed to be mostly closed, because the
   </Photo>
 </div>
 
-The piece was meant to stand on the mirror. The drill went through the steel pan fine, then stalled on the glass. I pushed, and it cracked as it went through. I should have been more patient. So it went up without the mirror, clamped straight to the back box, and the halo on the wall is what you get instead.
+The piece was meant to stand on the mirror. The drill went through the steel pan easily, then stalled on the glass. I pushed, and it cracked as it went through. I should have been more patient. So it went up without the mirror, clamped straight to the back box, and the halo on the wall is what you get instead.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
   <Photo img={photos.frontOnMirror} alt="The clear wall and glass standing on the round mirror, tape on the seams">
