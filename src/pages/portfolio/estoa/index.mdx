@@ -33,21 +33,20 @@ export const Render = ({ img, alt, children }) => (
 {/* TODO(Dan): the finished piece on the wall, glowing. It replaces this render as the opening image. */}
 
 <Render img={renders.waves} alt="Dark water with a few waves crossing the disk, then long slow evenly spaced waves">
+  Waves. The walking state is energetic surf. The glassy state is smooth, like longboard waves, even intervals, very hypnotic.
 </Render>
-
-{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): caption for the waves render */}
 
 ## The idea
 
-{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): what a feed does; Estoa is endless too, the hidden radar notices moving vs still, restless when you move, settles and shows more when you stay */}
+Phones are cyclic and steal your attention. The AI behind Instagram is trained to keep you there. Estoa is like a stillness-rewarding social media feed. It focuses your attention on one thing.
 
-You can't see the sensor from the front, and that's on purpose. You don't see the algorithm behind a feed either, only what it gives you.
+People don't realize that there's a sensor in there. It's hidden, like the hidden algorithm. But Estoa is not hacking your brain. That's not the point. It's inspired by social media feeds, but instead of serving more of what works, it brings you into presence, inhabiting the space you're in.
 
 ## What you see
 
 {/* TODO(Dan): the piece in the room, with the halo on the wall, ideally someone standing still in front of it. */}
 
-A round disk of light behind frosted glass, about 30 cm across, hanging on the wall.
+A disc of light behind frosted glass, with a bit of a gap around it, because it's really cool when you look at it from the side. I wanted really dreamy diffusion, almost so that you don't even notice that there are diodes.
 
 <div className="not-prose mx-auto max-w-sm">
   <Photo img={photos.installHallway} alt="Two men hanging the glowing disk on a wall in the gallery hallway">
@@ -55,26 +54,26 @@ A round disk of light behind frosted glass, about 30 cm across, hanging on the w
   </Photo>
 </div>
 
-{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): move and it churns; stand still and it calms in stages: a few seconds, about ten seconds, half a minute (one more thing); also the halo on the wall */}
+How does it change when someone's walking near it versus staring at it? Distance is hard because you don't know the space, so it's just movement and stillness. The longer you're there, the more you go underwater. Staring at the clouds turns them into a sunset, the boldness of the colors, a purplish-red sunset.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
   <Render img={renders.clouds} alt="A round disk of soft blue and white clouds that turns gold, then deep red, then back to blue">
-    Clouds. Blue while someone walks past. If they stay, it turns into a sunset.
+    Clouds. Staring at it turns it into a sunset.
   </Render>
   <Render img={renders.caustics} alt="Bright, wavy lines of light like the bottom of a swimming pool">
-    Caustics, the light on the bottom of a pool.
+    Caustics. Really nice, but it was too repetitive, so now it changes over time.
   </Render>
   <Render img={renders.pleamar} alt="Sea grass at dusk, slowly covered by rising water">
-    Pleamar. Sea grass at dusk, and the tide comes in over it while you hold still.
+    Pleamar. The swaying grass is a great pattern in the water.
   </Render>
   <Render img={renders.candle} alt="A warm flickering candle flame in the middle of the disk">
-    Candle. It gutters when you move and stands tall when you're still.
+    Candle.
   </Render>
   <Render img={renders.vortex} alt="Arms of light spiralling in towards a dark centre">
-    Vortex. It spins up, then unwinds into a slow eddy.
+    Vortex.
   </Render>
   <Render img={renders.tunnel} alt="Rings of light moving outwards, like flying down a tunnel">
-    Tunnel. It rushes, then slows toward a warm light at the end.
+    Tunnel.
   </Render>
 </div>
 
@@ -83,7 +82,7 @@ A round disk of light behind frosted glass, about 30 cm across, hanging on the w
   walking past, then someone standing still. Some are brightened to show up on a screen. A few of these patterns are in the newest version of the firmware and may not be on the wall yet.
 </div>
 
-The one more thing: some of the patterns hide a pair of eyes. {/* PLACEHOLDER (Pangram flagged, Dan to rewrite): how the eyes work: image and its opposite flicker 120 times a second, a staring eye averages them away */} A phone camera only catches one half at a time, so the eyes show up on your screen. Sometimes you catch them when your eyes dart past it.
+If you stay, there's one more thing: peaceful eyes that flash at a very fast frame rate, barely visible, a hidden message inside another pattern. A phone camera only catches one half at a time, so the eyes show up on your screen. Sometimes you catch them when your eyes dart past it.
 
 <Photo img={photos.hiddenEyes} alt="Ten frames of the caustics pattern. The first, averaged like a staring eye, shows nothing unusual. In several of the 1 ms frames two dark eye shapes appear.">
   Caustics with the eyes in it. The first frame is about what a staring eye sees. The rest are single 1 ms exposures,
@@ -94,11 +93,13 @@ The one more thing: some of the patterns hide a pair of eyes. {/* PLACEHOLDER (P
 
 ### From a spinning mirror to a sensor
 
-It started on September 25 as an LED disk and an ESP32 on my desk, and a lot of generative patterns. A few days later I found a round mirror at a flea market in Mexico City that used to turn on a table, and for a while the plan was to make the whole thing rotate.
+It started on September 25 with an LED disc and an ESP32 on my desk. The first thing it did was default to a rainbow color pattern. I hate that.
 
-On October 2 I dropped that. Rotation was more that could break, and I wanted to work out what the piece was actually about. Presence seemed more interesting, so I got a radar that can tell when someone's there.
+Then I picked up a round mirror at a flea market. It was on a table, that's why it was rotating, like on a carousel. I was thinking of putting the disc on the arm and rotating it. Do I even need to rotate it, or maybe people can rotate it themselves?
 
-{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): the stillness moment while testing at home; the show patterns rebuilt with three states: nobody, walking past, holding still */}
+On October 2: I think rotation is a cool concept, but we actually have to think about what the concept of this piece is. I think presence detection is more interesting. Let's forget about rotation, because it's also more that can break.
+
+The first time the radar worked: how does it know presence? It's pretty awesome. After that, every pattern in the show got a state for nobody there, for walking past, and for staring at it.
 
 The feed came last, the morning it got its name.
 
@@ -108,9 +109,13 @@ The feed came last, the morning it got its name.
 
 ### The enclosure
 
-The enclosure is 3D printed. A Claude agent modelled it in OpenSCAD from my measurements, sketches and ideas, and I printed, soldered, drilled and put it all together by hand. The wall around the disk is clear PLA, printed in four quarters and glued with clear epoxy. Straight off the printer the layer lines smeared every LED into a vertical streak, so I wet-sanded it, and that turned it into an even frost.
+The enclosure is 3D printed, and I printed it and put it all together by hand. I did all the soldering. It took me all freaking day, and it was so much of a struggle.
 
-I printed about a dozen small test pieces before any real part. Fit tests, insert tests, and stacks of "height bricks" to find where the glass should sit. With the glass about 5.5 cm above the LEDs, no single LED shows through.
+On the first clear prints you could see the texture on the outside of the material, so it looked 3D printed. Honestly, I didn't like it. You see the diodes, it just refracts. So I sanded the thinnest and the thickest layer, with 120 and then 220. They looked great. I leaned towards the thick one.
+
+For the height of the glass I printed stacks of bricks. It looked the best with all of the bricks on each side.
+
+The walls printed and looked great, and then we had to glue them together. I'd never done epoxy gluing before. I picked it up and it came apart, so I needed to let it sit for longer.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
   <Photo img={photos.glassOffcut} alt="A hand flat on a square of frosted glass at a glass shop">
@@ -153,7 +158,7 @@ I printed about a dozen small test pieces before any real part. Fit tests, inser
   <Clip c={clips.frontOnDesk}>The front with the glass on, running on my desk at night.</Clip>
 </div>
 
-The box on the back took three tries. The first left the battery's end open to dust. The second was sealed, but the battery bay was half a millimetre too tight, the posts bulged when I melted the brass inserts in and two inserts pulled out, and the ESP32's USB port ran into the end of its plug tunnel. A one-hour test print checked the fixes, and the third box worked. The white filament ran out partway through printing it, so I finished it in clear, and now it fades from white to clear. I like it.
+The box on the back should be mostly enclosed, because there's a lot of dust in Mexico. It took three tries. The inserts were not really going in. I had to really push to get them in, and when they went, they warped the sides. On the last one the white filament ran out, so I switched to transparent. It looks cool, actually.
 
 The board slides into a groove in the box wall. There was no way to get a screwdriver to the screws on that end, so the groove does their job.
 
@@ -178,7 +183,7 @@ The board slides into a groove in the box wall. There was no way to get a screwd
 
 ### The mirror
 
-The piece was designed to stand on the mirror from the flea market, which is glass in a black steel pan. The disk was going to bolt through it. The steel drilled easily. The glass didn't seem to be going anywhere, so I leaned on the drill, and it cracked from the hole straight across to the rim.
+The piece was designed to stand on the mirror, and I didn't know how hard it was going to be to drill through it. The small drill went through the metal but not the glass. It wasn't going through, and then I started putting pressure, and the mirror cracked when I made it through. I'm fine with the look, but there's also the option of just not using a mirror at all.
 
 So it went up without the mirror. The disk and its wall clamp straight onto the back box, and some light leaks out around the edge of the box onto the wall as a soft halo. I liked that more than I expected, and kept it.
 
@@ -197,7 +202,7 @@ So it went up without the mirror. The disk and its wall clamp straight onto the 
   </Photo>
 </div>
 
-{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): practising on the cracked mirror: glass flat on a board, plasticine dam of water, slowest speed, no pressure, came out clean */}
+I should have been more patient. I kept practising on the cracked mirror, and the next hole came out clean.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
   <Photo img={photos.mirrorCrackedHole} alt="A hole through the back of the mirror's steel pan, glass shards and powder around it">
@@ -208,7 +213,7 @@ So it went up without the mirror. The disk and its wall clamp straight onto the 
 
 ### The hidden sensor
 
-{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): the LD2410C 24 GHz radar sits under the frosted glass in the glowing gap, in a clear printed tray on the spider; at most a faint patch from the front */}
+The sensor is an LD2410C, a 24 GHz presence radar. Will it work from behind the glass and through the LEDs? It does. It sits on the little compartment that sticks out of the spider legs for attaching things. You can see it a bit, but the lights overtake it anyway.
 
 <Photo img={photos.radarInTray} alt="The small radar board in a clear printed tray next to the edge of the LED disk">
   The radar in its clear printed tray, below the face of the disk.
@@ -223,11 +228,11 @@ So it went up without the mirror. The disk and its wall clamp straight onto the 
 
 ### The patterns
 
-{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): patterns generated live on the ESP32; Dan directed them, Claude agents wrote the code, sent back with notes */}
+There's one where it's like caustics. It's really nice, but it was too repetitive, so now it kind of changes over time. And when I stopped moving there was this one beautiful long wave. There should be more like that, so now there are.
 
 I tuned them in a browser preview that runs the same code and shows the piece in 3D, with buttons for nobody, moving and still, and in a simulator that runs the real firmware on my laptop and renders a visit as a GIF, like the ones above. Once it's on the wall the USB port is hard to get to, so new patterns go onto the board over Wi-Fi. It takes about a minute.
 
-One thing only showed up on the real disk. Dark, slow water flickered, because the dim levels were blinking too slowly. {/* PLACEHOLDER (Pangram flagged, Dan to rewrite): the fix: LED output split from drawing, faster refresh, a dither floor */}
+One thing only showed up on the real disk: where it's dark, it was really flickery. The LEDs now refresh much faster than the patterns draw, and that fixed it.
 
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
@@ -241,12 +246,23 @@ One thing only showed up on the real disk. Dark, slow water flickered, because t
 
 ## How it's made
 
-{/* PLACEHOLDER (Pangram flagged, Dan to rewrite): spec list: 255 APA102 LEDs in concentric rings on a 242 mm disk; ESP32-S3, live patterns; refresh close to 1,000/s with temporal dithering; hidden LD2410C 24 GHz radar; printed enclosure, clear PLA wall and spider, frosted glass; internal battery, one switch; Wi-Fi updates; about 30 cm across, 10.5 cm off the wall */}
+- 255 APA102 LEDs on a 242 mm disk
+- ESP32-S3, patterns generated live
+- LD2410C 24 GHz radar, hidden
+- Clear PLA wall and spider, frosted glass, printed back box
+- Battery inside, one switch, Wi-Fi updates
+- About 30 cm across, 10.5 cm off the wall
 
 <Photo img={renders.explode} alt="Animation of the enclosure coming apart and back together: top ring, frosted glass, wall, LED disk, radar, spider, back box and lid">
 </Photo>
 
 <Photo img={photos.exploded} alt="Labelled exploded view: top ring, frosted glass, wall, LED disk, radar on its tray, spider, back box, lid">
 </Photo>
+
+<div className="not-prose mt-12 border-t border-line pt-6 font-mono text-[13px] leading-relaxed text-ink-2">
+  Built with the assistance of Claude, directed by me. I set the idea, how it looks and behaves, every pattern and
+  what to change, and tuned it all on the real disk. Claude agents wrote the firmware and pattern code and modelled the
+  enclosure from my measurements and sketches.
+</div>
 
 export default ({ children }) => <PortfolioPageLayout meta={meta}>{children}</PortfolioPageLayout>
