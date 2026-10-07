@@ -39,8 +39,8 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
   return (
     <Layout>
       <Head>
-        <title>Creative Projects - Dan Oved</title>
-        <meta name="description" content="Dan Oved's Creative Projects" />
+        <title>Dan Oved&apos;s portfolio</title>
+        <meta name="description" content="Dan Oved's portfolio" />
       </Head>
       <Container>
         <header className="pb-7 pt-14 md:pb-9 md:pt-[88px]">
@@ -48,12 +48,8 @@ const Index: NextPage<Props> = ({ portfolioItems }) => {
             {projectsSummary(portfolioItems)}
           </p>
           <h1 className="max-w-[18ch] text-balance font-mono text-[length:clamp(2rem,6.4vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-ink">
-            Dan Oved&apos;s Creative Projects
+            Dan Oved&apos;s portfolio
           </h1>
-          <p className="mt-[22px] max-w-[48ch] text-pretty text-base leading-[1.55] text-ink-2 md:text-[1.1875rem]">
-            Installations, instruments and performances built from light, sound and machine learning — and the
-            open-source tools I make along the way.
-          </p>
         </header>
         <Filters {...filters} projects={portfolioItems} shown={filteredProjects.length} />
         <PortfolioCards projects={filteredProjects} />

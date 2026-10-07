@@ -1,7 +1,7 @@
 import { PortfolioPageLayout } from '@/components/PortfolioPageLayout'
 import { meta } from './meta'
 import { ClickToPlayVideo } from '@/components/ClickToPlayVideo'
-import { renders, photos, clips } from './media'
+import { renders, photos, clips, process, processClips } from './media'
 
 export const Photo = ({ img, alt, children }) => (
   <figure className="not-prose my-4">
@@ -29,8 +29,6 @@ export const Render = ({ img, alt, children }) => (
   Shown at <a href="https://www.instagram.com/abisal.galeria/" className="underline">Abisal</a>, Mexico City, in <a href="https://designclimatewk.grok.me/" className="underline">Design | Climate Week 2026</a>, October 6 to 11
 </div>
 
-{/* TODO(Dan): the finished piece on the wall, glowing, as the opening image. */}
-
 ## What it does
 
 It's an installation that rewards stillness. The longer you're still in front of it, the more the depth of the pattern emerges and exposes itself, drawing you in further. As soon as you move, or take yourself out of the present moment, it resets back to its earlier state, and you have to start over again.
@@ -39,7 +37,7 @@ There's a presence sensor hidden inside, so the piece knows when someone's there
 
 <div className="not-prose mx-auto max-w-sm">
   <Photo img={photos.installHallway} alt="Two men hanging the glowing disk on a wall in the gallery hallway">
-    Hanging it in the hallway at the gallery, already running.
+    Hanging up the installation with Marty.
   </Photo>
 </div>
 
@@ -51,70 +49,158 @@ A disc of light behind frosted glass, about 30 cm across. I wanted the diffusion
 
 The patterns are generated live and never repeat.
 
+## Process
+
+### Starting out
+
+It started with an LED disk I bought, Adafruit's [DotStar disk](https://www.adafruit.com/product/2477), and an ESP32 on my desk. From September 25 I prototyped visuals on it.
+
 <div className="not-prose grid gap-6 sm:grid-cols-2">
-  <Clip c={clips.seaGrass}>On the real disk, through the frosted glass.</Clip>
-  <Clip c={clips.slowSwirl}>A slow swirl inside the finished front.</Clip>
+  <Photo img={process.img_4754} alt="A perfboard with an ESP32 and cables coming straight off it">
+    The first perfboard, after a full day of soldering, with all the cables coming directly off the board.
+  </Photo>
 </div>
 
-## How I made it
-
-It started with an LED disk I bought, Adafruit's [DotStar disk](https://www.adafruit.com/product/2477), and an ESP32 on my desk. From September 25 I just prototyped visuals on it.
+### The mirror, and the idea
 
 I picked up a round mirror at a flea market, and for a while the plan was to mount the disc on it and let it rotate. On October 2 I dropped that. Presence was the more interesting idea, and rotation was one more thing that could break. When the radar first worked on the bench, I couldn't tell how it knew I was there.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
-  <Photo img={photos.ledDisk} alt="A round white circuit board covered in rings of small LEDs">
-    The disk before anything else: 255 LEDs in concentric rings.
-  </Photo>
-  <Photo img={photos.radarInTray} alt="The small radar board in a clear printed tray next to the edge of the LED disk">
-    The radar, an LD2410C, in its clear printed tray under the edge of the disk. It's just visible, but the light
-    overtakes it.
+  <Photo img={process.img_4665} alt="A round mirror in a black steel pan, held up by hand">
+    The mirror I first wanted to use.
   </Photo>
 </div>
 
-The enclosure is 3D printed, and I printed, sanded, soldered and assembled all of it by hand. The soldering alone took a full day. The clear wall is printed in four quarters, because that's what fits on the printer, then sanded and glued with epoxy. Straight off the printer every LED turned into a vertical streak, and sanding fixed it. I'd never glued with epoxy before, and the first joint came apart when I picked it up too soon.
+### Test prints
+
+The enclosure is 3D printed, and I printed, sanded, soldered and assembled all of it by hand. The soldering alone took a full day. The clear wall is printed in four quarters, because that's what fits on the printer. Straight off the printer every LED turned into a vertical streak, and sanding fixed it.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
-  <Photo img={photos.wallUnsanded} alt="The clear wall lit from inside before sanding, each LED smeared into a vertical streak">
-    The clear wall straight off the printer. Every LED is a vertical streak.
+  <Photo img={process.dsc02096} alt="A clear test print still on the printer bed">
+    One of the first test prints, still on the bed.
   </Photo>
-  <Photo img={photos.wallGlowSanded} alt="A sanded strip of clear printed wall glowing evenly">
-    A sanded test strip.
+  <Photo img={process.img_4763} alt="A tray of small clear test parts">
+    One plate with every small test piece: the glass pocket in a wall quarter, a leg and its screw pocket, the posts for the boards, the rocker switch, and the piece that clamps onto the mirror's stud. Everything passed.
   </Photo>
-  <Photo img={photos.wallQuarters} alt="Four curved clear wall pieces and four thin ring pieces laid out on a blue towel">
+  <Photo img={process.img_4817} alt="A sanded clear wall section glowing evenly on the disk">
+    After sanding. The thickest section looked really good, so the full wall is that thickness, 3.85 mm clear PLA, sanded with 120 then 220.
+  </Photo>
+  <Photo img={process.img_4821} alt="A sanded clear test strip glowing evenly on the disk">
+    The clear test strip after sanding the thinnest and thickest sections. You still see the LEDs above the wall, but the wall itself is an even frost.
+  </Photo>
+</div>
+
+### The wall
+
+I'd never glued with epoxy before, and the first joint came apart when I picked it up too soon.
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={process.dsc02122} alt="Four clear wall quarters and four ring quarters on a blue towel">
     The four wall quarters and the four quarters of the ring that holds the glass.
   </Photo>
-  <Photo img={photos.gluingSeams} alt="Dan in blue gloves gluing the seams of the clear wall at a round table">
-    Gluing the seams.
+  <Photo img={process.dsc02127} alt="Close-up of the tops of the wall quarters with brass inserts">
+    The brass inserts for the ring screws.
   </Photo>
-  <Photo img={photos.frontAssembled} alt="The glued round wall with the frosted glass and ring on top, tape over the seams">
-    The front together for the first time, tape on the seams while the epoxy set.
+  <Photo img={process.dsc02128} alt="Two wall quarters close up, inserts and the lap at the seam">
+    A closer look at the brass inserts in the top edge of a wall quarter, for the ring screws.
   </Photo>
-  <Clip c={clips.frontOnDesk}>Running on my desk at night with the glass on.</Clip>
-</div>
-
-The box on the back took three tries. It needed to be mostly closed, because there's a lot of dust in Mexico. On the second one the posts bulged when I melted the brass inserts in. On the third the white filament ran out, so I finished it in clear. I like how it looks.
-
-<div className="not-prose grid gap-6 sm:grid-cols-2">
-  <Photo img={photos.bulgedPost} alt="A printed post pushed out of shape around a brass insert">
-    A post that bulged when I melted an insert into it.
+  <Photo img={process.dsc02138} alt="The clear wall standing as a ring with the frosted glass in it">
+    A dry fit before gluing: the four wall quarters together with the frosted glass in place.
   </Photo>
-  <Photo img={photos.boardInGroove} alt="A green perfboard with the ESP32 on it, one end held in a groove in a white printed wall">
-    The board slides into a groove in the box wall. There was no way to get a screwdriver to that end.
+  <Photo img={process.dsc02141} alt="Dan screwing the ring onto the clear wall">
+    Screwing on the top ring before applying the epoxy.
   </Photo>
-  <Photo img={photos.backWithLid} alt="The back of the piece with its lid on, blue light leaking around the edge">
-    The back, the side that hangs on the wall. The blue leaking out is the halo.
+  <Photo img={process.dsc02145} alt="Dan in blue gloves applying epoxy to the wall">
+    Applying the 5-minute epoxy. I used the top ring as a jig and put the epoxy on the four seams.
+  </Photo>
+  <Photo img={process.dsc02152} alt="The wall ring from above, tape across the seams, the spider inside">
+    Taping the sides after running the epoxy on them.
   </Photo>
 </div>
+
+### The mirror cracks
 
 The piece was meant to stand on the mirror. The drill went through the steel pan easily, then stalled on the glass. I pushed, and it cracked as it went through. I should have been more patient. So it went up without the mirror, clamped straight to the back box, and the halo on the wall is what you get instead.
 
 <div className="not-prose grid gap-6 sm:grid-cols-2">
-  <Photo img={photos.frontOnMirror} alt="The clear wall and glass standing on the round mirror, tape on the seams">
-    The front standing on the mirror, a couple of hours before it cracked.
+  <Photo img={process.dsc02117} alt="Dan drilling through a paper template taped to the back of the mirror">
+    My first try at drilling through the mirror. The back was metal, so I used a metal bit, as instructed by Claude, but it only went as far as the mirror. I wasn't sure whether it was acrylic or glass. When it wouldn't go through, we realized it was glass, so I had to buy another drill bit.
   </Photo>
-  <Photo img={photos.drillingSteelPan} alt="Dan drilling through a paper template taped to the back of the mirror">
-    Drilling through the back. The steel was the easy part.
+  <Photo img={process.img_4880} alt="The clear wall and glass standing on the round mirror">
+    The glued wall on the mirror, before I drilled. The first idea was to have it on top of a mirror, which didn't work out because I messed up drilling through it.
+  </Photo>
+  <Photo img={process.img_4892} alt="The mirror, cracked from the drilled hole, Dan reflected in it">
+    After the drill cracked the mirror.
+  </Photo>
+</div>
+
+### The box
+
+The box on the back took three tries. It needed to be mostly closed, because there's a lot of dust in Mexico. On the second one the posts bulged when I melted the brass inserts in. On the third the white filament ran out, so I finished it in clear. I like how it looks.
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={process.img_4869} alt="A battery and cable laid on a printed 1:1 floor plan">
+    After the first test print showed the battery didn't fit, I printed the box floor on paper at full size and laid the real battery and board on it.
+  </Photo>
+  <Photo img={process.dsc02160} alt="A small test print of the bottom wall with the ports">
+    A test print to see how the ESP32 board would fit along with the battery pack slots and ports.
+  </Photo>
+  <Photo img={process.dsc02165} alt="The battery and the ESP32 board on a printed tray">
+    Figuring out how the battery pack and the ESP32 would fit. It seemed to fit pretty well.
+  </Photo>
+  <Photo img={process.img_4881} alt="A test print of the bottom wall with the battery behind it">
+    The port end of a test piece of the box's bottom wall. The openings for the battery and the ESP32's USB-C lined up well.
+  </Photo>
+  <Photo img={process.img_4939} alt="A USB-C board screwed onto clear printed posts">
+    Mounting the USB-C board on the small test plate I printed to check the fixes. It worked first try.
+  </Photo>
+  <Photo img={process.dsc02181} alt="A printed back box, white fading to clear, coming off the printer">
+    The final box we ended up using, coming out of the printer. I ran out of white filament, so we finished it with transparent filament.
+  </Photo>
+  <Photo img={process.dsc02187} alt="The back box on a desk with tools and parts around it">
+    The finished box floor next to its lid, the plate that hangs on the wall, with the battery beside them.
+  </Photo>
+  <Photo img={process.dsc02190} alt="The empty back box from above">
+    Inside the box floor: the raised strips the battery sits on and the posts for the USB-C board.
+  </Photo>
+  <Photo img={process.dsc02194} alt="The back box with brass inserts set in its posts">
+    After I put the brass inserts into the box floor.
+  </Photo>
+  <Photo img={process.dsc02198} alt="The battery, wiring and switch set into the back box">
+    The rocker switch, snapped into the box's bottom wall.
+  </Photo>
+</div>
+
+### The sensor, and putting it together
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={process.img_4912} alt="The LED disk sitting on the clear printed legs">
+    How the LED disk mounts to the 3D-printed legs.
+  </Photo>
+  <Clip c={processClips.firstFrostTest}>The first test with the frosting on, when it was all working.</Clip>
+  <Photo img={process.radar_in_place} alt="Render of the radar board in its small clear tray under the glass">
+    The sensor holder, which is pretty cool.
+  </Photo>
+  <Photo img={process.img_4949} alt="Wires in screw terminals running to the radar board">
+    The screw terminals connected to the sensor.
+  </Photo>
+  <Photo img={process.dsc02201} alt="Connectors glued onto the radar board">
+    I used a glue gun to fix the connectors onto the radar.
+  </Photo>
+  <Photo img={process.img_4950} alt="The whole back box assembled: battery, board and wiring">
+    The whole bottom together, everything nicely assembled in there.
+  </Photo>
+  <Photo img={process.img_4955} alt="The radar board in its clear tray next to the edge of the disk">
+    The sensor, hidden in the installation.
+  </Photo>
+  <Photo img={process.assembly} alt="Render of the finished design: ring, glass, wall, disk and back box">
+    A render of the finished design, with the mirror left out.
+  </Photo>
+  <Photo img={process.section} alt="Render of a cut through the finished design">
+    A section through it: the glass under its ring, the disk on the spider, the box behind.
+  </Photo>
+  <Photo img={process.back} alt="Render of the back box with the battery, board and switch">
+    The back box with the battery, the board and the switch.
   </Photo>
 </div>
 
@@ -127,10 +213,10 @@ The piece was meant to stand on the mirror. The drill went through the steel pan
 - Battery inside, one switch, Wi-Fi updates
 - About 30 cm across, 10.5 cm off the wall
 
-<Photo img={renders.explode} alt="Animation of the enclosure coming apart and back together: top ring, frosted glass, wall, LED disk, radar, spider, back box and lid">
+<Photo img={process.explode} alt="Animation of the enclosure coming apart and back together: top ring, frosted glass, wall, LED disk, radar, spider, back box and lid">
 </Photo>
 
-<Photo img={photos.exploded} alt="Labelled exploded view: top ring, frosted glass, wall, LED disk, radar on its tray, spider, back box, lid">
+<Photo img={process.exploded} alt="Labelled exploded view: top ring, frosted glass, wall, LED disk, radar on its tray, spider, back box, lid">
 </Photo>
 
 <div className="not-prose mt-12 border-t border-line pt-6 font-mono text-[13px] leading-relaxed text-ink-2">
