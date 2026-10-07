@@ -9,7 +9,7 @@ export const meta: PortfolioItemMeta = {
   // First on the homepage: the gallery label's QR code points here.
   weight: -5,
   image: './images/og.jpg',
-  animatedImage: './images/estoa.gif',
+  animatedImage: './images/estoa-still.jpg',
   // The artist's wall text, word for word. Keep it as settled.
   summary: "Estoa is endless, like a social media feed, but it only gives you more when you're still.",
   role: Role.Artist,

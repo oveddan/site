@@ -15,7 +15,7 @@ const clip = (name: string, title: string, duration: string): Clip => ({
   src: mediaUrl(`estoa/${name}-v1.mp4`),
   title,
   duration,
-  previewImage: mediaUrl(`estoa/previews/${name}-first-frame-v1.avif`),
+  previewImage: mediaUrl(`estoa/previews/${name.split('/').pop()}-first-frame-v1.avif`),
   aspect: 'portrait',
 });
 
@@ -70,4 +70,50 @@ export const clips = {
   seaGrass: clip('sea-grass', 'Sea grass on the real disk', '0:08'),
   slowSwirl: clip('slow-swirl', 'A slow swirl inside the finished front', '0:12'),
   benchOct2: clip('bench-oct-2', 'Early patterns on the bench, October 2', '0:13'),
+};
+
+// Dan's process picks (2026-10-07), on R2 under estoa/process/.
+export const process = {
+  dsc02096: still('process/dsc02096-v1.jpg', 1600, 900),
+  dsc02117: still('process/dsc02117-v1.jpg', 1600, 900),
+  dsc02122: still('process/dsc02122-v1.jpg', 1600, 900),
+  dsc02128: still('process/dsc02128-v1.jpg', 1600, 900),
+  dsc02127: still('process/dsc02127-v1.jpg', 1600, 900),
+  dsc02138: still('process/dsc02138-v1.jpg', 1600, 900),
+  dsc02141: still('process/dsc02141-v1.jpg', 900, 1600),
+  dsc02145: still('process/dsc02145-v1.jpg', 1600, 900),
+  dsc02152: still('process/dsc02152-v1.jpg', 1600, 900),
+  dsc02160: still('process/dsc02160-v1.jpg', 1600, 900),
+  dsc02165: still('process/dsc02165-v1.jpg', 1600, 900),
+  dsc02181: still('process/dsc02181-v1.jpg', 1600, 900),
+  dsc02187: still('process/dsc02187-v1.jpg', 1600, 900),
+  dsc02190: still('process/dsc02190-v1.jpg', 1600, 900),
+  dsc02194: still('process/dsc02194-v1.jpg', 1600, 900),
+  dsc02198: still('process/dsc02198-v1.jpg', 1600, 900),
+  dsc02201: still('process/dsc02201-v1.jpg', 1600, 1187),
+  dsc02204: still('process/dsc02204-v1.jpg', 900, 1600),
+  img_4665: still('process/img_4665-v1.jpg', 1200, 1600),
+  img_4754: still('process/img_4754-v1.jpg', 1200, 1600),
+  img_4763: still('process/img_4763-v1.jpg', 1200, 1600),
+  img_4869: still('process/img_4869-v1.jpg', 1200, 1600),
+  img_4881: still('process/img_4881-v1.jpg', 1200, 1600),
+  img_4880: still('process/img_4880-v1.jpg', 1200, 1600),
+  img_4892: still('process/img_4892-v1.jpg', 1200, 1600),
+  img_4912: still('process/img_4912-v1.jpg', 1200, 1600),
+  img_4939: still('process/img_4939-v1.jpg', 1200, 1600),
+  img_4949: still('process/img_4949-v1.jpg', 1200, 1600),
+  img_4950: still('process/img_4950-v1.jpg', 1200, 1600),
+  img_4955: still('process/img_4955-v1.jpg', 1200, 1600),
+  assembly: still('process/assembly-v1.jpg', 1400, 1100),
+  back: still('process/back-v1.jpg', 1400, 1100),
+  exploded: still('process/exploded-v1.jpg', 1600, 769),
+  section: still('process/section-v1.jpg', 1400, 1100),
+  radar_in_place: still('process/radar_in_place-v1.jpg', 1400, 1100),
+  explode: still('process/explode-v1.webp', 760, 365),
+  img_4821: still('process/img_4821-v1.jpg', 1200, 1600),
+  img_4817: still('process/img_4817-v1.jpg', 1200, 1600),
+};
+
+export const processClips = {
+  firstFrostTest: clip('process/img_4913', 'First test with the frosting on', '0:09'),
 };
