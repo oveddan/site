@@ -25,12 +25,14 @@ const FilterRow = ({ label, children }: { label: string; children: ReactNode }) 
         {label}
       </span>
       {/* Below sm the row scrolls sideways, bleeding into Container's 20px gutter, and fades out at the right edge.
-          The vertical padding keeps the chips' focus outlines from being clipped by the scroll box. */}
+          The vertical padding keeps the chips' focus outlines from being clipped by the scroll box. `relative` makes
+          the row the containing block of the chips' absolutely positioned sr-only counts; otherwise they escape the
+          scroll box, widen the page past the viewport and phones zoom the whole homepage out. */}
       <div
         role="group"
         aria-labelledby={labelId}
         className={clsx(
-          'flex gap-1.5 sm:flex-wrap',
+          'relative flex gap-1.5 sm:flex-wrap',
           'max-sm:-mx-5 max-sm:-my-1 max-sm:overflow-x-auto max-sm:px-5 max-sm:py-1',
           'max-sm:[scrollbar-width:none] max-sm:[&::-webkit-scrollbar]:hidden',
           'max-sm:[mask-image:linear-gradient(90deg,#000_82%,transparent)]'
