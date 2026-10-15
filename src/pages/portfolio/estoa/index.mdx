@@ -1,7 +1,7 @@
 import { PortfolioPageLayout } from '@/components/PortfolioPageLayout'
 import { meta } from './meta'
 import { ClickToPlayVideo } from '@/components/ClickToPlayVideo'
-import { renders, photos, clips, process, processClips } from './media'
+import { renders, photos, clips, process, processClips, showClips } from './media'
 
 export const Photo = ({ img, alt, children }) => (
   <figure className="not-prose my-4">
@@ -28,6 +28,8 @@ export const Render = ({ img, alt, children }) => (
   Dan Oved, 2026 · Generative light: LEDs, ESP32, hidden presence sensor, 3D-printed PLA, frosted glass ·
   Shown at <a href="https://www.instagram.com/abisal.galeria/" className="underline">Abisal</a>, Mexico City, in <a href="https://designclimatewk.grok.me/" className="underline">Design | Climate Week 2026</a>, October 6 to 11
 </div>
+
+<Clip c={showClips.cloudsThenPleamar}>Clouds, then Pleamar, at Abisal.</Clip>
 
 ## What it does
 

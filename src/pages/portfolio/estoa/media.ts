@@ -6,17 +6,24 @@ import { mediaUrl } from '@/api/media';
  * because the objects are served immutable: a changed file gets a new `-vN` key, never an overwrite.
  */
 export type Still = { src: string; width: number; height: number };
-export type Clip = { src: string; title: string; duration: string; previewImage: string; aspect: 'portrait' };
+export type Clip = {
+  src: string;
+  title: string;
+  duration: string;
+  previewImage: string;
+  aspect: 'portrait' | 'square';
+};
 
 const still = (key: string, width: number, height: number): Still => ({ src: mediaUrl(`estoa/${key}`), width, height });
 
-// Phone clips: trimmed, audio removed, H.264 1080×1920 with moov before mdat.
-const clip = (name: string, title: string, duration: string): Clip => ({
+// Phone clips: trimmed, audio removed, H.264 1080×1920 with moov before mdat. The show clips
+// under estoa/show/ are the Sony recordings from Abisal, cut square (1080×1080), audio removed.
+const clip = (name: string, title: string, duration: string, aspect: Clip['aspect'] = 'portrait'): Clip => ({
   src: mediaUrl(`estoa/${name}-v1.mp4`),
   title,
   duration,
   previewImage: mediaUrl(`estoa/previews/${name.split('/').pop()}-first-frame-v1.avif`),
-  aspect: 'portrait',
+  aspect,
 });
 
 // Simulator renders, animated WebP.
@@ -70,6 +77,11 @@ export const clips = {
   seaGrass: clip('sea-grass', 'Sea grass on the real disk', '0:08'),
   slowSwirl: clip('slow-swirl', 'A slow swirl inside the finished front', '0:12'),
   benchOct2: clip('bench-oct-2', 'Early patterns on the bench, October 2', '0:13'),
+};
+
+// The piece running at Abisal, recorded on the Sony (exported from Premiere 2026-10-15).
+export const showClips = {
+  cloudsThenPleamar: clip('show/clouds-then-pleamar', 'Clouds, then Pleamar', '1:25', 'square'),
 };
 
 // Dan's process picks (2026-10-07), on R2 under estoa/process/.
