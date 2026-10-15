@@ -13,8 +13,8 @@ export type ClickToPlayVideoProps = {
    * to the native `poster` attribute — the facade renders it as an <img> instead.
    */
   previewImage?: string | null;
-  /** Facade shape. Defaults to 16:9; use 'portrait' for a 9:16 phone clip. */
-  aspect?: 'video' | 'portrait';
+  /** Facade shape. Defaults to 16:9; 'portrait' for a 9:16 phone clip, 'square' for a 1:1 clip. */
+  aspect?: 'video' | 'portrait' | 'square';
 };
 
 type Status = 'idle' | 'loading' | 'playing' | 'error';
@@ -97,7 +97,7 @@ export function ClickToPlayVideo({ src, title, duration, previewImage, aspect = 
       <div
         className={clsx(
           'relative isolate w-full overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-zinc-900/10 dark:ring-white/10',
-          aspect === 'portrait' ? 'aspect-[9/16]' : 'aspect-video'
+          aspect === 'portrait' ? 'aspect-[9/16]' : aspect === 'square' ? 'aspect-square' : 'aspect-video'
         )}
       >
         <video
