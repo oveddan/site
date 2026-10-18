@@ -43,7 +43,7 @@
     "autoprefixer": "^10.5.4",
     "eslint": "8.57.1",
     "netlify-plugin-cache": "^1.0.3",
-    "postcss": "^8.5.19",
+    "postcss": "^8.5.23",
     "tailwindcss": "^3.4.19",
     "tsx": "^4.23.1",
     "wrangler": "^4.116.0"
