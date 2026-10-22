@@ -1,8 +1,9 @@
-import type { JSX } from 'react';
+import { useRef, type JSX } from 'react';
 import { formatDateRange } from '@/api/dates';
 import type { MetaWithSlug } from '@/api/portfolio';
 import { nextProject, type PortfolioIndexEntry } from '@/api/portfolioIndex';
 import { Container } from './Container';
+import { ImageLightbox } from './ImageLightbox';
 import Layout from './Layout';
 import { Prose } from './shared/Prose';
 import Head from 'next/head';
@@ -191,6 +192,7 @@ export const PortfolioPageLayout = ({
   // (or `.src` when the import is already unwrapped). Share previews need an absolute URL.
   const ogImage = meta.image ? absoluteImageUrl(projectImageSrc({ slug, fileName: meta.image })) : null;
   const next = nextProject(slug);
+  const articleRef = useRef<HTMLElement>(null);
   return (
     <>
       <Layout>
@@ -218,13 +220,14 @@ export const PortfolioPageLayout = ({
             <span aria-hidden="true">←</span>
             all projects
           </Link>
-          <article>
+          <article ref={articleRef}>
             <Header meta={meta} slug={slug} />
             <MetaStrip meta={meta} />
             <div className="mx-auto mt-12 max-w-[680px]">
               <Prose className="text-[16.5px]">{children}</Prose>
             </div>
           </article>
+          <ImageLightbox rootRef={articleRef} />
           {next && (
             <nav aria-label="Next project">
               <NextProject project={next} />
