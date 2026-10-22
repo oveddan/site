@@ -1,7 +1,7 @@
 import { PortfolioPageLayout } from '@/components/PortfolioPageLayout'
 import { meta } from './meta'
 import { ClickToPlayVideo } from '@/components/ClickToPlayVideo'
-import { renders, photos, clips, process, processClips, showClips } from './media'
+import { renders, photos, clips, process, processClips, showClips, finished } from './media'
 
 export const Photo = ({ img, alt, children }) => (
   <figure className="not-prose my-4">
@@ -13,6 +13,20 @@ export const Photo = ({ img, alt, children }) => (
 export const Clip = ({ c, children }) => (
   <figure className="not-prose my-4">
     <ClickToPlayVideo {...c} />
+    {children ? <figcaption className="mt-2 font-mono text-xs leading-relaxed text-ink-3">{children}</figcaption> : null}
+  </figure>
+)
+
+export const Gap = ({ children }) =>
+  process.env.NODE_ENV === 'production' ? null : (
+    <div className="not-prose my-6 rounded border border-dashed border-accent px-4 py-3 font-mono text-[13px] leading-relaxed text-accent">
+      To fill in: {children}
+    </div>
+  )
+
+export const Ext = ({ src, alt, children }) => (
+  <figure className="not-prose my-4">
+    <img src={src} alt={alt} loading="lazy" className="h-auto w-full rounded" />
     {children ? <figcaption className="mt-2 font-mono text-xs leading-relaxed text-ink-3">{children}</figcaption> : null}
   </figure>
 )
@@ -31,27 +45,65 @@ export const Render = ({ img, alt, children }) => (
 
 <Clip c={showClips.cloudsThenPleamar}>Clouds, then Pleamar, at Abisal.</Clip>
 
+## Why I made it
+
+I came off of the Burning Man show, and it came out really good. A lot of people are now asking me to create work for them. One was for this gallery, and I had this LED disc I'd had sitting around for a while. I thought it could make a nice, really compact light art piece, but I only had a week.
+
+One of the things that I'm excited about with this piece is that it's 4-pin APA102, so it has a very high frame rate. I want to understand what the actual capabilities are, because I've been sitting on it for a while. I wanted to see what's possible, how fast I can push it, what kind of visual effects are available, and how it would look frosted. These were all just ideas in my head; I didn't have them written down.
+
+I can just have curiosity: what can I do with the ESP32? How do you program lighting with the ESP32?
+
+I wanted to use the high quality of this lighting to try to draw people in and make them present, because I think about how much time I spend on social media every day. I'm just sucked in because the content is always constantly changing, and the politics is making me stressed out. I'm not really dropping in. I wanted to create something for really dropping in, being still, and having a mental reset, while also washing you over with really nice visuals.
+
+Where Claude helped me is that I could say, "I want to explore something that helps you drop in and be calm." That's kind of the antithesis of social media, and it suggested this sensor to me, because it can detect stillness and detect if you're moving or not.
+
+It also told me that I could hide the presence sensor inside of it. The heat sensor needs line of sight, and that's a camera, right? The presence sensor can be hidden inside the art piece.
+
+If you think about it, the analogy would be when you're scrolling down social media: there is an AI model that's hidden behind the whole system, manipulating the information to get you watching as much as possible. It kind of reminded me of that, of that secret social media AI algorithm that's getting better. It's getting better against the human brain. The better AI gets, the better it will be at sucking up our attention.
+
+### Back story
+
+I used to make these kinds of projects back in the day. I made a light-up bow staff. I made an analog circuit that was supposed to be a solar-powered synthesizer.
+
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Ext src="https://danoved.xyz/itp-blog/posts/energy/solar-analog-sequencer/images/SolarSequencer_hu15371991973763830972.jpg" alt="The solar-powered analog sequencer: a circuit board with photoresistors in sunlight">
+    The solar-powered analog sequencer, ITP 2018. <a href="/itp-blog/posts/energy/solar-analog-sequencer/" className="underline">Blog post</a>
+  </Ext>
+  <Ext src="https://danoved.xyz/itp-blog/images/gaze/fabricate_prototype/rotating_tube.gif" alt="Presence prototype: a painted tube rotating on a servo">
+    Presence, ITP 2017–18: rotating tubes that responded to where you looked. <a href="/itp-blog/posts/presence/fabricating-the-prototype/" className="underline">Fabricating the prototype</a>
+  </Ext>
+</div>
+
+<Gap>optional, one sentence in your words tying Presence (where you look) to Estoa (whether you're still); a photo of the bow staff, if one exists.</Gap>
+
 ## What it does
 
 It's an installation that rewards stillness. The longer you're still in front of it, the more the depth of the pattern emerges and exposes itself, drawing you in further. As soon as you move, or take yourself out of the present moment, it resets back to its earlier state, and you have to start over again.
 
 There's a presence sensor hidden inside, so the piece knows when someone's there and whether they're moving or still.
 
-<div className="not-prose mx-auto max-w-sm">
-  <Photo img={photos.installHallway} alt="Two men hanging the glowing disk on a wall in the gallery hallway">
-    Hanging up the installation with Marty.
-  </Photo>
-</div>
-
 ## What you see
-
-{/* TODO(Dan): the piece in the room, with the halo on the wall, ideally someone standing still in front of it. */}
 
 A disc of light behind frosted glass, about 30 cm across. I wanted the diffusion dreamy, soft enough that you almost don't notice the diodes. I left a gap around the disc because of how it looks from the side. Some light leaks out around the back onto the wall as a soft halo. That wasn't planned, and I liked it more than I expected.
 
 The patterns are generated live and never repeat.
 
-## Process
+<div className="not-prose grid gap-6 sm:grid-cols-2">
+  <Photo img={finished.wallSide} alt="The finished piece on the wall from the side, glowing coral and blue">On the wall, from the side.</Photo>
+  <Photo img={finished.redBreath} alt="Close-up of the disk glowing a slow, breathing red"></Photo>
+  <Photo img={finished.blueRings} alt="Close-up of the disk with blue rings spreading across it"></Photo>
+  <Photo img={finished.blueBright} alt="Close-up of the disk in bright blue and green"></Photo>
+  <Photo img={finished.blueShapes} alt="Close-up of soft blue shapes drifting across the disk"></Photo>
+  <Photo img={finished.hand} alt="A hand silhouetted in front of the glowing blue disk"></Photo>
+</div>
+
+<Gap>tonight's shoot. The piece in the room, the halo on the wall, someone standing still while the pattern deepens, then moving and watching it reset.</Gap>
+
+## The patterns
+
+<Gap>a line or two from you per pattern: what it is, what stillness does to it. In the show: waves, ripples, clouds, Pleamar, candle, vortex, tunnel, warp, rates. (The simulator renders show older firmware, so they're left off unless you want them.)</Gap>
+
+## How it's built
 
 ### Starting out
 
@@ -205,6 +257,38 @@ The box on the back took three tries. It needed to be mostly closed, because the
     The back box with the battery, the board and the switch.
   </Photo>
 </div>
+
+<Gap>the software side: how you directed the agents, prototyped patterns in the simulator and browser preview, and tuned them on the real disk.</Gap>
+
+<Gap>the timeline: about eleven days, September 25 to October 6.</Gap>
+
+## At the show
+
+<div className="not-prose mx-auto max-w-sm">
+  <Photo img={photos.installHallway} alt="Two men hanging the glowing disk on a wall in the gallery hallway">
+    Hanging up the installation with Marty.
+  </Photo>
+</div>
+
+<Gap>how people reacted at Abisal. Did they figure out the stillness? A moment that stuck with you.</Gap>
+
+## What changed
+
+Previously, doing hardware projects was discouraging because I would make a lot of mistakes. I'd spend a lot of time trying to figure out why stuff wasn't working, and I would give up. I wouldn't get it done in time.
+
+Now I can just literally have the hard parts figured out for me. You create without having to be constrained by complex technical challenges. I can create more because I'm more free from trying to figure all that out.
+
+There are a lot of complex technical challenges, for example, figuring out the 3D-printed enclosure. I used to use Vectorworks, and I'd have to create symbols for all the reusable contents. Let's say I'm changing the line thickness, or I find out the battery changes. All these other things, like the battery size or the ports, change, and I have to go in and move them around. I want to know exactly how this board is going to fit, and I can just chat and think and quickly prototype different ideas instead of going into the modeling program and manually placing everything.
+
+Sometimes, if you fix something, everything breaks, right? You used to have to do wall cleats when you're doing two sides of acrylic. If the wall thickness changed, you better have had a set of parameters, or else you have to completely redraw the walls.
+
+Then I moved to Fusion 360, but you're kind of constrained to their system, and it's expensive. This is just using Claude and the free OpenSCAD software, which I discovered and which is really fucking cool. It's like a functional 3D modeling program.
+
+On the flip side, though, if you think about it, I'm not really learning. The struggle of learning how something works is more rewarding than having someone build it for you. When AI is figuring it out for you, you're not really facing the challenge of figuring it out. It can be really rewarding when you understand how it works, but it takes longer, and you can make a lot of mistakes. When you're doing hardware, mistakes are expensive, because you lose a chip, or you have to start completely over again because your circuit's fried. Mistakes take a lot more time than in software, because it's kind of permanent.
+
+## What's next
+
+<Gap>the ending. Keep working on it at home, more patterns, the Desertscape sound idea, or something else.</Gap>
 
 ## Parts
 

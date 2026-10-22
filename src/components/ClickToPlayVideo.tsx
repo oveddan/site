@@ -126,6 +126,7 @@ export function ClickToPlayVideo({ src, title, duration, previewImage, aspect = 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={previewImage}
+                  data-no-lightbox
                   alt={`First frame of "${title}"`}
                   loading="lazy"
                   decoding="async"

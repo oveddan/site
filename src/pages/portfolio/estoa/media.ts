@@ -129,3 +129,13 @@ export const process = {
 export const processClips = {
   firstFrostTest: clip('process/img_4913', 'First test with the frosting on', '0:09'),
 };
+
+// The finished piece, 3-second loops cut from Dan's install videos (2026-10-07), animated WebP.
+export const finished = {
+  wallSide: still('final/wall-side-v1.webp', 432, 540),
+  redBreath: still('final/red-breath-v1.webp', 432, 540),
+  blueRings: still('final/blue-rings-v1.webp', 720, 405),
+  blueBright: still('final/blue-bright-v1.webp', 720, 405),
+  blueShapes: still('final/blue-shapes-v1.webp', 720, 405),
+  hand: still('final/hand-v1.webp', 720, 405),
+};
